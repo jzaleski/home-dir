@@ -2,5 +2,5 @@
 
 for f in `ls -a src/ | egrep -v '^\.\.?$'`;
 do
-	cp -ir src/$f ~;
+	cp -ai src/$f ~;
 done
