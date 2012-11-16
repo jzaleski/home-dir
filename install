@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for f in `ls -a src/ | egrep -v '^\.\.?$'`;
+do
+	cp -ir src/$f ~;
+done

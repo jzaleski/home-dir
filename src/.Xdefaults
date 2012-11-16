@@ -1,0 +1,10 @@
+xterm*Foreground:       white
+xterm*Background:       black
+xterm*termName:         xterm-color
+xterm*colorMode:        on
+xterm*dynamicColors:    on
+xterm*metaSendsEscape:  false
+xterm*scrollBar:        false
+xterm*saveLines:        10000
+xterm*faceName:         Courier New
+xterm*faceSize:         10

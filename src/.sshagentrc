@@ -1,0 +1,11 @@
+export SSH_ENV="$HOME/.ssh/environment"
+
+if [ `ps -ef | grep ssh-agent | grep -v grep | wc -l` -eq 0 ]; then
+	echo "Initializing SSH agent..."
+	/usr/bin/ssh-agent | head -2 > "${SSH_ENV}";
+	chmod 600 "${SSH_ENV}";
+	source "${SSH_ENV}" > /dev/null;
+	/usr/bin/ssh-add;
+elif [ -f "${SSH_ENV}" ]; then
+	source "${SSH_ENV}" > /dev/null;
+fi
