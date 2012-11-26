@@ -29,3 +29,9 @@ fi
 if [ -f ~/.sshagentrc ]; then
 	. ~/.sshagentrc
 fi
+
+# If it exists, load "RVM"
+if [ -f ~/.rvm/scripts/rvm ]; then
+	PATH=$PATH:~/.rvm/bin
+	. ~/.rvm/scripts/rvm
+fi
