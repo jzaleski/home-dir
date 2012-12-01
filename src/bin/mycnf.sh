@@ -3,7 +3,8 @@
 if [ $# -gt 2 ] && [ $1 == 'generate' ];
 then
 	file=~/.my.cnf.$2;
-	echo -e "!include ~/.base.my.cnf\n\n[client]" > $file;
+	cp ~/.base.my.cnf $file;
+	echo -e "\n[client]" >> $file;
 	for arg in "${@:3}";
 	do
 		echo "${arg/--/}" >> $file;
