@@ -1,6 +1,17 @@
 #!/bin/bash
 
-for f in `ls -a src/ | egrep -v '^\.\.?$'`;
+for f in $(ls -a src/ | egrep -v '^\.\.?$');
 do
-	cp -ai src/$f ~;
+	# store the source/destination values
+	source_=src/$f;
+	destination=~/$f;
+	# if it's a directory and it does not exist
+	if [ -d $source_ ] && [ ! -d $destination ];
+	then
+		mkdir -p $destination;
+	# if it's a file and it does not exist or it is different
+	elif [ -f $source_ ] && ([ ! -f $destination ] || ! cmp $source_ $destination > /dev/null 2>&1);
+	then
+		cp -ai $source_ $destination;
+	fi
 done
