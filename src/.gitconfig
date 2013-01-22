@@ -1,11 +1,26 @@
-[core]
-	whitespace = trailing-space,space-before-tab
-	excludesfile = ~/.gitignore
+[alias]
+	ann = annotate
+	ci = commit
+	co = checkout
+	del = rm
+	delete = rm
+	di = diff
+	h = help
+	move = mv
+	praise = blame
+	remove = rm
+	ren = mv
+	rename = mv
+	st = status
+	stat = status
 [branch]
 	autosetuprebase = always
 	autosetupmerge = true
 [branch "master"]
 	rebase = true
+[core]
+	whitespace = trailing-space,space-before-tab
+	excludesfile = ~/.gitignore
 [push]
 	default = tracking
 [rebase]
