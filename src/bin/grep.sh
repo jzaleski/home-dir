@@ -1,5 +1,5 @@
 #!/bin/bash
 
-grep_cmd=`which grep`;
+grep_cmd=`which egrep`;
 
-$grep_cmd --color -P $@;
+$grep_cmd --color $@;

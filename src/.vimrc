@@ -2,7 +2,6 @@ syntax on
 set background=dark
 set backspace=eol,indent,start
 set encoding=utf-8
-set grepprg=ack-grep
 set incsearch
 set laststatus=2
 set nobackup
@@ -44,7 +43,7 @@ set list
 set listchars=eol:$,tab:o-,extends:>,precedes:<
 hi SpecialKey guifg=red ctermfg=red
 hi ExtraSpace ctermbg=red guibg=red
-au BufRead,BufNew,BufNewFile *.{apl,css,erb,htm,html,js,my,pm,pl,py,rb,sh,sql,snip,xml} syn match ExtraSpace /^\zs \+\|\t\+\zs \+\| \+\ze\t\|\zs\s\+$/
+au BufRead,BufNew,BufNewFile *.{css,erb,htm,html,js,pm,pl,py,rb,sh,sql,xml} syn match ExtraSpace /^\zs \+\|\t\+\zs \+\| \+\ze\t\|\zs\s\+$/
 
 " The following two options will save the fold-state
 au BufWinLeave * silent! mkview

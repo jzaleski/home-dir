@@ -4,11 +4,11 @@
 base_dir=src
 
 # find files, directories and symbolic-links
-for f in $(find src -type d -o -type f -o -type l | grep -P "^$base_dir/(.+)" | sed "s/$base_dir\///g");
+for x in $(find $base_dir -type d -o -type f -o -type l | egrep "^$base_dir/(.+)" | sed "s/$base_dir\///g");
 do
 	# calculate the source/destination values
-	source_=$base_dir/$f;
-	destination=~/$f;
+	source_=$base_dir/$x;
+	destination=~/$x;
 	# if it's a directory and it does not exist
 	if [ -d $source_ ] && [ ! -d $destination ];
 	then
