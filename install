@@ -1,9 +1,13 @@
 #!/bin/bash
 
-for f in $(ls -a src/ | egrep -v '^\.\.?$');
+# store the base-directory
+base_dir=src
+
+# find files, directories and symbolic-links
+for f in $(find src -type d -o -type f -o -type l | grep -P "^$base_dir/(.+)" | sed "s/$base_dir\///g");
 do
-	# store the source/destination values
-	source_=src/$f;
+	# calculate the source/destination values
+	source_=$base_dir/$f;
 	destination=~/$f;
 	# if it's a directory and it does not exist
 	if [ -d $source_ ] && [ ! -d $destination ];

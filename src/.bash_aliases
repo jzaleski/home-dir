@@ -1,5 +1,6 @@
 # General
 alias find='~/bin/find.sh'
+alias grep='~/bin/grep.sh'
 alias ll='~/bin/ls.sh -l'
 alias ls='~/bin/ls.sh'
 alias mycnf='~/bin/mycnf.sh'
