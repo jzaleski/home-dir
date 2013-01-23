@@ -16,22 +16,37 @@ export EDITOR=vim
 shopt -s histappend
 
 # If it exists, process ".bash_aliases"
-if [ -f ~/.bash_aliases ]; then
+if [ -f ~/.bash_aliases ];
+then
 	. ~/.bash_aliases
 fi
 
 # If it exists, process ".bash_key_bindings"
-if [ -f ~/.bash_key_bindings ]; then
+if [ -f ~/.bash_key_bindings ];
+then
 	bind -f ~/.bash_key_bindings
 fi
 
 # If it exists, process ".sshagentrc"
-if [ -f ~/.sshagentrc ]; then
+if [ -f ~/.sshagentrc ];
+then
 	. ~/.sshagentrc
 fi
 
 # If it exists, load "RVM"
-if [ -f ~/.rvm/scripts/rvm ]; then
+if [ -f ~/.rvm/scripts/rvm ];
+then
 	PATH=$PATH:~/.rvm/bin
 	. ~/.rvm/scripts/rvm
+fi
+
+# "Homebrew" specific inclusions
+BREW_PREFIX=`brew --prefix 2> /dev/null`
+if [ -n "$BREW_PREFIX" ];
+then
+	# If it exists, process [Homebrew] "bash_completion"
+	if [ -f $BREW_PREFIX/etc/bash_completion ];
+	then
+		. $BREW_PREFIX/etc/bash_completion
+	fi
 fi
