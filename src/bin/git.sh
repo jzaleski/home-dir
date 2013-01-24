@@ -10,8 +10,8 @@ else
 	if [ -f $helper_script ];
 	then
 		shift;
-		source $helper_script $@;
+		source $helper_script "$@";
 	else
-		$git_cmd $@;
+		$git_cmd "$@";
 	fi
 fi
