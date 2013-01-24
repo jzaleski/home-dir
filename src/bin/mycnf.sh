@@ -2,8 +2,8 @@
 
 if [ $# -gt 2 ] && [ $1 == 'generate' ];
 then
-	file=~/.my.cnf.$2;
-	cp ~/.base.my.cnf $file;
+	file=$HOME/.my.cnf.$2;
+	cp $HOME/.base.my.cnf $file;
 	echo -e "\n[client]" >> $file;
 	for arg in "${@:3}";
 	do
@@ -14,10 +14,10 @@ fi
 
 if [ $# -eq 1 ] && [ $1 != 'generate' ];
 then
-	file=~/.my.cnf.$1;
+	file=$HOME/.my.cnf.$1;
 	if [ -f $file ];
 	then
-		ln -sf $file ~/.my.cnf;
+		ln -sf $file $HOME/.my.cnf;
 		exit 0;
 	else
 		echo "could not find a .my.cnf file at: $file";

@@ -8,6 +8,7 @@
 	h = help
 	move = mv
 	praise = blame
+	rb = rebase
 	remove = rm
 	ren = mv
 	rename = mv
@@ -18,6 +19,8 @@
 	autosetupmerge = true
 [branch "master"]
 	rebase = true
+[color]
+	ui = true
 [core]
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
