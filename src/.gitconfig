@@ -1,5 +1,6 @@
 [alias]
 	ann = annotate
+	br = branch
 	ci = commit
 	co = checkout
 	del = rm
