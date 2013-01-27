@@ -48,3 +48,6 @@ au BufRead,BufNew,BufNewFile *.{css,erb,htm,html,js,pm,pl,py,rb,sh,sql,xml} syn 
 " The following two options will save the fold-state
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
+
+" Required for 'matchit.vim'
+filetype plugin on
