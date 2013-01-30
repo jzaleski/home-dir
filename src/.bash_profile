@@ -1,5 +1,5 @@
 # Set the "Prompt"
-export PS1='\u@\h:\w$ '
+export PS1='\[\e[36;1m\]\u\[\e[31;1m\]@\[\e[32;1m\]\h\[\033[1;34m\]:\[\e[35;1m\](\[\e[37;1m\]\w\[\e[35;1m\])\[\e[33;1m\]$ \[\e[0m\]'
 
 # Update the "PATH"
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
