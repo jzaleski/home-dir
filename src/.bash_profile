@@ -1,52 +1,64 @@
-# Set the "Prompt"
-export PS1='\[\e[36;1m\]\u\[\e[31;1m\]@\[\e[32;1m\]\h\[\033[1;34m\]:\[\e[35;1m\](\[\e[37;1m\]\w\[\e[35;1m\])\[\e[33;1m\]$ \[\e[0m\]'
-
 # Update the "PATH"
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
-
-# Set up the "History"
-export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S - '
-export HISTSIZE=100000
-export HISTFILESIZE=100000
-
-# Set the default "Editor" (git, amongst other things use this)
-export EDITOR=vim
-
-# Append to the history file, don't overwrite it
-shopt -s histappend
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
 # If it exists, process ".bash_aliases"
-if [ -f ~/.bash_aliases ];
+BASH_ALIASES_FILE="$HOME/.bash_aliases";
+if [ -f $BASH_ALIASES_FILE ];
 then
-	. ~/.bash_aliases
+	source $BASH_ALIASES_FILE;
 fi
 
 # If it exists, process ".bash_key_bindings"
-if [ -f ~/.bash_key_bindings ];
+BASH_KEY_BINDINGS_FILE="$HOME/.bash_key_bindings";
+if [ -f $BASH_KEY_BINDINGS_FILE ];
 then
-	bind -f ~/.bash_key_bindings
-fi
-
-# If it exists, process ".sshagentrc"
-if [ -f ~/.sshagentrc ];
-then
-	. ~/.sshagentrc
-fi
-
-# If it exists, load "RVM"
-if [ -f ~/.rvm/scripts/rvm ];
-then
-	PATH=$PATH:~/.rvm/bin
-	. ~/.rvm/scripts/rvm
+	bind -f $BASH_KEY_BINDINGS_FILE;
 fi
 
 # "Homebrew" specific inclusions
-BREW_PREFIX=`brew --prefix 2> /dev/null`
-if [ -n "$BREW_PREFIX" ];
+HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
+if [ -n "$HOMEBREW_PREFIX" ];
 then
 	# If it exists, process [Homebrew] "bash_completion"
-	if [ -f $BREW_PREFIX/etc/bash_completion ];
+	BASH_COMPLETION_FILE="$HOMEBREW_PREFIX/etc/bash_completion";
+	if [ -f $BASH_COMPLETION_FILE ];
 	then
-		. $BREW_PREFIX/etc/bash_completion
+		source $BASH_COMPLETION_FILE;
 	fi
 fi
+
+# If it exists, load "RVM"
+RVM_BASE_DIR="$HOME/.rvm";
+if [ -d $RVM_BASE_DIR ];
+then
+	export PATH=$PATH:$RVM_BASE_DIR/bin;
+	source $RVM_BASE_DIR/scripts/rvm;
+fi
+
+# If it exists, process ".sshagentrc"
+SSH_AGENT_RC_FILE="$HOME/.sshagentrc";
+if [ -f $SSH_AGENT_RC_FILE ];
+then
+	source $SSH_AGENT_RC_FILE;
+fi
+
+# If it exists, process ".term_colors"
+TERM_COLORS_FILE="$HOME/.term_colors";
+if [ -f $TERM_COLORS_FILE ];
+then
+	source $TERM_COLORS_FILE;
+fi
+
+# Set up the "History"
+export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S - ';
+export HISTSIZE=100000;
+export HISTFILESIZE=100000;
+
+# Append to the history file, don't overwrite it
+shopt -s histappend;
+
+# Set the default "Editor" (git, amongst other things use this)
+export EDITOR=vim;
+
+# Set the "Prompt"
+export PS1="$LIGHT_BLUE_FG\u$RED_FG@$LIGHT_GREEN_FG\h$BLUE_FG:$LIGHT_PURPLE_FG($WHITE_FG\w$LIGHT_PURPLE_FG)$YELLOW_FG\$ $NO_COLOR";
