@@ -1,13 +1,34 @@
 export SSH_ENV="$HOME/.ssh/environment";
 
-if [ -f "$HOME/.ssh/id_dsa" ] && [ `ps -ef | grep ssh-agent | grep -v grep | wc -l` -eq 0 ];
+# Initialize a new "ssh-agent"
+if [ `ps -ef | grep ssh-agent | grep -v grep | wc -l` -eq 0 ];
 then
-	echo "Initializing SSH agent...";
-	/usr/bin/ssh-agent | head -2 > "${SSH_ENV}";
-	chmod 600 "${SSH_ENV}";
-	source "${SSH_ENV}" > /dev/null;
-	/usr/bin/ssh-add;
-elif [ -f "${SSH_ENV}" ];
+	# Start the agent
+	ssh-agent | head -2 > "${SSH_ENV}";
+	chmod 600 $SSH_ENV;
+	source $SSH_ENV;
+	# Process the key-files listed in the manifest
+	PRIVATE_KEY_MANIFEST="$HOME/.private_keys";
+	if [ -f $PRIVATE_KEY_MANIFEST ];
+	then
+		while read line;
+		do
+			# This is necessary in order to support interpolation of environment variables
+			private_key_file=`eval echo $line`;
+			if [ -f $private_key_file ];
+			then
+				ssh-add -t 0 $private_key_file 2> /dev/null;
+			else
+				echo "Skipping key-file: \"$private_key_file\" because it does not exist";
+			fi
+		done < $PRIVATE_KEY_MANIFEST;
+	# Fail fatally if the manifest does not exist
+	else
+		echo "\"$PRIVATE_KEY_MANIFEST\" does not exist";
+		exit 255;
+	fi
+# Source existing "ssh-agent" environment
+elif [ -f $SSH_ENV ];
 then
-	source "${SSH_ENV}" > /dev/null;
+	source $SSH_ENV;
 fi
