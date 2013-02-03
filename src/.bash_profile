@@ -35,8 +35,8 @@ then
 	source $RVM_BASE_DIR/scripts/rvm;
 fi
 
-# Some distros don't ship with "ssh-askpass" (this section must be processed before processing ".sshagentrc")
-if [ ! -f "/usr/libexec/ssh-askpass" ] && [ -z "$SSH_ASKPASS" ];
+# Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
+if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ ! -f "/usr/libexec/ssh-askpass" ];
 then
 	export SSH_ASKPASS="$HOME/libexec/ssh-askpass";
 fi
