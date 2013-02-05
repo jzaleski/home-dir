@@ -6,15 +6,22 @@
 	del = rm
 	delete = rm
 	di = diff
+	get = !git pull && git submodule init && git submodule update
 	h = help
 	move = mv
 	praise = blame
+	put = push origin HEAD
 	rb = rebase
 	remove = rm
 	ren = mv
 	rename = mv
+	rmbr = !sh -c \"git branch -d \\$0 && git push origin :heads/\\$0\"
 	st = status
 	stat = status
+	unci = reset HEAD^
+	uncommit = reset HEAD^
+	unst = reset HEAD
+	unstage = reset HEAD
 [branch]
 	autosetuprebase = always
 	autosetupmerge = true
@@ -23,8 +30,8 @@
 [color]
 	ui = true
 [core]
-	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
 [push]
 	default = tracking
 [rebase]
