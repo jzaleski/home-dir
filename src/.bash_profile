@@ -8,13 +8,6 @@ then
 	source $BASH_ALIASES_FILE;
 fi
 
-# If it exists, process ".bash_key_bindings"
-BASH_KEY_BINDINGS_FILE="$HOME/.bash_key_bindings";
-if [ -f $BASH_KEY_BINDINGS_FILE ];
-then
-	bind -f $BASH_KEY_BINDINGS_FILE;
-fi
-
 # "Homebrew" specific inclusions
 HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
 if [ -n "$HOMEBREW_PREFIX" ];
@@ -48,13 +41,6 @@ then
 	source $SSH_AGENT_RC_FILE;
 fi
 
-# If it exists, process ".term_colors"
-TERM_COLORS_FILE="$HOME/.term_colors";
-if [ -f $TERM_COLORS_FILE ];
-then
-	source $TERM_COLORS_FILE;
-fi
-
 # Set up the "History"
 export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S - ';
 export HISTSIZE=100000;
@@ -67,4 +53,7 @@ shopt -s histappend;
 export EDITOR=vim;
 
 # Set the "Prompt"
-export PS1="$LIGHT_BLUE_FG\u$RED_FG@$LIGHT_GREEN_FG\h$BLUE_FG:$LIGHT_PURPLE_FG($WHITE_FG\w$LIGHT_PURPLE_FG)$YELLOW_FG\$ $NO_COLOR";
+function parse_git_branch {
+	git branch --no-color 2> /dev/null | grep '\* ' | tr -d '* '
+}
+export PS1='\[\033[1;34m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h\[\033[0;34m\]:\[\033[1;35m\](\[\033[1;37m\]\w\[\033[1;35m\])$([[ -n "`parse_git_branch`" ]] && echo "\[\033[0;34m\]:\[\033[1;35m\][\[\033[1;30m\]`parse_git_branch`\[\033[1;35m\]]")\[\033[1;33m\]\$ \[\033[0m\]'
