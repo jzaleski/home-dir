@@ -24,7 +24,7 @@ function parse_git_status {
 	status=`git status 2> /dev/null`;
 	if [[ $status =~ "Your branch is ahead" ]] || [[ `git show --oneline origin/master 2> /dev/null | head -1` != `git show --oneline 2> /dev/null | head -1` ]];
 	then
-		echo -e "\033[1;36mcommited";
+		echo -e "\033[1;36mcommitted";
 	elif [[ $status =~ "Changes to be committed:" ]];
 	then
 		echo -e "\033[0;32mstaged";
