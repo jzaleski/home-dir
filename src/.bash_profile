@@ -52,8 +52,9 @@ shopt -s histappend;
 # Set the default "Editor" (git, amongst other things use this)
 export EDITOR=vim;
 
-# Set the "Prompt"
-function parse_git_branch {
-	git branch --no-color 2> /dev/null | grep '\* ' | tr -d '* '
-}
-export PS1='\[\033[1;34m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h\[\033[0;34m\]:\[\033[1;35m\](\[\033[1;37m\]\w\[\033[1;35m\])$([[ -n "`parse_git_branch`" ]] && echo "\[\033[0;34m\]:\[\033[1;35m\][\[\033[1;30m\]`parse_git_branch`\[\033[1;35m\]]")\[\033[1;33m\]\$ \[\033[0m\]'
+# If it exists, process ".prompt"
+PROMPT_FILE="$HOME/.prompt";
+if [ -f $PROMPT_FILE ];
+then
+	source $PROMPT_FILE;
+fi

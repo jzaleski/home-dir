@@ -1,0 +1,40 @@
+function parse_git_info {
+	branch=`parse_git_branch`;
+	if [ -n "$branch" ];
+	then
+		status=`parse_git_status`;
+		if [ -n "$status" ];
+		then
+			echo -e "\033[0;36m:\033[1;35m[$branch\033[0;33m:$status\033[1;35m]";
+		else
+			echo -e "\033[0;36m:\033[1;35m[$branch\033[1;35m]";
+		fi
+	fi
+}
+
+function parse_git_branch {
+	branch=`git branch --no-color 2> /dev/null | grep '\* ' | tr -d '* '`;
+	if [ -n "$branch" ];
+	then
+		echo -e "\033[1;30m$branch";
+	fi
+}
+
+function parse_git_status {
+	status=`git status 2> /dev/null`;
+	if [[ $status =~ "Your branch is ahead" ]] || [[ `git show --oneline origin/master 2> /dev/null | head -1` != `git show --oneline 2> /dev/null | head -1` ]];
+	then
+		echo -e "\033[1;36mcommited";
+	elif [[ $status =~ "Changes to be committed:" ]];
+	then
+		echo -e "\033[0;32mstaged";
+	elif [[ $status =~ "Changes not staged for commit:" ]];
+	then
+		echo -e "\033[0;31munstaged";
+	elif [[ $status =~ "Untracked files:" ]];
+	then
+		echo -e "\033[0;31muntracked";
+	fi
+}
+
+export PS1='\[\033[1;34m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h\[\033[0;36m\]:\[\033[1;35m\](\[\033[1;37m\]\w\[\033[1;35m\])$(parse_git_info)\[\033[1;33m\]\$ \[\033[0m\]'
