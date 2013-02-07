@@ -5,9 +5,9 @@ function parse_git_info {
 		status=`parse_git_status`;
 		if [ -n "$status" ];
 		then
-			echo -e "\033[0;36m:\033[0;33m[$branch\033[1;37m:$status\033[0;33m]";
+			echo ":[$branch:$status]";
 		else
-			echo -e "\033[0;36m:\033[0;33m[$branch\033[0;33m]";
+			echo ":[$branch]";
 		fi
 	fi
 }
@@ -16,7 +16,7 @@ function parse_git_branch {
 	branch=`git branch --no-color 2> /dev/null | grep '\* ' | tr -d '* '`;
 	if [ -n "$branch" ];
 	then
-		echo -e "\033[1;30m$branch";
+		echo "$branch";
 	fi
 }
 
@@ -25,28 +25,28 @@ function parse_git_status {
 	accumulated_status="";
 	if [[ $status =~ "Your branch is ahead" ]] || [[ `git show --oneline origin/master 2> /dev/null | head -1` != `git show --oneline 2> /dev/null | head -1` ]];
 	then
-		accumulated_status="$accumulated_status\033[1;32mc";
+		accumulated_status=$accumulated_status"c";
 	fi
 	if [[ $status =~ "Changes to be committed:" ]];
 	then
-		accumulated_status="$accumulated_status\033[1;36ms";
+		accumulated_status=$accumulated_status"s";
 	fi
 	if [[ $status =~ "Unmerged paths:" ]];
 	then
-		accumulated_status="$accumulated_status\033[1;34mm";
+		accumulated_status=$accumulated_status"m";
 	fi
 	if [[ $status =~ "Changes not staged for commit:" ]];
 	then
-		accumulated_status="$accumulated_status\033[1;35mu";
+		accumulated_status=$accumulated_status"u";
 	fi
 	if [[ $status =~ "Untracked files:" ]];
 	then
-		accumulated_status="$accumulated_status\033[1;31mn";
+		accumulated_status=$accumulated_status"n";
 	fi
 	if [ -n "$accumulated_status" ];
 	then
-		echo -e $accumulated_status;
+		echo $accumulated_status;
 	fi
 }
 
-export PS1='\[\033[1;34m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h\[\033[0;36m\]:\[\033[0;35m\](\[\033[1;37m\]\w\[\033[0;35m\])$(parse_git_info)\[\033[1;33m\]\n\$ \[\033[0m\]';
+export PS1='\u@\h:(\w)$(parse_git_info)\n\$ ';
