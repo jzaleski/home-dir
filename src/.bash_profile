@@ -20,11 +20,19 @@ then
 	fi
 fi
 
+# If it exists, load "rbenv"
+RBENV_BASE_DIR="$HOME/.rbenv";
+if [ -d $RBENV_BASE_DIR ];
+then
+	export PATH=$RBENV_BASE_DIR/bin:$PATH;
+	eval "$(rbenv init -)";
+fi
+
 # If it exists, load "RVM"
 RVM_BASE_DIR="$HOME/.rvm";
 if [ -d $RVM_BASE_DIR ];
 then
-	export PATH=$PATH:$RVM_BASE_DIR/bin;
+	export PATH=$RVM_BASE_DIR/bin:$PATH;
 	source $RVM_BASE_DIR/scripts/rvm;
 fi
 
