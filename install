@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # store the base-directory
-base_dir=src
+base_dir=home
 
 # find files, directories and symbolic-links
 for x in $(find $base_dir -type d -o -type f -o -type l | egrep "^$base_dir/(.+)" | sed "s/$base_dir\///g");
