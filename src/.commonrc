@@ -1,0 +1,41 @@
+# Update the PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
+
+# Set the default editor (Git amongst others use this)
+export EDITOR=vim;
+
+# If it exists, process ".common_aliases"
+COMMON_ALIASES_FILE="$HOME/.common_aliases";
+if [ -f $COMMON_ALIASES_FILE ];
+then
+	source $COMMON_ALIASES_FILE;
+fi
+
+# If it exists, load "rbenv"
+RBENV_BASE_DIR="$HOME/.rbenv";
+if [ -d $RBENV_BASE_DIR ];
+then
+	export PATH=$PATH:$RBENV_BASE_DIR/bin;
+	eval "$(rbenv init -)";
+fi
+
+# If it exists, load "RVM"
+RVM_BASE_DIR="$HOME/.rvm";
+if [ -d $RVM_BASE_DIR ];
+then
+	export PATH=$PATH:$RVM_BASE_DIR/bin;
+	source $RVM_BASE_DIR/scripts/rvm;
+fi
+
+# Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
+if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ ! -f "/usr/libexec/ssh-askpass" ];
+then
+	export SSH_ASKPASS="$HOME/libexec/ssh-askpass";
+fi
+
+# If it exists, process ".sshagentrc"
+SSHAGENTRC_FILE="$HOME/.sshagentrc";
+if [ -f $SSHAGENTRC_FILE ];
+then
+	source $SSHAGENTRC_FILE;
+fi
