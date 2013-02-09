@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ensure that all submodules are up to date
+git submodule update
+
 # find files, directories and symbolic-links
 for d in home misc;
 do
