@@ -1,3 +1,8 @@
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+filetype on
+
 syntax on
 set background=dark
 set backspace=eol,indent,start
@@ -48,6 +53,3 @@ au BufRead,BufNew,BufNewFile *.{css,erb,htm,html,js,pm,pl,py,rb,sh,sql,xml} syn 
 " The following two options will save the fold-state
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
-
-" Required for 'matchit.vim'
-filetype plugin on

@@ -11,22 +11,6 @@ then
 	source $COMMON_ALIASES_FILE;
 fi
 
-# If it exists, load "rbenv"
-RBENV_BASE_DIR="$HOME/.rbenv";
-if [ -d $RBENV_BASE_DIR ];
-then
-	export PATH=$PATH:$RBENV_BASE_DIR/bin;
-	eval "$(rbenv init -)";
-fi
-
-# If it exists, load "RVM"
-RVM_BASE_DIR="$HOME/.rvm";
-if [ -d $RVM_BASE_DIR ];
-then
-	export PATH=$PATH:$RVM_BASE_DIR/bin;
-	source $RVM_BASE_DIR/scripts/rvm;
-fi
-
 # Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
 if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ ! -f "/usr/libexec/ssh-askpass" ];
 then

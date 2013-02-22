@@ -18,6 +18,6 @@ if [ -d $OH_MY_ZSH_DIR ];
 then
 	ZSH=$OH_MY_ZSH_DIR;
 	ZSH_THEME="jzaleski";
-	plugins=(git osx bundler rbenv ruby);
+	plugins=(git osx bundler heroku rbenv ruby);
 	source "$ZSH/oh-my-zsh.sh";
 fi
