@@ -28,6 +28,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Update highlighting rules
 set list
 set listchars=eol:$,tab:o-,extends:>,precedes:<
+hi clear SignColumn
 hi SpecialKey guifg=red ctermfg=red
 hi ExtraSpace ctermbg=red guibg=red
 au BufRead,BufNew,BufNewFile *.{css,erb,htm,html,js,pm,pl,py,rb,sh,sql,xml} syn match ExtraSpace /^\zs \+\|\t\+\zs \+\| \+\ze\t\|\zs\s\+$/
