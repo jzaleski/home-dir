@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Install required packages
 if [ `uname` == 'Darwin' ];
