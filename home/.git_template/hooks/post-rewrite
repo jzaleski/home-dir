@@ -1,0 +1,5 @@
+#!/bin/sh
+case "$1" in
+	rebase) exec $HOME/bin/ctags.sh > /dev/null 2>&1;
+	;;
+esac

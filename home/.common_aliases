@@ -1,4 +1,5 @@
 # General
+alias ctags='~/bin/ctags.sh'
 alias find='~/bin/find.sh'
 alias grep='~/bin/grep.sh'
 alias ll='~/bin/ls.sh -l'
