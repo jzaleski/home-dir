@@ -12,5 +12,5 @@ fi
 cd $HOME/.vim/bundle/YouCompleteMe;
 if [ ! -f 'python/ycm_core.so' ];
 then
-	./install.sh 1> /dev/null;
+	./install.sh;
 fi
