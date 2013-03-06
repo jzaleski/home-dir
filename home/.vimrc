@@ -25,24 +25,6 @@ set scrolloff=3
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" Format the statusline
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
-
-" Helper Function for getting the current directory
-function! CurDir()
-  let curdir = substitute(getcwd(), $HOME, "~", "g")
-  return curdir
-endfunction
-
-" Helper Function for determining if we are in 'PASTE MODE'
-function! HasPaste()
-  if &paste
-    return 'PASTE MODE  '
-  else
-    return ''
-  endif
-endfunction
-
 " Update highlighting rules
 set list
 set listchars=eol:$,tab:o-,extends:>,precedes:<
