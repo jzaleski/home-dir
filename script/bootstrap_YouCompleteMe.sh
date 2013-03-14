@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 # Install required packages
 if [ `uname` == 'Darwin' ];
 then
 	brew install boost cmake 1> /dev/null;
 else
-	sudo apt-get install -y build-essential cmake 1> /dev/null;
+	sudo apt-get install -y build-essential cmake libboost-dev python-dev 1> /dev/null;
 fi
 
 # Compile the extension (if it doesn't already exist)

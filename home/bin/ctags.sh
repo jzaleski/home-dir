@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ctags_cmd=`which ctags`;
 if [ $? -eq 0 ];
