@@ -36,7 +36,7 @@ set listchars=eol:$,tab:o-,extends:>,precedes:<
 hi clear SignColumn
 hi SpecialKey guifg=red ctermfg=red
 hi ExtraSpace ctermbg=red guibg=red
-au BufRead,BufNew,BufNewFile *.{css,erb,htm,html,js,pm,pl,py,rb,sh,sql,xml} syn match ExtraSpace /^\zs \+\|\t\+\zs \+\| \+\ze\t\|\zs\s\+$/
+au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
 
 " The following two options will save the fold-state
 au BufWinLeave * silent! mkview
