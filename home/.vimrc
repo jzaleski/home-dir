@@ -25,6 +25,11 @@ set scrolloff=3
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+" Use spaces instead of TABs
+set shiftwidth=2
+set tabstop=2
+set expandtab
+
 " Update highlighting rules
 set list
 set listchars=eol:$,tab:o-,extends:>,precedes:<
