@@ -2,6 +2,7 @@
 alias ctags='~/bin/ctags.sh'
 alias edit='~/bin/edit.sh'
 alias find='~/bin/find.sh'
+alias go='source ~/bin/go.sh'
 alias grep='~/bin/grep.sh'
 alias ll='~/bin/ls.sh -l'
 alias ls='~/bin/ls.sh'
