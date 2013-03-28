@@ -23,3 +23,10 @@ if [ -f $SSHAGENTRC_FILE ];
 then
 	source $SSHAGENTRC_FILE;
 fi
+
+# If "TextWrangler" is installed set it as the default "TEXT_EDITOR"
+TEXT_EDITOR="/Applications/TextWrangler.app";
+if [ -e $TEXT_EDITOR ];
+then
+	export TEXT_EDITOR=$TEXT_EDITOR;
+fi
