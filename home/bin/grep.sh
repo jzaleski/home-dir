@@ -2,4 +2,7 @@
 
 grep_cmd=`which egrep`;
 
-$grep_cmd --color $@;
+if [ -n "$grep_cmd" ];
+then
+  $grep_cmd --color $@;
+fi
