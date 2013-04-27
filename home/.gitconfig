@@ -1,33 +1,33 @@
 [alias]
-	ann = annotate
-	br = branch
-	ci = commit
-	co = checkout
-	del = rm
-	delete = rm
-	di = !git diff --color --exit-code | less -F -X && git diff --color --cached | less -F -X
-	get = !git pull && git submodule init && git submodule update
-	h = help
-	move = mv
-	praise = blame
-	put = push origin HEAD
-	rb = rebase
-	remove = rm
-	ren = mv
-	rename = mv
-	rmbr = !sh -c \"git branch -d \\$0 && git push origin :heads/\\$0\"
-	rms = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
-	st = status
-	stat = status
-	unci = reset HEAD^
-	uncommit = reset HEAD^
-	unst = reset HEAD
-	unstage = reset HEAD
+  ann = annotate
+  br = branch
+  ci = commit
+  co = checkout
+  del = rm
+  delete = rm
+  di = !git diff --color --exit-code | less -F -X && git diff --color --cached | less -F -X
+  get = !git pull && git submodule init && git submodule update
+  h = help
+  move = mv
+  praise = blame
+  put = push origin HEAD
+  rb = rebase
+  remove = rm
+  ren = mv
+  rename = mv
+  rmbr = !sh -c \"git branch -d \\$0 && git push origin :heads/\\$0\"
+  rms = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
+  st = status
+  stat = status
+  unci = reset HEAD^
+  uncommit = reset HEAD^
+  unst = reset HEAD
+  unstage = reset HEAD
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [color]
-	ui = true
+  ui = true
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [push]
-	default = current
+  default = current
