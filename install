@@ -24,7 +24,7 @@ do
 done
 
 # Run any bootstrap scripts
-for f in $(find script -type f | egrep "^script/(.+)" | sed "s/script\///g");
+for f in $(find script -type f | egrep "^script/[^\.](.+)" | sed "s/script\///g");
 do
   script/$f;
 done
