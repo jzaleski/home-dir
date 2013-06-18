@@ -30,14 +30,18 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
-" Update highlighting rules
-set list
-set listchars=eol:$,tab:o-,extends:>,precedes:<
+" Ensure the sign-column is transparent
 hi clear SignColumn
-hi SpecialKey guifg=red ctermfg=red
+
+" Highlight leading/trailing white-space
+hi SpecialKey ctermfg=red guibg=red
 hi ExtraSpace ctermbg=red guibg=red
 au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
 
-" The following two options will save the fold-state
+" Right rule
+set colorcolumn=81
+hi ColorColumn ctermbg=lightblue ctermfg=red guibg=lightblue guifg=red
+
+" Folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
