@@ -16,5 +16,5 @@ ctags_cmd=`which ctags`;
 if [ -n "$ctags_cmd" ];
 then
   rm -f .git/tags;
-  $ctags_cmd -R -f .git/tags . > /dev/null 2>&1 &
+  $ctags_cmd --tag-relative -Rf .git/tags --exclude=.git > /dev/null 2>&1 &
 fi
