@@ -16,3 +16,6 @@
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "home/.vim/bundle/ctrlp.vim"]
+	path = home/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
