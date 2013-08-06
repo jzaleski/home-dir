@@ -1,14 +1,20 @@
 #!/bin/bash
 
-ctags_cmd=`which ctags`;
-if [ $? -eq 0 ];
+# used to determine if homebrew is installed
+brew_cmd=`which brew`;
+
+# attempt to install the homebrew ctags library (if necessary)
+if [ -n "$brew_cmd" ] && [ ! -d `$brew_cmd --prefix ctags` ]
 then
-  gem_cmd=`which gem`;
-  if [ $? -eq 0 ];
-  then
-    [[ `gem list | grep -c gem-ctags` -eq 0 ]] && $gem_cmd install gem-ctags 1> /dev/null;
-    $gem_cmd ctags 1> /dev/null;
-  fi
+   $brew_cmd install ctags;
+fi
+
+# used to determine if ctags is installed
+ctags_cmd=`which ctags`;
+
+# verify that the ctags library is present
+if [ -n "$ctags_cmd" ];
+then
   rm -f .git/tags;
-  $ctags_cmd -f .git/tags . > /dev/null 2>&1 &
+  $ctags_cmd -R -f .git/tags . > /dev/null 2>&1 &
 fi
