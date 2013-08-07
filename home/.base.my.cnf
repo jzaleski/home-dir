@@ -1,3 +1,3 @@
 [mysql]
 pager="less -FX"
-prompt="\u@\h/\d> "
+prompt="(\u@\h) [\d]> "
