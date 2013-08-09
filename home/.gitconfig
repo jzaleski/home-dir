@@ -15,8 +15,9 @@
   remove = rm
   ren = mv
   rename = mv
-  rmbr = !sh -c \"git branch -D \\$0 && git push origin :heads/\\$0\"
-  rms = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
+  rmbranch = !sh -c \"git br -D \\$0\"
+  rmremote = !sh -c \"git push origin :heads/\\$0\"
+  rmsubmodule = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
   st = status
   stat = status
   unci = reset HEAD^
