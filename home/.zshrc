@@ -22,7 +22,6 @@ then
 	plugins=(
     brew
     bundler
-    capistrano
     cp
     extract
     gem
