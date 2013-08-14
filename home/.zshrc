@@ -19,6 +19,6 @@ then
 	ZSH=$OH_MY_ZSH_DIR;
 	ZSH_THEME="jzaleski";
 	DISABLE_AUTO_UPDATE="true";
-	plugins=(git osx bundler heroku rake rbenv ruby);
+	plugins=(git osx bundler heroku rake rbenv rvm ruby);
 	source "$ZSH/oh-my-zsh.sh";
 fi
