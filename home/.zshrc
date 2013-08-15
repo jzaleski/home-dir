@@ -22,14 +22,13 @@ then
   plugins=(cp extract rsync);
   [[ `uname` == 'Darwin' ]] && plugins+=(osx);
   `hash brew 2> /dev/null` && plugins+=(brew);
-  `hash gem 2> /dev/null` && plugins+=(gem);
   `hash git 2> /dev/null` && plugins+=(git git-extras);
   `hash heroku 2> /dev/null` && plugins+=(heroku);
   `hash pip 2> /dev/null` && plugins+=(pip);
   `hash python 2> /dev/null` && plugins+=(python);
   `hash rbenv 2> /dev/null` && plugins+=(rbenv);
   `hash redis-cli 2> /dev/null` && plugins+=(redis-cli);
-  `hash ruby 2> /dev/null` && plugins+=(ruby);
+  `hash ruby 2> /dev/null` && plugins+=(bundler gem rake ruby);
   `hash rvm 2> /dev/null` && plugins+=(rvm);
   `hash svn 2> /dev/null` && plugins+=(svn);
 	source "$ZSH/oh-my-zsh.sh";
