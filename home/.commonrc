@@ -1,6 +1,15 @@
 # Update the PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
+# If it exists, load RVM
+RVM_DIRECTORY="$HOME/.rvm";
+RVM_SCRIPT="$RVM_DIRECTORY/scripts/rvm";
+if [ -f $RVM_SCRIPT ];
+then
+  source $RVM_SCRIPT;
+  export PATH=$RVM_DIRECTORY:$PATH;
+fi
+
 # Set the default editor (Git amongst others use this)
 export EDITOR=vim;
 
