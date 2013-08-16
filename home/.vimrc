@@ -6,6 +6,7 @@ filetype on
 syntax on
 set background=dark
 set backspace=eol,indent,start
+set cursorline
 set encoding=utf-8
 set incsearch
 set laststatus=2
@@ -41,6 +42,10 @@ au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
 " Right rule
 set colorcolumn=81
 hi ColorColumn ctermbg=lightblue ctermfg=red guibg=lightblue guifg=red
+
+" Cursor line
+hi CursorLine cterm=NONE ctermbg=darkgrey guibg=darkgrey
+hi CursorColumn cterm=NONE ctermbg=darkgrey guibg=darkgrey
 
 " Folds
 au BufWinLeave * silent! mkview
