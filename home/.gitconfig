@@ -26,9 +26,13 @@
   unstage = reset HEAD
 [apply]
   whitespace = nowarn
+[branch]
+  autosetuprebase = always
+[branch "master"]
+  rebase = true
 [color]
   ui = true
 [core]
   excludesfile = ~/.gitignore
 [push]
-  default = current
+  default = tracking
