@@ -1,6 +1,9 @@
 # Update the PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
+# Environment variables
+export SOURCE_DIRECTORY="$HOME/src";
+
 # If it exists, load RVM
 RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
 if [ -f $RVM_SCRIPT ];
