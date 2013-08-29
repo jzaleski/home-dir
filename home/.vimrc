@@ -1,10 +1,9 @@
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-call pathogen#infect()
-filetype on
-
+" Pathogen
+execute pathogen#infect()
 syntax on
+filetype plugin indent on
+
+" General
 set background=dark
 set backspace=eol,indent,start
 set cursorline
