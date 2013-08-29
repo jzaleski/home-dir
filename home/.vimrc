@@ -3,8 +3,34 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" General
+" Colorscheme
+set t_Co=256
 set background=dark
+if !has('gui_running')
+  let g:solarized_termcolors=&t_Co
+endif
+colorscheme solarized
+
+" Ensure that the line-number background is transparent
+hi clear LineNr
+
+" Ensure that the sign-column background is transparent
+hi clear SignColumn
+
+" Highlight leading/trailing white-space
+hi SpecialKey ctermfg=1
+hi ExtraSpace ctermbg=1
+au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
+
+" Right rule
+set colorcolumn=81
+hi ColorColumn ctermbg=80 ctermfg=52
+
+" Cursor line
+hi CursorLine cterm=NONE ctermbg=250
+hi CursorColumn cterm=NONE ctermbg=250
+
+" General
 set backspace=eol,indent,start
 set cursorline
 set encoding=utf-8
@@ -20,7 +46,6 @@ set number
 set scrolloff=3
 set showmatch
 set smartcase
-set t_Co=256
 set ttyfast
 set visualbell
 set wildmode=list:longest
@@ -32,28 +57,13 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
-" Ensure the sign-column is transparent
-hi clear SignColumn
-
-" Highlight leading/trailing white-space
-hi SpecialKey ctermfg=1
-hi ExtraSpace ctermbg=1
-au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
-
-" Right rule
-set colorcolumn=81
-hi ColorColumn ctermbg=80 ctermfg=52
-
-" Cursor line
-hi CursorLine cterm=NONE ctermbg=8
-hi CursorColumn cterm=NONE ctermbg=8
-
 " Folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
 " Lightline
 let g:lightline = {
+  \ 'colorscheme': 'solarized_dark',
   \ 'active': {
   \   'left': [
   \      ['mode', 'paste'],

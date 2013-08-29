@@ -16,3 +16,6 @@
 [submodule "home/.vim/bundle/lightline.vim"]
 	path = home/.vim/bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
+[submodule "home/.vim/bundle/vim-colors-solarized"]
+	path = home/.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
