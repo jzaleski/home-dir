@@ -51,3 +51,21 @@ hi CursorColumn cterm=NONE ctermbg=8
 " Folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
+
+" Lightline
+let g:lightline = {
+  \ 'active': {
+  \   'left': [
+  \      ['mode', 'paste'],
+  \      ['fugitive', 'readonly', 'filename', 'modified']
+  \   ]
+  \ },
+  \ 'component': {
+  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \ },
+  \ 'component_visible_condition': {
+  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \ }
+\ }
