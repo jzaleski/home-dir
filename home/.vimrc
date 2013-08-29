@@ -4,11 +4,11 @@ syntax on
 filetype plugin indent on
 
 " Colorscheme
-set t_Co=256
-set background=dark
 if !has('gui_running')
+  set t_Co=256
   let g:solarized_termcolors=&t_Co
 endif
+set background=dark
 colorscheme solarized
 
 " Ensure that the line-number background is transparent
