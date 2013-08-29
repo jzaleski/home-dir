@@ -4,11 +4,11 @@ syntax on
 filetype plugin indent on
 
 " Colorscheme
+set background=dark
 if !has('gui_running')
   set t_Co=256
   let g:solarized_termcolors=&t_Co
 endif
-set background=dark
 colorscheme solarized
 
 " Ensure that the line-number background is transparent
@@ -24,11 +24,6 @@ au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
 
 " Right rule
 set colorcolumn=81
-hi ColorColumn ctermbg=80 ctermfg=52
-
-" Cursor line
-hi CursorLine cterm=NONE ctermbg=250
-hi CursorColumn cterm=NONE ctermbg=250
 
 " General
 set backspace=eol,indent,start
