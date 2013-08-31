@@ -1,20 +1,23 @@
 #!/bin/bash
 
-# used to determine if homebrew is installed
-brew_cmd=`which brew`;
-
 # attempt to install the homebrew ctags library (if necessary)
-if [ -n "$brew_cmd" ] && [ ! -d `$brew_cmd --prefix ctags` ]
+if hash brew 2> /dev/null && ! brew --prefix ctags > /dev/null 2>&1;
 then
-   $brew_cmd install ctags;
+  brew install ctags;
 fi
 
-# used to determine if ctags is installed
-ctags_cmd=`which ctags`;
+# attempt to install "gem-ctags" (if necessary)
+if hash rvm 2> /dev/null && ! gem list | grep 'gem-ctags' > /dev/null 2>&1;
+then
+  bash -l -c "rvm gemset use global && gem install gem-ctags";
+fi
+
+# generate ctags for gems
+gem ctags > /dev/null 2>&1 &
 
 # verify that the ctags library is present
-if [ -n "$ctags_cmd" ];
+if hash ctags 2> /dev/null;
 then
-  rm -f .git/tags;
-  $ctags_cmd --tag-relative -Rf tags --exclude=.git > /dev/null 2>&1 &
+  rm -f tags;
+  ctags --tag-relative -Rf tags --exclude=.git > /dev/null 2>&1 &
 fi
