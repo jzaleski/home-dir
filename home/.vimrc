@@ -53,6 +53,12 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
+" GUI specific ({g,Mac}Vim)
+if has('gui_running')
+  set guifont=Monaco:h13
+  set guioptions-=r
+endif
+
 " Folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
