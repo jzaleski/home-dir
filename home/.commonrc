@@ -21,6 +21,13 @@ then
 	source $COMMON_ALIASES_FILE;
 fi
 
+# If it exists, process ".common_functions"
+COMMON_FUNCTIONS_FILE="$HOME/.common_functions";
+if [ -f $COMMON_FUNCTIONS_FILE ];
+then
+	source $COMMON_FUNCTIONS_FILE;
+fi
+
 # Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
 if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ ! -f "/usr/libexec/ssh-askpass" ];
 then

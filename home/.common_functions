@@ -1,0 +1,9 @@
+# Change to the containing directory if the first argument was a file
+cd () {
+  if [ -f "$1" ];
+  then
+    builtin cd $(dirname $1);
+  else
+    builtin cd "$@";
+  fi
+}

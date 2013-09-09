@@ -3,7 +3,6 @@ alias ctags='~/bin/ctags.sh'
 alias edit='~/bin/edit.sh'
 alias find='~/bin/find.sh'
 alias gg='git grep'
-alias go='source ~/bin/go.sh'
 alias grep='~/bin/grep.sh'
 alias grepall='~/bin/grepall.sh'
 alias ll='~/bin/ls.sh -l'
@@ -11,3 +10,15 @@ alias ls='~/bin/ls.sh'
 alias mycnf='~/bin/mycnf.sh'
 alias vi='vim'
 alias workon='source ~/bin/workon.sh'
+
+# The ability to navigate 10 directories up should be enough to cover most cases
+alias ..='cd ..';
+alias ...='cd ../..';
+alias ....='cd ../../..';
+alias .....='cd ../../../..';
+alias ......='cd ../../../../..';
+alias .......='cd ../../../../../..';
+alias ........='cd ../../../../../../..';
+alias .........='cd ../../../../../../../..';
+alias ..........='cd ../../../../../../../../..';
+alias ...........='cd ../../../../../../../../../..';
