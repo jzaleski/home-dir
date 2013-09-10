@@ -62,6 +62,10 @@ endif
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
+" CtrlP
+let g:ctrlp_use_caching=0
+let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+
 " Lightline
 let g:lightline = {
   \ 'colorscheme': 'solarized_dark',
