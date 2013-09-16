@@ -5,7 +5,6 @@
   co = checkout
   del = rm
   delete = rm
-  di = !git diff --color --exit-code | less -F -X && git diff --color --cached | less -F -X
   get = !git pull && git submodule init && git submodule update
   h = help
   move = mv
