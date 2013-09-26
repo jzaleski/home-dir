@@ -22,3 +22,6 @@
 [submodule "home/.vim/bundle/tcomment.vim"]
 	path = home/.vim/bundle/tcomment.vim
 	url = https://github.com/tomtom/tcomment_vim
+[submodule "home/.vim/bundle/vim-rspec"]
+	path = home/.vim/bundle/vim-rspec
+	url = https://github.com/thoughtbot/vim-rspec

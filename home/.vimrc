@@ -85,6 +85,13 @@ let g:lightline = {
   \ }
 \ }
 
+" Rspec.vim mappings
+let g:rspec_command = "!bash -l -c 'rspec {spec}'"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " Load ctags for gems
 autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
   \ pathogen#split(&tags) +
