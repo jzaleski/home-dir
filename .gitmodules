@@ -1,27 +1,36 @@
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+  ignore = dirty
 [submodule "home/.vim/bundle/vim-fugitive"]
 	path = home/.vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+  ignore = dirty
 [submodule "home/.vim/bundle/vim-gitgutter"]
 	path = home/.vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+  ignore = dirty
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+  ignore = dirty
 [submodule "home/.vim/bundle/ctrlp.vim"]
 	path = home/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+  ignore = dirty
 [submodule "home/.vim/bundle/lightline.vim"]
 	path = home/.vim/bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
+  ignore = dirty
 [submodule "home/.vim/bundle/vim-colors-solarized"]
 	path = home/.vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+  ignore = dirty
 [submodule "home/.vim/bundle/tcomment.vim"]
 	path = home/.vim/bundle/tcomment.vim
 	url = https://github.com/tomtom/tcomment_vim
+  ignore = dirty
 [submodule "home/.vim/bundle/vim-rspec"]
 	path = home/.vim/bundle/vim-rspec
 	url = https://github.com/thoughtbot/vim-rspec
+  ignore = dirty
