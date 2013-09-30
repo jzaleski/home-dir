@@ -17,6 +17,10 @@ hi clear LineNr
 " Ensure that the sign-column background is transparent
 hi clear SignColumn
 
+" Highlight leading/trailing white-space
+hi ExtraSpace ctermbg=1
+au Syntax * syn match ExtraSpace /^\s\+\|\s\+$/
+
 " Right rule
 set colorcolumn=81
 
