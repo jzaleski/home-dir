@@ -4,13 +4,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 # Environment variables
 export SOURCE_DIRECTORY="$HOME/src";
 
-# If it exists, load RVM
-RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
-if [ -f $RVM_SCRIPT ];
-then
-  source $RVM_SCRIPT;
-fi
-
 # Set the default editor (Git amongst others use this)
 export EDITOR=vim;
 
@@ -46,4 +39,11 @@ TEXT_EDITOR="/Applications/TextWrangler.app";
 if [ -e $TEXT_EDITOR ];
 then
 	export TEXT_EDITOR=$TEXT_EDITOR;
+fi
+
+# If it exists, load RVM
+RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
+if [ -f $RVM_SCRIPT ];
+then
+  source $RVM_SCRIPT;
 fi
