@@ -1,17 +1,3 @@
-# If it exists, process ".commonrc"
-COMMONRC_FILE="$HOME/.commonrc"
-if [ -f $COMMONRC_FILE ];
-then
-	source $COMMONRC_FILE;
-fi
-
-# If it exists, process ".bash_aliases"
-BASH_ALIASES_FILE="$HOME/.bash_aliases";
-if [ -f $BASH_ALIASES_FILE ];
-then
-	source $BASH_ALIASES_FILE;
-fi
-
 # If it exists, process ".bash_prompt"
 BASH_PROMPT_FILE="$HOME/.bash_prompt";
 if [ -f $BASH_PROMPT_FILE ];
@@ -38,3 +24,17 @@ export HISTFILESIZE=100000;
 
 # Append to the history file, don't overwrite it
 shopt -s histappend;
+
+# If it exists, process ".commonrc"
+COMMONRC_FILE="$HOME/.commonrc"
+if [ -f $COMMONRC_FILE ];
+then
+	source $COMMONRC_FILE;
+fi
+
+# If it exists, process ".bash_aliases"
+BASH_ALIASES_FILE="$HOME/.bash_aliases";
+if [ -f $BASH_ALIASES_FILE ];
+then
+	source $BASH_ALIASES_FILE;
+fi
