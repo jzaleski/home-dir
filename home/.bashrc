@@ -9,7 +9,7 @@ fi
 HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
 if [ -n "$HOMEBREW_PREFIX" ];
 then
-	# If it exists, process [Homebrew] "bash_completion"
+	# If it exists, process [Homebrew] "bash_completion" file
 	BASH_COMPLETION_FILE="$HOMEBREW_PREFIX/etc/bash_completion";
 	if [ -f $BASH_COMPLETION_FILE ];
 	then
