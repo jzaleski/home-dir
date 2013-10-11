@@ -86,7 +86,7 @@ let g:lightline = {
 \ }
 
 " Rspec.vim mappings
-let g:rspec_command = "!(hash zeus 2> /dev/null || bash -l -c 'rspec {spec}') && \zeus rspec {spec}"
+let g:rspec_command = "!(hash zeus 2> /dev/null && \zeus rspec {spec}) || (hash zeus 2> /dev/null || bash -l -c 'rspec {spec}')"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
