@@ -17,9 +17,8 @@ hi clear LineNr
 " Ensure that the sign-column background is transparent
 hi clear SignColumn
 
-" Highlight leading/trailing white-space
-hi ExtraSpace ctermbg=1
-au Syntax * syn match ExtraSpace /^\s\+\|\s\+$/
+" Highlighting rule to catch leading/trainling whitespace
+au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
 
 " Right rule
 set colorcolumn=81
@@ -53,13 +52,36 @@ set expandtab
 
 " GUI specific ({g,Mac}Vim)
 if has('gui_running')
-  set guifont=Monaco:h13
+  set guifont=Monaco:h12
   set guioptions-=r
 endif
 
 " Folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
+
+" Toggle Highlight-Whitespace Helper
+function! ToggleHighlightWhitespace()
+  if !exists('g:highlight_whitespace')
+    let g:highlight_whitespace=0
+  end
+  if g:highlight_whitespace
+    hi clear ExtraSpace
+    let g:highlight_whitespace=0
+  else
+    hi ExtraSpace ctermbg=1 guibg=red
+    let g:highlight_whitespace=1
+  endif
+  redraw!
+endfunction
+map <F3> :call ToggleHighlightWhitespace()<CR>
+
+" Toggle Paste-Mode Helper
+function! TogglePasteMode()
+  set paste!
+  redraw!
+endfunction
+map <F2> :call TogglePasteMode()<CR>
 
 " CtrlP
 let g:ctrlp_use_caching=0
