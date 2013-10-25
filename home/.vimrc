@@ -37,7 +37,6 @@ set nohls
 set notitle
 set nowrap
 set number
-set rnu
 set scrolloff=3
 set showmatch
 set smartcase
