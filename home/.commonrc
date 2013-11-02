@@ -1,11 +1,14 @@
 # Update the PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
-# Environment variables
-export SOURCE_DIRECTORY="$HOME/src";
-
 # Set the default editor (Git amongst others use this)
 export EDITOR=vim;
+
+# Used by helper scripts (e.g. workon)
+export SOURCE_DIRECTORY="$HOME/src";
+
+# Ensure that the term-type is properly set
+export TERM="xterm-256color";
 
 # If it exists, process ".common_aliases"
 COMMON_ALIASES_FILE="$HOME/.common_aliases";
