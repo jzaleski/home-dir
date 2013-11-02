@@ -8,7 +8,10 @@ export EDITOR=vim;
 export SOURCE_DIRECTORY="$HOME/src";
 
 # Ensure that the term-type is properly set
-export TERM="xterm-256color";
+if [ "$TERM" == "xterm" ];
+then
+  export TERM="xterm-256color";
+fi
 
 # If it exists, process ".common_aliases"
 COMMON_ALIASES_FILE="$HOME/.common_aliases";
