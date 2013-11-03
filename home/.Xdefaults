@@ -1,3 +1,4 @@
+# General
 xterm*Foreground:       white
 xterm*Background:       black
 xterm*colorMode:        on
@@ -7,3 +8,6 @@ xterm*scrollBar:        false
 xterm*saveLines:        100000
 xterm*faceName:         misc-fixed-medium
 xterm*faceSize:         9
+
+# Fix Paste (http://superuser.com/questions/517878/why-cant-i-paste-into-xterm-xquartz)
+*VT100.translations: #override Meta <KeyPress> V: insert-selection(PRIMARY, CUT_BUFFER0) \n
