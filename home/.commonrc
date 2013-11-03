@@ -1,5 +1,5 @@
 # Update the PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
+export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
 # Set the default editor (Git amongst others use this)
 export EDITOR=vim;
