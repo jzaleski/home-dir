@@ -1,13 +1,30 @@
 # General
-xterm*Foreground:       white
-xterm*Background:       black
-xterm*colorMode:        on
-xterm*dynamicColors:    on
-xterm*metaSendsEscape:  false
-xterm*scrollBar:        false
-xterm*saveLines:        100000
-xterm*faceName:         misc-fixed-medium
-xterm*faceSize:         9
+xterm*Background: black
+xterm*Foreground: white
+xterm*colorMode: on
+xterm*dynamicColors: on
+xterm*faceName: misc-fixed-medium
+xterm*faceSize: 9
+xterm*jumpScroll: true
+xterm*metaSendsEscape: false
+xterm*saveLines: 100000
+xterm*scrollBar: false
 
-# Fix Paste (http://superuser.com/questions/517878/why-cant-i-paste-into-xterm-xquartz)
-*VT100.translations: #override Meta <KeyPress> V: insert-selection(PRIMARY, CUT_BUFFER0) \n
+# Terminal overrides
+*VT100.translations: #override \n\
+  <Key>Prior: scroll-back(1, pages) \n\
+  <Key>Next: scroll-forw(1, pages) \n\
+  Meta <KeyPress> minus: smaller-vt-font() \n\
+  Meta <KeyPress> KP_Subtract: smaller-vt-font() \n\
+  Meta <KeyPress> plus: larger-vt-font() \n\
+  Meta <KeyPress> KP_Add: larger-vt-font() \n\
+  Meta <KeyPress> C: select-cursor-start() select-cursor-end(PRIMARY, CUTBUFFER0) \n\
+  Meta <KeyPress> V: insert-selection(PRIMARY, CUT_BUFFER0) \n
+
+# Scrollbar overrides
+*Scrollbar.translations: #override \n\
+  <Btn1Down>: StartScroll(Continuous) MoveThumb() NotifyThumb() \n\
+  <Btn1Motion>: MoveThumb() NotifyThumb() \n\
+  <Btn2Down>: StartScroll(Forward) \n\
+  <Btn3Down>: StartScroll(Backward) \n\
+  <BtnUp>: NotifyScroll(Proportional) EndScroll() \n
