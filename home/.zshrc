@@ -45,3 +45,10 @@ if [ -f $ZSH_ALIASES_FILE ];
 then
   source $ZSH_ALIASES_FILE;
 fi
+
+# If it exists, process ".zsh_keys"
+ZSH_KEYS_FILE="$HOME/.zsh_keys"
+if [ -f $ZSH_KEYS_FILE ];
+then
+  source $ZSH_KEYS_FILE;
+fi

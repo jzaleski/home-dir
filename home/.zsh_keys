@@ -1,0 +1,6 @@
+# Applicable only if running in "xterm"
+if [ -n "$XTERM_VERSION" ];
+then
+  bindkey '^[[1;3D' backward-word;
+  bindkey '^[[1;3C' forward-word;
+fi
