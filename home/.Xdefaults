@@ -6,7 +6,7 @@ xterm*colorMode: true
 xterm*dynamicColors: true
 xterm*eightBitInput: true
 xterm*faceName: misc-fixed-medium
-xterm*faceSize: 9
+xterm*faceSize: 10
 xterm*jumpScroll: true
 xterm*metaSendsEscape: false
 xterm*saveLines: 100000
