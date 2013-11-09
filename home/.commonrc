@@ -7,8 +7,14 @@ export EDITOR=vim;
 # Used by helper scripts (e.g. workon)
 export SOURCE_DIRECTORY="$HOME/src";
 
-# Ensure that the term-type is properly set
-if [ "$TERM" = "xterm" ];
+# Ensure that "LANG" is set
+if [ -z "$LANG" ];
+then
+  export LANG="en_US.UTF-8";
+fi
+
+# Ensure that "TERM" is [properly] set
+if [ -z "$TERM" ] || [ "$TERM" = "xterm" ];
 then
   export TERM="xterm-256color";
 fi

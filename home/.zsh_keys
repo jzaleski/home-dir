@@ -1,6 +1,10 @@
-# Applicable only if running in "xterm"
 if [ -n "$XTERM_VERSION" ];
 then
   bindkey '^[[1;3D' backward-word;
   bindkey '^[[1;3C' forward-word;
+  if [ -n "$TMUX_PANE" ];
+  then
+    bindkey '^[^[[D' backward-word;
+    bindkey '^[^[[C' forward-word;
+  fi
 fi

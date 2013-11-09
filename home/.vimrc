@@ -113,6 +113,12 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Get off my lawn (force use of: h, j, k & l)
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
 " Load ctags for gems
 autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
   \ pathogen#split(&tags) +
