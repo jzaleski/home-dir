@@ -11,6 +11,7 @@ xterm*jumpScroll: true
 xterm*metaSendsEscape: false
 xterm*saveLines: 100000
 xterm*scrollBar: false
+xterm*ttyModes: erase ^?
 
 # Scrollbar overrides
 *Scrollbar.translations: #override \n\
