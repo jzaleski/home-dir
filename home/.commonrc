@@ -66,3 +66,10 @@ if [ -f $RVM_SCRIPT ];
 then
   source $RVM_SCRIPT;
 fi
+
+# If it exists, process ".rubyrc"
+RUBYRC_FILE="$HOME/.rubyrc";
+if [ -f $RUBYRC_FILE ];
+then
+  source $RUBYRC_FILE;
+fi
