@@ -4,23 +4,19 @@
   ignore = dirty
 [submodule "home/.vim/bundle/vim-fugitive"]
   path = home/.vim/bundle/vim-fugitive
-  url = git://github.com/tpope/vim-fugitive.git
+  url = https://github.com/tpope/vim-fugitive.git
   ignore = dirty
 [submodule "home/.vim/bundle/vim-gitgutter"]
   path = home/.vim/bundle/vim-gitgutter
-  url = git://github.com/airblade/vim-gitgutter.git
+  url = https://github.com/airblade/vim-gitgutter.git
   ignore = dirty
 [submodule "home/.vim/bundle/supertab"]
   path = home/.vim/bundle/supertab
-  url = git://github.com/ervandew/supertab.git
+  url = https://github.com/ervandew/supertab.git
   ignore = dirty
 [submodule "home/.vim/bundle/ctrlp.vim"]
   path = home/.vim/bundle/ctrlp.vim
   url = https://github.com/kien/ctrlp.vim.git
-  ignore = dirty
-[submodule "home/.vim/bundle/lightline.vim"]
-  path = home/.vim/bundle/lightline.vim
-  url = https://github.com/itchyny/lightline.vim
   ignore = dirty
 [submodule "home/.vim/bundle/vim-colors-solarized"]
   path = home/.vim/bundle/vim-colors-solarized
@@ -37,4 +33,8 @@
 [submodule "home/.vim/bundle/vim-surround"]
   path = home/.vim/bundle/vim-surround
   url = https://github.com/tpope/vim-surround.git
+  ignore = dirty
+[submodule "home/.vim/bundle/vim-powerline"]
+	path = home/.vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
   ignore = dirty

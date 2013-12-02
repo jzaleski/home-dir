@@ -99,25 +99,6 @@ map <C-S-F> :FindInFiles<SPACE>
 " Find All References
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'solarized_dark',
-  \ 'active': {
-  \   'left': [
-  \      ['mode', 'paste'],
-  \      ['fugitive', 'readonly', 'filename', 'modified']
-  \   ]
-  \ },
-  \ 'component': {
-  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-  \ },
-  \ 'component_visible_condition': {
-  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-  \ }
-\ }
-
 " Rspec.vim mappings
 let g:rspec_command = "!(hash zeus 2> /dev/null && \zeus rspec {spec}) || (hash zeus 2> /dev/null || bash -l -c 'rspec {spec}')"
 map <Leader>t :call RunCurrentSpecFile()<CR>
