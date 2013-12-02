@@ -83,13 +83,21 @@ function! TogglePasteMode()
 endfunction
 map <F2> :call TogglePasteMode()<CR>
 
-" CtrlP
+" Silver Searcher / CtrlP
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_working_path_mode = 'ra'
 if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ .git,tags
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching=0
 endif
+
+" Find in Files
+command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
+map <C-S-F> :FindInFiles<SPACE>
+
+" Find All References
+map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 
 " Lightline
 let g:lightline = {
