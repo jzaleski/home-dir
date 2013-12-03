@@ -35,5 +35,6 @@
   url = https://github.com/tpope/vim-surround.git
   ignore = dirty
 [submodule "home/.vim/bundle/lightline.vim"]
-	path = home/.vim/bundle/lightline.vim
-	url = https://github.com/itchyny/lightline.vim.git
+  path = home/.vim/bundle/lightline.vim
+  url = https://github.com/itchyny/lightline.vim.git
+  ignore = dirty
