@@ -1,7 +1,7 @@
 export SSH_ENV="$HOME/.ssh/environment";
 
 # Initialize a new "ssh-agent"
-if [ `ps -ef | grep ssh-agent | grep -v grep | wc -l` -eq 0 ];
+if [ `ps -ef | \grep -c "[s]sh-agent"` -eq 0 ];
 then
 	# Start the agent
 	ssh-agent | head -2 > "${SSH_ENV}";

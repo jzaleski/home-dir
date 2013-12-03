@@ -34,7 +34,3 @@
   path = home/.vim/bundle/vim-surround
   url = https://github.com/tpope/vim-surround.git
   ignore = dirty
-[submodule "home/.vim/bundle/vim-powerline"]
-	path = home/.vim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
-  ignore = dirty

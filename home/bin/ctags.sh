@@ -7,7 +7,7 @@ then
 fi
 
 # attempt to install "gem-ctags" (if necessary)
-if hash rvm 2> /dev/null && ! gem list | grep 'gem-ctags' > /dev/null 2>&1;
+if hash rvm 2> /dev/null && ! gem list | \grep 'gem-ctags' > /dev/null 2>&1;
 then
   bash -l -c "rvm gemset use global && gem install gem-ctags";
 fi

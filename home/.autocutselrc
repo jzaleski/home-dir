@@ -1,5 +1,5 @@
 AUTOCUTSEL_CMD=`which autocutsel`;
-if [ -n "$AUTOCUTSEL_CMD" ] && [ `ps -ef | grep \[a\]utocutsel | wc -l` -eq 0 ];
+if [ -n "$AUTOCUTSEL_CMD" ] && [ `ps -ef | \grep -c "[a]utocutsel"` -eq 0 ];
 then
   ($AUTOCUTSEL_CMD &) > /dev/null 2>&1;
   ($AUTOCUTSEL_CMD -s PRIMARY &) > /dev/null 2>&1;
