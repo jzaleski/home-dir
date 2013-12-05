@@ -107,6 +107,9 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " Lightline
+function! CurrentFilename()
+  return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
+endfunction
 let g:lightline = {
   \ 'colorscheme': 'solarized_dark',
   \ 'active': {
@@ -119,12 +122,14 @@ let g:lightline = {
   \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
   \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
   \ },
+  \ 'component_function': {
+  \   'filename': 'CurrentFilename'
+  \ },
   \ 'component_visible_condition': {
   \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
   \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
   \ }
 \ }
-
 
 " Get off my lawn (force use of: h, j, k & l)
 nnoremap <Left> :echoe "Use h"<CR>
