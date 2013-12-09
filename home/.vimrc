@@ -114,7 +114,7 @@ function! ToggleList(bufname, pfx)
       return
     endif
   endfor
-  if a:pfx == 'g' && len(getloclist(0)) == 0
+  if a:pfx == 'l' && len(getloclist(0)) == 0
       echohl ErrorMsg
       echo "Location List is Empty."
       return
@@ -125,7 +125,7 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
-nmap <silent> <Leader>g :call ToggleList("Location List", 'g')<CR>
+nmap <silent> <Leader>g :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
 " Rspec.vim mappings
@@ -134,6 +134,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Syntastic
+let g:syntastic_always_populate_loc_list=1
 
 " Lightline
 function! CurrentFilename()
