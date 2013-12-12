@@ -38,6 +38,7 @@ set nowrap
 set number
 set scrolloff=3
 set showmatch
+set showtabline=2
 set smartcase
 set ttyfast
 set visualbell
