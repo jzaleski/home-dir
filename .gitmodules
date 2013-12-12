@@ -46,3 +46,7 @@
   path = home/.vim/bundle/vim-dispatch
   url = https://github.com/tpope/vim-dispatch.git
   ignore = dirty
+[submodule "home/.vim/bundle/tabline.vim"]
+  path = home/.vim/bundle/tabline.vim
+  url = https://github.com/mkitt/tabline.vim.git
+  ignore = dirty
