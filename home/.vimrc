@@ -164,19 +164,19 @@ let g:lightline = {
   \ }
 \ }
 
-" Get off my lawn (force use of: h, j, k & l)
+" Get off my lawn (force use of home-row)
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Tab navigation
-nnoremap tn :tabnew<CR>
-nnoremap td :tabclose<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
-nnoremap tl :tablast<CR>
+" Buffer/Tab manipulation
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :quit<CR>
+nnoremap bn :bnext<CR>
+nnoremap bp :bprevious<CR>
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprevious<CR>
 
 " Load ctags for gems
 autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
