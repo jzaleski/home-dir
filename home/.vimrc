@@ -170,6 +170,14 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Tab navigation
+nnoremap tn :tabnew<CR>
+nnoremap td :tabclose<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap tl :tablast<CR>
+
 " Load ctags for gems
 autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
   \ pathogen#split(&tags) +
