@@ -171,12 +171,13 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Buffer/Tab manipulation
-nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :quit<CR>
+nnoremap tn :tabnext<CR>
+nnoremap to :tabnew<CR>
+nnoremap tp :tabprevious<CR>
+nnoremap tw :tabclose<CR>
 nnoremap bn :bnext<CR>
 nnoremap bp :bprevious<CR>
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprevious<CR>
+nnoremap bw :bwipeout<CR>
 
 " Load ctags for gems
 autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
