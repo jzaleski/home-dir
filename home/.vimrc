@@ -178,6 +178,7 @@ nnoremap tw :tabclose<CR>
 nnoremap bn :bnext<CR>
 nnoremap bp :bprevious<CR>
 nnoremap bw :bwipeout<CR>
+nnoremap bl :buffers<CR>
 
 " Load ctags for gems
 autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
