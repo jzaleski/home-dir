@@ -12,7 +12,7 @@ then
     htop-osx \
     openssl \
     readline \
-    screen \
+    tmux \
     vim \
     wget \
     zsh-completions;
