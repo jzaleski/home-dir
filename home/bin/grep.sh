@@ -1,9 +1,6 @@
 #!/bin/bash
 
-if [ -n `which ag` ];
-then
-  grep_cmd='ag';
-elif [ -n `which egrep` ];
+if [ -n `which egrep` ];
 then
   grep_cmd='egrep --color';
 else
