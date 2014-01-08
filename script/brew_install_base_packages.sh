@@ -15,6 +15,7 @@ then
     tmux \
     vim \
     wget \
+    zsh \
     zsh-completions;
   do
     PACKAGE_DETAILS=`brew list $package 2> /dev/null`;
