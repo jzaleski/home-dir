@@ -2,9 +2,13 @@
 
 ls_cmd=`which ls`;
 
+# determine which "color" argument to specify
 if [ `uname` == 'Darwin' ];
 then
-  $ls_cmd -G $@;
+  color_arg='-G';
 else
-  $ls_cmd --color $@;
+  color_arg='--color';
 fi
+
+# execute the command
+$ls_cmd $color_arg $@;
