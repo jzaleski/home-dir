@@ -170,6 +170,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Move the currentl line to the center of the screen
+nnoremap <SPACE> zvzz
+
 " Buffer/Tab manipulation
 nnoremap tn :tabnext<CR>
 nnoremap to :tabnew<CR>
