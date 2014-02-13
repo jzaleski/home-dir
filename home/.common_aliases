@@ -4,6 +4,7 @@ alias edit='~/bin/edit.sh'
 alias find='~/bin/find.sh'
 alias gg='git grep'
 alias grep='~/bin/grep.sh'
+alias ipython='~/bin/ipython.sh';
 alias ll='~/bin/ls.sh -l'
 alias ls='~/bin/ls.sh'
 alias mycnf='~/bin/mycnf.sh'

@@ -50,3 +50,7 @@
   path = home/.vim/bundle/tabline.vim
   url = https://github.com/mkitt/tabline.vim.git
   ignore = dirty
+[submodule "home/src/ipython"]
+  path = home/src/ipython
+  url = https://github.com/ipython/ipython.git
+  ignore = dirty
