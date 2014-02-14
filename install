@@ -23,8 +23,14 @@ do
   done
 done
 
-# Run any bootstrap scripts
-for f in $(find script -type f | egrep "^script/[^\.](.+)" | sed "s/script\///g");
-do
-  script/$f;
-done
+# run scripts optionally w/ any abitrary prefix (e.g. "sudo")
+function run_scripts() {
+  for f in $(find $1 -type f | egrep "^$1/[^\.](.+)" | sed "s/$1\///g");
+  do
+    $2 $1/$f;
+  done
+}
+
+# run any files in "sudo_scripts" then in "scripts" (assumes things requiring root should occur first)
+run_scripts sudo_script 'sudo'
+run_scripts script

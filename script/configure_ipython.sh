@@ -1,19 +1,4 @@
-#!/bin/bash
-
-# prefer "pip"
-pip_cmd=`which pip`
-if [ -z "$pip_cmd" ];
-then
-  sudo easy_install pip;
-  pip_cmd=`which pip`;
-fi
-
-# install base "egg(s)"
-for egg in \
-  virtualenv;
-do
-  sudo $pip_cmd install $egg;
-done
+#a!/bin/bash
 
 # configure "IPython"
 ipython_virtualenv_directory="$VIRTUALENVS_DIRECTORY/ipython";
