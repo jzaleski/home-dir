@@ -1,4 +1,4 @@
-#a!/bin/bash
+#!/bin/bash
 
 # prefer "pip"
 pip_cmd=`which pip`
