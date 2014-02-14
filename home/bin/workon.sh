@@ -9,7 +9,7 @@ then
   fi
 
   deactivate 2> /dev/null;
-  activate_script="$HOME/.virtualenv/$1/bin/activate";
+  activate_script="$VIRTUALENVS_DIRECTORY/$1/bin/activate";
   if [ -f $activate_script ];
   then
     source $activate_script;

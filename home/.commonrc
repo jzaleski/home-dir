@@ -7,6 +7,10 @@ export EDITOR=vim;
 # Used by helper scripts (e.g. workon)
 export SOURCE_DIRECTORY="$HOME/src";
 
+# Used by "virtualenv"
+export VIRTUALENVS_HOME="$HOME/.virtualenvs";
+export VIRTUAL_ENV_DISABLE_PROMPT=1;
+
 # Ensure that "LANG" is set
 if [ -z "$LANG" ];
 then
