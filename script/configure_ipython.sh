@@ -1,4 +1,4 @@
-#a!/bin/bash
+#!/bin/bash
 
 # configure "IPython"
 ipython_virtualenv_directory="$VIRTUALENVS_DIRECTORY/ipython";
