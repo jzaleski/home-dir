@@ -8,7 +8,7 @@ export EDITOR=vim;
 export SOURCE_DIRECTORY="$HOME/src";
 
 # Used by "virtualenv"
-export VIRTUALENVS_HOME="$HOME/.virtualenvs";
+export VIRTUALENVS_DIRECTORY="$HOME/.virtualenvs";
 export VIRTUAL_ENV_DISABLE_PROMPT=1;
 
 # Ensure that "LANG" is set
