@@ -23,6 +23,9 @@ do
   done
 done
 
+# reload the shell-config (it may have changed)
+source $HOME/.bashrc;
+
 # run scripts optionally w/ any abitrary prefix (e.g. "sudo")
 function run_scripts() {
   for f in $(find $1 -type f | egrep "^$1/[^\.](.+)" | sed "s/$1\///g");
