@@ -28,13 +28,16 @@ c = get_config()
 # c.InteractiveShellApp.exec_PYTHONSTARTUP = True
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = []
+# c.InteractiveShellApp.exec_lines = []
 
-# if the "CWD" environment variable is set, add it to the path
+# if the "CWD" environment variable is set, change directories on load
 from os import environ
-cwd = environ['CWD']
+cwd = environ.get('CWD')
 if cwd:
-    c.InteractiveShellApp.exec_lines.append('import sys; sys.path.append("%s")' % cwd)
+    c.InteractiveShellApp.exec_lines = [
+        'print; print "Changing directory to:"',
+        'cd %s' % cwd,
+    ]
 
 # Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'none',
 # 'osx', 'pyglet', 'qt', 'qt4', 'tk', 'wx').
