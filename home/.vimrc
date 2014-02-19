@@ -86,7 +86,7 @@ map <F2> :call TogglePasteMode()<CR>
 
 " Silver Searcher / CtrlP
 let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'rw'
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
