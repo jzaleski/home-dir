@@ -1,8 +1,26 @@
-activity "%c activity -> %n%f %t"
-autodetach on
-hardstatus on
-hardstatus alwayslastline "%{= Wk}%-w%{= Bw}%n %t%{-}%+w %-="
-defscrollback 5000
+# preserve the layout after detach/re-attach
+layout new
+
+# don't display the start-up messasge
 startup_message off
+
+# automatically detach if diconnected
+autodetach on
+
+# set the scrollback buffer-size
+defscrollback 100000
+
+# maintain the hardstatus line for each for new windows
+hardstatus on
+
+# hardstatus layout
+hardstatus alwayslastline "%{= Wk}%-w%{= Bw}%n %t%{-}%+w %-="
+
+# set the term-emulation mode
 term screen-256color
+
+# disable the visual bell
 vbell off
+
+# display activity indicator on containing window
+activity "%c activity -> %n%f %t"
