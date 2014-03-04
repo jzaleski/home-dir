@@ -5,8 +5,11 @@
   co = checkout
   del = rm
   delete = rm
+  exclude = !sh -c 'mkdir -p .git/info && echo "$1" >> .git/info/exclude' -
   get = !git pull && git submodule init && git submodule update
   h = help
+  ignore = update-index --assume-unchanged
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
   move = mv
   praise = blame
   put = push origin HEAD
@@ -21,6 +24,7 @@
   stat = status
   unci = reset HEAD^
   uncommit = reset HEAD^
+  unignore = update-index --no-assume-unchanged
   unst = reset HEAD
   unstage = reset HEAD
 [apply]
