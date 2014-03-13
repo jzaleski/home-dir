@@ -17,9 +17,14 @@
   remove = rm
   ren = mv
   rename = mv
-  rmlocal = !sh -c \"git br -D \\$0\"
-  rmremote = !sh -c \"git push origin :heads/\\$0\"
-  rmsubmodule = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
+  rmbr = "!f() { git rmbranch \"$1\"; }; f"
+  rmbranch = "!f() { git rmlocalbranch \"$1\"; git rmremotebranch \"$1\"; }; f"
+  rmlocalbranch = "!f() { git branch -D \"$1\"; }; f"
+  rmlocaltag = "!f() { git tag -d \"$1\"; }; f"
+  rmremotebranch = "!f() { git push origin :heads/$1; }; f"
+  rmremotetag = "!f() { git push origin :refs/tags/$1; } f"
+  rmsubmodule = "!f() { git rm --cached \"$1\"; rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\"; git config -f .git/config --remove-section \"submodule.$1\"; git add .gitmodules; }; f"
+  rmtag = "!f() { git rmlocaltag \"$1\"; git rmremotetag \"$1\"; }; f"
   st = status
   stat = status
   unci = reset HEAD^
@@ -41,3 +46,6 @@
   templatedir = ~/.git_template
 [push]
   default = tracking
+[user]
+  name = Jonathan W. Zaleski
+  email = JonathanZaleski@gmail.com
