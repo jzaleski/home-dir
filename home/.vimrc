@@ -30,6 +30,7 @@ set encoding=utf-8
 set hidden
 set incsearch
 set laststatus=2
+set lazyredraw
 set nobackup
 set nocompatible
 set nohls
