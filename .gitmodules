@@ -54,3 +54,7 @@
   path = home/src/ipython
   url = https://github.com/ipython/ipython.git
   ignore = dirty
+[submodule "misc/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+  path = misc/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+  ignore = dirty

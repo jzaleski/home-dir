@@ -5,7 +5,7 @@ then
   ZSH=$OH_MY_ZSH_DIR;
   ZSH_THEME="jzaleski";
   DISABLE_AUTO_UPDATE="true";
-  plugins=(cp extract rsync);
+  plugins=(cp extract rsync zsh-syntax-highlighting);
   [[ `uname` == 'Darwin' ]] && plugins+=(osx);
   `hash brew 2> /dev/null` && plugins+=(brew);
   `hash git 2> /dev/null` && plugins+=(git git-extras);
