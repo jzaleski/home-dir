@@ -14,6 +14,7 @@
   praise = blame
   put = push origin HEAD
   rb = rebase
+  rem = rm
   remove = rm
   ren = mv
   rename = mv
@@ -46,6 +47,3 @@
   templatedir = ~/.git_template
 [push]
   default = tracking
-[user]
-  name = Jonathan W. Zaleski
-  email = JonathanZaleski@gmail.com
