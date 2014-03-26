@@ -1,11 +1,12 @@
 " Pathogen
 execute pathogen#infect()
 syntax on
-filetype plugin indent on
+filetype indent on
+filetype plugin on
 
 " Colorscheme
 set background=dark
-if !has('gui_running')
+if $TERM == 'xterm-256color' || $TERM == 'screen-256color'
   set t_Co=256
   let g:solarized_termcolors=&t_Co
 endif
@@ -17,7 +18,7 @@ hi clear LineNr
 " Ensure that the sign-column background is transparent
 hi clear SignColumn
 
-" Highlighting rule to catch leading/trainling whitespace
+" Highlighting rule to catch leading/trailing whitespace
 au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
 
 " Right rule
@@ -28,12 +29,14 @@ set backspace=eol,indent,start
 set cursorline
 set encoding=utf-8
 set hidden
+set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
 set nobackup
 set nocompatible
-set nohls
+set nohlsearch
+set noswapfile
 set notitle
 set nowrap
 set number
@@ -54,7 +57,7 @@ set expandtab
 
 " GUI specific ({g,Mac}Vim)
 if has('gui_running')
-  set guifont=Monaco:h12
+  set guifont=PT\ Mono:h14
   set guioptions-=r
 endif
 
