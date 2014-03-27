@@ -8,6 +8,7 @@ alias ipython='CWD=`pwd` ~/bin/ipython.sh';
 alias ll='~/bin/ls.sh -l'
 alias ls='~/bin/ls.sh'
 alias mycnf='~/bin/mycnf.sh'
+alias uber_kill='~/bin/uber_kill.sh';
 alias vi='vim'
 alias workon='source ~/bin/workon.sh'
 
