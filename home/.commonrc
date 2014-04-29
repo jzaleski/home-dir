@@ -1,4 +1,4 @@
-# Update the PATH
+# Set the PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
 # Set the default editor (Git amongst others use this)
@@ -27,41 +27,41 @@ fi
 COMMON_ALIASES_FILE="$HOME/.common_aliases";
 if [ -f $COMMON_ALIASES_FILE ];
 then
-	source $COMMON_ALIASES_FILE;
+  source $COMMON_ALIASES_FILE;
 fi
 
 # If it exists, process ".common_functions"
 COMMON_FUNCTIONS_FILE="$HOME/.common_functions";
 if [ -f $COMMON_FUNCTIONS_FILE ];
 then
-	source $COMMON_FUNCTIONS_FILE;
+  source $COMMON_FUNCTIONS_FILE;
 fi
 
 # Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
 if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ ! -f "/usr/libexec/ssh-askpass" ];
 then
-	export SSH_ASKPASS="$HOME/libexec/ssh-askpass";
+  export SSH_ASKPASS="$HOME/libexec/ssh-askpass";
 fi
 
 # If it exists, process ".sshagentrc"
 SSHAGENTRC_FILE="$HOME/.sshagentrc";
 if [ -f $SSHAGENTRC_FILE ];
 then
-	source $SSHAGENTRC_FILE;
+  source $SSHAGENTRC_FILE;
 fi
 
 # If it exists, process ".autocutselrc"
 AUTOCUTSELRC_FILE="$HOME/.autocutselrc";
 if [ -f $AUTOCUTSELRC_FILE ];
 then
-	source $AUTOCUTSELRC_FILE;
+  source $AUTOCUTSELRC_FILE;
 fi
 
 # If "TextWrangler" is installed set it as the default "TEXT_EDITOR"
 TEXT_EDITOR="/Applications/TextWrangler.app";
 if [ -e $TEXT_EDITOR ];
 then
-	export TEXT_EDITOR=$TEXT_EDITOR;
+  export TEXT_EDITOR=$TEXT_EDITOR;
 fi
 
 # If it exists, load RVM
@@ -76,4 +76,18 @@ RUBYRC_FILE="$HOME/.rubyrc";
 if [ -f $RUBYRC_FILE ];
 then
   source $RUBYRC_FILE;
+fi
+
+# Determine the correct distro-specific ".commonrc" file to load
+if [ `uname` = "Darwin" ];
+then
+  DISTRO_SPECIFIC_COMMONRC_FILE="$HOME/.commonrc_darwin";
+else
+  DISTRO_SPECIFIC_COMMONRC_FILE="$HOME/.commonrc_linux";
+fi
+
+# If it exists, process "$DISTRO_SPECIFIC_COMMONRC_FILE"
+if [ -f $DISTRO_SPECIFIC_COMMONRC_FILE ];
+then
+  source $DISTRO_SPECIFIC_COMMONRC_FILE;
 fi

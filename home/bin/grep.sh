@@ -7,4 +7,4 @@ else
   grep_cmd='grep';
 fi
 
-$grep_cmd $@;
+$grep_cmd "$@";

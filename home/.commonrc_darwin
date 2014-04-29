@@ -1,0 +1,5 @@
+# Update "MANPATH"
+export MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH;
+
+# Update "PATH"
+export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH;

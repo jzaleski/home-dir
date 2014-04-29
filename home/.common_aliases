@@ -1,16 +1,17 @@
 # General
-alias ctags='~/bin/ctags.sh'
-alias edit='~/bin/edit.sh'
-alias find='~/bin/find.sh'
-alias gg='git grep'
-alias grep='~/bin/grep.sh'
+alias ctags='~/bin/ctags.sh';
+alias edit='~/bin/edit.sh';
+alias find='~/bin/find.sh';
+alias gg='git grep';
+alias grep='~/bin/grep.sh';
 alias ipython='CWD=`pwd` ~/bin/ipython.sh';
-alias ll='~/bin/ls.sh -l'
-alias ls='~/bin/ls.sh'
-alias mycnf='~/bin/mycnf.sh'
+alias ll='~/bin/ls.sh -l';
+alias ls='~/bin/ls.sh';
+alias mycnf='~/bin/mycnf.sh';
 alias uber_kill='~/bin/uber_kill.sh';
-alias vi='vim'
-alias workon='source ~/bin/workon.sh'
+alias vag='vagrant';
+alias vi='vim';
+alias workon='source ~/bin/workon.sh';
 
 # The ability to navigate 10 directories up should be enough to cover most cases
 alias ..='cd ..';

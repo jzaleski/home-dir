@@ -46,6 +46,13 @@ then
   source $ZSH_ALIASES_FILE;
 fi
 
+# If it exists, process ".common_keys"
+COMMON_KEYS_FILE="$HOME/.common_keys"
+if [ -f $COMMON_KEYS_FILE ];
+then
+  source $COMMON_KEYS_FILE;
+fi
+
 # If it exists, process ".zsh_keys"
 ZSH_KEYS_FILE="$HOME/.zsh_keys"
 if [ -f $ZSH_KEYS_FILE ];

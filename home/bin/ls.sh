@@ -11,4 +11,4 @@ else
 fi
 
 # execute the command
-$ls_cmd $color_arg $@;
+$ls_cmd $color_arg "$@";

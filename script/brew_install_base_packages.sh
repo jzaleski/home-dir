@@ -9,6 +9,7 @@ then
     bash-completion \
     ctags \
     git \
+    gnu-sed \
     htop-osx \
     openssl \
     readline \
