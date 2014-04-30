@@ -6,7 +6,7 @@ then
   ZSH_THEME="jzaleski";
   DISABLE_AUTO_UPDATE="true";
   plugins=(cp extract rsync zsh-syntax-highlighting);
-  [[ `uname` == 'Darwin' ]] && plugins+=(osx);
+  [[ `uname` == "Darwin" ]] && plugins+=(osx);
   `hash brew 2> /dev/null` && plugins+=(brew);
   `hash git 2> /dev/null` && plugins+=(git git-extras);
   `hash heroku 2> /dev/null` && plugins+=(heroku);

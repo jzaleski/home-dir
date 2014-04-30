@@ -15,7 +15,7 @@
 # to set the following variable for SSH to recognize where the script is located:
 #   export SSH_ASKPASS="/path/to/ssh-askpass"
 
-if [ `uname` == 'Darwin' ];
+if [ `uname` = "Darwin" ];
 then
   TITLE="${SSH_ASKPASS_TITLE:-SSH}";
   TEXT="$(whoami)'s password:";

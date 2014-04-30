@@ -3,7 +3,7 @@
 ls_cmd=`which ls`;
 
 # determine which "color" argument to specify
-if [ `uname` == 'Darwin' ];
+if [ `uname` = "Darwin" ];
 then
   color_arg='-G';
 else

@@ -1,7 +1,10 @@
 #!/bin/bash
 
-XMONAD_BINARY="$HOME/bin/xmonad";
-if [ -f $XMONAD_BINARY ];
+if [ -n "$EXTENDED_BOOTSTRAP" ];
 then
-  $XMONAD_BINARY --recompile;
+  XMONAD_BINARY="$HOME/bin/xmonad";
+  if [ -f $XMONAD_BINARY ];
+  then
+    $XMONAD_BINARY --recompile;
+  fi
 fi
