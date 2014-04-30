@@ -10,7 +10,7 @@ then
     if [ -n "$easy_install_cmd" ];
     then
       $easy_install_cmd pip;
-    elif [ `uname -a` =~ 'Ubuntu' ];
+    elif [[ `uname -a` =~ 'Ubuntu' ]];
     then
       apt-get install -y python-pip;
     else
