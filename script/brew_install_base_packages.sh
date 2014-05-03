@@ -2,8 +2,8 @@
 
 if [ -n "$EXTENDED_BOOTSTRAP" ];
 then
-  HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
-  if [ -n "$HOMEBREW_PREFIX" ];
+  brew_cmd=`which brew`;
+  if [ -n "$brew_cmd" ];
   then
     for package in \
       ag \
@@ -21,10 +21,10 @@ then
       zsh \
       zsh-completions;
     do
-      PACKAGE_DETAILS=`brew list $package 2> /dev/null`;
-      if [ -z "$PACKAGE_DETAILS" ];
+      package_details=`$brew_cmd list $package 2> /dev/null`;
+      if [ -z "$package_details" ];
       then
-        brew install $package;
+        $brew_cmd install $package;
       fi
     done
   fi
