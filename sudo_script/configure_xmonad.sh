@@ -10,7 +10,7 @@ then
       libghc-xmonad-contrib-dev \
       libghc-xmonad-dev \
       moreutils \
-      slim \
+      lightdm \
       stalonetray \
       x11-apps \
       x11-common \
@@ -20,10 +20,10 @@ then
       xmonad \
       xserver-xorg \
       xserver-xorg-dev;
-    # Ensure that "slim" is not started by default
-    if [ -n `which slim` ];
+    # Ensure that "lightdm" is not started by default
+    if [ -n `which lightdm` ];
     then
-      update-rc.d -f slim remove;
+      update-rc.d -f lightdm remove;
     fi
   fi
 fi
