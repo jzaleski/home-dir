@@ -2,7 +2,7 @@
 
 if [ -n "$EXTENDED_BOOTSTRAP" ];
 then
-  # install apt packages
+  # install packages
   apt_get_cmd=`which apt-get`;
   if [ -n "$apt_get_cmd" ];
   then
@@ -13,6 +13,7 @@ then
       exuberant-ctags \
       git \
       htop \
+      linux-headers-$(uname -r) \
       tmux \
       vim \
       wget \
