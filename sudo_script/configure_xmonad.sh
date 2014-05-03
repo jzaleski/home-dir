@@ -7,23 +7,25 @@ then
   then
     # Install packages
     $apt_cmd install -y \
+      autocutsel \
       libghc-xmonad-contrib-dev \
       libghc-xmonad-dev \
       moreutils \
-      lightdm \
+      slim \
       stalonetray \
       x11-apps \
       x11-common \
       x11-utils \
+      x11-xserver-utils \
       xcompmgr \
       xmobar \
       xmonad \
       xserver-xorg \
       xserver-xorg-dev;
-    # Ensure that "lightdm" is not started by default
-    if [ -n `which lightdm` ];
+    # Ensure that "slim" is not started by default
+    if [ -n `which slim` ];
     then
-      update-rc.d -f lightdm remove;
+      update-rc.d -f slim remove;
     fi
   fi
 fi
