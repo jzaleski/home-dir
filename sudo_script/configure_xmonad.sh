@@ -8,24 +8,23 @@ then
     # Install packages
     $apt_cmd install -y \
       autocutsel \
-      libghc-xmonad-contrib-dev \
-      libghc-xmonad-dev \
-      moreutils \
       slim \
-      stalonetray \
-      x11-apps \
-      x11-common \
-      x11-utils \
-      x11-xserver-utils \
-      xcompmgr \
-      xmobar \
       xmonad \
-      xserver-xorg \
-      xserver-xorg-dev;
+      xorg;
+    # Ensure that "gdm" is not started by default
+    if [ -n `which gdm` ];
+    then
+      update-rc.d -f gdm remove 2> /dev/null;
+    fi
+    # Ensure that "lightdm" is not started by default
+    if [ -n `which lightdm` ];
+    then
+      (echo "manual" >> /etc/init/lightdm.override) 2> /dev/null;
+    fi
     # Ensure that "slim" is not started by default
     if [ -n `which slim` ];
     then
-      update-rc.d -f slim remove;
+      update-rc.d -f slim remove 2> /dev/null;
     fi
   fi
 fi
