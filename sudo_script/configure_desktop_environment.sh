@@ -8,6 +8,8 @@ then
     # Install packages
     $apt_cmd install -y \
       autocutsel \
+      libghc-xmonad-contrib-dev \
+      libghc-xmonad-dev
       slim \
       xmonad \
       xorg;
