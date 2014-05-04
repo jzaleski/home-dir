@@ -9,7 +9,7 @@ then
     $apt_cmd install -y \
       autocutsel \
       libghc-xmonad-contrib-dev \
-      libghc-xmonad-dev
+      libghc-xmonad-dev \
       slim \
       xmonad \
       xorg;
