@@ -8,6 +8,7 @@ then
   then
     $apt_get_cmd install -y \
       apg \
+      automake \
       bash-completion \
       build-essential \
       exuberant-ctags \
