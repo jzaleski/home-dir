@@ -8,6 +8,7 @@ then
     # Install packages
     $apt_cmd install -y \
       autocutsel \
+      gnome-terminal \
       libghc-xmonad-contrib-dev \
       libghc-xmonad-dev \
       slim \

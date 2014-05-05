@@ -3,16 +3,16 @@
 if [ -n "$EXTENDED_BOOTSTRAP" ];
 then
   # ensure that "pip" is installed
-  easy_install_cmd=`which easy_install`;
   pip_cmd=`which pip`;
   if [ -z "$pip_cmd" ];
   then
-    if [ -n "$easy_install_cmd" ];
-    then
-      $easy_install_cmd pip;
-    elif [[ `uname -a` =~ 'Ubuntu' ]];
+    apt_get_cmd=`which apt-get`;
+    if [ -n "$apt_get_cmd" ];
     then
       apt-get install -y python-pip;
+    elif [ -n `which easy_install` ];
+    then
+      easy_install pip;
     else
       echo 'Could not install "pip"'
       exit 255;
