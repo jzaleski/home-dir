@@ -14,7 +14,10 @@ then
       git \
       htop \
       linux-headers-$(uname -r) \
+      screen \
       tmux \
+      uuid-dev \
+      uuid-runtime \
       vim \
       wget \
       zsh;
