@@ -19,7 +19,9 @@ then
       then
         ssh-add -t 0 $private_key_file;
       else
-        echo "Skipping key: \"$private_key_file\" because it does not exist";
+        echo "Private key: \"$private_key_file\" does not exist";
+        killall ssh-agent;
+        return 1;
       fi
     done < $PRIVATE_KEY_MANIFEST;
   fi

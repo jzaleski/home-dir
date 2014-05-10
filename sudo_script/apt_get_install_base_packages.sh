@@ -14,6 +14,8 @@ then
       git \
       htop \
       linux-headers-$(uname -r) \
+      python \
+      python-dev \
       screen \
       uuid-dev \
       uuid-runtime \
