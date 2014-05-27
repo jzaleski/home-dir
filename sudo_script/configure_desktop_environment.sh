@@ -13,6 +13,7 @@ then
       libghc-xmonad-dev \
       slim \
       ssh-askpass-gnome \
+      vim-gnome \
       xmonad \
       xorg;
     # Ensure that "gdm" is not started by default
