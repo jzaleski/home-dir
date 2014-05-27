@@ -9,8 +9,10 @@ alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
 alias mycnf='~/bin/mycnf.sh';
 alias uber_kill='~/bin/uber_kill.sh';
+alias uk='~/bin/uber_kill.sh';
 alias vag='vagrant';
 alias vi='vim';
+alias wo='source ~/bin/workon.sh';
 alias workon='source ~/bin/workon.sh';
 
 # The ability to navigate 10 directories up should be enough to cover most cases

@@ -14,7 +14,7 @@ then
     then
       easy_install pip;
     else
-      echo 'Could not install "pip"'
+      echo "Could not install \"pip\"";
       exit 255;
     fi
     pip_cmd=`which pip`;

@@ -19,5 +19,7 @@ then
   if [ -d $project_directory ];
   then
     cd $project_directory;
+  else
+    echo "Project \"$1\" does not exist";
   fi
 fi
