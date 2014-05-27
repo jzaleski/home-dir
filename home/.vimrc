@@ -6,7 +6,7 @@ filetype plugin on
 
 " Colorscheme
 set background=dark
-if $TERM == 'xterm-256color' || $TERM == 'screen-256color'
+if ($TERM == 'xterm-256color' || $TERM == 'screen-256color') && $ITERM_PROFILE != 'Solarized'
   set t_Co=256
   let g:solarized_termcolors=&t_Co
 endif
