@@ -4,12 +4,12 @@ syntax on
 filetype indent on
 filetype plugin on
 
+" Uncomment the following two lines if the color-pallette seems off
+"set t_Co=256
+"let g:solarized_termcolors=&t_Co
+
 " Colorscheme
 set background=dark
-if ($TERM == 'xterm-256color' || $TERM == 'screen-256color') && $ITERM_PROFILE != 'Solarized'
-  set t_Co=256
-  let g:solarized_termcolors=&t_Co
-endif
 colorscheme solarized
 
 " Ensure that the line-number background is transparent
