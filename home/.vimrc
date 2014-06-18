@@ -87,15 +87,6 @@ function! TogglePasteMode()
 endfunction
 map <F2> :call TogglePasteMode()<CR>
 
-" Silver Searcher / CtrlP
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_working_path_mode = 'rw'
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
-  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching=0
-endif
-
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
 map <C-S-F> :FindInFiles<SPACE>
@@ -132,17 +123,16 @@ endfunction
 nmap <silent> <Leader>g :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
-" Rspec.vim mappings
-let g:rspec_command = "Dispatch rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" ctrlp
+let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_working_path_mode = 'rw'
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
+  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching=0
+endif
 
-" Syntastic
-let g:syntastic_always_populate_loc_list=1
-
-" Lightline
+" lightline
 function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
 endfunction
@@ -167,13 +157,32 @@ let g:lightline = {
   \ }
 \ }
 
+" syntastic
+let g:syntastic_always_populate_loc_list=1
+
+" vim-easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0
+nmap s <Plug>(easymotion-s2)
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
+
+" vim-rspec mappings
+let g:rspec_command = "Dispatch rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " vim-slime
 let g:slime_target = 'tmux'
 let g:slime_default_config = {
   \ 'socket_name': 'default',
   \ 'target_pane': ':0.1'
 \ }
-
 
 " Get off my lawn (force use of home-row)
 nnoremap <Left> :echoe "Use h"<CR>
