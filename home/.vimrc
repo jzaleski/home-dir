@@ -167,6 +167,14 @@ let g:lightline = {
   \ }
 \ }
 
+" vim-slime
+let g:slime_target = 'tmux'
+let g:slime_default_config = {
+  \ 'socket_name': 'default',
+  \ 'target_pane': ':0.1'
+\ }
+
+
 " Get off my lawn (force use of home-row)
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>

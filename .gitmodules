@@ -54,3 +54,7 @@
   path = misc/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   url = https://github.com/zsh-users/zsh-syntax-highlighting.git
   ignore = dirty
+[submodule "home/.vim/bundle/vim-slime"]
+  path = home/.vim/bundle/vim-slime
+  url = https://github.com/jpalardy/vim-slime.git
+  ignore = dirty
