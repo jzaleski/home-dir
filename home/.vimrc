@@ -80,6 +80,13 @@ function! ToggleHighlightWhitespace()
 endfunction
 map <F3> :call ToggleHighlightWhitespace()<CR>
 
+" Toggle Line-Numbers Helper
+function! ToggleLineNumbers()
+  set number!
+  redraw!
+endfunction
+map <F4> :call ToggleLineNumbers()<CR>
+
 " Toggle Paste-Mode Helper
 function! TogglePasteMode()
   set paste!
