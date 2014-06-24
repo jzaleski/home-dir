@@ -1,0 +1,5 @@
+{
+  "enables-layout-hud": false,
+  "enables-layout-hud-on-space-change": false,
+  "float-small-windows": true
+}
