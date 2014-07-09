@@ -13,6 +13,7 @@ alias uber_kill='~/bin/uber_kill.sh';
 alias uk='~/bin/uber_kill.sh';
 alias vag='vagrant';
 alias vi='vim';
+alias with_rvm_rubies='~/bin/with_rvm_rubies.sh';
 alias wo='source ~/bin/workon.sh';
 alias workon='source ~/bin/workon.sh';
 
