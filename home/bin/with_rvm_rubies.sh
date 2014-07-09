@@ -18,8 +18,5 @@ if [ -z "$ruby_versions" ]; then
 fi
 
 for ruby_version in $ruby_versions; do
-  bash -l -c "\
-    rvm $ruby_version@`basename $(pwd)` --create &&
-    $@;
-  ";
+  bash -l -c "$rvm_cmd $ruby_version@`basename $(pwd)` --create && $@";
 done
