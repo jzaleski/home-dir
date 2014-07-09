@@ -20,8 +20,6 @@ fi
 for ruby_version in $ruby_versions; do
   bash -l -c "\
     rvm $ruby_version@`basename $(pwd)` --create &&
-    [[ -z `which bundle` ]] && gem install bundler || true &&
-    bundle &&
     $@;
   ";
 done
