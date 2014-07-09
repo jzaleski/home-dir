@@ -1,7 +1,6 @@
 function parse_git_dirty {
   status=`git status 2> /dev/null | tail -n 1`;
-  if [[ ! $status =~ 'nothing to commit' ]];
-  then
+  if [[ ! $status =~ 'nothing to commit' ]]; then
     echo "*";
   fi
 }

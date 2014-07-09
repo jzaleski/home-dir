@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script: ssh-askpass
 # Author: Mark Carver
 # Created: 2011-09-14
@@ -15,8 +15,7 @@
 # to set the following variable for SSH to recognize where the script is located:
 #   export SSH_ASKPASS="/path/to/ssh-askpass"
 
-if [ `uname` = "Darwin" ];
-then
+if [ `uname` = "Darwin" ]; then
   TITLE="${SSH_ASKPASS_TITLE:-SSH}";
   TEXT="$(whoami)'s password:";
   IFS=$(printf "\n");
@@ -27,10 +26,9 @@ then
   CODE=(${CODE[*]} "display dialog \"${@:-$TEXT}\" default answer \"\" with title \"${TITLE}\" with icon caution with hidden answer");
   CODE=(${CODE[*]} "text returned of result");
   CODE=(${CODE[*]} "end tell");
-  SCRIPT="/usr/bin/osascript"
-  for LINE in ${CODE[*]};
-  do
-    SCRIPT="${SCRIPT} -e $(printf "%q" "${LINE}")";
-  done;
+  SCRIPT="/usr/bin/osascript";
+  for line in ${CODE[*]}; do
+    SCRIPT="${SCRIPT} -e $(printf "%q" "${line}")";
+  done
   eval "${SCRIPT}";
 fi

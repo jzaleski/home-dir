@@ -12,82 +12,68 @@ export VIRTUALENVS_DIRECTORY="$HOME/.virtualenvs";
 export VIRTUAL_ENV_DISABLE_PROMPT=1;
 
 # Ensure that "LANG" is set
-if [ -z "$LANG" ];
-then
+if [ -z "$LANG" ]; then
   export LANG="en_US.UTF-8";
 fi
 
 # Ensure that "TERM" is [properly] set
-if [ -z "$TERM" ] || [ "$TERM" = "xterm" ];
-then
+if [ -z "$TERM" ] || [ "$TERM" = "xterm" ]; then
   export TERM="xterm-256color";
 fi
 
 # If it exists, process ".common_aliases"
 COMMON_ALIASES_FILE="$HOME/.common_aliases";
-if [ -f $COMMON_ALIASES_FILE ];
-then
+if [ -f $COMMON_ALIASES_FILE ]; then
   source $COMMON_ALIASES_FILE;
 fi
 
 # If it exists, process ".common_functions"
 COMMON_FUNCTIONS_FILE="$HOME/.common_functions";
-if [ -f $COMMON_FUNCTIONS_FILE ];
-then
+if [ -f $COMMON_FUNCTIONS_FILE ]; then
   source $COMMON_FUNCTIONS_FILE;
 fi
 
 # Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
-if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "which ssh-askpass"` ];
-then
+if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "which ssh-askpass"` ]; then
   export SSH_ASKPASS="$HOME/libexec/ssh-askpass";
 fi
 
 # If it exists, process ".sshagentrc"
 SSHAGENTRC_FILE="$HOME/.sshagentrc";
-if [ -f $SSHAGENTRC_FILE ];
-then
+if [ -f $SSHAGENTRC_FILE ]; then
   source $SSHAGENTRC_FILE;
 fi
 
 # If it exists, process ".autocutselrc"
 AUTOCUTSELRC_FILE="$HOME/.autocutselrc";
-if [ -f $AUTOCUTSELRC_FILE ];
-then
+if [ -f $AUTOCUTSELRC_FILE ]; then
   source $AUTOCUTSELRC_FILE;
 fi
 
 # If "TextWrangler" is installed set it as the default "TEXT_EDITOR"
 TEXT_EDITOR="/Applications/TextWrangler.app";
-if [ -e $TEXT_EDITOR ];
-then
+if [ -e $TEXT_EDITOR ]; then
   export TEXT_EDITOR=$TEXT_EDITOR;
 fi
 
 # If it exists, load RVM
 RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
-if [ -f $RVM_SCRIPT ];
-then
+if [ -f $RVM_SCRIPT ]; then
   source $RVM_SCRIPT;
 fi
 
 # If it exists, process ".rubyrc"
 RUBYRC_FILE="$HOME/.rubyrc";
-if [ -f $RUBYRC_FILE ];
-then
+if [ -f $RUBYRC_FILE ]; then
   source $RUBYRC_FILE;
 fi
 
 # Determine the correct distro-specific ".commonrc" file to load
-if [ `uname` = "Darwin" ];
-then
+if [ `uname` = "Darwin" ]; then
   DISTRO_SPECIFIC_COMMONRC_FILE="$HOME/.commonrc_darwin";
-else
-  DISTRO_SPECIFIC_COMMONRC_FILE="$HOME/.commonrc_linux";
 fi
 
 # If it exists, process "$DISTRO_SPECIFIC_COMMONRC_FILE"
-if [ -f $DISTRO_SPECIFIC_COMMONRC_FILE ];
-then
+if [ -f $DISTRO_SPECIFIC_COMMONRC_FILE ]; then
   source $DISTRO_SPECIFIC_COMMONRC_FILE;
 fi

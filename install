@@ -1,23 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ensure that all submodules are initialized and up to date
-git submodule init && git submodule update
+git submodule init && git submodule update;
 
 # find files, directories and symbolic-links
-for d in home misc;
-do
-  for x in $(find $d -type d -o -type f -o -type l | \grep -E "^$d/(.+)" | sed "s/$d\///g");
-  do
+for d in home misc; do
+  for x in $(find $d -type d -o -type f -o -type l | \grep -E "^$d/(.+)" | sed "s/$d\///g"); do
     # calculate the source/destination values
     source_=$d/$x;
     destination=~/$x;
     # if it's a directory and it does not exist
-    if [ -d $source_ ] && [ ! -d $destination ];
-    then
+    if [ -d $source_ ] && [ ! -d $destination ]; then
       mkdir -p $destination;
     # if it's a file and it does not exist or it is different
-    elif [ -f $source_ ] && ([ ! -f $destination ] || ! cmp $source_ $destination > /dev/null 2>&1);
-    then
+    elif [ -f $source_ ] && ([ ! -f $destination ] || ! cmp $source_ $destination > /dev/null 2>&1); then
       cp -ai $source_ $destination;
     fi
   done
@@ -28,8 +24,7 @@ source $HOME/.bashrc;
 
 # run scripts optionally w/ any abitrary prefix (e.g. "sudo")
 function run_scripts() {
-  for f in $(find $1 -type f | egrep "^$1/[^\.](.+)" | sed "s/$1\///g");
-  do
+  for f in $(find $1 -type f | egrep "^$1/[^\.](.+)" | sed "s/$1\///g"); do
     $2 $1/$f;
   done
 }

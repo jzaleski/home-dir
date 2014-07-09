@@ -101,19 +101,16 @@ map <C-S-F> :FindInFiles<SPACE>
 " Find All References
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 
-" Build/Rebuild Helper
-function! BuildOrRebuild()
-  if executable('mcs')
-    let current_file = expand('%:p')
-    if !empty(matchstr(current_file, '.cs$'))
-      execute "Dispatch mcs " . current_file
-    endif
+" Make Helper
+function! Make()
+  if filereadable(expand('%:p:h') . '/Makefile')
+    execute 'Dispatch make'
   endif
   redraw!
 endfunction
 
-" Build/Rebuild
-map <C-B> :call BuildOrRebuild()<CR>
+" Make
+map <C-B> :call Make()<CR>
 
 " Toggle the Location and Quickfix windows
 function! GetBufferList()

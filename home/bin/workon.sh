@@ -1,24 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [ $# -eq 1 ];
-then
-  my_cnf_file="$HOME/.my.cnf.$1";
-  if [ -f $my_cnf_file ];
-  then
-    ln -sf $my_cnf_file "$HOME/.my.cnf";
+if [ $# -eq 1 ]; then
+  MY_CNF_FILE="$HOME/.my.cnf.$1";
+  if [ -f $MY_CNF_FILE ]; then
+    ln -sf $MY_CNF_FILE "$HOME/.my.cnf";
   fi
 
   deactivate 2> /dev/null;
-  activate_script="$VIRTUALENVS_DIRECTORY/$1/bin/activate";
-  if [ -f $activate_script ];
-  then
-    source $activate_script;
+  ACTIVATE_SCRIPT="$VIRTUALENVS_DIRECTORY/$1/bin/activate";
+  if [ -f $ACTIVATE_SCRIPT ]; then
+    source $ACTIVATE_SCRIPT;
   fi
 
-  project_directory="$SOURCE_DIRECTORY/$1";
-  if [ -d $project_directory ];
-  then
-    cd $project_directory;
+  PROJECT_DIRECTORY="$SOURCE_DIRECTORY/$1";
+  if [ -d $PROJECT_DIRECTORY ]; then
+    cd $PROJECT_DIRECTORY;
   else
     echo "Project \"$1\" does not exist";
   fi

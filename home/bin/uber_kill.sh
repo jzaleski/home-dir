@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # validate args
-if [ "$#" -lt 1 ];
-then
+if [ $# -lt 1 ]; then
   echo "Usage: uber_kill <pid> ...";
   exit 2;
 fi
@@ -14,8 +13,7 @@ term_sleep=${TERM_SLEEP:-5};
 
 # retry then sleep (the loop will exit when "kill" sets an error exit-code or
 # when the maximum number of attempts is reached)
-for n in $(seq $term_attempts);
-do
+for n in $(seq $term_attempts); do
   kill -15 $pids > /dev/null 2>&1 || break;
   sleep $term_sleep;
 done
@@ -24,8 +22,7 @@ done
 kill -9 $pids > /dev/null 2>&1;
 
 # determine exit-code
-if $(kill -0 $pids &> /dev/null);
-then
+if $(kill -0 $pids > /dev/null 2>&1); then
   # one or more processes still exist, set error exit-code
   exit 1;
 else

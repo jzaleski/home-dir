@@ -8,6 +8,7 @@ alias ipython='CWD=`pwd` ~/bin/ipython.sh';
 alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
 alias mycnf='~/bin/mycnf.sh';
+alias tmux='~/bin/tmux.sh';
 alias uber_kill='~/bin/uber_kill.sh';
 alias uk='~/bin/uber_kill.sh';
 alias vag='vagrant';
@@ -28,15 +29,15 @@ alias ..........='cd ../../../../../../../../..';
 alias ...........='cd ../../../../../../../../../..';
 
 # dynamically detect project directories and create aliases
-if [ -d "$SOURCE_DIRECTORY" ];
-then
-  for d in `\ls $SOURCE_DIRECTORY`;
-  do
+if [ -d $SOURCE_DIRECTORY ]; then
+  for d in `\ls $SOURCE_DIRECTORY`; do
     # open mvim at project root
     alias mvim-$d="(workon-$d; mvim)";
     # open vim at project root
     alias vim-$d="(workon-$d; vim)";
     # workon specific project
+    alias wo-$d="workon $d";
+    # workon specific project (variant)
     alias workon-$d="workon $d";
   done
 fi
