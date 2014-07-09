@@ -6,6 +6,7 @@
     "com.apple.Dictionary",
     "com.apple.finder",
     "com.apple.systempreferences",
-    "com.hipchat.HipChat"
+    "com.hipchat.HipChat",
+    "com.microsoft.Outlook"
   ]
 }
