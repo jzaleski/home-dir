@@ -56,12 +56,6 @@ if [ -e $TEXT_EDITOR ]; then
   export TEXT_EDITOR=$TEXT_EDITOR;
 fi
 
-# If it exists, load RVM
-RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
-if [ -f $RVM_SCRIPT ]; then
-  source $RVM_SCRIPT;
-fi
-
 # If it exists, process ".rubyrc"
 RUBYRC_FILE="$HOME/.rubyrc";
 if [ -f $RUBYRC_FILE ]; then
@@ -76,4 +70,10 @@ fi
 # If it exists, process "$DISTRO_SPECIFIC_COMMONRC_FILE"
 if [ -f $DISTRO_SPECIFIC_COMMONRC_FILE ]; then
   source $DISTRO_SPECIFIC_COMMONRC_FILE;
+fi
+
+# If it exists, load RVM
+RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
+if [ -f $RVM_SCRIPT ]; then
+  source $RVM_SCRIPT;
 fi
