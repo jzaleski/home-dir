@@ -5,16 +5,16 @@ git submodule init && git submodule update;
 
 # find files, directories and symbolic-links
 for d in home misc; do
-  for x in $(find $d -type d -o -type f -o -type l | \grep -E "^$d/(.+)" | sed "s/$d\///g"); do
+  for o in $(find $d -type d -o -type f -o -type l | \grep -E "^$d/(.+)" | sed "s/$d\///g"); do
     # calculate the source/destination values
-    source_=$d/$x;
-    destination=~/$x;
+    source_object=$d/$o;
+    destination_object=$HOME/$o;
     # if it's a directory and it does not exist
-    if [ -d $source_ ] && [ ! -d $destination ]; then
-      mkdir -p $destination;
+    if [ -d $source_object ] && [ ! -d $destination_object ]; then
+      mkdir -p $destination_object;
     # if it's a file and it does not exist or it is different
-    elif [ -f $source_ ] && ([ ! -f $destination ] || ! cmp $source_ $destination > /dev/null 2>&1); then
-      cp -ai $source_ $destination;
+    elif [ -f $source_object ] && ([ ! -f $destination_object ] || ! cmp $source_object $destination_object > /dev/null 2>&1); then
+      cp -ai $source_object $destination_object;
     fi
   done
 done

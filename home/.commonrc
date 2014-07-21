@@ -63,8 +63,9 @@ if [ -f $DARWINRC_FILE ]; then
 fi
 
 # Load any custom init-scripts (the filename *must* end-with "rc")
-if [ -d "$HOME/.home_dir/custom" ]; then
-  for f in `find .home_dir/custom -type f -o -type l | \grep 'rc$'`; do
+CUSTOM_INIT_SCRIPTS_DIRECTORY="$HOME/.home_dir/custom";
+if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
+  for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "rc$"`; do
     source $f;
   done
 fi
