@@ -6,6 +6,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     $apt_get_cmd install -y \
       apg \
       automake \
+      bash \
       bash-completion \
       build-essential \
       exuberant-ctags \

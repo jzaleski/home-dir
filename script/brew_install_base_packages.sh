@@ -6,6 +6,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     for package in \
       ag \
       apg \
+      bash \
       bash-completion \
       ctags \
       git \
