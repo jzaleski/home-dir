@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  apt_cmd=`which apt-get`;
-  if [ -n "$apt_cmd" ]; then
+  apt_get_cmd=`which apt-get`;
+  if [ -n "$apt_get_cmd" ]; then
     # Install packages
-    $apt_cmd install -y \
+    $apt_get_cmd install -y \
       autocutsel \
       gnome-terminal \
       libghc-xmonad-contrib-dev \

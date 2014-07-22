@@ -2,7 +2,7 @@
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   # clone the repository
-  ipython_directory="$SOURCE_DIRECTORY/ipython";
+  ipython_directory=$SOURCE_DIRECTORY/ipython;
   if [ ! -d $ipython_directory ]; then
     (cd $SOURCE_DIRECTORY && git clone https://github.com/ipython/ipython.git);
   # update the repository
@@ -11,7 +11,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   fi
 
   # configure
-  ipython_virtualenv_directory="$VIRTUALENVS_DIRECTORY/ipython";
+  ipython_virtualenv_directory=$VIRTUALENVS_DIRECTORY/ipython;
   if [ ! -d $ipython_virtualenv_directory ]; then
     virtualenv $ipython_virtualenv_directory --no-site-packages;
   fi

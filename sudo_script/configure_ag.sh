@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ] && [ -z `which ag` ]; then
-  apt_cmd=`which apt-get`;
-  if [ -n "$apt_cmd" ]; then
-    $apt_cmd install -y liblzma5 liblzma-dev libpcre3 libpcre3-dev &&
+  apt_get_cmd=`which apt-get`;
+  if [ -n "$apt_get_cmd" ]; then
+    $apt_get_cmd install -y liblzma5 liblzma-dev libpcre3 libpcre3-dev &&
     cd /tmp &&
     git clone git://github.com/ggreer/the_silver_searcher.git &&
     cd the_silver_searcher &&
