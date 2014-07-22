@@ -22,6 +22,9 @@ export HISTFILESIZE=100000;
 # Append to the history file, don't overwrite it
 shopt -s histappend;
 
+# Attempt to turn on "autocd" (available in bash 4.x+)
+shopt -s autocd > /dev/null 2>&1;
+
 # If it exists, process ".commonrc"
 COMMONRC_FILE=$HOME/.commonrc;
 if [ -f $COMMONRC_FILE ]; then
