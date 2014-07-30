@@ -1,9 +1,3 @@
-# If it exists, process ".bash_prompt"
-BASH_PROMPT_FILE=$HOME/.bash_prompt;
-if [ -f $BASH_PROMPT_FILE ]; then
-  source $BASH_PROMPT_FILE;
-fi
-
 # "Homebrew" specific inclusions
 HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
 if [ -n "$HOMEBREW_PREFIX" ]; then
@@ -27,6 +21,12 @@ shopt -s autocd > /dev/null 2>&1;
 
 # Handle minor errors in the spelling of a directory component
 shopt -s cdspell > /dev/null 2>&1;
+
+# If it exists, process ".bash_prompt"
+BASH_PROMPT_FILE=$HOME/.bash_prompt;
+if [ -f $BASH_PROMPT_FILE ]; then
+  source $BASH_PROMPT_FILE;
+fi
 
 # If it exists, process ".commonrc"
 COMMONRC_FILE=$HOME/.commonrc;

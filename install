@@ -4,7 +4,7 @@
 git submodule init && git submodule update;
 
 # find files, directories and symbolic-links
-for d in home; do
+for d in home overrides; do
   for o in $(find $d -type d -o -type f -o -type l | \grep -E "^$d/(.+)" | sed "s/$d\///g"); do
     # calculate the source/destination values
     source_object=$d/$o;

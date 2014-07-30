@@ -8,6 +8,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       automake \
       bash \
       bash-completion \
+      bash-doc \
       build-essential \
       exuberant-ctags \
       git \
@@ -20,6 +21,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       uuid-runtime \
       vim \
       wget \
-      zsh;
+      zsh \
+      zsh-doc;
   fi
 fi
