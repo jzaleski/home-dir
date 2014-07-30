@@ -7,7 +7,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     (cd $SOURCE_DIRECTORY && git clone https://github.com/ipython/ipython.git);
   # update the repository
   else
-    (cd $SOURCE_DIRECTORY && git pull);
+    (cd $ipython_directory && git pull);
   fi
 
   # configure
