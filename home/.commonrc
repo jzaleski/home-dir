@@ -21,6 +21,24 @@ if [ -z "$TERM" ] || [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color;
 fi
 
+# If it exists, process ".cygwinrc"
+CYGWINRC_FILE=$HOME/.cygwinrc;
+if [ -f $CYGWINRC_FILE ]; then
+  source $CYGWINRC_FILE;
+fi
+
+# If it exists, process ".darwinrc"
+DARWINRC_FILE=$HOME/.darwinrc;
+if [ -f $DARWINRC_FILE ]; then
+  source $DARWINRC_FILE;
+fi
+
+# If it exists, process ".minttyrc"
+MINTTYRC_FILE=$HOME/.minttyrc;
+if [ -f $MINTTYRC_FILE ]; then
+  source $MINTTYRC_FILE;
+fi
+
 # If it exists, process ".common_aliases"
 COMMON_ALIASES_FILE=$HOME/.common_aliases;
 if [ -f $COMMON_ALIASES_FILE ]; then
@@ -34,7 +52,7 @@ if [ -f $COMMON_FUNCTIONS_FILE ]; then
 fi
 
 # Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
-if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "which ssh-askpass"` ]; then
+if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "which ssh-askpass 2> /dev/null"` ]; then
   export SSH_ASKPASS=$HOME/libexec/ssh-askpass;
 fi
 
@@ -54,12 +72,6 @@ fi
 RUBYRC_FILE=$HOME/.rubyrc;
 if [ -f $RUBYRC_FILE ]; then
   source $RUBYRC_FILE;
-fi
-
-# If it exists, process ".darwinrc"
-DARWINRC_FILE=$HOME/.darwinrc;
-if [ -f $DARWINRC_FILE ]; then
-  source $DARWINRC_FILE;
 fi
 
 # Load any custom init-scripts (the filename *must* end-with "rc")

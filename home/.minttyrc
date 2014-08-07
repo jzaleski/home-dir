@@ -1,0 +1,8 @@
+BoldAsFont=no
+Font=Inconsolata
+FontHeight=11
+Scrollbar=none
+PgUpDnScroll=yes
+Columns=130
+Rows=45
+Term=xterm-256color
