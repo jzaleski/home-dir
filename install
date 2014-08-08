@@ -30,5 +30,5 @@ function run_scripts() {
 }
 
 # run any files in "sudo_scripts" then in "scripts" (assumes things requiring root should occur first)
-run_scripts 'sudo_script' 'sudo -E'
+[[ `which sudo 2> /dev/null` ]] && run_scripts 'sudo_script' 'sudo -E'
 run_scripts 'script'

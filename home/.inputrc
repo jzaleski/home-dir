@@ -1,0 +1,8 @@
+set bell-style visible
+set completion-ignore-case on
+set completion-map-case on
+set convert-meta off
+set output-meta on
+
+"\e[1;3D": backward-word
+"\e[1;3C": forward-word
