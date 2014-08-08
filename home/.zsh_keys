@@ -1,4 +1,7 @@
-if [ -z "$TMUX_PANE" ]; then
+if [ -n "$TMUX_PANE" ]; then
+  bindkey 'OD' backward-word;
+  bindkey 'OC' forward-word;
+else
   bindkey '\e[1;3D' backward-word;
   bindkey '\e[1;3C' forward-word;
 fi

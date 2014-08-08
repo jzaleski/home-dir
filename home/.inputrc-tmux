@@ -1,0 +1,8 @@
+set bell-style visible
+set completion-ignore-case on
+set completion-map-case on
+set convert-meta off
+set output-meta on
+
+"[D": backward-word
+"[C": forward-word

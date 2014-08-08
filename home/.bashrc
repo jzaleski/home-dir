@@ -42,3 +42,9 @@ BASH_ALIASES_FILE=$HOME/.bash_aliases;
 if [ -f $BASH_ALIASES_FILE ]; then
   source $BASH_ALIASES_FILE;
 fi
+
+# If it exists, and we're running "tmux" use ".inputrc-tmux"
+INPUTRC_TMUX_FILE=$HOME/.inputrc-tmux;
+if [ -n "$TMUX_PANE" ] && [ -f $INPUTRC_TMUX_FILE ]; then
+  export INPUTRC=$INPUTRC_TMUX_FILE;
+fi
