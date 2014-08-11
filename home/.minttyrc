@@ -13,3 +13,4 @@ CursorBlinks=yes
 FontSmoothing=full
 Locale=C
 Charset=UTF-8
+CursorType=block
