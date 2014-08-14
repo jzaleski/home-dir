@@ -1,6 +1,6 @@
 BoldAsFont=no
-Font=Inconsolata
-FontHeight=11
+Font=PT Mono
+FontHeight=10
 Scrollbar=none
 PgUpDnScroll=yes
 Columns=130
