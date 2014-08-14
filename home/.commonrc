@@ -33,12 +33,6 @@ if [ -f $DARWINRC_FILE ]; then
   source $DARWINRC_FILE;
 fi
 
-# If it exists, process ".minttyrc"
-MINTTYRC_FILE=$HOME/.minttyrc;
-if [ -f $MINTTYRC_FILE ]; then
-  source $MINTTYRC_FILE;
-fi
-
 # If it exists, process ".common_aliases"
 COMMON_ALIASES_FILE=$HOME/.common_aliases;
 if [ -f $COMMON_ALIASES_FILE ]; then
