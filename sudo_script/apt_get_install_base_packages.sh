@@ -17,6 +17,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       python \
       python-dev \
       screen \
+      unzip \
       uuid-dev \
       uuid-runtime \
       vim \

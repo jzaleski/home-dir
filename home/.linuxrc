@@ -1,0 +1,11 @@
+if [ `uname` = 'Linux' ]; then
+  firefox_cmd=`which firefox`;
+  if [ -n "$firefox_cmd" ]; then
+    alias firefox="$firefox_cmd > /dev/null 2>&1";
+  fi
+  google_chrome_cmd=`which google-chrome`;
+  if [ -n "$google_chrome_cmd" ]; then
+    alias chrome="$google_chrome_cmd > /dev/null 2>&1";
+    alias google-chrome="chrome";
+  fi
+fi

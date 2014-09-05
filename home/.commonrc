@@ -33,6 +33,12 @@ if [ -f $DARWINRC_FILE ]; then
   source $DARWINRC_FILE;
 fi
 
+# If it exists, process ".linuxrc"
+LINUXRC_FILE=$HOME/.linuxrc;
+if [ -f $LINUXRC_FILE ]; then
+  source $LINUXRC_FILE;
+fi
+
 # If it exists, process ".common_aliases"
 COMMON_ALIASES_FILE=$HOME/.common_aliases;
 if [ -f $COMMON_ALIASES_FILE ]; then
