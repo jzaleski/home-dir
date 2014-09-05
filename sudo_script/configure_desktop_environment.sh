@@ -6,6 +6,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     # Install packages
     $apt_get_cmd install -y \
       autocutsel \
+      dconf \
       gnome-terminal \
       libghc-xmonad-contrib-dev \
       libghc-xmonad-dev \
