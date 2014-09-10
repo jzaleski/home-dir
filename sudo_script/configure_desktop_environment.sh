@@ -15,6 +15,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       vim-gnome \
       xmonad \
       xorg;
+    # Ensure that "dconf" is installed
+    if [ -n `which dconf` ]; then
+      $apt_get_cmd install -y dconf 2> /dev/null;
+      $apt_get_cmd install -y dconf-cli 2> /dev/null;
+    fi
     # Ensure that "gdm" is not started by default
     if [ -n `which gdm` ]; then
       update-rc.d -f gdm remove 2> /dev/null;
