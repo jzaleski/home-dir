@@ -1,4 +1,7 @@
-if [ -n "$TMUX_PANE" ]; then
+if [ -n "$PUTTY" ]; then
+  bindkey 'OD' backward-word;
+  bindkey 'OC' forward-word;
+elif [ -n "$TMUX_PANE" ]; then
   bindkey 'OD' backward-word;
   bindkey 'OC' forward-word;
 else
