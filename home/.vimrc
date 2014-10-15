@@ -104,7 +104,7 @@ map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 " Make Helper
 function! Make()
   if filereadable(expand('%:p:h') . '/Makefile')
-    execute 'Dispatch make'
+    execute 'make'
   endif
   redraw!
 endfunction
@@ -120,7 +120,7 @@ function! GetBufferList()
   return buflist
 endfunction
 function! ToggleList(bufname, pfx)
-  let buflist = GetBufferList()
+  let buflist=GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
     if bufwinnr(bufnum) != -1
       exec(a:pfx.'close')
@@ -132,7 +132,7 @@ function! ToggleList(bufname, pfx)
       echo "Location List is Empty."
       return
   endif
-  let winnr = winnr()
+  let winnr=winnr()
   exec(a:pfx.'open')
   if winnr() != winnr
     wincmd p
@@ -141,9 +141,9 @@ endfunction
 nmap <silent> <Leader>g :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
-" ctrlp
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_working_path_mode = 'rw'
+" CtrlP
+let g:ctrlp_root_markers=['.ctrlp']
+let g:ctrlp_working_path_mode='rw'
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
@@ -154,7 +154,7 @@ endif
 function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
 endfunction
-let g:lightline = {
+let g:lightline={
   \ 'colorscheme': 'solarized_dark',
   \ 'active': {
   \   'left': [
@@ -178,26 +178,9 @@ let g:lightline = {
 " syntastic
 let g:syntastic_always_populate_loc_list=1
 
-" vim-easymotion
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_startofline = 0
-nmap s <Plug>(easymotion-s2)
-map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
-
-" vim-rspec mappings
-let g:rspec_command = "Dispatch rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " vim-slime
-let g:slime_target = 'tmux'
-let g:slime_default_config = {
+let g:slime_target='tmux'
+let g:slime_default_config={
   \ 'socket_name': 'default',
   \ 'target_pane': ':0.1'
 \ }
@@ -222,6 +205,6 @@ nnoremap bw :bwipeout<CR>
 nnoremap bl :buffers<CR>
 
 " Load ctags for gems
-autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
+autocmd FileType ruby let &l:tags=pathogen#legacyjoin(pathogen#uniq(
   \ pathogen#split(&tags) +
-  \ map(split($GEM_PATH,':'),'v:val."/gems/*/tags"')))
+  \ map(split($GEM_PATH, ':'),'v:val."/gems/*/tags"')))

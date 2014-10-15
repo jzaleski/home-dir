@@ -20,11 +20,7 @@
   ignore = dirty
 [submodule "home/.vim/bundle/tcomment.vim"]
   path = home/.vim/bundle/tcomment.vim
-  url = https://github.com/tomtom/tcomment_vim
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-rspec"]
-  path = home/.vim/bundle/vim-rspec
-  url = https://github.com/thoughtbot/vim-rspec
+  url = https://github.com/tomtom/tcomment_vim.git
   ignore = dirty
 [submodule "home/.vim/bundle/vim-surround"]
   path = home/.vim/bundle/vim-surround
@@ -37,10 +33,6 @@
 [submodule "home/.vim/bundle/syntastic"]
   path = home/.vim/bundle/syntastic
   url = https://github.com/scrooloose/syntastic.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-dispatch"]
-  path = home/.vim/bundle/vim-dispatch
-  url = https://github.com/tpope/vim-dispatch.git
   ignore = dirty
 [submodule "home/.vim/bundle/tabline.vim"]
   path = home/.vim/bundle/tabline.vim
@@ -57,12 +49,4 @@
 [submodule "overrides/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
   path = overrides/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-coffee-script"]
-  path = home/.vim/bundle/vim-coffee-script
-  url = https://github.com/kchmck/vim-coffee-script.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-rails"]
-  path = home/.vim/bundle/vim-rails
-  url = https://github.com/tpope/vim-rails.git
   ignore = dirty
