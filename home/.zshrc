@@ -40,6 +40,9 @@ if [ -f $COMMONRC_FILE ]; then
   source $COMMONRC_FILE;
 fi
 
+# Ensure that "ZSH_TMUX_TERM" is set to the same value as "TERM"
+export ZSH_TMUX_TERM=$TERM;
+
 # If it exists, process ".zsh_aliases"
 ZSH_ALIASES_FILE=$HOME/.zsh_aliases;
 if [ -f $ZSH_ALIASES_FILE ]; then
