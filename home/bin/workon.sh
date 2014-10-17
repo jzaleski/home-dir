@@ -19,5 +19,4 @@ if [ $# -eq 1 ]; then
   else
     echo "Project \"$1\" does not exist";
   fi
-  unset PROJECT_DIRECTORY;
 fi
