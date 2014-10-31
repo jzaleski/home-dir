@@ -64,6 +64,13 @@ endif
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
+" Toggle Paste-Mode Helper
+function! TogglePasteMode()
+  set paste!
+  redraw!
+endfunction
+map <F2> :call TogglePasteMode()<CR>
+
 " Toggle Highlight-Whitespace Helper
 function! ToggleHighlightWhitespace()
   if !exists('g:highlight_whitespace')
@@ -80,19 +87,19 @@ function! ToggleHighlightWhitespace()
 endfunction
 map <F3> :call ToggleHighlightWhitespace()<CR>
 
+" Toggle Indent-Guides Helper
+function! ToggleIndentGuides()
+  IndentGuidesToggle
+  redraw!
+endfunction
+map <F4> :call ToggleIndentGuides()<CR>
+
 " Toggle Line-Numbers Helper
 function! ToggleLineNumbers()
   set number!
   redraw!
 endfunction
-map <F4> :call ToggleLineNumbers()<CR>
-
-" Toggle Paste-Mode Helper
-function! TogglePasteMode()
-  set paste!
-  redraw!
-endfunction
-map <F2> :call TogglePasteMode()<CR>
+map <F5> :call ToggleLineNumbers()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
@@ -149,6 +156,11 @@ if executable('ag')
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching=0
 endif
+
+" Indent Guides
+let g:indent_guides_auto_colors=0
+hi IndentGuidesOdd ctermbg=5 guibg=magenta
+hi IndentGuidesEven ctermbg=2 guibg=green
 
 " lightline
 function! CurrentFilename()
