@@ -54,3 +54,7 @@
   path = home/.vim/bundle/vim-indent-guides
   url = https://github.com/nathanaelkane/vim-indent-guides.git
   ignore = dirty
+[submodule "home/.vim/bundle/vim-puppet"]
+  path = home/.vim/bundle/vim-puppet
+  url = https://github.com/rodjek/vim-puppet.git
+  ignore = dirty

@@ -13,7 +13,7 @@
   ignored = !git ls-files -v | grep "^[[:lower:]]"
   move = mv
   praise = blame
-  put = push origin HEAD
+  put = push -u origin HEAD
   rb = rebase
   rem = rm
   remove = rm
