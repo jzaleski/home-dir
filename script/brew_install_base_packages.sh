@@ -12,6 +12,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       git \
       gnu-sed \
       htop-osx \
+      jq \
       openssl \
       readline \
       tmux \
