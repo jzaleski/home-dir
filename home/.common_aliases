@@ -11,6 +11,7 @@ alias mycnf='~/bin/mycnf.sh';
 alias tmux='~/bin/tmux.sh';
 alias uber_kill='~/bin/uber_kill.sh';
 alias uk='~/bin/uber_kill.sh';
+alias vagrant='~/bin/vagrant.sh';
 alias vi='vim';
 alias with_rvm_rubies='~/bin/with_rvm_rubies.sh';
 alias wo='source ~/bin/workon.sh';
