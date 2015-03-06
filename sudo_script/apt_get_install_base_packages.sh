@@ -16,6 +16,8 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       linux-headers-$(uname -r) \
       python \
       python-dev \
+      python-setuptools \
+      python-software-properties \
       screen \
       unzip \
       uuid-dev \
