@@ -6,4 +6,4 @@ if [ -z "$vagrant_cmd" ]; then
   exit 1;
 fi
 
-$vagrant_cmd `echo ${@:1} | sed 's/down/halt/'`;
+$vagrant_cmd `echo ${@:1} | sed 's/^down$/halt/' | sed 's/^off$/halt/' | sed 's/^on$/up/'`;
