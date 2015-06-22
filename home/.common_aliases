@@ -8,7 +8,6 @@ alias ipython='CWD=`pwd` ~/bin/ipython.sh';
 alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
 alias mycnf='~/bin/mycnf.sh';
-alias tmux='~/bin/tmux.sh';
 alias uber_kill='~/bin/uber_kill.sh';
 alias uk='~/bin/uber_kill.sh';
 alias vagrant='~/bin/vagrant.sh';
