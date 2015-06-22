@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  brew_cmd=`which brew`;
+  brew_cmd=`\which brew 2> /dev/null`;
   if [ -n "$brew_cmd" ]; then
     for package in \
       ag \

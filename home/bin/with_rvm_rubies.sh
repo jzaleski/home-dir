@@ -5,7 +5,7 @@ if [ $# -eq 0 ]; then
   exit 2;
 fi
 
-if [ -z `which rvm` ]; then
+if [ -z `\which rvm 2> /dev/null` ]; then
   echo "Could not locate \"rvm\"";
   exit 1;
 fi

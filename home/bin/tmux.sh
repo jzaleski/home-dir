@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-tmux_cmd=`which tmux`;
+tmux_cmd=`\which tmux 2> /dev/null`;
 if [ -z "$tmux_cmd" ]; then
   echo "Could not locate the \"tmux\" binary";
   exit 1;

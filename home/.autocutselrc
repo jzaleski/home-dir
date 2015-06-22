@@ -1,4 +1,4 @@
-AUTOCUTSEL_CMD=`which autocutsel 2> /dev/null`;
+AUTOCUTSEL_CMD=`\which autocutsel 2> /dev/null`;
 if [ -n "$AUTOCUTSEL_CMD" ] && [ `ps -ef | \grep -c "[a]utocutsel"` -eq 0 ]; then
   ($AUTOCUTSEL_CMD &) > /dev/null 2>&1;
   ($AUTOCUTSEL_CMD -s PRIMARY &) > /dev/null 2>&1;

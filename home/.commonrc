@@ -56,7 +56,7 @@ if [ -f $COMMON_FUNCTIONS_FILE ]; then
 fi
 
 # Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
-if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "which ssh-askpass 2> /dev/null"` ]; then
+if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "\which ssh-askpass 2> /dev/null"` ]; then
   export SSH_ASKPASS=$HOME/libexec/ssh-askpass;
 fi
 
@@ -84,6 +84,18 @@ if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
   for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "rc$"`; do
     source $f;
   done
+fi
+
+# If it exists, and we're running under "puTTY" use ".inputrc-putty"
+INPUTRC_PUTTY_FILE=$HOME/.inputrc-putty;
+if [ -n "$PUTTY" ] && [ -f $INPUTRC_PUTTY_FILE ]; then
+  export INPUTRC=$INPUTRC_PUTTY_FILE;
+fi
+
+# If it exists, and we're running under "tmux" use ".inputrc-tmux"
+INPUTRC_TMUX_FILE=$HOME/.inputrc-tmux;
+if [ -n "$TMUX_PANE" ] && [ -f $INPUTRC_TMUX_FILE ]; then
+  export INPUTRC=$INPUTRC_TMUX_FILE;
 fi
 
 # If it exists, load RVM (it *must* be initialized last)

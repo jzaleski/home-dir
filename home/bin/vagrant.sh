@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-vagrant_cmd=`which vagrant`;
+vagrant_cmd=`\which vagrant 2> /dev/null`;
 if [ -z "$vagrant_cmd" ]; then
   echo "Could not locate the \"vagrant\" binary";
   exit 1;

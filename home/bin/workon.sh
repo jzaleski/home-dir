@@ -11,7 +11,7 @@ if [ $# -ge 1 ]; then
   fi
 
   branch=$2;
-  git_cmd=`which git 2> /dev/null`;
+  git_cmd=`\which git 2> /dev/null`;
   if [ -n "$git_cmd" ] && [ -n "$branch" ]; then
     $git_cmd checkout $branch 1> /dev/null;
   fi

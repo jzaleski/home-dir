@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [ -n "$EXTENDED_BOOTSTRAP" ] && [ -z `which tmux` ]; then
-  apt_get_cmd=`which apt-get`;
+if [ -n "$EXTENDED_BOOTSTRAP" ] && [ -z `\which tmux 2> /dev/null` ]; then
+  apt_get_cmd=`\which apt-get 2> /dev/null`;
   if [ -n "$apt_get_cmd" ]; then
     $apt_get_cmd install -y libncurses5-dev libevent-dev &&
     cd /tmp &&

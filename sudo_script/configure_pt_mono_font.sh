@@ -2,7 +2,7 @@
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   fonts_base_directory="/usr/share/fonts/truetype"
-  if [ -n `which unzip` ] && [ -d "$fonts_base_directory" ] && [ ! -d "$fonts_base_directory/PT_Mono" ]; then
+  if [ -n `\which unzip 2> /dev/null` ] && [ -d "$fonts_base_directory" ] && [ ! -d "$fonts_base_directory/PT_Mono" ]; then
     # create a staging directory
     temp_dir='/tmp/PT_Mono';
     mkdir -p $temp_dir;
