@@ -33,8 +33,6 @@ if [ -d $SOURCE_DIRECTORY ]; then
   for d in `\ls $SOURCE_DIRECTORY`; do
     # workon specific project
     alias cd-$d="workon $d";
-    # open mvim at project root
-    alias mvim-$d="(workon-$d; mvim)";
     # open vim at project root
     alias vim-$d="(workon-$d; vim)";
     # workon specific project
