@@ -19,6 +19,9 @@ for d in home overrides; do
   done
 done
 
+# ensure that the [user-specific] temporary directory exists
+mkdir -p $HOME/tmp;
+
 # reload the shell-config (it may have changed)
 source $HOME/.bashrc;
 
