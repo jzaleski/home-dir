@@ -19,9 +19,6 @@ for d in home overrides; do
   done
 done
 
-# ensure that the [user-specific] temporary directory exists
-mkdir -p $HOME/tmp;
-
 # reload the shell-config (it may have changed)
 source $HOME/.bashrc;
 
@@ -32,6 +29,8 @@ function run_scripts() {
   done
 }
 
-# run any files in "sudo_scripts" then in "scripts" (assumes things requiring root should occur first)
+# run any files in "sudo_script" (the assumption is that things requiring root should occur first)
 [[ `\which sudo 2> /dev/null` ]] && run_scripts 'sudo_script' 'sudo -E'
+
+# run any files in "script"
 run_scripts 'script'
