@@ -13,8 +13,6 @@ if [ -d $OH_MY_ZSH_DIR ]; then
   `hash psql 2> /dev/null` && plugins+=(postgres);
   `hash rake 2> /dev/null` && plugins+=(rake);
   `hash ruby 2> /dev/null` && plugins+=(ruby);
-  `hash screen 2> /dev/null` && plugins+=(screen);
-  `hash tmux 2> /dev/null` && plugins+=(tmux);
   source $ZSH/oh-my-zsh.sh;
 fi
 
