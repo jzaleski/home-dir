@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# allow tag generation to be turned off globally or per-project
+notags_file=.notags;
+if [ -f $HOME/$notags_file ] || [ -f $notags_file ]; then
+  exit 0;
+fi
+
 # ensure that the pkill binary is available
 if ! hash pkill 2> /dev/null; then
   echo "Could not locate the \"pkill\" binary";
