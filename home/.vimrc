@@ -57,7 +57,11 @@ set expandtab
 
 " GUI specific ({g,Mac}Vim)
 if has('gui_running')
+  set guifont=PT\ Mono:h10
+  set guioptions-=m
+  set guioptions-=T
   set guioptions-=r
+  set guioptions-=L
 endif
 
 " Folds
