@@ -45,7 +45,10 @@
   ui = true
 [core]
   excludesfile = ~/.gitignore
+  fscache = true
   preloadindex = true
+[fetch]
+  prune = true
 [init]
   templatedir = ~/.git_template
 [push]
