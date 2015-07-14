@@ -12,6 +12,7 @@
   ignore = update-index --assume-unchanged
   ignored = !git ls-files -v | grep "^[[:lower:]]"
   move = mv
+  optimize = "!f() { git gc --aggressive --prune --quiet; }; f"
   praise = blame
   put = push -u origin HEAD
   rb = rebase
