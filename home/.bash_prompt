@@ -12,7 +12,7 @@ function parse_git_branch {
   fi
 }
 
-function parse_git_status {
+function git_prompt_info {
   top_level=`git rev-parse --show-toplevel 2> /dev/null`;
   if [ -z "$top_level" ]; then
     return;
@@ -38,4 +38,4 @@ function parse_git_status {
   fi
 }
 
-export PS1='\[\033[1;37m\][\[\033[0m\]$(date +"%T")\[\033[1;37m\]]\[\033[0m\] \[\033[1;33m\]% \[\033[1;37m\]\w \[\033[1;33m\]$(parse_git_status)\[\033[0m\]';
+export PS1='\[\033[1;37m\][\[\033[0m\]$(date +"%T")\[\033[1;37m\]]\[\033[0m\] \[\033[1;33m\]% \[\033[1;37m\]\w \[\033[1;33m\]$(git_prompt_info)\[\033[0m\]';
