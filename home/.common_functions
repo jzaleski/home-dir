@@ -6,3 +6,46 @@ cd () {
     builtin cd "$@";
   fi
 }
+
+# Echos an asterix if the local [git] repo has changes
+parse_git_dirty () {
+  dirty=`git status --porcelain 2> /dev/null`;
+  if [ -n "$dirty" ]; then
+    echo "*";
+  fi
+}
+
+# Echos the current [git] branch
+parse_git_branch () {
+  branch=`git rev-parse --abbrev-ref HEAD 2> /dev/null`;
+  if [ -n "$branch" ]; then
+    echo "${branch}";
+  fi
+}
+
+# Echos the combination of git-branch and git-dirty to form an informative prompt
+git_prompt_info () {
+  top_level=`git rev-parse --show-toplevel 2> /dev/null`;
+  if [ -z "$top_level" ]; then
+    return;
+  fi
+
+  nogitstatus_file=.nogitstatus;
+  if [ -f $HOME/$nogitstatus_file ] || [ -f $top_level/$nogitstatus_file ]; then
+    return;
+  fi
+
+  nogitbranch_file=.nogitbranch;
+  if [ ! -f $HOME/$nogitbranch_file ] && [ ! -f $top_level/$nogitbranch_file ]; then
+    branch=$(parse_git_branch);
+  fi
+
+  nogitdirty_file=.nogitdirty;
+  if [ ! -f $HOME/$nogitdirty_file ] && [ ! -f $top_level/$nogitdirty_file ]; then
+    dirty=$(parse_git_dirty);
+  fi
+
+  if [ -n "$branch" ] || [ -n "$dirty" ]; then
+    echo "${branch}${dirty} ";
+  fi
+}
