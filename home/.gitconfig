@@ -30,6 +30,7 @@
   rmtag = "!f() { git rmlocaltag \"$1\"; git rmremotetag \"$1\"; }; f"
   st = status
   stat = status
+  tree = "!f() { git log --graph --oneline --branches; }; f"
   unci = reset HEAD^
   uncommit = reset HEAD^
   unignore = update-index --no-assume-unchanged
