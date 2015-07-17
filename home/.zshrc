@@ -4,15 +4,7 @@ if [ -d $OH_MY_ZSH_DIR ]; then
   ZSH=$OH_MY_ZSH_DIR;
   ZSH_THEME=jzaleski;
   DISABLE_AUTO_UPDATE=true;
-  plugins=(cp extract github systemadmin urltools zsh-syntax-highlighting);
-  `hash bundle 2> /dev/null` && plugins+=(bundler);
-  `hash gem 2> /dev/null` && plugins+=(gem);
-  `hash git 2> /dev/null` && plugins+=(git git-extras);
-  `hash heroku 2> /dev/null` && plugins+=(heroku);
-  `hash hg 2> /dev/null` && plugins+=(mercuial);
-  `hash psql 2> /dev/null` && plugins+=(postgres);
-  `hash rake 2> /dev/null` && plugins+=(rake);
-  `hash ruby 2> /dev/null` && plugins+=(ruby);
+  plugins=(cp extract systemadmin urltools);
   source $ZSH/oh-my-zsh.sh;
 fi
 

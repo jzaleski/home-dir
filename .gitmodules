@@ -46,10 +46,6 @@
   path = home/.oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
   ignore = dirty
-[submodule "overrides/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-  path = overrides/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-  url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-  ignore = dirty
 [submodule "home/.vim/bundle/vim-indent-guides"]
   path = home/.vim/bundle/vim-indent-guides
   url = https://github.com/nathanaelkane/vim-indent-guides.git
