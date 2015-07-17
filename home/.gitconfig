@@ -52,7 +52,7 @@
 [fetch]
   prune = true
 [gc]
-  auto = 0
+  auto = 256
 [init]
   templatedir = ~/.git_template
 [push]
