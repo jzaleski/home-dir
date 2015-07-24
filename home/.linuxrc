@@ -6,7 +6,6 @@ if [ `uname` = 'Linux' ]; then
   google_chrome_cmd=`\which google-chrome 2> /dev/null`;
   if [ -n "$google_chrome_cmd" ]; then
     alias chrome="$google_chrome_cmd > /dev/null 2>&1";
-    alias google-chrome="chrome";
   fi
   hipchat_cmd=`\which hipchat 2> /dev/null`;
   if [ -n "$hipchat_cmd" ]; then
