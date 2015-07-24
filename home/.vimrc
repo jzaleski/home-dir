@@ -18,9 +18,6 @@ hi clear LineNr
 " Ensure that the sign-column background is transparent
 hi clear SignColumn
 
-" Highlighting rule to catch leading/trailing whitespace
-au BufRead,BufNew,BufNewFile * syn match ExtraSpace /^\s\+\|\s\+$/
-
 " Right rule
 set colorcolumn=81
 
@@ -77,16 +74,7 @@ map <F2> :call TogglePasteMode()<CR>
 
 " Toggle Highlight-Whitespace Helper
 function! ToggleHighlightWhitespace()
-  if !exists('g:highlight_whitespace')
-    let g:highlight_whitespace=0
-  end
-  if g:highlight_whitespace
-    hi clear ExtraSpace
-    let g:highlight_whitespace=0
-  else
-    hi ExtraSpace ctermbg=1 guibg=red
-    let g:highlight_whitespace=1
-  endif
+  ToggleWhitespace
   redraw!
 endfunction
 map <F3> :call ToggleHighlightWhitespace()<CR>
