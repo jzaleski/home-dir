@@ -10,15 +10,20 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash-completion \
       bash-doc \
       build-essential \
+      curl \
       exuberant-ctags \
       git \
       htop \
       linux-headers-$(uname -r) \
+      lsyncd \
       python \
       python-dev \
       python-setuptools \
       python-software-properties \
       screen \
+      silversearcher-ag \
+      subversion \
+      tmux \
       unzip \
       uuid-dev \
       uuid-runtime \
