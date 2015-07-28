@@ -1,0 +1,3 @@
+[helpers]
+diff-cmd = colordiff
+editor-cmd = vim
