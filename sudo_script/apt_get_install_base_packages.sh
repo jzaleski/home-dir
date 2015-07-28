@@ -10,6 +10,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash-completion \
       bash-doc \
       build-essential \
+      colordiff \
       curl \
       exuberant-ctags \
       git \
