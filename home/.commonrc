@@ -72,6 +72,12 @@ if [ -f $AUTOCUTSELRC_FILE ]; then
   source $AUTOCUTSELRC_FILE;
 fi
 
+# If it exists, process ".lsyncdrc"
+LSYNCDRC_FILE=$HOME/.lsyncdrc;
+if [ -f $LSYNCDRC_FILE ]; then
+  source $LSYNCDRC_FILE;
+fi
+
 # If it exists, process ".rubyrc"
 RUBYRC_FILE=$HOME/.rubyrc;
 if [ -f $RUBYRC_FILE ]; then

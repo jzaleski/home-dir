@@ -1,0 +1,7 @@
+lsyncd_conf_dir="$HOME/.lsyncd/conf";
+if [ -d $lsyncd_conf_dir ]; then
+  for f in `cd $lsyncd_conf_dir && \ls *.conf`; do
+    repo=`echo $f | sed s/\.conf//`;
+    alias lsyncd-$repo="lsyncd -nodaemon $lsyncd_conf_dir/$f";
+  done
+fi
