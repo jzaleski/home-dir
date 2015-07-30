@@ -1,8 +1,11 @@
 # General
+alias chrome='~/bin/chrome.sh';
 alias ctags='~/bin/ctags.sh';
 alias find='~/bin/find.sh';
+alias firefox='~/bin/firefox.sh';
 alias gg='git grep';
 alias grep='~/bin/grep.sh';
+alias hipchat='~/bin/hipchat.sh';
 alias htop='~/bin/htop.sh';
 alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
