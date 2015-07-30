@@ -1,0 +1,3 @@
+[global]
+store-passwords = no
+store-plaintext-passwords = off
