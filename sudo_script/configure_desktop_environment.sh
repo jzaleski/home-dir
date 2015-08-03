@@ -6,14 +6,13 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     # Install packages
     $apt_get_cmd install -y \
       autocutsel \
+      chromium-browser \
       firefox \
       gnome-terminal \
-      libghc-xmonad-contrib-dev \
-      libghc-xmonad-dev \
+      i3 \
       slim \
       ssh-askpass-gnome \
       vim-gnome \
-      xmonad \
       xorg;
     # Ensure that "dconf" is installed
     if [ -n `\which dconf 2> /dev/null` ]; then
