@@ -12,6 +12,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       build-essential \
       colordiff \
       curl \
+      dkms \
       exuberant-ctags \
       git \
       htop \
