@@ -1,29 +1,28 @@
-# Start "ssh-agent" if there isn't one running
-SSH_ENV=$HOME/.ssh/environment;
-if [ `ps -ef | \grep -c "[s]sh-agent"` -eq 0 ]; then
-  ssh-agent | head -2 > $SSH_ENV;
-  chmod 0600 $SSH_ENV;
-fi
+ssh_agent_cmd=`\which ssh-agent 2> /dev/null`;
+ssh_add_cmd=`\which ssh-add 2> /dev/null`;
+if [ -n "$ssh_agent_cmd" ] && [ -n "$ssh_add_cmd" ]; then
+  # Start "ssh-agent" if there isn't one running
+  ssh_env_file=$HOME/.ssh/environment;
+  if [ `ps -ef | \grep -c "[s]sh-agent"` -eq 0 ]; then
+    $ssh_agent_cmd | \head -2 > $ssh_env_file;
+    chmod 0600 $ssh_env_file;
+  fi
 
-# Source the "ssh-agent" environment
-if [ -f $SSH_ENV ]; then
-  source $SSH_ENV;
-  # Ensure that the key-manifest exists before trying to read from it
-  PRIVATE_KEYS_FILE=$HOME/.private_keys;
-  if [ -f $PRIVATE_KEYS_FILE ]; then
-    while read line; do
-      # This is necessary in order to support interpolation of env-vars
-      PRIVATE_KEY_FILE=`eval echo $line`;
-      if [ -f $PRIVATE_KEY_FILE ]; then
-        # Only add the key if it hasn't already been added
-        if [ `ssh-add -l | \grep -c "$PRIVATE_KEY_FILE"` -eq 0 ]; then
-          ssh-add -t 0 $PRIVATE_KEY_FILE;
+  # Source the "ssh-agent" environment file
+  if [ -f $ssh_env_file ]; then
+    source $ssh_env_file;
+    private_keys_file=$HOME/.private_keys;
+    if [ -f $private_keys_file ]; then
+      while read line; do
+        # This is necessary in order to support interpolation of env-vars
+        private_key_file=`eval echo $line`;
+        if [ -f $private_key_file ]; then
+          # Only add the key if it hasn't already been added
+          if [ `$ssh_add_cmd -l | \grep -c "$private_key_file"` -eq 0 ]; then
+            $ssh_add_cmd -t 0 $private_key_file;
+          fi
         fi
-      else
-        echo "Private key: \"$PRIVATE_KEY_FILE\" does not exist";
-        killall ssh-agent;
-        return 1;
-      fi
-    done < $PRIVATE_KEYS_FILE;
+      done < $private_keys_file;
+    fi
   fi
 fi

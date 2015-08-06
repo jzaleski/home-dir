@@ -78,6 +78,12 @@ if [ -f $LSYNCDRC_FILE ]; then
   source $LSYNCDRC_FILE;
 fi
 
+# If it exists, process ".mountrc"
+MOUNTRC_FILE=$HOME/.mountrc;
+if [ -f $MOUNTRC_FILE ]; then
+  source $MOUNTRC_FILE;
+fi
+
 # If it exists, process ".rubyrc"
 RUBYRC_FILE=$HOME/.rubyrc;
 if [ -f $RUBYRC_FILE ]; then
