@@ -15,9 +15,16 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       dkms \
       exuberant-ctags \
       git \
+      freetds-bin \
+      freetds-common \
+      freetds-dev \
       htop \
+      libntlm0 \
+      libntlm0-dev \
       linux-headers-$(uname -r) \
       lsyncd \
+      pidgin \
+      pidgin-dev \
       python \
       python-dev \
       python-setuptools \
