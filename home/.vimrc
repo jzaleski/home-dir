@@ -95,7 +95,7 @@ map <F5> :call ToggleLineNumbers()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
-map <C-S-F> :FindInFiles<SPACE>
+map <C-F> :FindInFiles<SPACE>
 
 " Find All References
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
@@ -141,12 +141,14 @@ nmap <silent> <Leader>g :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
 " CtrlP
+let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_root_markers=['.ctrlp']
+let g:ctrlp_show_hidden=1
+let g:ctrlp_use_caching=1
 let g:ctrlp_working_path_mode='rw'
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching=0
 endif
 
 " Indent Guides
