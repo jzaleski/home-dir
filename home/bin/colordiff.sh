@@ -6,4 +6,4 @@ if [ -z "$colordiff_cmd" ]; then
   exit 1;
 fi
 
-$colordiff_cmd -l "$@";
+$colordiff_cmd "$@" | less -FX;
