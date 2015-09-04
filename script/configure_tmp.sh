@@ -9,12 +9,8 @@ fi
 
 # if $temp_dir exists, relocate its contents and remove it
 temp_dir=$HOME/tmp;
-if [ -d "$temp_dir" ]; then
-  mv $temp_dir/* $downloads_dir;
-  rm -r $temp_dir;
-fi
-
-# Symlink $temp_dir to $downloads_dir
 if [ ! -h "$temp_dir" ]; then
+  mv $temp_dir/* $downloads_dir 2> /dev/null;
+  rm -rf $temp_dir;
   ln -s $downloads_dir $temp_dir;
 fi
