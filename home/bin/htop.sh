@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-htop_cmd=`\which htop 2> /dev/null`
+htop_cmd=`\which htop 2> /dev/null`;
 if [ -z "$htop_cmd" ]; then
   echo "Could not locate the \"htop\" binary";
   exit 1;

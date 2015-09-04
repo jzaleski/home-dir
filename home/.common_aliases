@@ -1,5 +1,6 @@
 # General
 alias chrome='~/bin/chrome.sh';
+alias colordiff='~/bin/colordiff.sh';
 alias ctags='~/bin/ctags.sh';
 alias find='~/bin/find.sh';
 alias firefox='~/bin/firefox.sh';
