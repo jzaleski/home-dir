@@ -14,14 +14,16 @@ alias ls='~/bin/ls.sh';
 alias lsyncd='~/bin/lsyncd.sh';
 alias mycnf='~/bin/mycnf.sh';
 alias pidgin='~/bin/pidgin.sh';
+alias sc='~/bin/source_control.sh';
+alias source_control='~/bin/source_control.sh';
 alias svn='~/bin/svn.sh';
 alias tmux='~/bin/tmux.sh';
 alias tsql='~/bin/tsql.sh';
 alias vagrant='~/bin/vagrant.sh';
 alias vi='vim';
 alias with_rvm_rubies='~/bin/with_rvm_rubies.sh';
-alias wo='source ~/bin/workon.sh';
 alias workon='source ~/bin/workon.sh';
+alias wo='source ~/bin/workon.sh';
 
 # The ability to navigate 10 directories up should be enough to cover most cases
 alias ..='cd ..';

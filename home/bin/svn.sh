@@ -12,4 +12,8 @@ if [ -n "$git_cmd" ] && [ ! -d ".svn" ] && [ -d ".git" ]; then
   exit $?;
 fi
 
-$svn_cmd "$@";
+if [ "$1" = "reviewboard" ]; then
+  $svn_cmd diff "${@:2}";
+else
+  $svn_cmd "$@";
+fi
