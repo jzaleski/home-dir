@@ -13,6 +13,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       colordiff \
       curl \
       dkms \
+      dos2unix \
       exuberant-ctags \
       git \
       freetds-bin \
