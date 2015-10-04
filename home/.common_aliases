@@ -18,6 +18,7 @@ alias sc='~/bin/source_control.sh';
 alias source_control='~/bin/source_control.sh';
 alias svn='~/bin/svn.sh';
 alias tmux='~/bin/tmux.sh';
+alias todo='~/bin/todo.sh';
 alias tsql='~/bin/tsql.sh';
 alias vagrant='~/bin/vagrant.sh';
 alias vi='vim';
