@@ -6,9 +6,9 @@ if [ -z "$tsql_cmd" ]; then
   exit 1;
 fi
 
-tsqlrc_file="$HOME/.tsqlrc";
-if [ -f $tsqlrc_file ]; then
-  source $tsqlrc_file;
+config_file="$TSQL_CONFIG_FILE";
+if [ -f $config_file ]; then
+  source $config_file;
 fi
 
 hostname="$TSQL_HOSTNAME";

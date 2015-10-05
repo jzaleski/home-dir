@@ -90,6 +90,12 @@ if [ -f $RUBYRC_FILE ]; then
   source $RUBYRC_FILE;
 fi
 
+# If it exists, process ".tsqlrc"
+TSQLRC_FILE=$HOME/.tsqlrc;
+if [ -f $TSQLRC_FILE ]; then
+  source $TSQLRC_FILE;
+fi
+
 # Load any custom init-scripts (the filename *must* end-with "rc")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/custom;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then

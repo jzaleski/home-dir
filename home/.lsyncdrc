@@ -1,4 +1,4 @@
-lsyncd_conf_dir="$HOME/.lsyncd/conf";
+lsyncd_conf_dir=$HOME/.lsyncd/conf;
 if [ -d $lsyncd_conf_dir ]; then
   for f in `cd $lsyncd_conf_dir && \ls | \grep "\.conf$"`; do
     repo=`echo $f | sed s/\.conf//`;

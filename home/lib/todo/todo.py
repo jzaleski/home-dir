@@ -40,7 +40,7 @@ with open(database) as lines:
         if message_parts and bucket in bucket_map.itervalues():
             results.setdefault(bucket, []).append(' '.join(message_parts))
 
-requested_results = results[bucket_map[requested_bucket]]
+requested_results = results.get(bucket_map[requested_bucket])
 if requested_results:
     print "\n".join('%3d. %s' %
         (index + 1, result)
