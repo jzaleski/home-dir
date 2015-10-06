@@ -1,3 +1,6 @@
 [helpers]
 diff-cmd = colordiff
 editor-cmd = vim
+
+[miscellany]
+global-ignores = .ctrlp .reviewboardrc custom_plan.rb tags tags.* zeus.json
