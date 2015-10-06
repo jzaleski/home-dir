@@ -19,6 +19,7 @@ alias source_control='~/bin/source_control.sh';
 alias svn='~/bin/svn.sh';
 alias tmux='~/bin/tmux.sh';
 alias todo='~/bin/todo.sh';
+alias top='~/bin/top.sh';
 alias tsql='~/bin/tsql.sh';
 alias vagrant='~/bin/vagrant.sh';
 alias vi='vim';
