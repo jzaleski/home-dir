@@ -17,6 +17,7 @@ buckets = [
     'current',
     'done',
     'hold',
+    'kickoff',
     'nevermind',
     'recurring',
 ]
