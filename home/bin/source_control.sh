@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -d ".git" ]; then
+if [ `\git status > /dev/null 2>&1` ]; then
   $HOME/bin/git.sh "$@";
   exit $?;
-elif [ -d ".svn" ]; then
+elif [ `\svn info > /dev/null 2>&1` ]; then
   $HOME/bin/svn.sh "$@";
   exit $?;
 else
