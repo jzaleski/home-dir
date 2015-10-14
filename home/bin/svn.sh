@@ -6,12 +6,6 @@ if [ -z "$svn_cmd" ]; then
   exit 1;
 fi
 
-git_cmd=`\which git 2> /dev/null`;
-if [ -n "$git_cmd" ] && [ ! -d ".svn" ] && [ -d ".git" ]; then
-  $git_cmd "$@";
-  exit $?;
-fi
-
 if [ "$1" = "reviewboard" ]; then
   $svn_cmd diff "${@:2}";
 else
