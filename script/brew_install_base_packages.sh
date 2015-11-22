@@ -11,6 +11,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       ctags \
       git \
       gnu-sed \
+      gpg \
       htop-osx \
       jq \
       openssl \
