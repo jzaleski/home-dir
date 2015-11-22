@@ -9,6 +9,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash \
       bash-completion \
       ctags \
+      freetds \
       git \
       gnu-sed \
       gpg \
