@@ -16,6 +16,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       htop-osx \
       jq \
       openssl \
+      python \
       readline \
       tmux \
       vim \
