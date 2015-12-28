@@ -1,11 +1,16 @@
 import os, sys
 
-database = os.getenv('TODO_DATABASE', os.path.join(
-    os.getenv('HOME'),
-    'var',
-    'db',
-    'todo'
-))
+if os.getenv('TODO_DATABASE'):
+    database = os.getenv('TODO_DATABASE')
+elif os.path.isfile('TODO'):
+    database = 'TODO'
+else:
+    database = os.path.join(
+        os.getenv('HOME'),
+        'var',
+        'db',
+        'TODO'
+    )
 
 if not os.path.isfile(database):
     print 'Database: "%s" does not exist' % database
