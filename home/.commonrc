@@ -1,5 +1,5 @@
 # Set the PATH
-export PATH=./node_modules/.bin:./bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
+export PATH=./.env/bin:./node_modules/.bin:./bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
 # Set the default editor (Git amongst others use this)
 export EDITOR=vim;
@@ -7,8 +7,7 @@ export EDITOR=vim;
 # Used by helper scripts (e.g. workon)
 export SOURCE_DIRECTORY=$HOME/src;
 
-# Used by "virtualenv"
-export VIRTUALENVS_DIRECTORY=$HOME/.virtualenvs;
+# Used by virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1;
 
 # Ensure that "LANG" is set

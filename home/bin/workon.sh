@@ -18,7 +18,7 @@ if [ $# -ge 1 ]; then
 
   deactivate 2> /dev/null || true;
 
-  activate_script=$VIRTUALENVS_DIRECTORY/$project/bin/activate;
+  activate_script=$project_directory/.env/bin/activate;
   if [ -f $activate_script ]; then
     source $activate_script;
   fi
