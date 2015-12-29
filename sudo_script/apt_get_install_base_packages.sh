@@ -26,10 +26,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       lsyncd \
       pidgin \
       pidgin-dev \
-      python \
-      python-dev \
-      python-setuptools \
-      python-software-properties \
       screen \
       silversearcher-ag \
       subversion \
