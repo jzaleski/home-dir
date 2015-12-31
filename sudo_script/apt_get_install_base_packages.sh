@@ -29,7 +29,10 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       screen \
       silversearcher-ag \
       subversion \
+      tdsodbc \
       tmux \
+      unixodbc \
+      unixodbc-dev \
       unzip \
       uuid-dev \
       uuid-runtime \
