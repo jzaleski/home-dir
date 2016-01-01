@@ -9,14 +9,30 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash \
       bash-completion \
       bash-doc \
+      bzip2 \
+      colordiff \
       ctags-etags \
+      curl \
+      dkms \
+      dos2unix \
+      epel-release \
+      freetds \
+      freetds-devel \
+      gcc \
       git \
       htop \
-      python \
-      python-devel \
-      python-setuptools \
-      readline-devel \
+      kernel-devel-$(uname -r) \
+      libntlm \
+      libntlm-devel \
+      lsyncd \
+      net-tools \
+      pidgin \
+      pidgin-devel \
       screen \
+      subversion \
+      tmux \
+      unixODBC \
+      unixODBC-devel
       unzip \
       uuid \
       uuid-devel \
