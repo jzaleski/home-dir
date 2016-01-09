@@ -7,7 +7,7 @@ if [ -z "$tsql_cmd" ]; then
 fi
 
 config_file="$TSQL_CONFIG_FILE";
-if [ -f $config_file ]; then
+if [ -n "$config_file" ] && [ -f $config_file ]; then
   source $config_file;
 fi
 
