@@ -16,7 +16,7 @@ if [ -z "$LANG" ]; then
 fi
 
 # Ensure that "TERM" is [properly] set
-if [ -z "$TERM" ] || [[ $TERM =~ 'screen|xterm' ]]; then
+if [ -z "$TERM" ] || [ `\echo $TERM | \grep -c "screen|xterm"` -ge 1 ]; then
   if [ -n "$TMUX_PANE" ]; then
     export TERM=screen-256color;
   else
