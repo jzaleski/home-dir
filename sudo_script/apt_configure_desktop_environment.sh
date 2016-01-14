@@ -8,6 +8,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       autocutsel \
       firefox \
       gnome-terminal \
-      xmonad;
+      xmonad \
+      xorg;
   fi
 fi
