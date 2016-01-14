@@ -7,7 +7,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     $yum_cmd install -y \
       firefox \
       gnome-terminal \
-      xorg-x11-server-Xorg \
-      xorg-x11-xinit-session;
+      xmonad;
   fi
 fi

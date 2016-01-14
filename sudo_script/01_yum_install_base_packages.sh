@@ -32,7 +32,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       subversion \
       tmux \
       unixODBC \
-      unixODBC-devel
+      unixODBC-devel \
       unzip \
       uuid \
       uuid-devel \
