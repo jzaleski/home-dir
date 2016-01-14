@@ -23,6 +23,11 @@ if [ $# -ge 1 ]; then
     source $activate_script;
   fi
 
+  freetds_file=$HOME/.freetds.conf.$project;
+  if [ -f $freetds_file ]; then
+    ln -sf $freetds_file "$HOME/.freetds.conf";
+  fi
+
   my_cnf_file=$HOME/.my.cnf.$project;
   if [ -f $my_cnf_file ]; then
     ln -sf $my_cnf_file "$HOME/.my.cnf";
