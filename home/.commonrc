@@ -15,13 +15,14 @@ if [ -z "$LANG" ]; then
   export LANG=en_US.UTF-8;
 fi
 
-# Ensure that "TERM" is [properly] set
-if [ -z "$TERM" ] || [ `\echo $TERM | \grep -c "screen|xterm"` -ge 1 ]; then
-  if [ -n "$TMUX_PANE" ]; then
-    export TERM=screen-256color;
-  else
-    export TERM=xterm-256color;
-  fi
+# Ensure that we are running in a 256 color-mode
+if [ -z "$TERM" ] || [ $TERM = 'xterm' ]; then
+  export TERM=xterm-256color;
+fi
+
+# If we are running under tmux, update the "TERM" value
+if [ -n "$TMUX_PANE" ]; then
+  export TERM=screen-256color;
 fi
 
 # If it exists, process ".cygwinrc"
