@@ -19,12 +19,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       python-devel \
       python-pip \
       python-setuptools \
-      python-software-properties \
       python-virtualenv;
   fi
 
   if [ -z "$apt_get_cmd" ] && [ -z "$yum_cmd" ]; then
-    echo "Could not configure python";
+    echo "Could not configure \"python\"";
     exit 1;
   fi
 

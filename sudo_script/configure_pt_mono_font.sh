@@ -1,25 +1,35 @@
 #!/usr/bin/env bash
 
-if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  fonts_base_directory="/usr/share/fonts/truetype"
-  if [ -n `\which unzip 2> /dev/null` ] && [ -d "$fonts_base_directory" ] && [ ! -d "$fonts_base_directory/PT_Mono" ]; then
-    # create a staging directory
-    temp_dir='/tmp/PT_Mono';
-    mkdir -p $temp_dir;
-    cd $temp_dir;
-
-    # download the font
-    base_url="http://www.google.com/fonts/download";
-    kit_identifier="7qsh9BNBJbZ6khIbS3ZpfKCWcynf_cDxXwCLxiixG1c";
-    wget --content-disposition "$base_url?kit=$kit_identifier";
-
-    # install the font
-    unzip PT_Mono.zip;
-    rm PT_Mono.zip;
-    cd ..;
-    mv PT_Mono /usr/share/fonts/truetype;
-
-    # update the font-cache
-    fc-cache -fv;
+if [ -n "$EXTENDED_BOOTSTRAP" ] && [ ! -d /tmp/PT_Mono ]; then
+  wget_cmd=`\which wget 2> /dev/null`;
+  if [ -z "$wget_cmd" ]; then
+    echo "Could not locate the \"wget\" binary";
+    exit 1;
   fi
+
+  unzip_cmd=`\which unzip 2> /dev/null`;
+  if [ -z "$unzip_cmd" ]; then
+    echo "Could not locate the \"unzip\" binary";
+    exit 1;
+  fi
+
+  fc_cache_cmd=`which fc-cache 2> /dev/null`;
+  if [ -z "$fc_cache_cmd" ]; then
+    echo "Could not locate the \"fc-cache\" binary";
+    exit 1;
+  fi
+
+  truetype_fonts_directory=/usr/share/fonts/truetype;
+  if [ ! -d $truetype_fonts_directory ]; then
+    mkdir -p $truetype_fonts_directory;
+  fi
+
+  mkdir -p /tmp/PT_Mono &&
+  cd /tmp/PT_Mono &&
+  $wget_cmd --content-disposition "http://www.google.com/fonts/download?kit=7qsh9BNBJbZ6khIbS3ZpfKCWcynf_cDxXwCLxiixG1c" &&
+  $unzip_cmd PT_Mono.zip &&
+  rm PT_Mono.zip &&
+  cd .. &&
+  cp -R PT_Mono $truetype_fonts_directory &&
+  $fc_cache_cmd -fv;
 fi
