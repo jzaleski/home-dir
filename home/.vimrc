@@ -23,7 +23,6 @@ set colorcolumn=81
 
 " General
 set backspace=eol,indent,start
-set cmdheight=2
 set cursorline
 set encoding=utf-8
 set hidden
