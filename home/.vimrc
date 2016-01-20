@@ -23,6 +23,7 @@ set colorcolumn=81
 
 " General
 set backspace=eol,indent,start
+set cmdheight=2
 set cursorline
 set encoding=utf-8
 set hidden
@@ -38,14 +39,15 @@ set notitle
 set nowrap
 set number
 set scrolloff=3
+set shortmess=a
 set showmatch
 set showtabline=2
 set smartcase
 set ttyfast
 set visualbell
 set wildmode=list:longest
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/tmp/,~/.vim/tmp,/tmp
+set directory=~/tmp/,~/.vim/tmp,/tmp
 
 " Use spaces instead of TABs
 set shiftwidth=2
