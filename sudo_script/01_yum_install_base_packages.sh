@@ -38,7 +38,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       unzip \
       uuid \
       uuid-devel \
-      vim \
+      vim-enhanced \
       wget \
       zsh;
   fi
