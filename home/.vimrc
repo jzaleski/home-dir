@@ -45,8 +45,8 @@ set smartcase
 set ttyfast
 set visualbell
 set wildmode=list:longest
-set backupdir=~/tmp/,~/.vim/tmp,/tmp
-set directory=~/tmp/,~/.vim/tmp,/tmp
+set backupdir=~/tmp,~/.vim/tmp,/tmp
+set directory=~/tmp,~/.vim/tmp,/tmp
 
 " Use spaces instead of TABs
 set shiftwidth=2
@@ -99,7 +99,7 @@ command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|re
 map <C-F> :FindInFiles<SPACE>
 
 " Find All References
-map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Make Helper
 function! Make()
@@ -149,7 +149,7 @@ let g:ctrlp_use_caching=1
 let g:ctrlp_working_path_mode='rw'
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
-  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command='\ag %s -l --nocolor -g ""'
 endif
 
 " Indent Guides
