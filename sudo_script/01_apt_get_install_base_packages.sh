@@ -27,7 +27,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       pidgin \
       pidgin-dev \
       screen \
-      silversearcher-ag \
       subversion \
       tdsodbc \
       tmux \
