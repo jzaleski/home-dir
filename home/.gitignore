@@ -1,6 +1,11 @@
 .ctrlp
 .env
+.notags
+.nogitbranch
+.nogitdirty
+.nogitstatus
 .reviewboardrc
+
 custom_plan.rb
 tags
 tags.*

@@ -13,7 +13,9 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       git \
       gnu-sed \
       gpg \
+      homebrew/dupes/rsync \
       htop-osx \
+      lsyncd \
       jq \
       openssl \
       readline \

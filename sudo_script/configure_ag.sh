@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -n "$EXTENDED_BOOTSTRAP" ] && [ ! -d /tmp/the_silver_searcher ]; then
+if [ -n "$EXTENDED_BOOTSTRAP" ] && [ ! -d /tmp/the_silver_searcher ] && [ `uname` != "Darwin" ]; then
   apt_get_cmd=`\which apt-get 2> /dev/null`;
   if [ -n "$apt_get_cmd" ]; then
     $apt_get_cmd install -y \

@@ -51,8 +51,6 @@
   preloadindex = true
 [fetch]
   prune = true
-[gc]
-  auto = 256
 [init]
   templatedir = ~/.git_template
 [push]

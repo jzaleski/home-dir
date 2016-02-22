@@ -8,14 +8,14 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ ! -d /tmp/autocutsel-0.10.0 ]; then
       libXaw \
       libXaw-devel \
       wget;
-  fi
 
-  cd /tmp &&
-  wget https://github.com/sigmike/autocutsel/releases/download/0.10.0/autocutsel-0.10.0.tar.gz &&
-  tar -xvzf autocutsel-0.10.0.tar.gz &&
-  cd autocutsel-0.10.0 &&
-  autoreconf -vfi &&
-  ./configure &&
-  make &&
-  make install;
+    cd /tmp &&
+    wget https://github.com/sigmike/autocutsel/releases/download/0.10.0/autocutsel-0.10.0.tar.gz &&
+    tar -xvzf autocutsel-0.10.0.tar.gz &&
+    cd autocutsel-0.10.0 &&
+    autoreconf -vfi &&
+    ./configure &&
+    make &&
+    make install;
+  fi
 fi

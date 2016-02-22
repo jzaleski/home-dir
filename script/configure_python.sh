@@ -4,7 +4,9 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   brew_cmd=`\which brew 2> /dev/null`;
   if [ -n "$brew_cmd" ]; then
     # install the required system-level packages
-    $brew_cmd install python;
+    if [ -z `\which python 2> /dev/null` ]; then
+      $brew_cmd install python;
+    fi
 
     # if easy_install is not present we can't proceed
     easy_install_cmd=`\which easy_install 2> /dev/null`;

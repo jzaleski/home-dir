@@ -6,7 +6,7 @@ if [ -z "$htop_cmd" ]; then
   exit 1;
 fi
 
-if [ `uname` = 'Darwin' ]; then
+if [ `uname` = "Darwin" ]; then
   sudo $htop_cmd;
 else
   $htop_cmd;

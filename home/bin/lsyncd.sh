@@ -6,4 +6,8 @@ if [ -z "$lsyncd_cmd" ]; then
   exit 1;
 fi
 
+if [ `uname` = "Darwin" ]; then
+  lsyncd_cmd="sudo $lsyncd_cmd";
+fi
+
 $lsyncd_cmd "$@";
