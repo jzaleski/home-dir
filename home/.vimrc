@@ -71,28 +71,31 @@ function! TogglePasteMode()
   set paste!
   redraw!
 endfunction
-map <F2> :call TogglePasteMode()<CR>
 
 " Toggle Highlight-Whitespace Helper
 function! ToggleHighlightWhitespace()
   ToggleWhitespace
   redraw!
 endfunction
-map <F3> :call ToggleHighlightWhitespace()<CR>
 
 " Toggle Indent-Guides Helper
 function! ToggleIndentGuides()
   IndentGuidesToggle
   redraw!
 endfunction
-map <F4> :call ToggleIndentGuides()<CR>
 
 " Toggle Line-Numbers Helper
 function! ToggleLineNumbers()
   set number!
   redraw!
 endfunction
+
+" Toggles
+map <F2> :call TogglePasteMode()<CR>
+map <F3> :call ToggleHighlightWhitespace()<CR>
+map <F4> :call ToggleIndentGuides()<CR>
 map <F5> :call ToggleLineNumbers()<CR>
+map <F6> :call ToggleGitGutter()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
