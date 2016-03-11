@@ -1,56 +1,134 @@
 import os, sys
 
-if os.getenv('TODO_DATABASE'):
-    database = os.getenv('TODO_DATABASE')
-elif os.path.isfile('TODO'):
-    database = 'TODO'
-else:
-    database = os.path.join(
-        os.getenv('HOME'),
-        'var',
-        'db',
-        'TODO'
-    )
+class TodoProcessor(object):
+    @property
+    def __database(self):
+        if not hasattr(self, '__database__'):
+            self.__database__ = self.__get_database()
+        return self.__database__
 
-if not os.path.isfile(database):
-    print 'Database: "%s" does not exist' % database
-    sys.exit(1)
+    @property
+    def __database_file_exists(self):
+        return os.path.isfile(self.__database_file_path)
 
-default_bucket = 'current'
+    @property
+    def __database_file_path(self):
+        if not hasattr(self, '__database_file_path__'):
+            self.__database_file_path__ = self.__get_database_file_path()
+        return self.__database_file_path__
 
-buckets = [
-    'current',
-    'done',
-    'hold',
-    'kickoff',
-    'nevermind',
-    'recurring',
-]
+    @property
+    def __valid_buckets(self):
+        if not hasattr(self, '__valid_buckets__'):
+            self.__valid_buckets__ = self.__get_valid_buckets()
+        return self.__valid_buckets__
 
-bucket_map = { bucket: bucket[0] for bucket in buckets }
+    def process(self, option, *args):
+        self.__ensure_database_exists()
 
-requested_bucket = sys.argv[1] if len(sys.argv) > 1 else default_bucket
-if not requested_bucket in buckets:
-    print 'Bucket "%s" does not exist (the valid buckets are: %s)' % (
-        requested_bucket,
-        ', '.join(buckets),
-    )
-    sys.exit(1)
+        if not option and not args:
+            return self.__render(*args)
+        elif option in ['a', 'add']:
+            return self.__add(' '.join(args))
+        elif option in ['d', 'done']:
+            return self.__done(int(args[0]) - 1)
+        elif option in ['r', 'remove']:
+            return self.__remove(int(args[0]) - 1)
+        else:
+            return False
 
-results = {}
-with open(database) as lines:
-    for line in lines:
-        line_parts = line.rstrip("\r\n").split(' ')
-        bucket = line_parts[0]
-        message_parts = line_parts[1:]
-        if message_parts and bucket in bucket_map.itervalues():
-            results.setdefault(bucket, []).append(' '.join(message_parts))
+    def __add(self, line):
+        if not line:
+            return False
+        self.__database.setdefault('a', []).append(line)
+        return self.__write_database()
 
-requested_results = results.get(bucket_map[requested_bucket])
-if requested_results:
-    print "\n".join('%3d. %s' %
-        (index + 1, result)
-        for index, result in enumerate(requested_results)
-    )
-else:
-    print 'No results'
+    def __create_database(self):
+        open(database_file_path, 'w').close()
+
+    def __done(self, index):
+        if index < 0:
+            return False
+        self.__database.setdefault('d', []).append(self.__database['a'].pop(index))
+        return self.__write_database()
+
+    def __ensure_database_exists(self):
+        if not self.__database_file_exists:
+            self.__create_database()
+
+    def __get_bucket(self, bucket):
+        return self.__database.get(bucket, None)
+
+    def __get_database(self):
+        return self.__read_database()
+
+    def __get_database_file_path(self):
+        if os.getenv('TODO_DATABASE'):
+            return os.getenv('TODO_DATABASE')
+        elif os.path.isfile('TODO'):
+            return 'TODO'
+        else:
+            return os.path.join(
+                os.getenv('HOME'),
+                'var',
+                'db',
+                'TODO'
+            )
+
+    def __get_valid_buckets(self):
+        return [
+            'a',
+            'd',
+            'r',
+        ]
+
+    def __read_database(self):
+        database = {}
+        with open(self.__database_file_path) as database_file:
+            for line in database_file:
+                line_parts = line.rstrip("\r\n").split(' ')
+                if not line_parts:
+                    continue
+                bucket = line_parts[0]
+                if bucket not in self.__valid_buckets:
+                    continue
+                message_parts = line_parts[1:]
+                if not message_parts:
+                    continue
+                database.setdefault(bucket, []).append(' '.join(message_parts))
+        return database
+
+    def __remove(self, index):
+        if index < 0:
+            return False
+        self.__database.setdefault('r', []).append(self.__database['a'].pop(index))
+        return self.__write_database()
+
+    def __render(self, bucket='a'):
+        lines = self.__get_bucket(bucket)
+        if lines:
+            print os.linesep.join('%3d. %s' %
+                (index + 1, line)
+                for index, line in enumerate(lines)
+            )
+        else:
+            print 'No results'
+
+    def __write_database(self):
+        with open(self.__database_file_path, 'w') as database_file:
+            for bucket, lines in self.__database.iteritems():
+                for line in lines:
+                    database_file.write("%s %s%s" % (
+                        bucket,
+                        line,
+                        os.linesep
+                    ))
+        return True
+
+if __name__ == '__main__':
+    argv = sys.argv
+    option = argv[1] if len(argv) >= 2 else None
+    args = sys.argv[2:]
+    processor = TodoProcessor()
+    result = processor.process(option, *args)
+    sys.exit(0 if result else 1)
