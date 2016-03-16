@@ -157,8 +157,8 @@ endif
 
 " Indent Guides
 let g:indent_guides_auto_colors=0
-hi IndentGuidesOdd ctermbg=5 guibg=magenta
-hi IndentGuidesEven ctermbg=2 guibg=green
+hi IndentGuidesOdd ctermbg=7 guibg=LightGrey
+hi IndentGuidesEven ctermbg=11 guibg=LightYellow
 
 " lightline
 function! CurrentFilename()
