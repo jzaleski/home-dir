@@ -27,13 +27,15 @@ class TodoProcessor(object):
         self.__ensure_database_exists()
 
         if not option and not args:
-            return self.__render(*args)
+            return self.__render()
         elif option in ['a', 'add']:
             return self.__add(' '.join(args))
         elif option in ['d', 'done']:
             return self.__done(int(args[0]) - 1)
         elif option in ['r', 'remove']:
             return self.__remove(int(args[0]) - 1)
+        elif option in ['u', 'update']:
+            return self.__update(int(args[0]) - 1, ' '.join(args[1:]))
         else:
             return False
 
@@ -124,6 +126,13 @@ class TodoProcessor(object):
                         os.linesep
                     ))
         return True
+
+    def __update(self, index, line):
+        if not line or index < 0:
+            return False
+        self.__database['a'][index] = line
+        return self.__write_database()
+
 
 if __name__ == '__main__':
     argv = sys.argv
