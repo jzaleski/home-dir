@@ -9,6 +9,7 @@ alias git='~/bin/git.sh';
 alias grep='~/bin/grep.sh';
 alias hipchat='~/bin/hipchat.sh';
 alias htop='~/bin/htop.sh';
+alias l='~/bin/ls.sh';
 alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
 alias lsyncd='~/bin/lsyncd.sh';
