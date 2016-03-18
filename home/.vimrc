@@ -196,23 +196,23 @@ let g:slime_default_config={
 \ }
 
 " Get off my lawn (force use of home-row)
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+map <Left> :echoe "Use h"<CR>
+map <Right> :echoe "Use l"<CR>
+map <Up> :echoe "Use k"<CR>
+map <Down> :echoe "Use j"<CR>
 
 " Move the currentl line to the center of the screen
-nnoremap <SPACE> zvzz
+map <SPACE> zvzz
 
 " Buffer/Tab manipulation
-nnoremap tn :tabnext<CR>
-nnoremap to :tabnew<CR>
-nnoremap tp :tabprevious<CR>
-nnoremap tw :tabclose<CR>
-nnoremap bn :bnext<CR>
-nnoremap bp :bprevious<CR>
-nnoremap bw :bwipeout<CR>
-nnoremap bl :buffers<CR>
+map tn :tabnext<CR>
+map to :tabnew<CR>
+map tp :tabprevious<CR>
+map tw :tabclose<CR>
+map bn :bnext<CR>
+map bp :bprevious<CR>
+map bw :bwipeout<CR>
+map bl :buffers<CR>
 
 " Load ctags for gems
 autocmd FileType ruby let &l:tags=pathogen#legacyjoin(pathogen#uniq(
