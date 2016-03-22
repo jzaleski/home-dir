@@ -4,9 +4,9 @@ syntax on
 filetype indent on
 filetype plugin on
 
-" Uncomment the following two lines if the color-pallette seems off
-"set t_Co=256
-"let g:solarized_termcolors=&t_Co
+" Comment out the following 2 lines if you are using the solarized color-scheme
+set t_Co=256
+let g:solarized_termcolors=&t_Co
 
 " Colorscheme
 set background=dark

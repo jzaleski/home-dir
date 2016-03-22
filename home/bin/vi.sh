@@ -6,10 +6,7 @@ if [ -n `\which nvim 2> /dev/null` ]; then
 elif [ -n `\which vim 2> /dev/null` ]; then
   vim $@;
   exit $?;
-elif [ -n `\which vi 2> /dev/null` ]; then
+else
   vi $@;
   exit $?;
-else
-  echo "Could not locate a valid \"vim\" binary";
-  exit 1;
 fi
