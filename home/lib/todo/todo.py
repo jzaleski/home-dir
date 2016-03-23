@@ -8,10 +8,6 @@ class TodoProcessor(object):
         return self.__database__
 
     @property
-    def __database_file_exists(self):
-        return os.path.isfile(self.__database_file_path)
-
-    @property
     def __database_file_path(self):
         if not hasattr(self, '__database_file_path__'):
             self.__database_file_path__ = self.__get_database_file_path()
@@ -45,9 +41,6 @@ class TodoProcessor(object):
         self.__database.setdefault('a', []).append(line)
         return self.__write_database()
 
-    def __create_database(self):
-        open(database_file_path, 'w').close()
-
     def __done(self, index):
         if index < 0:
             return False
@@ -55,8 +48,12 @@ class TodoProcessor(object):
         return self.__write_database()
 
     def __ensure_database_exists(self):
-        if not self.__database_file_exists:
-            self.__create_database()
+        database_file_path = self.__database_file_path
+        database_dirname = os.path.dirname(database_file_path)
+        if database_dirname and not os.path.isdir(database_dirname):
+            os.makedirs(database_dirname)
+        if not os.path.isfile(database_file_path):
+            open(self.__database_file_path, 'w').close()
 
     def __get_bucket(self, bucket):
         return self.__database.get(bucket, None)
