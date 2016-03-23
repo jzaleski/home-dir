@@ -1,6 +1,3 @@
-# preserve the layout after detach/re-attach
-layout new
-
 # don't display the start-up messasge
 startup_message off
 
