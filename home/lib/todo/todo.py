@@ -79,6 +79,7 @@ class TodoProcessor(object):
             'a',
             'd',
             'r',
+            'u',
         ]
 
     def __read_database(self):
