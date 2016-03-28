@@ -113,6 +113,7 @@ class TodoProcessor(object):
             )
         else:
             print 'No results'
+        return True
 
     def __write_database(self):
         with open(self.__database_file_path, 'w') as database_file:
