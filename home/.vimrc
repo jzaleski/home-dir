@@ -55,7 +55,7 @@ set expandtab
 
 " GUI specific ({g,Mac}Vim)
 if has('gui_running')
-  set guifont=PT\ Mono:h10
+  set guifont=PT\ Mono:h14
   set guioptions-=m
   set guioptions-=T
   set guioptions-=r
