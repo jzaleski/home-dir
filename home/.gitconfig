@@ -55,6 +55,3 @@
   templatedir = ~/.git_template
 [push]
   default = tracking
-[user]
-  email = JonathanZaleski@gmail.com
-  name = Jonathan W. Zaleski
