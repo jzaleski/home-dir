@@ -6,4 +6,8 @@ if [ -z "$tmux_cmd" ]; then
   exit 1;
 fi
 
-$tmux_cmd attach 2> /dev/null|| $tmux_cmd;
+if [ $# -eq 0 ]; then
+  $tmux_cmd attach 2> /dev/null || $tmux_cmd;
+else
+  $tmux_cmd "$@";
+fi
