@@ -1,7 +1,8 @@
-lsyncd_conf_dir=$HOME/.lsyncd/conf;
-if [ -d $lsyncd_conf_dir ]; then
-  for f in `cd $lsyncd_conf_dir && \ls | \grep "\.conf$"`; do
-    repo=`echo $f | sed s/\.conf//`;
-    alias lsyncd-$repo="lsyncd -nodaemon $lsyncd_conf_dir/$f";
+if [ -n "$SOURCE_DIRECTORY" ]; then
+  for d in `cd $SOURCE_DIRECTORY && \ls -d *`; do
+    lsyncd_conf_file="$SOURCE_DIRECTORY/$d/.lsyncd/$d.conf";
+    if [ -f $lsyncd_conf_file ]; then
+      alias lsyncd-$d="lsyncd -nodaemon $lsyncd_conf_file";
+    fi
   done
 fi

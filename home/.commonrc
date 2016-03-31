@@ -78,6 +78,12 @@ if [ -f $LSYNCDRC_FILE ]; then
   source $LSYNCDRC_FILE;
 fi
 
+# If it exists, process ".realsyncrc"
+REALSYNCRC_FILE=$HOME/.realsyncrc;
+if [ -f $REALSYNCRC_FILE ]; then
+  source $REALSYNCRC_FILE;
+fi
+
 # If it exists, process ".mountrc"
 MOUNTRC_FILE=$HOME/.mountrc;
 if [ -f $MOUNTRC_FILE ]; then

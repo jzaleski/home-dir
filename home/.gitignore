@@ -1,9 +1,11 @@
 .ctrlp
 .env
+.lsyncd
 .notags
 .nogitbranch
 .nogitdirty
 .nogitstatus
+.realsync
 .reviewboardrc
 
 custom_plan.rb
