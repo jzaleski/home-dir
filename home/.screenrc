@@ -11,10 +11,7 @@ defscrollback 100000
 hardstatus on
 
 # hardstatus layout
-hardstatus alwayslastline "%{= Wk}%-w%{= Bw}%n %t%{-}%+w %-="
-
-# set the term-emulation mode
-term screen-256color
+hardstatus alwayslastline "%{= Gk}%-w%{= Rw}%n %t%{-}%+w %-="
 
 # disable the visual bell
 vbell off

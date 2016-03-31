@@ -16,6 +16,7 @@ alias lsyncd='~/bin/lsyncd.sh';
 alias mycnf='~/bin/mycnf.sh';
 alias pidgin='~/bin/pidgin.sh';
 alias psysh='~/bin/psysh';
+alias screen='~/bin/screen.sh';
 alias svn='~/bin/svn.sh';
 alias tmux='~/bin/tmux.sh';
 alias todo='~/bin/todo.sh';

@@ -7,7 +7,7 @@ if [ -z "$htop_cmd" ]; then
 fi
 
 if [ `uname` = "Darwin" ]; then
-  sudo $htop_cmd;
-else
-  $htop_cmd;
+  htop_cmd="sudo $htop_cmd";
 fi
+
+$htop_cmd "$@";
