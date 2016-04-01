@@ -24,7 +24,7 @@ source $HOME/.bashrc;
 
 # run scripts optionally w/ any abitrary prefix (e.g. "sudo")
 function run_scripts() {
-  for f in $(find $1 -type f | \grep -E "^$1/[^\.](.+)" | sed "s/$1\///g"); do
+  for f in $(\find $1 -type f -o -type l | \grep -E "^$1/[^\.](.+)" | sed "s/$1\///g"); do
     $2 $1/$f;
   done
 }
