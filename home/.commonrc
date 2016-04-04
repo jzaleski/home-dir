@@ -16,31 +16,13 @@ if [ -z "$LANG" ]; then
 fi
 
 # Ensure that we are running in a 256 color-mode
-if [ -z "$TERM" ] || [ $TERM = 'xterm' ]; then
+if [ -z "$TERM" ] || [ $TERM = "xterm" ]; then
   export TERM=xterm-256color;
 fi
 
 # If we are running under screen or tmux, update the "TERM" value
 if [ -n "$STY" ] || [ -n "$TMUX_PANE" ]; then
   export TERM=screen-256color;
-fi
-
-# If it exists, process ".cygwinrc"
-CYGWINRC_FILE=$HOME/.cygwinrc;
-if [ -f $CYGWINRC_FILE ]; then
-  source $CYGWINRC_FILE;
-fi
-
-# If it exists, process ".darwinrc"
-DARWINRC_FILE=$HOME/.darwinrc;
-if [ -f $DARWINRC_FILE ]; then
-  source $DARWINRC_FILE;
-fi
-
-# If it exists, process ".linuxrc"
-LINUXRC_FILE=$HOME/.linuxrc;
-if [ -f $LINUXRC_FILE ]; then
-  source $LINUXRC_FILE;
 fi
 
 # If it exists, process ".common_aliases"
@@ -55,75 +37,10 @@ if [ -f $COMMON_FUNCTIONS_FILE ]; then
   source $COMMON_FUNCTIONS_FILE;
 fi
 
-# Conditionally set up "ssh-askpass" (this must be done before processing ".sshagentrc")
-if [ -z "$SSH_CONNECTION" ] && [ -z "$SSH_ASKPASS" ] && [ -z `sh -c "\which ssh-askpass 2> /dev/null"` ]; then
-  export SSH_ASKPASS=$HOME/libexec/ssh-askpass;
-fi
-
-# If it exists, process ".sshagentrc"
-SSHAGENTRC_FILE=$HOME/.sshagentrc;
-if [ -f $SSHAGENTRC_FILE ]; then
-  source $SSHAGENTRC_FILE;
-fi
-
-# If it exists, process ".autocutselrc"
-AUTOCUTSELRC_FILE=$HOME/.autocutselrc;
-if [ -f $AUTOCUTSELRC_FILE ]; then
-  source $AUTOCUTSELRC_FILE;
-fi
-
-# If it exists, process ".lsyncdrc"
-LSYNCDRC_FILE=$HOME/.lsyncdrc;
-if [ -f $LSYNCDRC_FILE ]; then
-  source $LSYNCDRC_FILE;
-fi
-
-# If it exists, process ".realsyncrc"
-REALSYNCRC_FILE=$HOME/.realsyncrc;
-if [ -f $REALSYNCRC_FILE ]; then
-  source $REALSYNCRC_FILE;
-fi
-
-# If it exists, process ".mountrc"
-MOUNTRC_FILE=$HOME/.mountrc;
-if [ -f $MOUNTRC_FILE ]; then
-  source $MOUNTRC_FILE;
-fi
-
-# If it exists, process ".rubyrc"
-RUBYRC_FILE=$HOME/.rubyrc;
-if [ -f $RUBYRC_FILE ]; then
-  source $RUBYRC_FILE;
-fi
-
-# If it exists, process ".tsqlrc"
-TSQLRC_FILE=$HOME/.tsqlrc;
-if [ -f $TSQLRC_FILE ]; then
-  source $TSQLRC_FILE;
-fi
-
 # Load any custom init-scripts (the filename *must* end-with "rc")
-CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/custom;
+CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
   for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "rc$"`; do
     source $f;
   done
-fi
-
-# If it exists, and we're running under "puTTY" use ".inputrc-putty"
-INPUTRC_PUTTY_FILE=$HOME/.inputrc-putty;
-if [ -n "$PUTTY" ] && [ -f $INPUTRC_PUTTY_FILE ]; then
-  export INPUTRC=$INPUTRC_PUTTY_FILE;
-fi
-
-# If it exists, and we're running under "tmux" use ".inputrc-tmux"
-INPUTRC_TMUX_FILE=$HOME/.inputrc-tmux;
-if [ -n "$TMUX_PANE" ] && [ -f $INPUTRC_TMUX_FILE ]; then
-  export INPUTRC=$INPUTRC_TMUX_FILE;
-fi
-
-# If it exists, load RVM (it *must* be initialized last)
-RVM_SCRIPT=$HOME/.rvm/scripts/rvm;
-if [ -f $RVM_SCRIPT ]; then
-  source $RVM_SCRIPT;
 fi

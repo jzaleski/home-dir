@@ -1,13 +1,3 @@
-# "Homebrew" specific inclusions
-HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
-if [ -n "$HOMEBREW_PREFIX" ]; then
-  # If it exists, process [Homebrew] "bash_completion" file
-  BASH_COMPLETION_FILE=$HOMEBREW_PREFIX/etc/bash_completion;
-  if [ -f $BASH_COMPLETION_FILE ]; then
-    source $BASH_COMPLETION_FILE;
-  fi
-fi
-
 # Set up "history"
 export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S - ';
 export HISTSIZE=100000;
@@ -24,6 +14,16 @@ shopt -s histappend > /dev/null 2>&1;
 
 # Allow bash to glob filenames in a case-insensitve manner
 shopt -s nocaseglob > /dev/null 2>&1;
+
+# "Homebrew" specific inclusions
+HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  # If it exists, process [Homebrew] "bash_completion" file
+  BASH_COMPLETION_FILE=$HOMEBREW_PREFIX/etc/bash_completion;
+  if [ -f $BASH_COMPLETION_FILE ]; then
+    source $BASH_COMPLETION_FILE;
+  fi
+fi
 
 # If it exists, process ".bash_prompt"
 BASH_PROMPT_FILE=$HOME/.bash_prompt;

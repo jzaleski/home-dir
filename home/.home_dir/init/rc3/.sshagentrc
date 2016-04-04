@@ -7,7 +7,6 @@ if [ -n "$ssh_agent_cmd" ] && [ -n "$ssh_add_cmd" ]; then
     $ssh_agent_cmd | \head -2 > $ssh_env_file;
     chmod 0600 $ssh_env_file;
   fi
-
   # Source the "ssh-agent" environment file
   if [ -f $ssh_env_file ]; then
     source $ssh_env_file;

@@ -1,0 +1,5 @@
+# If installed, initialize RVM
+rvm_script=$HOME/.rvm/scripts/rvm;
+if [ -f $rvm_script ]; then
+  source $rvm_script;
+fi
