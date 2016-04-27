@@ -22,8 +22,8 @@ class TodoProcessor(object):
     def process(self, option, *args):
         self.__ensure_database_exists()
 
-        if not option and not args:
-            return self.__render()
+        if option in [None, '--sort'] and not args:
+            return self.__render(option == '--sort')
         elif option in ['a', 'add']:
             return self.__add(' '.join(args))
         elif option in ['d', 'done']:
@@ -104,8 +104,10 @@ class TodoProcessor(object):
         self.__database.setdefault('r', []).append(self.__database['a'].pop(index))
         return self.__write_database()
 
-    def __render(self, bucket='a'):
-        lines = self.__get_bucket(bucket)
+    def __render(self, sort=False):
+        lines = self.__get_bucket('a')
+        if sort:
+            lines.sort()
         if lines:
             print os.linesep.join('%3d. %s' %
                 (index + 1, line)
