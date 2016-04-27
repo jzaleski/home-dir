@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if [ `uname` = "Darwin" ]; then
-  color_arg='-G';
+  color_arg="-G";
 else
-  color_arg='--color';
+  color_arg="--color";
 fi
 
-ls $color_arg "$@";
+\ls $color_arg "$@";

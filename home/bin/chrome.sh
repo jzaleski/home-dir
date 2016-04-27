@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # Prefer google-chrome but fall back to the chromium-browser
-chrome_cmd=`\which google-chrome 2> /dev/null`;
-if [ -z "$chrome_cmd" ]; then
-  chrome_cmd=`\which chromium-browser 2> /dev/null`;
+if hash google-chrome 2> /dev/null; then
+  chrome_cmd="google-chrome";
+elif hash chromium-browser 2> /dev/null; then
+  chrome_cmd="chromium-browser";
 fi
 
 if [ -z "$chrome_cmd" ]; then
