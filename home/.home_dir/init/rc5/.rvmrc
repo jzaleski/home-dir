@@ -1,5 +1,5 @@
-# If installed, initialize RVM
+# If installed, initialize RVM (do this only once)
 rvm_script=$HOME/.rvm/scripts/rvm;
-if [ -f $rvm_script ]; then
+if [ -f $rvm_script ] && [ "$rvm_loaded_flag" != "1" ]; then
   source $rvm_script;
 fi
