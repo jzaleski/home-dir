@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! hash tsql 2> /dev/null; then
+if hash tsql 2> /dev/null; then
   tsql_cmd="tsql";
 fi
 
