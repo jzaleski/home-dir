@@ -1,0 +1,5 @@
+# If installed, initialize rbenv
+rbenv_bin_dir=$HOME/.rbenv/bin;
+if [ -d $rbenv_bin_dir ]; then
+  export PATH=$rbenv_bin_dir:$PATH;
+fi
