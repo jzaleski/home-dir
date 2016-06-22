@@ -8,6 +8,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       apg \
       bash \
       bash-completion \
+      colordiff \
       ctags \
       freetds \
       git \
