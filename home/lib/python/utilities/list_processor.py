@@ -1,6 +1,10 @@
 import os, sys
 
-class TodoProcessor(object):
+class ListProcessor(object):
+    def __init__(self, list_name):
+        assert list_name
+        self.__list_name = list_name
+
     @property
     def __database(self):
         if not hasattr(self, '__database__'):
@@ -62,17 +66,18 @@ class TodoProcessor(object):
         return self.__read_database()
 
     def __get_database_file_path(self):
-        if os.getenv('TODO_DATABASE'):
-            return os.getenv('TODO_DATABASE')
-        elif os.path.isfile('TODO'):
-            return 'TODO'
-        else:
-            return os.path.join(
-                os.getenv('HOME'),
-                'var',
-                'db',
-                'TODO'
-            )
+        list_name = self.__list_name
+        env_var = '%s_DATABASE' % list_name
+        if os.getenv(env_var):
+            return os.getenv(env_var)
+        if os.path.isfile(list_name):
+            return list_name
+        return os.path.join(
+            os.getenv('HOME'),
+            'var',
+            'db',
+            list_name
+        )
 
     def __get_valid_buckets(self):
         return [
@@ -136,9 +141,10 @@ class TodoProcessor(object):
 
 
 if __name__ == '__main__':
+    list_name = os.getenv('LIST_NAME')
     argv = sys.argv
     option = argv[1] if len(argv) >= 2 else None
-    args = sys.argv[2:]
-    processor = TodoProcessor()
+    args = argv[2:]
+    processor = ListProcessor(list_name)
     result = processor.process(option, *args)
     sys.exit(0 if result else 1)
