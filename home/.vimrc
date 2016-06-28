@@ -107,7 +107,7 @@ map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Make Helper
 function! Make()
   if filereadable(expand('%:p:h') . '/Makefile')
-    execute 'make'
+    execute 'make' | bwipeout
   endif
   redraw!
 endfunction
