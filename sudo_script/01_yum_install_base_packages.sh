@@ -27,6 +27,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       libntlm \
       libntlm-devel \
       lsyncd \
+      ncurses-devel \
       net-tools \
       pidgin \
       pidgin-devel \
