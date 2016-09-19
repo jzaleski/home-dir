@@ -25,6 +25,8 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       kernel-devel-$(uname -r) \
       libntlm \
       libntlm-devel \
+      libyaml \
+      libyaml-devel \
       lsyncd \
       ncurses-devel \
       net-tools \
