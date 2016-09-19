@@ -17,7 +17,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       curl \
       dkms \
       dos2unix \
-      epel-release \
       freetds \
       freetds-devel \
       gcc \

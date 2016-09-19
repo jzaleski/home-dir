@@ -42,16 +42,5 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       echo "Could not install \"ipython\"";
       exit 255;
     fi
-
-    # install readline if it isn't already installed
-    if [ `$pip_cmd freeze | \grep -c "[r]eadline"` -eq 0 ]; then
-      $pip_cmd install readline;
-    fi
-
-    # verify the readline installation
-    if [ `$pip_cmd freeze | \grep -c "[r]eadline"` -eq 0 ]; then
-      echo "Could not install \"readline\"";
-      exit 255;
-    fi
   fi
 fi
