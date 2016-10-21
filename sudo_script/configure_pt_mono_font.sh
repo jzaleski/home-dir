@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -n "$EXTENDED_BOOTSTRAP" ] && [ ! -d /tmp/PT_Mono ] && [ `uname` != "Darwin" ]; then
+if [ -n "$BOOTSTRAP_DESKTOP_ENVIRONMENT" ] && [ ! -d /tmp/PT_Mono ] && [ `uname` != "Darwin" ]; then
   wget_cmd=`\which wget 2> /dev/null`;
   if [ -z "$wget_cmd" ]; then
     echo "Could not locate the \"wget\" binary";

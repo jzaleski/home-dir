@@ -1,8 +1,29 @@
 home_dir
 ========
 
-- dot-files and basic utilities
+Dot-files and basic utilities
+
+---
+
+Compatible with:
+
+- CentOS / Red Hat
+- Debian / Ubuntu
+- Cygwin
+- Git Bash
+
+---
+
+_All of the following scripts will prompt before over-writing anything_
 
 To install:
 
-- run "./install" (the script will prompt before over-writing)
+- `./install`
+
+To install w/ additional packages:
+
+- `EXTENDED_BOOTSTRAP=true ./install`
+
+To install & configure the desktop environment:
+
+- `BOOTSTRAP_DESKTOP_ENVIRONMENT=true ./install`
