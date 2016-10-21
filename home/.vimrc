@@ -96,6 +96,7 @@ map <F3> :call ToggleHighlightWhitespace()<CR>
 map <F4> :call ToggleIndentGuides()<CR>
 map <F5> :call ToggleLineNumbers()<CR>
 map <F6> :call ToggleGitGutter()<CR>
+map <F7> :call ToggleGitGutterLineHighlights()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
@@ -157,8 +158,8 @@ endif
 
 " Indent Guides
 let g:indent_guides_auto_colors=0
-hi IndentGuidesOdd ctermbg=7 guibg=LightGrey
-hi IndentGuidesEven ctermbg=11 guibg=LightYellow
+hi IndentGuidesOdd ctermbg=15 guibg=LightGrey
+hi IndentGuidesEven ctermbg=7 guibg=White
 
 " lightline
 function! CurrentFilename()
