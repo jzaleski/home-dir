@@ -1,4 +1,4 @@
-import os, sys
+import os, re, sys
 
 class ListProcessor(object):
     def __init__(self, list_name):
@@ -23,19 +23,22 @@ class ListProcessor(object):
             self.__valid_buckets__ = self.__get_valid_buckets()
         return self.__valid_buckets__
 
-    def process(self, option, *args):
+    def process(self, *args):
         self.__ensure_database_exists()
-
-        if option in [None, '--sort'] and not args:
-            return self.__render(option == '--sort')
-        elif option in ['a', 'add']:
+        if not args:
+            return self.__render()
+        if not re.match(r'^[1-9][0-9]*(:[1-9][0-9]*)*$', args[0]):
             return self.__add(' '.join(args))
-        elif option in ['d', 'done']:
-            return self.__done(int(args[0]) - 1)
-        elif option in ['r', 'remove']:
-            return self.__remove(int(args[0]) - 1)
-        elif option in ['u', 'update']:
-            return self.__update(int(args[0]) - 1, ' '.join(args[1:]))
+        index = int(args[0]) - 1
+        if not args[1:]:
+            return self.__render(index)
+        operation = args[1]
+        if operation in ['d', 'done']:
+            return self.__done(index)
+        elif operation in ['e', 'edit']:
+            return self.__edit(index, ' '.join(args[2:]))
+        elif operation in ['r', 'remove']:
+            return self.__remove(index)
         else:
             return False
 
@@ -49,6 +52,12 @@ class ListProcessor(object):
         if index < 0:
             return False
         self.__database.setdefault('d', []).append(self.__database['a'].pop(index))
+        return self.__write_database()
+
+    def __edit(self, index, line):
+        if not line or index < 0:
+            return False
+        self.__database['a'][index] = line
         return self.__write_database()
 
     def __ensure_database_exists(self):
@@ -84,7 +93,6 @@ class ListProcessor(object):
             'a',
             'd',
             'r',
-            'u',
         ]
 
     def __read_database(self):
@@ -109,17 +117,14 @@ class ListProcessor(object):
         self.__database.setdefault('r', []).append(self.__database['a'].pop(index))
         return self.__write_database()
 
-    def __render(self, sort=False):
+    def __render(self, index=None):
         lines = self.__get_bucket('a')
-        if sort:
-            lines.sort()
-        if lines:
-            print os.linesep.join('%3d. %s' %
-                (index + 1, line)
-                for index, line in enumerate(lines)
-            )
-        else:
+        if not lines:
             print 'No results'
+            return True
+        for line_index, line in enumerate(lines):
+            if not index or line_index == index:
+                print '%3d. %s' % (line_index + 1, line)
         return True
 
     def __write_database(self):
@@ -133,18 +138,9 @@ class ListProcessor(object):
                     ))
         return True
 
-    def __update(self, index, line):
-        if not line or index < 0:
-            return False
-        self.__database['a'][index] = line
-        return self.__write_database()
-
 
 if __name__ == '__main__':
     list_name = os.getenv('LIST_NAME')
-    argv = sys.argv
-    option = argv[1] if len(argv) >= 2 else None
-    args = argv[2:]
     processor = ListProcessor(list_name)
-    result = processor.process(option, *args)
+    result = processor.process(*sys.argv[1:])
     sys.exit(0 if result else 1)
