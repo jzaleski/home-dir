@@ -28,11 +28,13 @@ class ListProcessor(object):
         if not args:
             return self.__render()
         if not re.match(r'^[1-9][0-9]*(:[1-9][0-9]*)*$', args[0]):
-            return self.__add(' '.join(args))
+            return self.__add(line=' '.join(args))
         index = int(args[0]) - 1
         if not args[1:]:
             return self.__render(index)
         operation = args[1]
+        if operation in ['a', 'add']:
+            raise NotImplementedError('TODO: Implement me!')
         if operation in ['d', 'done']:
             return self.__done(index)
         elif operation in ['e', 'edit']:
@@ -42,22 +44,22 @@ class ListProcessor(object):
         else:
             return False
 
-    def __add(self, line):
-        if not line:
+    def __add(self, parent_index=0, line=None):
+        if parent_index < 0 or not line:
             return False
-        self.__database.setdefault('a', []).append(line)
+        self.__database.setdefault('a', {}).setdefault(0, []).append(line)
         return self.__write_database()
 
-    def __done(self, index):
+    def __done(self, index=0):
         if index < 0:
             return False
-        self.__database.setdefault('d', []).append(self.__database['a'].pop(index))
+        self.__database.setdefault('d', {}).setdefault(0, []).append(self.__database['a'][0].pop(index))
         return self.__write_database()
 
-    def __edit(self, index, line):
-        if not line or index < 0:
+    def __edit(self, index=0, line=None):
+        if index < 0 or not line:
             return False
-        self.__database['a'][index] = line
+        self.__database['a'][0][index] = line
         return self.__write_database()
 
     def __ensure_database_exists(self):
@@ -69,7 +71,7 @@ class ListProcessor(object):
             open(self.__database_file_path, 'w').close()
 
     def __get_bucket(self, bucket):
-        return self.__database.get(bucket, None)
+        return self.__database.get(bucket, {0: []})
 
     def __get_database(self):
         return self.__read_database()
@@ -108,17 +110,17 @@ class ListProcessor(object):
                 message_parts = line_parts[1:]
                 if not message_parts:
                     continue
-                database.setdefault(bucket, []).append(' '.join(message_parts))
+                database.setdefault(bucket, {}).setdefault(0, []).append(' '.join(message_parts))
         return database
 
-    def __remove(self, index):
+    def __remove(self, index=0):
         if index < 0:
             return False
-        self.__database.setdefault('r', []).append(self.__database['a'].pop(index))
+        self.__database.setdefault('r', {}).setdefault(0, []).append(self.__database['a'][0].pop(index))
         return self.__write_database()
 
     def __render(self, index=None):
-        lines = self.__get_bucket('a')
+        lines = self.__get_bucket('a')[0]
         if not lines:
             print 'No results'
             return True
@@ -129,8 +131,8 @@ class ListProcessor(object):
 
     def __write_database(self):
         with open(self.__database_file_path, 'w') as database_file:
-            for bucket, lines in self.__database.iteritems():
-                for line in lines:
+            for bucket, indices in self.__database.iteritems():
+                for line in indices[0]:
                     database_file.write("%s %s%s" % (
                         bucket,
                         line,
