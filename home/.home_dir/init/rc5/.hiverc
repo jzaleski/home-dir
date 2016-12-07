@@ -1,0 +1,5 @@
+apache_hive_dir=$HOME/lib/apache-hive;
+if [ -h $apache_hive_dir ] || [ -d $apache_hive_dir ]; then
+  export HIVE_HOME=$apache_hive_dir;
+  export PATH=$HIVE_HOME/bin:$PATH;
+fi
