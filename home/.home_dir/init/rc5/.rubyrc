@@ -1,3 +1,9 @@
+# If installed, initialize rbenv
+rbenv_bin_dir=$HOME/.rbenv/bin;
+if [ -h $rbenv_bin_dir ] || [ -d $rbenv_bin_dir ]; then
+  export PATH=$rbenv_bin_dir:$PATH;
+fi
+
 # If installed, initialize RVM (do this only once)
 rvm_script=$HOME/.rvm/scripts/rvm;
 if [ -f $rvm_script ] && [ "$rvm_loaded_flag" != "1" ]; then
