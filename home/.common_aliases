@@ -17,6 +17,7 @@ alias mycnf='~/bin/mycnf.sh';
 alias note='~/bin/note.sh';
 alias pidgin='~/bin/pidgin.sh';
 alias psysh='~/bin/psysh';
+alias readlink='~/bin/readlink.sh';
 alias realsync='~/bin/realsync.sh';
 alias screen='~/bin/screen.sh';
 alias svn='~/bin/svn.sh';
