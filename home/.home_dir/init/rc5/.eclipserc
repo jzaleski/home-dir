@@ -1,0 +1,5 @@
+eclipse_dir=/Applications/Eclipse.app/Contents/Eclipse;
+if [ -h $eclipse_dir ] || [ -d $eclipse_dir ]; then
+  export ECLIPSE_HOME=$eclipse_dir;
+  export PATH="$ECLIPSE_HOME/../MacOS:$PATH";
+fi
