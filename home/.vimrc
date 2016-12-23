@@ -90,13 +90,15 @@ function! ToggleLineNumbers()
   redraw!
 endfunction
 
-" Toggles
+" Hotkeys/Toggles
 map <F2> :call TogglePasteMode()<CR>
 map <F3> :call ToggleHighlightWhitespace()<CR>
 map <F4> :call ToggleIndentGuides()<CR>
-map <F5> :call ToggleLineNumbers()<CR>
-map <F6> :call ToggleGitGutter()<CR>
-map <F7> :call ToggleGitGutterLineHighlights()<CR>
+map <F5> :call Make()<CR>
+map <F6> :call MakeTest()<CR>
+map <F7> :call ToggleLineNumbers()<CR>
+map <F8> :call ToggleGitGutter()<CR>
+map <F9> :call ToggleGitGutterLineHighlights()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
@@ -105,20 +107,20 @@ map <C-F> :FindInFiles<SPACE>
 " Find All References
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Make Helper
+" Make/MakeTest
+set makeprg=$HOME/bin/make.sh
 function! Make()
-  if filereadable(expand('%:p:h') . '/Makefile')
-    execute 'make' | bwipeout
-  endif
+  execute 'make' | bwipeout
+  redraw!
+endfunction
+function! MakeTest()
+  execute 'make test' | bwipeout
   redraw!
 endfunction
 
-" Make
-map <C-B> :call Make()<CR>
-
 " Toggle the Location and Quickfix windows
 function! GetBufferList()
-  redir =>buflist
+  redir => buflist
   silent! ls
   redir END
   return buflist
