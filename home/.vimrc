@@ -4,13 +4,11 @@ syntax on
 filetype indent on
 filetype plugin on
 
-" Comment out the following 2 lines if you are using the solarized color-scheme
+" Enable 256 color support
 set t_Co=256
-let g:solarized_termcolors=&t_Co
 
 " Colorscheme
-set background=dark
-colorscheme solarized
+colorscheme wombat256
 
 " Ensure that the line-number background is transparent
 hi clear LineNr
@@ -19,10 +17,11 @@ hi clear LineNr
 hi clear SignColumn
 
 " Right rule
-set colorcolumn=81
+hi ColorColumn ctermbg=8 guibg=DarkGray
 
 " General
 set backspace=eol,indent,start
+set colorcolumn=81
 set cursorline
 set encoding=utf-8
 set hidden
@@ -160,15 +159,15 @@ endif
 
 " Indent Guides
 let g:indent_guides_auto_colors=0
-hi IndentGuidesOdd ctermbg=15 guibg=LightGrey
-hi IndentGuidesEven ctermbg=7 guibg=White
+hi IndentGuidesOdd ctermbg=7 guibg=LightGrey
+hi IndentGuidesEven ctermbg=15 guibg=White
 
 " lightline
 function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
 endfunction
 let g:lightline={
-  \ 'colorscheme': 'solarized_dark',
+  \ 'colorscheme': 'wombat',
   \ 'active': {
   \   'left': [
   \      ['mode', 'paste'],
