@@ -26,7 +26,7 @@ if [ -n "$BOOTSTRAP_DESKTOP_ENVIRONMENT" ] && [ ! -d /tmp/PT_Mono ] && [ `uname`
 
   mkdir -p /tmp/PT_Mono &&
   cd /tmp/PT_Mono &&
-  $wget_cmd --content-disposition "http://www.google.com/fonts/download?kit=7qsh9BNBJbZ6khIbS3ZpfKCWcynf_cDxXwCLxiixG1c" &&
+  $wget_cmd --output-document=PT_Mono.zip --content-disposition "http://www.google.com/fonts/download?kit=7qsh9BNBJbZ6khIbS3ZpfKCWcynf_cDxXwCLxiixG1c" &&
   $unzip_cmd PT_Mono.zip &&
   rm PT_Mono.zip &&
   cd .. &&

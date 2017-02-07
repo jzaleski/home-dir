@@ -8,7 +8,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       python-dev \
       python-pip \
       python-setuptools \
-      python-software-properties \
       python-virtualenv;
   fi
 
