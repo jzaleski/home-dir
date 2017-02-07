@@ -10,6 +10,9 @@ elif [ -f "pom.xml" ] && hash mvn 2> /dev/null; then
 # Rake support
 elif [ -f "Rakefile" ] && hash rake 2> /dev/null; then
   make_cmd="rake";
+# run_tests.sh support
+elif [ -f "bin/run_tests.sh" ]; then
+  make_cmd="bin/run_tests.sh";
 fi
 
 # Give up if we could not find a valid compiler
