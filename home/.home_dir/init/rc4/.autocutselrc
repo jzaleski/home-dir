@@ -1,6 +1,4 @@
-# If installed, initialize autocutsel
-autocutsel_cmd=`\which autocutsel 2> /dev/null`;
-if [ -n "$autocutsel_cmd" ] && [ `ps -ef | \grep -c "[a]utocutsel"` -eq 0 ]; then
-  ($autocutsel_cmd &) > /dev/null 2>&1;
-  ($autocutsel_cmd -s PRIMARY &) > /dev/null 2>&1;
+if [ hash autocutsel 2> /dev/null ] && [ `ps -ef | \grep -c "[a]utocutsel"` -eq 0 ]; then
+  (autocutsel &) > /dev/null 2>&1;
+  (autocutsel -s PRIMARY &) > /dev/null 2>&1;
 fi
