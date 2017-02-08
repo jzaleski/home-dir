@@ -13,6 +13,7 @@
 .settings
 .realsync
 .reviewboardrc
+.workonrc
 
 custom_plan.rb
 tags

@@ -37,4 +37,9 @@ if [ $# -ge 1 ]; then
   if [ -f $pgpass_file ]; then
     ln -sf $pgpass_file "$HOME/.pgpass";
   fi
+
+  workonrc_file=$project_directory/.workonrc;
+  if [ -f $workonrc_file ]; then
+    source $workonrc_file;
+  fi
 fi
