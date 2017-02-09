@@ -9,6 +9,7 @@ Dot-files and basic utilities
 
 - CentOS / Red Hat
 - Debian / Ubuntu
+- OSX
 - Cygwin
 - Git Bash
 
