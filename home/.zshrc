@@ -1,3 +1,13 @@
+# Set up "history"
+export HISTSIZE=100000;
+export HISTFILESIZE=100000;
+export HISTFILE=$HOME/.zsh_history;
+
+# Ensure that the HISTFILE exist(s)
+if [ ! -f $HISTFILE ]; then
+  touch $HISTFILE;
+fi
+
 # If it exists, load "oh-my-zsh"
 OH_MY_ZSH_DIR=$HOME/.oh-my-zsh;
 if [ -d $OH_MY_ZSH_DIR ]; then

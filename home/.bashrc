@@ -1,7 +1,12 @@
 # Set up "history"
-export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S - ';
 export HISTSIZE=100000;
 export HISTFILESIZE=100000;
+export HISTFILE=$HOME/.bash_history;
+
+# Ensure that the HISTFILE exist(s)
+if [ ! -f $HISTFILE ]; then
+  touch $HISTFILE;
+fi
 
 # Don't require "cd" when changing directories
 shopt -s autocd > /dev/null 2>&1;
