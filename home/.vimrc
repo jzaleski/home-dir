@@ -17,7 +17,7 @@ hi clear LineNr
 hi clear SignColumn
 
 " Right rule
-hi ColorColumn ctermbg=8 guibg=DarkGray
+hi ColorColumn ctermbg=0 guibg=Black
 
 " General
 set backspace=eol,indent,start

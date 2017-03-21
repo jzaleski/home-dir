@@ -957,9 +957,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>270 370 796 473 0 0 1440 877 </string>
+	<string>270 371 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 283 1012 588 0 0 1440 877 </string>
+	<string>2 3 1276 1052 0 0 2560 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 4 1440 873 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1550,7 +1550,7 @@
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.36645832657814026</real>
+			<real>0.17553401898734178</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
