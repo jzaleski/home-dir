@@ -1,0 +1,12 @@
+if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
+  for d in `\ls $SOURCE_DIRECTORY`; do
+    # workon a specific project (variant)
+    alias cd-$d="workon $d";
+    # open vim at project root
+    alias vim-$d="(workon-$d; vim)";
+    # workon a specific project
+    alias workon-$d="workon $d";
+    # workon a specific project (short-hand)
+    alias wo-$d="workon $d";
+  done
+fi

@@ -1,0 +1,11 @@
+if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
+  for d in `\ls $SOURCE_DIRECTORY`; do
+    procfile_file="$SOURCE_DIRECTORY/$d/Procfile";
+    if [ -f $procfile_file ]; then
+      # `foreman start` a specific project
+      alias foreman-start-$d="(workon-$d; foreman start)";
+      # `foreman start` a specific project (short-hand)
+      alias fs-$d="(workon-$d; foreman start)";
+    fi
+  done
+fi

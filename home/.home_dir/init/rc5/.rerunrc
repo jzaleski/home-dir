@@ -1,0 +1,9 @@
+if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
+  for d in `\ls $SOURCE_DIRECTORY`; do
+    rerun_file="$SOURCE_DIRECTORY/$d/.rerun";
+    if [ -f $rerun_file ]; then
+      # `rerun` a specific project
+      alias rerun-$d="(workon-$d; rerun)";
+    fi
+  done
+fi
