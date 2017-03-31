@@ -8,7 +8,7 @@ filetype plugin on
 set t_Co=256
 
 " Colorscheme
-colorscheme solarized
+colorscheme dracula
 
 " Ensure that the line-number background is transparent
 hi clear LineNr
@@ -167,7 +167,6 @@ function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
 endfunction
 let g:lightline={
-  \ 'colorscheme': 'solarized',
   \ 'active': {
   \   'left': [
   \      ['mode', 'paste'],

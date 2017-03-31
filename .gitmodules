@@ -58,3 +58,7 @@
   path = home/.vim/bundle/matchit
   url = https://github.com/tmhedberg/matchit.git
   ignore = dirty
+[submodule "home/.vim/bundle/dracula-theme"]
+  path = home/.vim/bundle/dracula-theme
+  url = git@github.com:dracula/vim.git
+  ignore = dirty
