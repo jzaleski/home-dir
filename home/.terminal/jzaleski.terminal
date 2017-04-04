@@ -115,15 +115,17 @@
 	<key>BackgroundColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECsw
-	LjExNzY1ODExNTkgMC4xMjIxNTI3MjM0IDAuMTU5Nzc4MzcxNSAwLjkAEAGAAtIQERIT
-	WiRjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqISFFhOU09iamVjdF8QD05TS2V5ZWRB
-	cmNoaXZlctEXGFRyb290gAEIERojLTI3O0FITltikJKUmaSttbjB09bbAAAAAAAAAQEA
-	AAAAAAAAGQAAAAAAAAAAAAAAAAAAAN0=
+	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECww
+	LjExNzY1ODExNTkgMC4xMjIxNTI3MjM0IDAuMTU5Nzc4MzcxNSAwLjk1ABABgALSEBES
+	E1okY2xhc3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiEhRYTlNPYmplY3RfEA9OU0tleWVk
+	QXJjaGl2ZXLRFxhUcm9vdIABCBEaIy0yNztBSE5bYpGTlZqlrra5wtTX3AAAAAAAAAEB
+	AAAAAAAAABkAAAAAAAAAAAAAAAAAAADe
 	</data>
 	<key>BellBadge</key>
 	<false/>
 	<key>BellBounce</key>
+	<false/>
+	<key>BookmarkRestorations</key>
 	<false/>
 	<key>Font</key>
 	<data>
@@ -136,6 +138,10 @@
 	</data>
 	<key>ProfileCurrentVersion</key>
 	<real>2.04</real>
+	<key>ScrollAlternateScreen</key>
+	<false/>
+	<key>ScrollbackLines</key>
+	<integer>25000</integer>
 	<key>SelectionColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -145,14 +151,22 @@
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>ShouldLimitScrollback</key>
+	<integer>1</integer>
+	<key>ShouldRestoreContent</key>
+	<false/>
+	<key>ShowTTYNameInTabTitle</key>
+	<false/>
+	<key>StrictVTKeypad</key>
+	<true/>
 	<key>TextBoldColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPEBww
-	LjQxOTYwNzg0MzEgMC40NTg4MjM1Mjk0IDEAEAGAAtIQERITWiRjbGFzc25hbWVYJGNs
-	YXNzZXNXTlNDb2xvcqISFFhOU09iamVjdF8QD05TS2V5ZWRBcmNoaXZlctEXGFRyb290
-	gAEIERojLTI3O0FITltigYOFipWepqmyxMfMAAAAAAAAAQEAAAAAAAAAGQAAAAAAAAAA
-	AAAAAAAAAM4=
+	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECcw
+	LjgwMDAwMDAxMTkgMC44MDAwMDAwMTE5IDAuODAwMDAwMDExOQAQAYAC0hAREhNaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohIUWE5TT2JqZWN0XxAPTlNLZXllZEFyY2hp
+	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>TextColor</key>
 	<data>
@@ -168,6 +182,121 @@
 	<string>jzaleski@ALT00303: ~</string>
 	<key>columnCount</key>
 	<integer>125</integer>
+	<key>deleteSendsBackspace</key>
+	<false/>
+	<key>keyMapBoundKeys</key>
+	<dict>
+		<key>$F702</key>
+		<string>[1;2D</string>
+		<key>$F703</key>
+		<string>[1;2C</string>
+		<key>$F708</key>
+		<string>[25~</string>
+		<key>$F709</key>
+		<string>[26~</string>
+		<key>$F70A</key>
+		<string>[28~</string>
+		<key>$F70B</key>
+		<string>[29~</string>
+		<key>$F70C</key>
+		<string>[31~</string>
+		<key>$F70D</key>
+		<string>[32~</string>
+		<key>$F70E</key>
+		<string>[33~</string>
+		<key>$F70F</key>
+		<string>[34~</string>
+		<key>$F728</key>
+		<string>[3;2~</string>
+		<key>F704</key>
+		<string>OP</string>
+		<key>F705</key>
+		<string>OQ</string>
+		<key>F706</key>
+		<string>OR</string>
+		<key>F707</key>
+		<string>OS</string>
+		<key>F708</key>
+		<string>[15~</string>
+		<key>F709</key>
+		<string>[17~</string>
+		<key>F70A</key>
+		<string>[18~</string>
+		<key>F70B</key>
+		<string>[19~</string>
+		<key>F70C</key>
+		<string>[20~</string>
+		<key>F70D</key>
+		<string>[21~</string>
+		<key>F70E</key>
+		<string>[23~</string>
+		<key>F70F</key>
+		<string>[24~</string>
+		<key>F710</key>
+		<string>[25~</string>
+		<key>F711</key>
+		<string>[26~</string>
+		<key>F712</key>
+		<string>[28~</string>
+		<key>F713</key>
+		<string>[29~</string>
+		<key>F714</key>
+		<string>[31~</string>
+		<key>F715</key>
+		<string>[32~</string>
+		<key>F716</key>
+		<string>[33~</string>
+		<key>F717</key>
+		<string>[34~</string>
+		<key>F728</key>
+		<string>[3~</string>
+		<key>F729</key>
+		<string></string>
+		<key>F72B</key>
+		<string></string>
+		<key>^F702</key>
+		<string>[1;5D</string>
+		<key>^F703</key>
+		<string>[1;5C</string>
+		<key>^F728</key>
+		<string>[3;5~</string>
+		<key>~F702</key>
+		<string>b</string>
+		<key>~F703</key>
+		<string>f</string>
+		<key>~F704</key>
+		<string>[17~</string>
+		<key>~F705</key>
+		<string>[18~</string>
+		<key>~F706</key>
+		<string>[19~</string>
+		<key>~F707</key>
+		<string>[20~</string>
+		<key>~F708</key>
+		<string>[21~</string>
+		<key>~F709</key>
+		<string>[23~</string>
+		<key>~F70A</key>
+		<string>[24~</string>
+		<key>~F70B</key>
+		<string>[25~</string>
+		<key>~F70C</key>
+		<string>[26~</string>
+		<key>~F70D</key>
+		<string>[28~</string>
+		<key>~F70E</key>
+		<string>[29~</string>
+		<key>~F70F</key>
+		<string>[31~</string>
+		<key>~F710</key>
+		<string>[32~</string>
+		<key>~F711</key>
+		<string>[33~</string>
+		<key>~F712</key>
+		<string>[34~</string>
+		<key>~^F728</key>
+		<string>[3;5~</string>
+	</dict>
 	<key>name</key>
 	<string>jzaleski</string>
 	<key>rowCount</key>
@@ -178,5 +307,7 @@
 	<string>Window Settings</string>
 	<key>useOptionAsMetaKey</key>
 	<true/>
+	<key>warnOnShellCloseAction</key>
+	<integer>0</integer>
 </dict>
 </plist>
