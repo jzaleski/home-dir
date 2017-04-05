@@ -1166,12 +1166,14 @@
 	<array/>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 364 620 392 0 0 1440 877 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 139 606 456 0 0 2560 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>390 375 796 473 0 0 1440 877 </string>
+	<string>994 430 796 473 0 0 2560 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 11 1436 860 0 0 1440 877 </string>
+	<string>2 3 1276 1052 0 0 2560 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 4 1440 873 0 0 1440 877 </string>
+	<string>0 276 1012 588 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>2 8 716 428 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_924341B8-E67E-4ECC-86BE-29F359521DE1</key>
@@ -1771,6 +1773,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>PTMono-Regular 14</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Place Prompt at First Column</key>
@@ -1926,7 +1930,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.027521727071005916</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -2035,7 +2039,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-28T01:54:30Z</date>
+	<date>2017-04-05T12:37:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
