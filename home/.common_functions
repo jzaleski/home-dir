@@ -7,6 +7,13 @@ cd () {
   fi
 }
 
+# Echos an "✘" if the previous command has a non-zero exit-code
+error_prompt_prefix () {
+  if [ $? -ne 0 ]; then
+    echo "✘ ";
+  fi
+}
+
 # Echos an asterix if the local [git] repo has changes
 parse_git_dirty () {
   dirty=`git status --porcelain 2> /dev/null`;
