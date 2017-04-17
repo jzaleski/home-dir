@@ -32,6 +32,10 @@ parse_git_branch () {
 
 # Echos the combination of git-branch and git-dirty to form an informative prompt
 git_prompt_info () {
+  if [ ! hash git 2> /dev/null ]; then
+    return;
+  fi
+
   top_level=`git rev-parse --show-toplevel 2> /dev/null`;
   if [ -z "$top_level" ]; then
     return;
