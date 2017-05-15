@@ -25,6 +25,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       vim \
       wget \
       zsh \
+      zsh-autosuggestions \
       zsh-completions;
     do
       package_details=`$brew_cmd list $package 2> /dev/null`;
