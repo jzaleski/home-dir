@@ -15,6 +15,9 @@
 .reviewboardrc
 .workonrc
 
+*.o
+*.pyc
+
 custom_plan.rb
 tags
 tags.*
