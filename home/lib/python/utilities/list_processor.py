@@ -148,16 +148,16 @@ class ListProcessor(object):
     def __render(self, index=None):
         data = self.__get_bucket('a')
         if not data:
-            print 'No results'
+            print('No results')
             return True
         for datum_index, datum in enumerate(data):
             if not index or datum_index == index:
-                print '%3d. %s' % (datum_index + 1, datum['message'])
+                print('%3d. %s' % (datum_index + 1, datum['message']))
         return True
 
     def __write_database(self):
         with open(self.__database_file_path, 'w') as database_file:
-            for bucket, data in self.__database.iteritems():
+            for bucket, data in self.__database.items():
                 for datum in data:
                     database_file.write("%s\t%d\t%d\t%s%s" % (
                         bucket,
