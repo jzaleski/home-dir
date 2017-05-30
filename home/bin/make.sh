@@ -3,6 +3,9 @@
 # GNU make support
 if [ -f "Makefile" ] && hash make 2> /dev/null; then
   make_cmd="make";
+# Python/PyTest support
+elif [ -f "setup.py" ]; then
+  make_cmd="python setup.py test";
 # Apache Maven support
 elif [ -f "pom.xml" ] && hash mvn 2> /dev/null; then
   make_cmd="mvn";
