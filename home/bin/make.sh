@@ -3,6 +3,9 @@
 # GNU make support
 if [ -f "Makefile" ] && hash make 2> /dev/null; then
   make_cmd="make";
+# Adhoc Python test support
+elif [ -f "test.py" ]; then
+  make_cmd="python test.py";
 # Python/PyTest support
 elif [ -f "setup.py" ]; then
   make_cmd="python setup.py test";
@@ -10,6 +13,9 @@ elif [ -f "setup.py" ]; then
 elif [ -f "pom.xml" ] && hash mvn 2> /dev/null; then
   make_cmd="mvn";
   [[ -z "$1" ]] && make_cmd="mvn compile";
+# Adhoc Ruby test support
+elif [ -f "test.rb" ]; then
+  make_cmd="bundle exec ruby test.rb";
 # Rake support
 elif [ -f "Rakefile" ] && hash rake 2> /dev/null; then
   make_cmd="rake";
