@@ -23,6 +23,13 @@ if [ $# -ge 1 ]; then
     source $activate_script;
   fi
 
+  unset RUBY_GEMSET;
+
+  gemset_file=$project_directory/.ruby-gemset;
+  if [ -f $gemset_file ]; then
+    export RUBY_GEMSET=`cat $gemset_file`;
+  fi
+
   freetds_file=$HOME/.freetds.conf.$project;
   if [ -f $freetds_file ]; then
     ln -sf $freetds_file "$HOME/.freetds.conf";

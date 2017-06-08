@@ -7,15 +7,13 @@ cd () {
   fi
 }
 
-# Echos an "✘" if the previous command has a non-zero exit-code
-error_prompt_prefix () {
-  if [ $? -ne 0 ]; then
-    echo "✘ ";
-  fi
-}
-
 # Echos an asterix if the local [git] repo has changes
 parse_git_dirty () {
+  nogitdirty_file=.nogitdirty;
+  if [ -f $HOME/$nogitdirty_file ]; then
+    return;
+  fi
+
   dirty=`git status --porcelain 2> /dev/null`;
   if [ -n "$dirty" ]; then
     echo "*";
@@ -24,37 +22,56 @@ parse_git_dirty () {
 
 # Echos the current [git] branch
 parse_git_branch () {
+  nogitbranch_file=.nogitbranch;
+  if [ -f $HOME/$nogitbranch_file ]; then
+    return;
+  fi
+
   branch=`git rev-parse --abbrev-ref HEAD 2> /dev/null`;
   if [ -n "$branch" ]; then
     echo "${branch}";
   fi
 }
 
+# Echos the current bundle info (e.g. gemset, virtualenv name)
+bundle_prompt_info () {
+  nobundleinfo_file=.nobundleinfo;
+  if [ -f $HOME/$nobundleinfo_file ]; then
+    return;
+  fi
+
+  if [ -n "$VIRTUAL_ENV" ]; then
+    echo "($(basename $VIRTUAL_ENV)) ";
+  elif [ -n "$RUBY_GEMSET" ]; then
+    echo "($RUBY_GEMSET) ";
+  fi
+}
+
+# Echos an "✘" if the previous command has a non-zero exit-code
+error_prompt_info () {
+  noerrorinfo_file=.noerrorinfo;
+  if [ -f $HOME/$noerrorinfo_file ]; then
+    return;
+  fi
+
+  if [ $? -ne 0 ]; then
+    echo "✘ ";
+  fi
+}
+
 # Echos the combination of git-branch and git-dirty to form an informative prompt
 git_prompt_info () {
+  nogitinfo_file=.nogitinfo;
+  if [ -f $HOME/$nogitinfo_file ]; then
+    return;
+  fi
+
   if [ ! hash git 2> /dev/null ]; then
     return;
   fi
 
-  top_level=`git rev-parse --show-toplevel 2> /dev/null`;
-  if [ -z "$top_level" ]; then
-    return;
-  fi
-
-  nogitstatus_file=.nogitstatus;
-  if [ -f $HOME/$nogitstatus_file ] || [ -f $top_level/$nogitstatus_file ]; then
-    return;
-  fi
-
-  nogitbranch_file=.nogitbranch;
-  if [ ! -f $HOME/$nogitbranch_file ] && [ ! -f $top_level/$nogitbranch_file ]; then
-    branch=$(parse_git_branch);
-  fi
-
-  nogitdirty_file=.nogitdirty;
-  if [ ! -f $HOME/$nogitdirty_file ] && [ ! -f $top_level/$nogitdirty_file ]; then
-    dirty=$(parse_git_dirty);
-  fi
+  branch=$(parse_git_branch);
+  dirty=$(parse_git_dirty);
 
   if [ -n "$branch" ] || [ -n "$dirty" ]; then
     echo "${branch}${dirty} ";
