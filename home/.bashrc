@@ -14,8 +14,14 @@ shopt -s autocd > /dev/null 2>&1;
 # Handle minor errors in the spelling of a directory component
 shopt -s cdspell > /dev/null 2>&1;
 
+# Attempts spelling correction on directory names during word completion
+shopt -s dirspell > /dev/null 2>&1;
+
 # Append to the history file, don't overwrite it
 shopt -s histappend > /dev/null 2>&1;
+
+# Allows the opportunity to re-edit a failed history substitution
+shopt -s histreedit > /dev/null 2>&1;
 
 # Allow bash to glob filenames in a case-insensitve manner
 shopt -s nocaseglob > /dev/null 2>&1;
