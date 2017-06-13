@@ -10,15 +10,14 @@ if [ $# -ge 1 ]; then
     exit 1;
   fi
 
-  branch=$2;
-  git_cmd=`\which git 2> /dev/null`;
-  if [ -n "$git_cmd" ] && [ -n "$branch" ]; then
-    $git_cmd checkout $branch 1> /dev/null;
-  fi
-
   deactivate 2> /dev/null || true;
 
-  activate_script=$project_directory/.env/bin/activate;
+  virtualenv_directory=.env;
+  if [ -n "$2" ]; then
+    virtualenv_directory=$virtualenv_directory-$2;
+  fi
+
+  activate_script=$project_directory/$virtualenv_directory/bin/activate;
   if [ -f $activate_script ]; then
     source $activate_script;
   fi
