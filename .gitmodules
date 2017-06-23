@@ -60,5 +60,5 @@
   ignore = dirty
 [submodule "home/.vim/bundle/dracula-theme"]
   path = home/.vim/bundle/dracula-theme
-  url = git@github.com:dracula/vim.git
+  url = https://github.com/dracula/vim.git
   ignore = dirty
