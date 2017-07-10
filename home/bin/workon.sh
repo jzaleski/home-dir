@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 
 if [ $# -ge 1 ]; then
-  project=$1;
-  project_directory=$SOURCE_DIRECTORY/$project;
-  if [ -d $project_directory ]; then
-    cd $project_directory;
+  if [ "$1" = "." ]; then
+    project_directory=$PWD;
+  elif [ -d $1 ]; then
+    project_directory="$PWD/$1";
   else
-    echo "Project \"$project\" does not exist";
+    project_directory=$SOURCE_DIRECTORY/$1;
+  fi
+
+  if [ ! -d $project_directory ]; then
+    echo "Project directory does not exist";
     exit 1;
   fi
+
+  builtin cd $project_directory;
 
   deactivate 2> /dev/null || true;
 

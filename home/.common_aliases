@@ -44,17 +44,3 @@ alias ........='cd ../../../../../../..';
 alias .........='cd ../../../../../../../..';
 alias ..........='cd ../../../../../../../../..';
 alias ...........='cd ../../../../../../../../../..';
-
-# dynamically detect project directories and create aliases
-if [ -d $SOURCE_DIRECTORY ]; then
-  for d in `\ls $SOURCE_DIRECTORY`; do
-    # workon specific project
-    alias cd-$d="workon $d";
-    # open vim at project root
-    alias vim-$d="(workon-$d; vim)";
-    # workon specific project
-    alias wo-$d="workon $d";
-    # workon specific project (variant)
-    alias workon-$d="workon $d";
-  done
-fi

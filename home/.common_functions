@@ -7,6 +7,14 @@ cd () {
   fi
 }
 
+chpwd() {
+  if [ "$OLDPWD" != "$PWD" ]; then
+    if [ -f $PWD/.workonrc ]; then
+      source $HOME/bin/workon.sh .;
+    fi
+  fi
+}
+
 # Echos an asterix if the local [git] repo has changes
 parse_git_dirty () {
   nogitdirty_file=.nogitdirty;

@@ -1,6 +1,7 @@
 .branches
 .classpath
 .ctrlp
+.eggs
 .env
 .env-*
 .lsyncd

@@ -6,7 +6,10 @@ if [ -f "Makefile" ] && hash make 2> /dev/null; then
 # Adhoc Python test support
 elif [ -f "test.py" ]; then
   make_cmd="python test.py";
-# Python/PyTest support
+# pytest support
+elif [ -f "setup.py" ] && [ -f "setup.cfg" ]; then
+  make_cmd="pytest";
+# Python support
 elif [ -f "setup.py" ]; then
   make_cmd="python setup.py test";
 # Apache Maven support
