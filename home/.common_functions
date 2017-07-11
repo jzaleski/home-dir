@@ -7,6 +7,7 @@ cd () {
   fi
 }
 
+# Automatically `workon[ify]` if the directory entered has a .workonrc specified
 chpwd() {
   if [ "$OLDPWD" != "$PWD" ]; then
     if [ -f $PWD/.workonrc ]; then
