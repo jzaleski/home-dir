@@ -178,8 +178,6 @@
 	</data>
 	<key>VisualBellOnlyWhenMuted</key>
 	<false/>
-	<key>WindowTitle</key>
-	<string>jzaleski@ALT00303: ~</string>
 	<key>columnCount</key>
 	<integer>125</integer>
 	<key>deleteSendsBackspace</key>
