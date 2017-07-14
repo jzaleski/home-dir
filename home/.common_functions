@@ -5,10 +5,7 @@ cd () {
   else
     builtin cd "$@";
   fi
-}
 
-# Automatically `workon[ify]` if the directory entered has a .workonrc specified
-chpwd() {
   if [ "$OLDPWD" != "$PWD" ]; then
     if [ -f $PWD/.workonrc ]; then
       source $HOME/bin/workon.sh .;
@@ -58,12 +55,14 @@ bundle_prompt_info () {
 
 # Echos an "✘" if the previous command has a non-zero exit-code
 error_prompt_info () {
+  last_exit_code=$?;
+
   noerrorinfo_file=.noerrorinfo;
   if [ -f $HOME/$noerrorinfo_file ]; then
     return;
   fi
 
-  if [ $? -ne 0 ]; then
+  if [ $last_exit_code -ne 0 ]; then
     echo "✘ ";
   fi
 }

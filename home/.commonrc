@@ -38,7 +38,7 @@ if [ -f $COMMON_FUNCTIONS_FILE ]; then
 fi
 
 # Disable glob[ing] temporarily to minimize init-script noise
-setopt noglob > /dev/null 2>&1;
+setopt noglob > /dev/null 2>&1 || true;
 
 # Load any custom init-scripts (the filename *must* end-with "rc")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
@@ -49,4 +49,4 @@ if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
 fi
 
 # Re-enable glob[ing]
-unsetopt noglob > /dev/null 2>&1;
+unsetopt noglob > /dev/null 2>&1 || true;
