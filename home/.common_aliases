@@ -30,7 +30,6 @@ alias tsql='~/bin/tsql.sh';
 alias vagrant='~/bin/vagrant.sh';
 alias vi='~/bin/vi.sh';
 alias watch-fs='~/bin/watch-fs.sh';
-alias with_rvm_rubies='~/bin/with_rvm_rubies.sh';
 alias wo='source ~/bin/workon.sh';
 alias workon='source ~/bin/workon.sh';
 

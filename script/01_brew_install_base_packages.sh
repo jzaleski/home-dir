@@ -17,8 +17,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       gpg \
       homebrew/dupes/rsync \
       htop-osx \
-      lsyncd \
-      jq \
       openssl \
       readline \
       tmux \

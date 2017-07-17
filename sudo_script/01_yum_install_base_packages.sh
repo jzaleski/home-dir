@@ -16,7 +16,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       ctags-etags \
       curl \
       dkms \
-      dos2unix \
       freetds \
       freetds-devel \
       gcc \
@@ -27,13 +26,9 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       libntlm-devel \
       libyaml \
       libyaml-devel \
-      lsyncd \
       ncurses-devel \
       net-tools \
-      pidgin \
-      pidgin-devel \
       screen \
-      subversion \
       tmux \
       unixODBC \
       unixODBC-devel \

@@ -13,7 +13,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       colordiff \
       curl \
       dkms \
-      dos2unix \
       exuberant-ctags \
       git \
       freetds-bin \
@@ -23,11 +22,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       libntlm0 \
       libntlm0-dev \
       linux-headers-$(uname -r) \
-      lsyncd \
-      pidgin \
-      pidgin-dev \
       screen \
-      subversion \
       tdsodbc \
       tmux \
       unixodbc \

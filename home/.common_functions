@@ -1,15 +1,32 @@
 # Change to the containing directory if the first argument was a file
 cd () {
+  last_directory=$PWD;
+
   if [ $# -eq 1 ] && [ -f $1 ]; then
     builtin cd $(dirname $1);
   else
     builtin cd "$@";
   fi
 
-  if [ "$OLDPWD" != "$PWD" ]; then
+  if [ "$last_directory" != "$PWD" ]; then
     if [ -f $PWD/.workonrc ]; then
       source $HOME/bin/workon.sh .;
     fi
+  fi
+}
+
+# Deactivate the active Python or Ruby environment
+deactivate () {
+  unset PIP_CONFIG_FILE;
+  unset PYTHONPATH;
+  unset PYTHON_ENVIRONMENT;
+
+  unset GEM_HOME;
+  unset GEM_PATH;
+  unset RUBY_ENVIRONMENT;
+
+  if [ -n "$MEMOIZED_PATH" ]; then
+    export PATH=$MEMOIZED_PATH;
   fi
 }
 
@@ -39,17 +56,17 @@ parse_git_branch () {
   fi
 }
 
-# Echos the current bundle info (e.g. gemset, virtualenv name)
-bundle_prompt_info () {
-  nobundleinfo_file=.nobundleinfo;
-  if [ -f $HOME/$nobundleinfo_file ]; then
+# Echos the current environment info
+environment_prompt_info () {
+  noenvironmentinfo_file=.noenvironmentinfo;
+  if [ -f $HOME/$noenvironmentinfo_file ]; then
     return;
   fi
 
-  if [ -n "$VIRTUAL_ENV" ]; then
-    echo "($(basename $VIRTUAL_ENV)) ";
-  elif [ -n "$RUBY_GEMSET" ]; then
-    echo "($RUBY_GEMSET) ";
+  if [ -n "$PYTHON_ENVIRONMENT" ]; then
+    echo "($(basename $PYTHON_ENVIRONMENT)) ";
+  elif [ -n "$RUBY_ENVIRONMENT" ]; then
+    echo "($(basename $RUBY_ENVIRONMENT)) ";
   fi
 }
 

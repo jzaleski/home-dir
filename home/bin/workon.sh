@@ -16,23 +16,34 @@ if [ $# -ge 1 ]; then
 
   builtin cd $project_directory;
 
-  deactivate 2> /dev/null || true;
+  deactivate > /dev/null 2>&1 || true;
 
-  virtualenv_directory=.env;
+  python_environment_directory=.python_environment;
   if [ -n "$2" ]; then
-    virtualenv_directory=$virtualenv_directory-$2;
+    python_environment_directory=$python_environment_directory-$2;
   fi
 
-  activate_script=$project_directory/$virtualenv_directory/bin/activate;
-  if [ -f $activate_script ]; then
-    source $activate_script;
+  if [ -d $python_environment_directory ] || [ -h $python_environment_directory ]; then
+    python_environment_directory=`readlink -f $python_environment_directory`;
+    python_version=`echo $python_environment_directory | \
+      sed -E "s/.+\-([0-9]+\.[0-9]+)\.[0-9]*$/\1/"`;
+    export PIP_CONFIG_FILE=$python_environment_directory/pip.conf;
+    export PYTHONPATH=$python_environment_directory/lib/python$python_version/site-packages;
+    export PYTHON_ENVIRONMENT=$python_environment_directory;
+    export PATH=$python_environment_directory/bin:$PATH;
   fi
 
-  unset RUBY_GEMSET;
+  ruby_environment_directory=.ruby_environment;
+  if [ -n "$2" ]; then
+    ruby_environment_directory=$ruby_environment_directory-$2;
+  fi
 
-  gemset_file=$project_directory/.ruby-gemset;
-  if [ -f $gemset_file ]; then
-    export RUBY_GEMSET=`cat $gemset_file`;
+  if [ -d $ruby_environment_directory ] || [ -h $ruby_environment_directory ]; then
+    ruby_environment_directory=`readlink -f $ruby_environment_directory`;
+    export GEM_HOME=$ruby_environment_directory;
+    export GEM_PATH=$ruby_environment_directory;
+    export RUBY_ENVIRONMENT=$ruby_environment_directory;
+    export PATH=$ruby_environment_directory/bin:$PATH;
   fi
 
   freetds_file=$HOME/.freetds.conf.$project;

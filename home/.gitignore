@@ -2,19 +2,22 @@
 .classpath
 .ctrlp
 .eggs
-.env
-.env-*
+.local
 .lsyncd
-.notags
 .nogitbranch
 .nogitdirty
 .nogitstatus
+.notags
 .pmd
 .pmdruleset.xml
 .project
-.settings
+.python_environment
+.python_environment-*
 .realsync
 .reviewboardrc
+.ruby_environment
+.ruby_environment-*
+.settings
 .workonrc
 
 *.o

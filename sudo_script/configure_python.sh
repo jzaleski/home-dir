@@ -7,8 +7,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       python \
       python-dev \
       python-pip \
-      python-setuptools \
-      python-virtualenv;
+      python-setuptools;
   fi
 
   yum_cmd=`\which yum 2> /dev/null`;
@@ -17,7 +16,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       python \
       python-devel \
       python-pip \
-      python-setuptools \
-      python-virtualenv;
+      python-setuptools;
   fi
 fi
