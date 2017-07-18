@@ -17,7 +17,6 @@ if [ -d $OH_MY_ZSH_DIR ]; then
   ZSH=$OH_MY_ZSH_DIR;
   ZSH_THEME=jzaleski;
   DISABLE_AUTO_UPDATE=true;
-  plugins=(extract urltools);
   source $ZSH/oh-my-zsh.sh;
 fi
 

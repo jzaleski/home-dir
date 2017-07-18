@@ -34,9 +34,6 @@ if [ -f $COMMON_FUNCTIONS_FILE ]; then
   source $COMMON_FUNCTIONS_FILE;
 fi
 
-# Disable glob[ing] temporarily to minimize init-script noise
-setopt noglob > /dev/null 2>&1 || true;
-
 # Load any custom init-scripts (the filename *must* end-with "rc")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
@@ -44,9 +41,6 @@ if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
     source $f;
   done
 fi
-
-# Re-enable glob[ing]
-unsetopt noglob > /dev/null 2>&1 || true;
 
 # Memoize the current state of `$PATH` (it is *required* for: `deactivate`)
 export MEMOIZED_PATH=$PATH;
