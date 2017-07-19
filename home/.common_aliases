@@ -15,6 +15,7 @@ alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
 alias lsyncd='~/bin/lsyncd.sh';
 alias make='~/bin/make.sh';
+alias mkenv='~/bin/mkenv.sh';
 alias mycnf='~/bin/mycnf.sh';
 alias note='~/bin/note.sh';
 alias pidgin='~/bin/pidgin.sh';
