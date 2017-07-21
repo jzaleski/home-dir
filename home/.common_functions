@@ -8,15 +8,26 @@ cd () {
     builtin cd "$@";
   fi
 
-  if [ "$last_directory" != "$PWD" ]; then
-    if [ -f $PWD/.workonrc ]; then
-      source $HOME/bin/workon.sh .;
-    fi
+  if [ "$last_directory" = "$PWD" ]; then
+    return;
+  fi
+
+  noautoworkon_file=$HOME/.noautoworkon;
+  if [ -f $noautoworkon_file ]; then
+    return;
+  fi
+
+  if [ -f $PWD/.workonrc ]; then
+    source $HOME/bin/workon.sh .;
+  elif [ -n "$PROJECT_DIRECTORY" ] && [[ ! $PWD =~ ^$PROJECT_DIRECTORY ]]; then
+    deactivate;
   fi
 }
 
-# Deactivate the active Python or Ruby environment
+# Deactivate the active project (plus any active Python or Ruby environment)
 deactivate () {
+  unset PROJECT_DIRECTORY;
+
   unset PIP_CONFIG_FILE;
   unset PYTHONPATH;
   unset PYTHON_ENVIRONMENT;
@@ -32,8 +43,8 @@ deactivate () {
 
 # Echos an asterix if the local [git] repo has changes
 parse_git_dirty () {
-  nogitdirty_file=.nogitdirty;
-  if [ -f $HOME/$nogitdirty_file ]; then
+  nogitdirty_file=$HOME/.nogitdirty;
+  if [ -f $nogitdirty_file ]; then
     return;
   fi
 
@@ -45,8 +56,8 @@ parse_git_dirty () {
 
 # Echos the current [git] branch
 parse_git_branch () {
-  nogitbranch_file=.nogitbranch;
-  if [ -f $HOME/$nogitbranch_file ]; then
+  nogitbranch_file=$HOME/.nogitbranch;
+  if [ -f $nogitbranch_file ]; then
     return;
   fi
 
@@ -58,8 +69,8 @@ parse_git_branch () {
 
 # Echos the current environment info
 environment_prompt_info () {
-  noenvironmentinfo_file=.noenvironmentinfo;
-  if [ -f $HOME/$noenvironmentinfo_file ]; then
+  noenvironmentinfo_file=$HOME/.noenvironmentinfo;
+  if [ -f $noenvironmentinfo_file ]; then
     return;
   fi
 
@@ -74,8 +85,8 @@ environment_prompt_info () {
 error_prompt_info () {
   last_exit_code=$?;
 
-  noerrorinfo_file=.noerrorinfo;
-  if [ -f $HOME/$noerrorinfo_file ]; then
+  noerrorinfo_file=$HOME/.noerrorinfo;
+  if [ -f $noerrorinfo_file ]; then
     return;
   fi
 
@@ -86,8 +97,8 @@ error_prompt_info () {
 
 # Echos the combination of git-branch and git-dirty to form an informative prompt
 git_prompt_info () {
-  nogitinfo_file=.nogitinfo;
-  if [ -f $HOME/$nogitinfo_file ]; then
+  nogitinfo_file=$HOME/.nogitinfo;
+  if [ -f $nogitinfo_file ]; then
     return;
   fi
 

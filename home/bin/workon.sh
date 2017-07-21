@@ -65,4 +65,6 @@ if [ $# -ge 1 ]; then
   if [ -f $workonrc_file ]; then
     source $workonrc_file;
   fi
+
+  export PROJECT_DIRECTORY=$project_directory;
 fi
