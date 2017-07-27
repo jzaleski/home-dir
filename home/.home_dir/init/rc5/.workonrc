@@ -4,6 +4,8 @@ if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
     if [ -f "$SOURCE_DIRECTORY/$project_directory/.workonrc" ]; then
       # workon a specific project (variant)
       alias cd-$project_directory="workon-$project_directory";
+      # workon a specific project and open vim at the project root
+      alias vim-$project_directory="workon-$project_directory && vim .";
       # workon a specific project
       alias workon-$project_directory="workon $project_directory";
       # workon a specific project (short-hand)
@@ -14,6 +16,8 @@ if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
         python_version=`echo $(basename $python_directory) | sed s/\.python_environment-//`;
         # workon a specific project (variant)
         alias cd-$project_directory-$python_version="workon-$project_directory-$python_version";
+        # workon a specific project and open vim at the project root
+        alias vim-$project_directory-$python_version="workon-$project_directory-$python_version && vim .";
         # workon a specific project
         alias workon-$project_directory-$python_version="workon $project_directory $python_version";
         # workon a specific project (short-hand)
@@ -25,6 +29,8 @@ if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
         ruby_version=`echo $(basename $ruby_directory) | sed s/\.ruby_environment-//`;
         # workon a specific project (variant)
         alias cd-$project_directory-$ruby_version="workon-$project_directory-$ruby_version";
+        # workon a specific project and open vim at the project root
+        alias vim-$project_directory-$ruby_version="workon-$project_directory-$ruby_version && vim .";
         # workon a specific project
         alias workon-$project_directory-$ruby_version="workon $project_directory $ruby_version";
         # workon a specific project (short-hand)

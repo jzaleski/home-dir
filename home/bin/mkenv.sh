@@ -72,6 +72,6 @@ fi
 if [ "$type" = "python" ]; then
   pip_conf_file="$install_directory/pip.conf";
   if [ ! -e $pip_conf_file ]; then
-    echo -e "[install]\nprefix = $install_directory" > $pip_conf_file;
+    echo -e "[install]\nprefix = $PWD/$install_directory" > $pip_conf_file;
   fi
 fi
