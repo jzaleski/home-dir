@@ -31,6 +31,9 @@ deactivate () {
   unset GOPATH;
   unset GO_ENVIRONMENT;
 
+  unset CLASSPATH;
+  unset JAVA_ENVIRONMENT;
+
   unset MONO_GAC_PREFIX;
   unset MONO_ENVIRONMENT;
 
@@ -82,6 +85,8 @@ environment_prompt_info () {
 
   if [ -n "$GO_ENVIRONMENT" ]; then
     echo "($(basename $GO_ENVIRONMENT)) ";
+  elif [ -n "$JAVA_ENVIRONMENT" ]; then
+    echo "($(basename $JAVA_ENVIRONMENT)) ";
   elif [ -n "$MONO_ENVIRONMENT" ]; then
     echo "($(basename $MONO_ENVIRONMENT)) ";
   elif [ -n "$PYTHON_ENVIRONMENT" ]; then
