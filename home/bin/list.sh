@@ -6,11 +6,16 @@ if [ -z "$LIST_NAME" ]; then
 fi
 
 python_cmd=`\which python 2> /dev/null`;
-python_script="$HOME/lib/python/utilities/list_processor.py";
-if [ -n "$python_cmd" ] && [ -f $python_script ]; then
-  $python_cmd $python_script "$@";
-  exit $?;
+if [ -z "$python_cmd" ]; then
+  echo "Could not locate the \"python\" binary";
+  exit 1;
 fi
 
-echo "Could not find a valid executor + script pair";
-exit 1;
+python_script="$HOME/lib/python/utilities/list_processor.py";
+if [ ! -f $python_script ]; then
+  echo "Could not locate the \"python\" script";
+  exit 1;
+fi
+
+$python_cmd $python_script "$@";
+exit $?;

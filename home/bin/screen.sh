@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-if ! hash screen 2> /dev/null; then
+screen_cmd=`\which screen 2> /dev/null`;
+if [ -z "$screen_cmd" ]; then
   echo "Could not locate the \"screen\" binary";
   exit 1;
 fi
 
 if [ $# -eq 0 ]; then
-  \screen -r > /dev/null 2>&1 || \screen;
+  $screen_cmd -r > /dev/null 2>&1 || $screen_cmd;
 else
-  \screen "$@";
+  $screen_cmd "$@";
 fi

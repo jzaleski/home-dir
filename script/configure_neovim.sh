@@ -10,7 +10,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
 
     config_dir=$HOME/.config;
     if [ ! -d $config_dir ]; then
-      mkdir -p $config_dir;
+      mkdir $config_dir;
     fi
 
     nvim_dir_link=$config_dir/nvim;

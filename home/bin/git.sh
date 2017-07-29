@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-if ! hash git 2> /dev/null; then
+git_cmd=`\which git 2> /dev/null`;
+if [ -z "$git_cmd" ]; then
   echo "Could not locate the \"git\" binary";
   exit 1;
 fi
 
 if [ "$1" = "reviewboard" ]; then
-  \git diff --full-index "${@:2}";
+  $git_cmd diff --full-index "${@:2}";
 else
-  \git "$@";
+  $git_cmd "$@";
 fi

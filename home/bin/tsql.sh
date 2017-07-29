@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-if hash tsql 2> /dev/null; then
-  tsql_cmd="tsql";
-fi
-
+tsql_cmd=`\which tsql 2> /dev/null`;
 if [ -z "$tsql_cmd" ]; then
   echo "Could not locate the \"tsql\" binary";
   exit 1;

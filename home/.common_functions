@@ -28,6 +28,12 @@ cd () {
 deactivate () {
   unset PROJECT_DIRECTORY;
 
+  unset GOPATH;
+  unset GO_ENVIRONMENT;
+
+  unset MONO_GAC_PREFIX;
+  unset MONO_ENVIRONMENT;
+
   unset PIP_CONFIG_FILE;
   unset PYTHONPATH;
   unset PYTHON_ENVIRONMENT;
@@ -74,7 +80,11 @@ environment_prompt_info () {
     return;
   fi
 
-  if [ -n "$PYTHON_ENVIRONMENT" ]; then
+  if [ -n "$GO_ENVIRONMENT" ]; then
+    echo "($(basename $GO_ENVIRONMENT)) ";
+  elif [ -n "$MONO_ENVIRONMENT" ]; then
+    echo "($(basename $MONO_ENVIRONMENT)) ";
+  elif [ -n "$PYTHON_ENVIRONMENT" ]; then
     echo "($(basename $PYTHON_ENVIRONMENT)) ";
   elif [ -n "$RUBY_ENVIRONMENT" ]; then
     echo "($(basename $RUBY_ENVIRONMENT)) ";
@@ -102,7 +112,7 @@ git_prompt_info () {
     return;
   fi
 
-  if [ ! hash git 2> /dev/null ]; then
+  if ! \which git > /dev/null 2>&1; then
     return;
   fi
 

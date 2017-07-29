@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-if ! hash svn 2> /dev/null; then
+svn_cmd=`\which svn 2> /dev/null`;
+if [ -z "$svn_cmd" ]; then
   echo "Could not locate the \"svn\" binary";
   exit 1;
 fi
 
 if [ "$1" = "reviewboard" ]; then
-  \svn diff "${@:2}";
+  $svn_cmd diff "${@:2}";
 else
-  \svn "$@";
+  $svn_cmd "$@";
 fi

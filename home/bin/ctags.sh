@@ -7,18 +7,18 @@ if [ -f $HOME/$notags_file ] || [ -f $notags_file ]; then
 fi
 
 # ensure that the pkill binary is available
-if ! hash pkill 2> /dev/null; then
+if ! \which pkill > /dev/null 2>&1; then
   echo "Could not locate the \"pkill\" binary";
   exit 1;
 fi
 
 # attempt to install the homebrew ctags binary (if necessary)
-if hash brew 2> /dev/null && ! brew --prefix ctags > /dev/null 2>&1; then
+if \which brew > /dev/null 2>&1 && [ -z `brew --prefix ctags 2> /dev/null` ]; then
   brew install ctags;
 fi
 
 # ensure that the ctags binary is available
-if ! hash ctags 2> /dev/null; then
+if ! \which ctags > /dev/null 2>&1; then
   echo "Could not locate the \"ctags\" binary";
   exit 1;
 fi

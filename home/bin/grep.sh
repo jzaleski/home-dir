@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-if hash egrep 2> /dev/null; then
+if \which ag > /dev/null 2>&1; then
+  grep_cmd="ag";
+elif \which egrep > /dev/null 2>&1; then
   grep_cmd="egrep --color";
 else
   grep_cmd="grep";
