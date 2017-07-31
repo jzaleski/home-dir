@@ -58,7 +58,7 @@ elif [ $type = "java" ]; then
 elif [ $type = "mono" ]; then
   echo -e "export MONO_GAC_PREFIX=$environment_directory;\nexport MONO_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 elif [ $type = "python" ]; then
-  echo -e "export PIP_CONFIG_FILE=$environment_directory/pip.conf;\nexport PYTHON_ENVIRONMENT=$environment_directory;\nexport PYTHONPATH=\$(find $environment_directory -name site-packages 2> /dev/null | grep $raw_type);\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
+  echo -e "export PIP_CONFIG_FILE=$environment_directory/pip.conf;\nexport PYTHONPATH=\$(find $environment_directory -name site-packages 2> /dev/null | grep $raw_type);\nexport PYTHON_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 elif [ $type = "ruby" ]; then
   echo -e "export GEM_HOME=$environment_directory;\nexport GEM_PATH=$environment_directory;\nexport RUBY_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 fi
