@@ -43,6 +43,13 @@ if [[ $raw_type =~ ^python[2-3]$ ]]; then
       ln -sf $versioned_python_binary $environment_bin_directory/$python_binary;
     fi
   done
+  for python_binary in iptest ipython; do
+    rm -f $environment_bin_directory/$python_binary;
+    versioned_python_binary=$environment_bin_directory/$python_binary$python_version;
+    if [ -e $versioned_python_binary ]; then
+      ln -s $versioned_python_binary $environment_bin_directory/$python_binary;
+    fi
+  done
 fi
 
 environment_lib_directory=$environment_directory/lib;
