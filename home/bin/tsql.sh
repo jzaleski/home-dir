@@ -15,7 +15,7 @@ fi
 
 hostname="$TSQL_HOSTNAME";
 if [ -n "$hostname" ]; then
-  tsql_cmd="$tsql_cmd -H \"$hostname\"";
+  tsql_cmd="$tsql_cmd -H $hostname";
 fi
 
 port="$TSQL_PORT";
@@ -25,17 +25,17 @@ fi
 
 database="$TSQL_DATABASE";
 if [ -n "$database" ]; then
-  tsql_cmd="$tsql_cmd -D \"$database\"";
+  tsql_cmd="$tsql_cmd -D $database";
 fi
 
 username="$TSQL_USERNAME";
 if [ -n "$username" ]; then
-  tsql_cmd="$tsql_cmd -U \"$username\"";
+  tsql_cmd="$tsql_cmd -U $username";
 fi
 
 password="$TSQL_PASSWORD";
 if [ -n "$password" ]; then
-  tsql_cmd="$tsql_cmd -P \"$password\"";
+  tsql_cmd="$tsql_cmd -P $password";
 fi
 
-echo $tsql_cmd "$@" | sh;
+$tsql_cmd "$@";
