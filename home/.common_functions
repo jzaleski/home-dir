@@ -96,7 +96,7 @@ environment_prompt_info () {
   fi
 }
 
-# Echos an "✘" if the previous command has a non-zero exit-code
+# Echos an "x" if the previous command has a non-zero exit-code
 error_prompt_info () {
   last_exit_code=$?;
 
@@ -106,7 +106,7 @@ error_prompt_info () {
   fi
 
   if [ $last_exit_code -ne 0 ]; then
-    echo "✘ ";
+    echo "x ";
   fi
 }
 
