@@ -16,6 +16,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       ctags-etags \
       curl \
       dkms \
+      epel-release \
       freetds \
       freetds-devel \
       gcc \
