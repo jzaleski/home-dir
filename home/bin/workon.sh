@@ -16,7 +16,12 @@ if [ $# -eq 1 ]; then
 
   builtin cd $project_directory;
 
-  deactivate;
+  deactivate_environment > /dev/null 2>&1;
+
+  virtualenv_activate_file=.python_environment/bin/activate;
+  if [ -f $virtualenv_activate_file ]; then
+    source $virtualenv_activate_file;
+  fi
 
   freetds_file=$HOME/.freetds.conf.$project;
   if [ -f $freetds_file ]; then

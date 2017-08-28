@@ -17,15 +17,15 @@ cd () {
     return;
   fi
 
-  if [ -f $PWD/.workonrc ]; then
+  if [ -f $PWD/.workonrc ] || [ -e $PWD/.python_environment ]; then
     source $HOME/bin/workon.sh .;
   elif [ -n "$PROJECT_DIRECTORY" ] && [[ ! $PWD =~ ^$PROJECT_DIRECTORY ]]; then
-    deactivate;
+    deactivate_environment;
   fi
 }
 
-# Deactivate the active project (plus any active Python or Ruby environment)
-deactivate () {
+# Deactivate the active environment
+deactivate_environment () {
   unset PROJECT_DIRECTORY;
 
   unset GOPATH;
@@ -37,9 +37,7 @@ deactivate () {
   unset MONO_GAC_PREFIX;
   unset MONO_ENVIRONMENT;
 
-  unset PIP_CONFIG_FILE;
-  unset PYTHONPATH;
-  unset PYTHON_ENVIRONMENT;
+  deactivate > /dev/null 2>&1;
 
   unset GEM_HOME;
   unset GEM_PATH;
