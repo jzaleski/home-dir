@@ -8,7 +8,7 @@ if [ -f $mounts_file ]; then
       mount=`eval echo $line`;
       if [ -n "$mount" ]; then
         if [ `$mount_cmd | \grep -c $mount` -eq 0 ]; then
-          $sudo_cmd -E $mount_cmd $mount;
+          (cd /tmp && $sudo_cmd -E $mount_cmd $mount);
         fi
       fi
     done < $mounts_file;
