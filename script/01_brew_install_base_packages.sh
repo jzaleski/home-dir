@@ -11,11 +11,9 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       colordiff \
       coreutils \
       ctags \
-      freetds \
       git \
       gnu-sed \
       gpg \
-      homebrew/dupes/rsync \
       htop-osx \
       openssl \
       readline \

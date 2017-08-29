@@ -17,8 +17,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       curl \
       dkms \
       epel-release \
-      freetds \
-      freetds-devel \
       gcc \
       git \
       htop \
@@ -31,8 +29,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       net-tools \
       screen \
       tmux \
-      unixODBC \
-      unixODBC-devel \
       unzip \
       uuid \
       uuid-devel \

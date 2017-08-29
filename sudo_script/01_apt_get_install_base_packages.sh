@@ -15,9 +15,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       dkms \
       exuberant-ctags \
       git \
-      freetds-bin \
-      freetds-common \
-      freetds-dev \
       htop \
       libntlm0 \
       libntlm0-dev \
@@ -25,8 +22,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       screen \
       tdsodbc \
       tmux \
-      unixodbc \
-      unixodbc-dev \
       unzip \
       uuid-dev \
       uuid-runtime \
