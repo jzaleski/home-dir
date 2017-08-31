@@ -44,8 +44,8 @@ set smartcase
 set ttyfast
 set visualbell
 set wildmode=list:longest
-set backupdir=~/tmp,~/.vim/tmp,/tmp
-set directory=~/tmp,~/.vim/tmp,/tmp
+set backupdir=~/.vim/tmp,/tmp
+set directory=~/.vim/tmp,/tmp
 
 " Use spaces instead of TABs
 set shiftwidth=2
