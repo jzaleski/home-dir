@@ -32,10 +32,16 @@ if [ -f $BASH_ALIASES_FILE ]; then
   source $BASH_ALIASES_FILE;
 fi
 
+BASH_COMPLETION_FILE=/etc/profile.d/bash_completion.sh;
+# If it exists, process "bash_completion"
+if [ -f $BASH_COMPLETION_FILE ]; then
+  source $BASH_COMPLETION_FILE;
+fi
+
 # "Homebrew" specific inclusions
 HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
 if [ -n "$HOMEBREW_PREFIX" ]; then
-  # If it exists, process [Homebrew] "bash_completion" file
+  # If it exists, process [Homebrew] "bash_completion"
   BASH_COMPLETION_FILE=$HOMEBREW_PREFIX/etc/bash_completion;
   if [ -f $BASH_COMPLETION_FILE ]; then
     source $BASH_COMPLETION_FILE;
