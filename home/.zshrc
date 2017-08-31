@@ -20,6 +20,22 @@ if [ -d $OH_MY_ZSH_DIR ]; then
   source $ZSH/oh-my-zsh.sh;
 fi
 
+# "Homebrew" specific inclusions
+HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  # If it exists, process [Homebrew] "zsh-autosuggestions"
+  ZSH_AUTOSUGGESTIONS_FILE=$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh;
+  if [ -f $ZSH_AUTOSUGGESTIONS_FILE ]; then
+    source $ZSH_AUTOSUGGESTIONS_FILE;
+  fi
+
+  # If it exists, process [Homebrew] "zsh-completions"
+  ZSH_COMPLETIONS_DIRECTORY=$HOMEBREW_PREFIX/share/zsh-completions;
+  if [ -d $ZSH_COMPLETIONS_DIRECTORY ]; then
+    fpath=($ZSH_COMPLETIONS_DIRECTORY $fpath);
+  fi
+fi
+
 # If it exists, process ".zsh_aliases"
 ZSH_ALIASES_FILE=$HOME/.zsh_aliases;
 if [ -f $ZSH_ALIASES_FILE ]; then
