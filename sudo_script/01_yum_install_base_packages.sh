@@ -10,8 +10,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       automake \
       bash \
       bash-completion \
-      bash-doc \
-      bzip2 \
       colordiff \
       ctags-etags \
       curl \
@@ -21,15 +19,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       git \
       htop \
       kernel-devel-$(uname -r) \
-      libntlm \
-      libntlm-devel \
-      libyaml \
-      libyaml-devel \
-      ncurses-devel \
       net-tools \
+      readline \
       screen \
+      the_silver_searcher \
       tmux \
-      unzip \
       uuid \
       uuid-devel \
       vim-enhanced \

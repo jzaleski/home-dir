@@ -8,7 +8,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       automake \
       bash \
       bash-completion \
-      bash-doc \
       build-essential \
       colordiff \
       curl \
@@ -16,18 +15,16 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       exuberant-ctags \
       git \
       htop \
-      libntlm0 \
-      libntlm0-dev \
       linux-headers-$(uname -r) \
+      readline \
       screen \
-      tdsodbc \
+      the_silver_searcher \
       tmux \
-      unzip \
       uuid-dev \
       uuid-runtime \
       vim \
       wget \
       zsh \
-      zsh-doc;
+      zshcompsys;
   fi
 fi

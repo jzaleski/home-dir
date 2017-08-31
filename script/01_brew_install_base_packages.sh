@@ -11,17 +11,18 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       colordiff \
       coreutils \
       ctags \
+      curl \
       git \
       gnu-sed \
       gpg \
-      htop-osx \
+      htop \
       openssl \
       readline \
+      screen \
       tmux \
       vim \
       wget \
       zsh \
-      zsh-autosuggestions \
       zsh-completions;
     do
       package_details=`$brew_cmd list $package 2> /dev/null`;
