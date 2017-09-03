@@ -14,10 +14,6 @@
   path = home/.vim/bundle/ctrlp.vim
   url = https://github.com/kien/ctrlp.vim.git
   ignore = dirty
-[submodule "home/.vim/bundle/vim-colors-solarized"]
-  path = home/.vim/bundle/vim-colors-solarized
-  url = https://github.com/altercation/vim-colors-solarized.git
-  ignore = dirty
 [submodule "home/.vim/bundle/tcomment.vim"]
   path = home/.vim/bundle/tcomment.vim
   url = https://github.com/tomtom/tcomment_vim.git
