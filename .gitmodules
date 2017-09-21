@@ -50,11 +50,3 @@
   path = home/.vim/bundle/vim-better-whitespace
   url = https://github.com/ntpeters/vim-better-whitespace.git
   ignore = dirty
-[submodule "home/.vim/bundle/matchit"]
-  path = home/.vim/bundle/matchit
-  url = https://github.com/tmhedberg/matchit.git
-  ignore = dirty
-[submodule "home/.vim/bundle/dracula-theme"]
-  path = home/.vim/bundle/dracula-theme
-  url = https://github.com/dracula/vim.git
-  ignore = dirty

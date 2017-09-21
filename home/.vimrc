@@ -8,7 +8,7 @@ filetype plugin on
 set t_Co=256
 
 " Colorscheme
-colorscheme dracula
+colorscheme hardcore
 
 " Ensure that the line-number background is transparent
 hi clear LineNr
