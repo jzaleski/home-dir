@@ -13,7 +13,7 @@ if [[ $type =~ ^python[2-3]?$ ]]; then
   exit 1;
 fi
 
-if [[ ! $type =~ ^(go|java|mono|ruby)$ ]]; then
+if [[ ! $type =~ ^(go|java|ruby)$ ]]; then
   echo "$(basename $0 .sh) <type>";
   exit 1;
 fi
@@ -38,8 +38,6 @@ if [ $type = "go" ]; then
   echo -e "export GOPATH=$environment_directory;\nGO_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 elif [ $type = "java" ]; then
   echo -e "export CLASSPATH=$environment_lib_directory/*.jar;\nexport JAVA_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
-elif [ $type = "mono" ]; then
-  echo -e "export MONO_GAC_PREFIX=$environment_directory;\nexport MONO_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 elif [ $type = "ruby" ]; then
   echo -e "export GEM_HOME=$environment_directory;\nexport GEM_PATH=$environment_directory;\nexport RUBY_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 fi
