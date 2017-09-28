@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# ensure that all submodules are initialized and up to date
-git submodule init && git submodule update;
+# ensure that all submodules are initialized and up to date (if we're working in
+# a git repository and not a slug)
+if [ -d .git ]; then
+  git submodule init && git submodule update;
+fi
 
 # find files, directories and symbolic-links
 for d in home overrides; do
