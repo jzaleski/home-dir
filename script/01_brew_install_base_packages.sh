@@ -5,7 +5,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   if [ -n "$brew_cmd" ]; then
     for package in \
       ag \
-      apg \
       bash \
       bash-completion \
       colordiff \
