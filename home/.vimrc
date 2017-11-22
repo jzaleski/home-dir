@@ -39,7 +39,7 @@ set number
 set scrolloff=3
 set shortmess=a
 set showmatch
-set showtabline=2
+set showtabline=0
 set smartcase
 set ttyfast
 set visualbell
@@ -199,20 +199,10 @@ let g:slime_default_config={
   \ 'target_pane': ':0.1'
 \ }
 
-" Get off my lawn (force use of home-row)
-map <Left> :echoe "Use h"<CR>
-map <Right> :echoe "Use l"<CR>
-map <Up> :echoe "Use k"<CR>
-map <Down> :echoe "Use j"<CR>
-
-" Move the currentl line to the center of the screen
+" Move the current line to the center of the screen
 map <SPACE> zvzz
 
-" Buffer/Tab manipulation
-map tn :tabnext<CR>
-map to :tabnew<CR>
-map tp :tabprevious<CR>
-map tw :tabclose<CR>
+" Buffer Manipulation
 map bn :bnext<CR>
 map bp :bprevious<CR>
 map bw :bwipeout<CR>

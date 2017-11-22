@@ -45,8 +45,13 @@ if [ -f $lock_file ]; then
   rm -f $lock_file $temp_file;
 fi
 
+ctags_cmd="ctags --tag-relative";
+if [ "$EDITOR" = "emacs" ]; then
+  ctags_cmd="$ctags_cmd -e";
+fi
+
 # start and background the [c]tags generation process
-ctags --tag-relative -Rf $temp_file --exclude=.git > /dev/null 2>&1 && mv $temp_file tags && rm -f $lock_file &
+$ctags_cmd -Rf $temp_file --exclude=.git > /dev/null 2>&1 && mv $temp_file tags && rm -f $lock_file &
 
 # capture the pid of the last background[ed] process (this will be used if this
 # script if re-invoked to determine which process to kill)

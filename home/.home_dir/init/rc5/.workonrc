@@ -2,6 +2,8 @@ if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
   for project_directory in `\ls $SOURCE_DIRECTORY`; do
     # workon a specific project (variant)
     alias cd-$project_directory="workon-$project_directory";
+    # workon a specific project and open emacs at the project root
+    alias emacs-$project_directory="workon-$project_directory && emacs .";
     # workon a specific project and open vim at the project root
     alias vim-$project_directory="workon-$project_directory && vim .";
     # workon a specific project

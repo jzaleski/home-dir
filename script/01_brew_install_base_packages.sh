@@ -11,6 +11,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       coreutils \
       ctags \
       curl \
+      emacs \
       git \
       gnu-sed \
       gpg \

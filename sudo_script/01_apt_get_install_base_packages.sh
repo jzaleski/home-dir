@@ -12,6 +12,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       colordiff \
       curl \
       dkms \
+      emacs \
       exuberant-ctags \
       git \
       htop \
