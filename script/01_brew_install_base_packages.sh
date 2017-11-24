@@ -3,8 +3,11 @@
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   brew_cmd=`\which brew 2> /dev/null`;
   if [ -n "$brew_cmd" ]; then
+    $brew_cmd tap jzaleski/homebrew-jzaleski;
+
     for package in \
       ag \
+      apg \
       bash \
       bash-completion \
       colordiff \
