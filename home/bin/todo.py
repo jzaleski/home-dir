@@ -130,11 +130,11 @@ class Processor(object):
             open(self.database_file_path, 'w').close()
 
     def _get_bucket(self, bucket):
-        return (
+        return [
             datum
             for datum in self.database
             if datum['bucket'] == bucket
-        )
+        ]
 
     def _get_database(self):
         database = []
@@ -205,7 +205,6 @@ class Processor(object):
         bucket = self._get_bucket(bucket)
         if not bucket:
             return False
-        index = 0
         for datum_index, datum in enumerate(bucket):
             print('%3d. %s' % (datum_index + 1, datum['message']))
         return True
