@@ -188,9 +188,8 @@ let g:lightline={
 \ }
 
 " syntastic
-let g:loaded_syntastic_java_javac_checker=1
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=0
+let g:syntastic_check_on_open=1
 
 " vim-slime
 let g:slime_target='tmux'
