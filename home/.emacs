@@ -51,7 +51,7 @@
 (define-globalized-minor-mode global-fci-mode fci-mode turn-on-fci-mode)
 (global-fci-mode 1)
 (setq fci-rule-character ?\u2502)
-(setq fci-rule-column 81)
+(setq fci-rule-column 80)
 
 (projectile-mode)
 (setq projectile-completion-system 'grizzl)

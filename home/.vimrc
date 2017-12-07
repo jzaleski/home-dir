@@ -21,7 +21,7 @@ hi ColorColumn ctermbg=0 guibg=Black
 
 " General
 set backspace=eol,indent,start
-set colorcolumn=81
+set colorcolumn=80
 set cursorline
 set encoding=utf-8
 set hidden
