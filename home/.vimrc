@@ -150,7 +150,7 @@ nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_root_markers=['.ctrlp']
 let g:ctrlp_show_hidden=1
-let g:ctrlp_use_caching=1
+let g:ctrlp_use_caching=0
 let g:ctrlp_working_path_mode='rw'
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
