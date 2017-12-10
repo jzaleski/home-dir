@@ -14,12 +14,12 @@
 
 (menu-bar-mode -1)
 (show-paren-mode 1)
-(tool-bar-mode -1)
 
 ;; GUI customizations
 (if window-system
   (progn
     (scroll-bar-mode -1)
+    (tool-bar-mode -1)
     (set-frame-font "PT Mono 14" nil t)
   )
 )
