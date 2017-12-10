@@ -1,3 +1,6 @@
+# preserve the layout after detach/re-attach
+layout new
+
 # don't display the start-up messasge
 startup_message off
 
@@ -6,6 +9,9 @@ autodetach on
 
 # set the scrollback buffer-size
 defscrollback 100000
+
+# set the term-emulation mode
+term screen-256color
 
 # maintain the hardstatus line for each for new windows
 hardstatus on
