@@ -12,6 +12,7 @@ alias ll='~/bin/ls.sh -l';
 alias ls='~/bin/ls.sh';
 alias lsyncd='~/bin/lsyncd.sh';
 alias mkenv='~/bin/mkenv.sh';
+alias mkvirtualenv='~/bin/mkvirtualenv.sh';
 alias readlink='~/bin/readlink.sh';
 alias realsync='~/bin/realsync.sh';
 alias screen='~/bin/screen.sh';
