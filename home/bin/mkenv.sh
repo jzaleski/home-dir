@@ -11,9 +11,10 @@ fi
 if [[ $type =~ ^python ]]; then
   $HOME/bin/mkvirtualenv.sh $type false;
   exit $?;
-fi
-
-if [[ ! $type =~ ^(go|java|ruby)$ ]]; then
+elif [[ $type =~ ^[j]?ruby$ ]]; then
+  $HOME/bin/mkrubyenv.sh $type false;
+  exit $?;
+elif [[ ! $type =~ ^(go|java)$ ]]; then
   echo "$(basename $0 .sh) <type>";
   exit 1;
 fi
@@ -38,6 +39,4 @@ if [ $type = "go" ]; then
   echo -e "export GOPATH=$environment_directory;\nGO_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 elif [ $type = "java" ]; then
   echo -e "export CLASSPATH=$environment_lib_directory/*.jar;\nexport JAVA_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
-elif [ $type = "ruby" ]; then
-  echo -e "export GEM_HOME=$environment_directory;\nexport GEM_PATH=$environment_directory;\nexport RUBY_ENVIRONMENT=$environment_directory;\nexport PATH=$environment_bin_directory:\$(echo \$PATH);" > $workonrc_file;
 fi

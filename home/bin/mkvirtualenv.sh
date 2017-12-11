@@ -27,17 +27,16 @@ if [ -z "$version" ]; then
   exit 1;
 fi
 
-new_environment_dir=.python_environment-$version;
-if [ ! -e $new_environment_dir ]; then
-  $virtualenv_cmd -p $type $new_environment_dir;
+new_environment_directory=.python_environment-$version;
+if [ ! -e $new_environment_directory ]; then
+  $virtualenv_cmd -p $type $new_environment_directory;
 fi
 
-default_environment_dir=.python_environment;
+default_environment_directory=.python_environment;
 if [ "$set_as_default" = true ]; then
-  rm -f $default_environment_dir;
+  rm -f $default_environment_directory;
 fi
 
-if [ ! -e $default_environment_dir ]; then
-  ln -s $new_environment_dir $default_environment_dir;
+if [ ! -e $default_environment_directory ]; then
+  ln -s $new_environment_directory $default_environment_directory;
 fi
-

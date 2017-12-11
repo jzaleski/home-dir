@@ -8,6 +8,8 @@ fi
 
 if [[ $type =~ ^python ]]; then
   $HOME/bin/mkvirtualenv.sh $type true > /dev/null 2>&1;
+elif [[ $type =~ ^[j]?ruby$ ]]; then
+  $HOME/bin/mkrubyenv.sh $type true > /dev/null 2>&1;
 else
   $HOME/bin/mkenv.sh $type > /dev/null 2>&1;
 fi
