@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-import os, re, sys, time, uuid
+import os, getpass, re, sys, time, uuid
 
 
 class Processor(object):
@@ -44,8 +44,14 @@ class Processor(object):
     @property
     def timestamp(self):
         if not hasattr(self, '_timestamp'):
-            self._timestamp = int(time.time())
+            self._timestamp = self._get_timestamp()
         return self._timestamp
+
+    @property
+    def user(self):
+        if not hasattr(self, '_user'):
+            self._user = self._get_user()
+        return self._user
 
     def process(self, *args):
         self._ensure_database_exists()
@@ -83,6 +89,8 @@ class Processor(object):
         datum = {
             'id': uuid.uuid1(),
             'parent_id': parent_id or self.DEFAULT_PARENT_ID,
+            'created_by_user': self.user,
+            'updated_by_user': self.user,
             'created_timestamp': self.timestamp,
             'updated_timestamp': self.timestamp,
             'bucket': self.ADDED_BUCKET,
@@ -98,6 +106,7 @@ class Processor(object):
         for datum_index, datum in enumerate(bucket):
             if datum_index != index:
                 continue
+            datum['updated_by_user'] = self.user
             datum['updated_timestamp'] = self.timestamp
             datum['bucket'] = self.DONE_BUCKET
             return self._write_database()
@@ -116,6 +125,7 @@ class Processor(object):
         for datum_index, datum in enumerate(bucket):
             if datum_index != index:
                 continue
+            datum['updated_by_user'] = self.user
             datum['updated_timestamp'] = self.timestamp
             datum['message'] = message
             return self._write_database()
@@ -149,21 +159,29 @@ class Processor(object):
                 parent_id = line_parts[1]
                 if not parent_id:
                     continue
-                created_timestamp = line_parts[2]
+                created_by_user = line_parts[2]
+                if not created_by_user:
+                    continue
+                updated_by_user = line_parts[3]
+                if not updated_by_user:
+                    continue
+                created_timestamp = line_parts[4]
                 if not created_timestamp:
                     continue
-                updated_timestamp = line_parts[3]
+                updated_timestamp = line_parts[5]
                 if not updated_timestamp:
                     continue
-                bucket = line_parts[4]
+                bucket = line_parts[6]
                 if bucket not in self.VALID_BUCKETS:
                     continue
-                message = line_parts[5]
+                message = line_parts[7]
                 if not message:
                     continue
                 datum = {
                     'id': uuid.UUID(id_),
                     'parent_id': uuid.UUID(parent_id),
+                    'created_by_user': created_by_user,
+                    'updated_by_user': updated_by_user,
                     'created_timestamp': int(created_timestamp),
                     'updated_timestamp': int(updated_timestamp),
                     'bucket': bucket,
@@ -189,6 +207,12 @@ class Processor(object):
     def _get_list_name(self):
         return os.getenv('LIST_NAME', self.DEFAULT_LIST_NAME)
 
+    def _get_timestamp(self):
+        return int(time.time())
+
+    def _get_user(self):
+        return getpass.getuser()
+
     def _remove(self, index=None):
         bucket = self._get_bucket(self.ADDED_BUCKET)
         if not bucket:
@@ -196,6 +220,7 @@ class Processor(object):
         for datum_index, datum in enumerate(bucket):
             if datum_index != index:
                 continue
+            datum['updated_by_user'] = self.user
             datum['updated_timestamp'] = self.timestamp
             datum['bucket'] = self.REMOVED_BUCKET
             return self._write_database()
@@ -213,9 +238,11 @@ class Processor(object):
         with open(self.database_file_path, 'w') as database_file:
             for datum in self.database:
                 database_file.write(
-                    "%s\t%s\t%d\t%d\t%s\t%s%s" % (
+                    "%s\t%s\t%s\t%s\t%d\t%d\t%s\t%s%s" % (
                         datum['id'],
                         datum['parent_id'],
+                        datum['created_by_user'],
+                        datum['updated_by_user'],
                         datum['created_timestamp'],
                         datum['updated_timestamp'],
                         datum['bucket'],
