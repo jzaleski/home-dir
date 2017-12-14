@@ -14,7 +14,7 @@ class Processor(object):
     DONE_OPERATIONS = {'d', 'done'}
     EDIT_OPERATIONS = {'e', 'edit'}
     INDEX_PATTERN = r'^[0-9]+$'
-    OPERATION_PATTERN = r'^(a|add|d|done|r|remove)$'
+    OPERATION_PATTERN = r'^(a|add|d|done|e|edit|r|remove)$'
     REMOVED_BUCKET = 'r'
     REMOVE_OPERATIONS = {'r', 'remove'}
     VALID_BUCKETS = {
