@@ -24,6 +24,7 @@ alias todo='~/bin/todo.py';
 alias top='~/bin/top.sh';
 alias tsql='~/bin/tsql.sh';
 alias vi='~/bin/vi.sh';
+alias vim='~/bin/vim.sh';
 alias wo='source ~/bin/workon.sh';
 alias workon='source ~/bin/workon.sh';
 

@@ -5,6 +5,7 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 (add-to-list 'default-frame-alist '(background-color . "#2d2d2d"))
 
