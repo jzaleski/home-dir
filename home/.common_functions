@@ -17,7 +17,11 @@ cd () {
     return;
   fi
 
-  if [ -f $PWD/.workonrc ] || [ -e $PWD/.python_environment ]; then
+  if \
+    [ -f $PWD/.workonrc ] || \
+    [ -e $PWD/.notags ] || \
+    [ -e $PWD/.python_environment ];
+  then
     source $HOME/bin/workon.sh .;
   elif [ -n "$PROJECT_DIRECTORY" ] && [[ ! $PWD =~ ^$PROJECT_DIRECTORY ]]; then
     deactivate_environment;
@@ -26,6 +30,7 @@ cd () {
 
 # Deactivate the active environment
 deactivate_environment () {
+  unset NOTAGS;
   unset PROJECT_DIRECTORY;
 
   unset GOPATH;

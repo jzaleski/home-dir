@@ -16,6 +16,8 @@ if [ $# -eq 1 ]; then
 
   builtin cd $project_directory;
 
+  project=`basename $project_directory`;
+
   deactivate_environment > /dev/null 2>&1;
 
   virtualenv_activate_file=.python_environment/bin/activate;
@@ -25,17 +27,26 @@ if [ $# -eq 1 ]; then
 
   freetds_file=$HOME/.freetds.conf.$project;
   if [ -f $freetds_file ]; then
-    ln -sf $freetds_file "$HOME/.freetds.conf";
+    rm -f $HOME/.freetds.conf;
+    ln -s $freetds_file $HOME/.freetds.conf;
   fi
 
   my_cnf_file=$HOME/.my.cnf.$project;
+  echo $project_directory;
   if [ -f $my_cnf_file ]; then
-    ln -sf $my_cnf_file "$HOME/.my.cnf";
+    rm -f $HOME/.my.cnf;
+    ln -s $my_cnf_file $HOME/.my.cnf;
+  fi
+
+  notags_file=$project_directory/.notags;
+  if [ -f $notags_file ]; then
+    export NOTAGS=true;
   fi
 
   pgpass_file=$HOME/.pgpass.$project;
   if [ -f $pgpass_file ]; then
-    ln -sf $pgpass_file "$HOME/.pgpass";
+    rm -f $HOME/.pgpass;
+    ln -sf $pgpass_file $HOME/.pgpass;
   fi
 
   workonrc_file=$project_directory/.workonrc;

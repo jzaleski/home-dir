@@ -2,7 +2,7 @@
 export PATH=./bin:~/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
 # Set the default editor (Git amongst others use this)
-export EDITOR=emacs;
+export EDITOR=vim;
 
 # Used by helper scripts (e.g. workon)
 export SOURCE_DIRECTORY=$HOME/src;

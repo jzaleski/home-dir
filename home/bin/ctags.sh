@@ -1,36 +1,46 @@
 #!/usr/bin/env bash
 
-# allow tag generation to be turned off globally or per-project
+# allow tag generation to be turned off globally, per-project or via an env-var
 notags_file=.notags;
-if [ -f $HOME/$notags_file ] || [ -f $notags_file ]; then
+if \
+  [ -f $HOME/$notags_file ] || \
+  [ -f $notags_file ] || \
+  [ "$NOTAGS" = "true" ];
+then
   exit 0;
 fi
 
 # ensure that the pkill binary is available
-if ! \which pkill > /dev/null 2>&1; then
+pkill_cmd=`\which pkill 2> /dev/null`;
+if [ -z "$pkill_cmd" ]; then
   echo "Could not locate the \"pkill\" binary";
   exit 1;
 fi
 
 # attempt to install the homebrew ctags binary (if necessary)
-if \which brew > /dev/null 2>&1 && [ -z `brew --prefix ctags 2> /dev/null` ]; then
-  brew install ctags;
+brew_cmd=`\which brew 2> /dev/null`;
+if [ -n "$brew_cmd" ] && [ -z `$brew_cmd --prefix ctags 2> /dev/null` ]; then
+  $brew_cmd install ctags;
 fi
 
 # ensure that the ctags binary is available
-if ! \which ctags > /dev/null 2>&1; then
+ctags_cmd=`\which ctags 2> /dev/null`;
+if [ -z "$ctags_cmd" ]; then
   echo "Could not locate the \"ctags\" binary";
   exit 1;
 fi
 
-# attempt to install "gem-ctags" (if necessary)
-if ! gem list | \grep 'gem-ctags' > /dev/null 2>&1; then
-  gem install gem-ctags;
-fi
-
-# generate ctags for gems (if necessary)
-if gem list | \grep 'gem-ctags' > /dev/null 2>&1; then
-  gem ctags > /dev/null 2>&1 &
+# determine if the gem binary is available and generate ctags for gems if able
+gem_cmd=`\which gem 2> /dev/null`;
+if [ -n "$gem_cmd" ]; then
+  # attempt to install "gem-ctags" (if necessary)
+  if ! $gem_cmd list | \grep 'gem-ctags' > /dev/null 2>&1; then
+    $gem_cmd install gem-ctags;
+  fi
+  # generate ctags for gems (if necessary)
+  if $gem_cmd list | \grep 'gem-ctags' > /dev/null 2>&1; then
+    $gem_cmd ctags > /dev/null 2>&1 &
+  fi
 fi
 
 # execution artifact(s)
@@ -41,17 +51,19 @@ temp_file=tags.tmp;
 # is already a process running, kill it and clean up after it (it won't do so
 # itself)
 if [ -f $lock_file ]; then
-  pkill -P `cat $lock_file`;
+  $pkill_cmd -P `cat $lock_file`;
   rm -f $lock_file $temp_file;
 fi
 
-ctags_cmd="ctags --tag-relative";
+ctags_cmd="$ctags_cmd --tag-relative";
 if [ "$EDITOR" = "emacs" ]; then
   ctags_cmd="$ctags_cmd -e";
 fi
 
 # start and background the [c]tags generation process
-$ctags_cmd -Rf $temp_file --exclude=.git > /dev/null 2>&1 && mv $temp_file tags && rm -f $lock_file &
+$ctags_cmd -Rf $temp_file --exclude=.git > /dev/null 2>&1 && \
+  mv $temp_file tags && \
+  rm -f $lock_file &
 
 # capture the pid of the last background[ed] process (this will be used if this
 # script if re-invoked to determine which process to kill)
