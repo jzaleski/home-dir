@@ -32,7 +32,6 @@ if [ $# -eq 1 ]; then
   fi
 
   my_cnf_file=$HOME/.my.cnf.$project;
-  echo $project_directory;
   if [ -f $my_cnf_file ]; then
     rm -f $HOME/.my.cnf;
     ln -s $my_cnf_file $HOME/.my.cnf;
