@@ -20,11 +20,6 @@ if [ $# -eq 1 ]; then
 
   deactivate_environment > /dev/null 2>&1;
 
-  virtualenv_activate_file=.python_environment/bin/activate;
-  if [ -f $virtualenv_activate_file ]; then
-    source $virtualenv_activate_file;
-  fi
-
   freetds_file=$HOME/.freetds.conf.$project;
   if [ -f $freetds_file ]; then
     rm -f $HOME/.freetds.conf;
@@ -51,6 +46,21 @@ if [ $# -eq 1 ]; then
   workonrc_file=$project_directory/.workonrc;
   if [ -f $workonrc_file ]; then
     source $workonrc_file;
+  fi
+
+  node_version_file=$project_directory/.node-version;
+  if [ -f $node_version_file ]; then
+    export NODE_VERSION=`cat $node_version_file`;
+  fi
+
+  python_version_file=$project_directory/.python-version;
+  if [ -f $python_version_file ]; then
+    export PYTHON_VERSION=`cat $python_version_file`;
+  fi
+
+  ruby_version_file=$project_directory/.ruby-version;
+  if [ -f $ruby_version_file ]; then
+    export RUBY_VERSION=`cat $ruby_version_file`;
   fi
 
   export PROJECT_DIRECTORY=$project_directory;

@@ -18,10 +18,12 @@ cd () {
   fi
 
   if \
-    [ -f $PWD/.workonrc ] || \
-    [ -e $PWD/.notags ] || \
-    [ -e $PWD/.python_environment ];
-  then
+    [ -e $PWD/.node-version ] ||
+    [ -e $PWD/.notags ] ||
+    [ -e $PWD/.python-version ] ||
+    [ -e $PWD/.ruby-version ] ||
+    [ -e $PWD/.workonrc ];
+then
     source $HOME/bin/workon.sh .;
   elif [ -n "$PROJECT_DIRECTORY" ] && [[ ! $PWD =~ ^$PROJECT_DIRECTORY ]]; then
     deactivate_environment;
@@ -33,18 +35,9 @@ deactivate_environment () {
   unset NOTAGS;
   unset PROJECT_DIRECTORY;
 
-  unset GOPATH;
-  unset GO_ENVIRONMENT;
-
-  unset CLASSPATH;
-  unset JAVA_HOME;
-  unset JAVA_ENVIRONMENT;
-
-  deactivate > /dev/null 2>&1;
-
-  unset GEM_HOME;
-  unset GEM_PATH;
-  unset RUBY_ENVIRONMENT;
+  unset NODE_VERSION;
+  unset PYTHON_VERSION;
+  unset RUBY_VERSION;
 
   if [ -n "$MEMOIZED_PATH" ]; then
     export PATH=$MEMOIZED_PATH;
@@ -84,14 +77,22 @@ environment_prompt_info () {
     return;
   fi
 
-  if [ -n "$GO_ENVIRONMENT" ]; then
-    echo "($(basename $GO_ENVIRONMENT)) ";
-  elif [ -n "$JAVA_ENVIRONMENT" ]; then
-    echo "($(basename $JAVA_ENVIRONMENT)) ";
-  elif [ -n "$PYTHON_ENVIRONMENT" ]; then
-    echo "($(basename $PYTHON_ENVIRONMENT)) ";
-  elif [ -n "$RUBY_ENVIRONMENT" ]; then
-    echo "($(basename $RUBY_ENVIRONMENT)) ";
+  active_versions="";
+
+  if [ -n "$NODE_VERSION" ]; then
+    active_versions="$active_versions $NODE_VERSION";
+  fi
+
+  if [ -n "$PYTHON_VERSION" ]; then
+    active_versions="$active_versions $PYTHON_VERSION";
+  fi
+
+  if [ -n "$RUBY_VERSION" ]; then
+    active_versions="$active_versions $RUBY_VERSION";
+  fi
+
+  if [ -n "$active_versions" ]; then
+    echo "($(echo $active_versions | sed 's/(^ *| *$)//g' | sed 's/ /, /g')) ";
   fi
 }
 

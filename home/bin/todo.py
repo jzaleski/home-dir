@@ -199,8 +199,8 @@ class Processor(object):
             return list_name
         return os.path.join(
             os.getenv('HOME'),
-            'var',
-            'db',
+            '.todo',
+            'lists',
             list_name
         )
 
