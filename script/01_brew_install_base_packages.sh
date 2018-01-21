@@ -15,6 +15,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       ctags \
       curl \
       emacs \
+      fish \
       git \
       gnu-sed \
       gpg \
