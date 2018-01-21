@@ -38,10 +38,6 @@ deactivate_environment () {
   unset NODE_VERSION;
   unset PYTHON_VERSION;
   unset RUBY_VERSION;
-
-  if [ -n "$MEMOIZED_PATH" ]; then
-    export PATH=$MEMOIZED_PATH;
-  fi
 }
 
 # Echos an asterix if the local [git] repo has changes

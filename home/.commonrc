@@ -41,6 +41,3 @@ if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
     source $f;
   done
 fi
-
-# Memoize the current state of `$PATH` (it is *required* for: `deactivate`)
-export MEMOIZED_PATH=$PATH;
