@@ -121,6 +121,8 @@
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>Bell</key>
+	<false/>
 	<key>BellBadge</key>
 	<false/>
 	<key>BellBounce</key>
@@ -178,6 +180,8 @@
 	</data>
 	<key>VisualBellOnlyWhenMuted</key>
 	<false/>
+	<key>WindowTitle</key>
+	<string>Terminal</string>
 	<key>columnCount</key>
 	<integer>125</integer>
 	<key>deleteSendsBackspace</key>
