@@ -8,7 +8,6 @@ class Processor(object):
     ADDED_BUCKET = 'a'
     ADD_OPERATIONS = {'a', 'add'}
     BUCKET_PATTERN = r'^(a|added|d|done|r|removed)$'
-    DEFAULT_LIST_NAME = 'TODO'
     DEFAULT_PARENT_ID = uuid.UUID('00000000-0000-0000-0000-000000000000')
     DONE_BUCKET = 'd'
     DONE_OPERATIONS = {'d', 'done'}
@@ -34,12 +33,6 @@ class Processor(object):
         if not hasattr(self, '_database_file_path'):
             self._database_file_path = self._get_database_file_path()
         return self._database_file_path
-
-    @property
-    def list_name(self):
-        if not hasattr(self, '_list_name'):
-            self._list_name = self._get_list_name()
-        return self._list_name
 
     @property
     def timestamp(self):
@@ -191,7 +184,8 @@ class Processor(object):
         return database
 
     def _get_database_file_path(self):
-        list_name = self.list_name
+        list_name = os.getenv('LIST_NAME')
+        assert(list_name)
         env_var = '%s_DATABASE' % list_name
         if os.getenv(env_var):
             return os.getenv(env_var)
@@ -199,13 +193,9 @@ class Processor(object):
             return list_name
         return os.path.join(
             os.getenv('HOME'),
-            '.todo',
-            'lists',
+            '.list',
             list_name
         )
-
-    def _get_list_name(self):
-        return os.getenv('LIST_NAME', self.DEFAULT_LIST_NAME)
 
     def _get_timestamp(self):
         return int(time.time())
