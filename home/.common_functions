@@ -97,7 +97,7 @@ environment_prompt_info () {
   fi
 
   if [ -n "$active_versions" ]; then
-    echo "($(echo $active_versions | sed 's/(^ *| *$)//g' | sed 's/ /, /g')) ";
+    echo "($(echo $active_versions | awk '{$1=$1};1' | sed 's/ /, /g')) ";
   fi
 }
 
