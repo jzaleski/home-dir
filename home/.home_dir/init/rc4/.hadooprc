@@ -1,6 +1,0 @@
-apache_hadoop_dir=$HOME/lib/apache-hadoop/latest;
-if [ -d $apache_hadoop_dir ] || [ -h $apache_hadoop_dir ]; then
-  export HADOOP_HOME=$apache_hadoop_dir;
-  export HADOOP_USER_CLASSPATH_FIRST=true;
-  export PATH=$HADOOP_HOME/bin:$PATH;
-fi

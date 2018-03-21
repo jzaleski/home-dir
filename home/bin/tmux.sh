@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 tmux_cmd=`\which tmux 2> /dev/null`;
 if [ -z "$tmux_cmd" ]; then

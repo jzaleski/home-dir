@@ -1,8 +1,0 @@
-tsql_conf_dir=$HOME/.tsql/conf;
-if [ -d $tsql_conf_dir ]; then
-  for f in `cd $tsql_conf_dir && \ls | \grep "\.conf$" 2> /dev/null`; do
-    host=`echo $f | sed s/\.conf//`;
-    alias tsql-$host="TSQL_CONFIG_FILE=\"${tsql_conf_dir}/${f}\" tsql";
-    unset $host;
-  done
-fi

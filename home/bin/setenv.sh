@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 if [ -n "$TYPE" ]; then
   type=$TYPE;
-elif [ -n "$1" ]; then
+elif [ $# -ge 1 ]; then
   type=$1;
 fi
 
@@ -16,4 +16,4 @@ else
   echo "Invalid environment-type: \"$type\"";
 fi
 
-source $HOME/bin/workon.sh .;
+cd .;

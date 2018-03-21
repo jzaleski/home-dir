@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 htop_cmd=`\which htop 2> /dev/null`;
 if [ -z "$htop_cmd" ]; then

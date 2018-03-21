@@ -1,8 +1,0 @@
-if [ -n "$SOURCE_DIRECTORY" ]; then
-  for d in `cd $SOURCE_DIRECTORY && \ls -d * 2> /dev/null`; do
-    realsync_conf_file="$SOURCE_DIRECTORY/$d/.realsync";
-    if [ -f $realsync_conf_file ]; then
-      alias realsync-$d="realsync $SOURCE_DIRECTORY/$d";
-    fi
-  done
-fi

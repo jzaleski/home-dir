@@ -4,7 +4,7 @@ export HISTFILESIZE=100000;
 export HISTFILE=$HOME/.bash_history;
 
 # Ensure that the HISTFILE exist(s)
-if [ ! -f $HISTFILE ]; then
+if [ ! -e $HISTFILE ]; then
   touch $HISTFILE;
 fi
 
@@ -26,36 +26,50 @@ shopt -s histreedit > /dev/null 2>&1;
 # Allow bash to glob filenames in a case-insensitve manner
 shopt -s nocaseglob > /dev/null 2>&1;
 
-# If it exists, process ".bash_aliases"
-BASH_ALIASES_FILE=$HOME/.bash_aliases;
-if [ -f $BASH_ALIASES_FILE ]; then
-  source $BASH_ALIASES_FILE;
-fi
-
-BASH_COMPLETION_FILE=/etc/profile.d/bash_completion.sh;
-# If it exists, process "bash_completion"
-if [ -f $BASH_COMPLETION_FILE ]; then
-  source $BASH_COMPLETION_FILE;
-fi
-
 # "Homebrew" specific inclusions
 HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
 if [ -n "$HOMEBREW_PREFIX" ]; then
   # If it exists, process [Homebrew] "bash_completion"
   BASH_COMPLETION_FILE=$HOMEBREW_PREFIX/etc/bash_completion;
-  if [ -f $BASH_COMPLETION_FILE ]; then
+  if [ -e $BASH_COMPLETION_FILE ]; then
     source $BASH_COMPLETION_FILE;
   fi
 fi
 
+# If it exists, process ".bash_aliases"
+BASH_ALIASES_FILE=$HOME/.bash_aliases;
+if [ -e $BASH_ALIASES_FILE ]; then
+  source $BASH_ALIASES_FILE;
+fi
+
+# If it exists, process "bash_completion.sh"
+BASH_COMPLETION_FILE=/etc/profile.d/bash_completion.sh;
+if [ -e $BASH_COMPLETION_FILE ]; then
+  source $BASH_COMPLETION_FILE;
+fi
+
+# If it exists, process ".bash_functions"
+BASH_FUNCTIONS_FILE=$HOME/.bash_functions;
+if [ -e $BASH_FUNCTIONS_FILE ]; then
+  source $BASH_FUNCTIONS_FILE;
+fi
+
 # If it exists, process ".bash_prompt"
 BASH_PROMPT_FILE=$HOME/.bash_prompt;
-if [ -f $BASH_PROMPT_FILE ]; then
+if [ -e $BASH_PROMPT_FILE ]; then
   source $BASH_PROMPT_FILE;
 fi
 
 # If it exists, process ".commonrc"
 COMMONRC_FILE=$HOME/.commonrc;
-if [ -f $COMMONRC_FILE ]; then
+if [ -e $COMMONRC_FILE ]; then
   source $COMMONRC_FILE;
+fi
+
+# Load any custom init-scripts (the filename *must* end-with ".bash")
+CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
+if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
+  for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.bash\$" | sort`; do
+    source $f;
+  done
 fi

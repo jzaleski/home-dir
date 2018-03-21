@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 screen_cmd=`\which screen 2> /dev/null`;
 if [ -z "$screen_cmd" ]; then

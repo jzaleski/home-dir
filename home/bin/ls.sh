@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 ls_cmd=`\which ls 2> /dev/null`;
 if [ -z "$ls_cmd" ]; then

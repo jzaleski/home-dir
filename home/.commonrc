@@ -22,22 +22,8 @@ if [ -n "$STY" ] || [ -n "$TMUX_PANE" ]; then
   export TERM=screen-256color;
 fi
 
-# If it exists, process ".common_aliases"
-COMMON_ALIASES_FILE=$HOME/.common_aliases;
-if [ -f $COMMON_ALIASES_FILE ]; then
-  source $COMMON_ALIASES_FILE;
-fi
-
 # If it exists, process ".common_functions"
 COMMON_FUNCTIONS_FILE=$HOME/.common_functions;
 if [ -f $COMMON_FUNCTIONS_FILE ]; then
   source $COMMON_FUNCTIONS_FILE;
-fi
-
-# Load any custom init-scripts (the filename *must* end-with "rc")
-CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
-if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
-  for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "rc$"`; do
-    source $f;
-  done
 fi

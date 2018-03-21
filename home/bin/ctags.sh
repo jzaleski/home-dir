@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # allow tag generation to be turned off globally, per-project or via an env-var
 notags_file=.notags;

@@ -1,5 +1,0 @@
-apache_maven_dir=$HOME/lib/apache-maven/latest;
-if [ -d $apache_maven_dir ] || [ -h $apache_maven_dir ]; then
-  export MAVEN_HOME=$apache_maven_dir;
-  export PATH=$MAVEN_HOME/bin:$PATH;
-fi

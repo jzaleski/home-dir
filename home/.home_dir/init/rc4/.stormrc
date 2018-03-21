@@ -1,5 +1,0 @@
-apache_storm_dir=$HOME/lib/apache-storm/latest;
-if [ -d $apache_storm_dir ] || [ -h $apache_storm_dir ]; then
-  export STORM_HOME=$apache_storm_dir;
-  export PATH=$STORM_HOME/bin:$PATH;
-fi

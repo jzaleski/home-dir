@@ -1,13 +1,10 @@
 \#*\#
 
-.abrc
-.abrc-*
 .branches
 .classpath
 .ctrlp
 .eggs
 .local
-.lsyncd
 .nogitbranch
 .nogitdirty
 .nogitstatus
@@ -15,14 +12,7 @@
 .pmd
 .pmdruleset.xml
 .project
-.python_environment
-.python_environment-*
-.realsync
-.reviewboardrc
-.ruby_environment
-.ruby_environment-*
 .settings
-.workonrc
 
 *.o
 *.pyc

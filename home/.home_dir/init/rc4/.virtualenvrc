@@ -1,5 +1,0 @@
-# Disable the `virtualenv` prompt if the ".noenvironmentinfo" file exists
-NOENVIRONMENTINFO_FILE=$HOME/.noenvironmentinfo;
-if [ -f $NOENVIRONMENTINFO_FILE ]; then
-  export VIRTUAL_ENV_DISABLE_PROMPT=1;
-fi
