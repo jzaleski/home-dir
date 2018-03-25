@@ -2,7 +2,7 @@
 set fish_greeting;
 
 # Set the PATH
-set PATH ./bin $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
+set PATH ./bin $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin ^/dev/null;
 
 # Set the default editor (Git amongst others use this)
 set EDITOR vim;
