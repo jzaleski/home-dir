@@ -8,6 +8,9 @@ if [ ! -e $HISTFILE ]; then
   touch $HISTFILE;
 fi
 
+# Ensure that the `SHELL` variable is properly set
+export SHELL=zsh;
+
 # Ensure that "ZSH_TMUX_TERM" is set to the same value as "TERM"
 export ZSH_TMUX_TERM=$TERM;
 

@@ -2,13 +2,16 @@
 set fish_greeting;
 
 # Set the PATH
-set PATH ./bin $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin ^/dev/null;
+set PATH ./bin $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
 
 # Set the default editor (Git amongst others use this)
 set EDITOR vim;
 
 # Used by helper scripts (e.g. workon)
 set SOURCE_DIRECTORY $HOME/src;
+
+# Ensure that the `SHELL` variable is properly set
+set SHELL fish;
 
 # Ensure that "LANG" is set
 if test -z "$LANG"

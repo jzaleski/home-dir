@@ -8,6 +8,9 @@ if [ ! -e $HISTFILE ]; then
   touch $HISTFILE;
 fi
 
+# Ensure that the `SHELL` variable is properly set
+export SHELL=bash;
+
 # Don't require "cd" when changing directories
 shopt -s autocd > /dev/null 2>&1;
 
