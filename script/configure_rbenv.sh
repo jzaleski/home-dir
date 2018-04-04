@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  brew_cmd=`\which brew 2> /dev/null`;
-  if [ -n "$brew_cmd" ]; then
-    rbenv_package_details=`$brew_cmd list rbenv 2> /dev/null`;
-    if [ -z "$rbenv_package_details" ]; then
-      $brew_cmd install rbenv;
-    fi
+  rbenv_dir=$HOME/.rbenv;
+  if [ ! -d $rbenv_dir ]; then
+    git clone https://github.com/rbenv/rbenv.git $rbenv_dir;
+  fi
+  rbenv_plugins_dir=$rbenv_dir/plugins;
+  if [ ! -d $rbenv_plugins_dir ]; then
+    mkdir -p $rbenv_plugins_dir;
+  fi
+  ruby_build_dir=$rbenv_plugins_dir/ruby-build;
+  if [ ! -d $ruby_build_dir ]; then
+    git clone https://github.com/rbenv/ruby-build.git $ruby_build_dir;
   fi
 fi

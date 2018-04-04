@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  brew_cmd=`\which brew 2> /dev/null`;
-  if [ -n "$brew_cmd" ]; then
-    nodenv_package_details=`$brew_cmd list nodenv 2> /dev/null`;
-    if [ -z "$nodenv_package_details" ]; then
-      $brew_cmd install nodenv;
-    fi
+  nodenv_dir=$HOME/.nodenv;
+  if [ ! -d $nodenv_dir ]; then
+    git clone https://github.com/nodenv/nodenv.git $nodenv_dir;
+  fi
+  nodenv_plugins_dir=$nodenv_dir/plugins;
+  if [ ! -d $nodenv_plugins_dir ]; then
+    mkdir -p $nodenv_plugins_dir;
+  fi
+  node_build_dir=$nodenv_plugins_dir/node-build;
+  if [ ! -d $node_build_dir ]; then
+    git clone https://github.com/nodenv/node-build.git $node_build_dir;
   fi
 fi

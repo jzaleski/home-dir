@@ -12,4 +12,4 @@ else
   color_arg="--color";
 fi
 
-$ls_cmd $color_arg "$@";
+LSCOLORS=${LSCOLORS-ExFxBxDxCxegedabagacad} $ls_cmd $color_arg "$@";
