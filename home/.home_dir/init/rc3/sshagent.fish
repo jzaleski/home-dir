@@ -10,6 +10,12 @@ if test -z "$ssh_add_cmd"
   exit 0;
 end
 
+# Short-circuit if the `$private_keys_file` does not exist
+set private_keys_file $HOME/.private_keys;
+if not test -f $private_keys_file
+  exit 0;
+end
+
 # Start "ssh-agent" if there isn't one running
 set ssh_env_file $HOME/.ssh/environment.(basename $SHELL);
 if begin; not test -f $ssh_env_file; or not ps -ef | \grep -c "[s]sh-agent" > /dev/null; end
@@ -19,21 +25,20 @@ if begin; not test -f $ssh_env_file; or not ps -ef | \grep -c "[s]sh-agent" > /d
   chmod 0600 $ssh_env_file;
 end
 
-
 # Source the "ssh-agent" environment file
 if test -f $ssh_env_file
   source $ssh_env_file;
 end
 
-# Process the `$private_key_file` if it exists
-set private_keys_file $HOME/.private_keys;
-if test -f $private_keys_file
-  for line in (cat $private_keys_file)
-    set private_key_file (eval echo $line);
-    if test -f $private_key_file
-      if not eval $ssh_add_cmd -l | \grep -c "$private_key_file" > /dev/null
-        eval $ssh_add_cmd -t 0 $private_key_file;
-      end
+# Process the `$private_keys_file`
+for line in (cat $private_keys_file)
+  # This is necessary in order to support the interpolation of env-vars
+  set private_key_file (eval echo $line);
+  # Ensure the `$private_key_file` exists
+  if test -f $private_key_file
+    # Only add the key if it hasn't already been added
+    if not eval $ssh_add_cmd -l | \grep -c "$private_key_file" > /dev/null
+      eval $ssh_add_cmd -t 0 $private_key_file;
     end
   end
 end
