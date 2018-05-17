@@ -1,5 +1,5 @@
 if begin test -n "$SOURCE_DIRECTORY"; and test -d $SOURCE_DIRECTORY; end
-  for project_directory in (\ls $SOURCE_DIRECTORY)
+  for project_directory in (cd $SOURCE_DIRECTORY; and find . -type d -maxdepth 1 -mindepth 1 | tr -d './')
     # workon a specific project (variant)
     alias cd-$project_directory="cd $SOURCE_DIRECTORY/$project_directory";
     # workon a specific project and open emacs at the project root
