@@ -14,18 +14,18 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       dkms \
       emacs \
       exuberant-ctags \
+      fish \
       git \
       htop \
+      libreadline-dev \
       linux-headers-$(uname -r) \
-      readline \
       screen \
-      the_silver_searcher \
+      silversearcher-ag \
       tmux \
       uuid-dev \
       uuid-runtime \
       vim \
       wget \
-      zsh \
-      zshcompsys;
+      zsh;
   fi
 fi
