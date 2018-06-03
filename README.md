@@ -8,23 +8,23 @@ Dot-files and basic utilities
 *Compatible with:*
 
 - CentOS / Red Hat
-- Debian / Ubuntu
-- OSX
 - Cygwin
+- Debian / Ubuntu
 - Git Bash
+- OSX
 
 ===
 
 _All of the following scripts will prompt before over-writing anything_
 
-To install:
+To bootstrap:
 
-`./install`
+`bin/bootstrap.sh`
 
-To install w/ additional packages:
+To bootstrap w/ additional packages:
 
-`EXTENDED_BOOTSTRAP=true ./install`
+`EXTENDED_BOOTSTRAP=true bin/bootstrap.sh`
 
-To install & configure the desktop environment:
+To bootstrap & configure the desktop environment:
 
-`BOOTSTRAP_DESKTOP_ENVIRONMENT=true ./install`
+`BOOTSTRAP_DESKTOP_ENVIRONMENT=true bin/bootstrap.sh`

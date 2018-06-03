@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# ensure that bootstrap is running from the project-root
+cd $(dirname $0)/..;
+
 # ensure that all submodules are initialized and up to date (if we're working
 # in a git repository and not a slug)
 if [ -d $(dirname $0)/.git ]; then
@@ -8,7 +11,7 @@ fi
 
 # manifest of files to automatically ignore (e.g. not overwrite) rather than
 # prompting to overwrite on every run
-install_ignore_file=$(dirname $0)/.installignore;
+install_ignore_file=.installignore;
 
 # find files, directories and symbolic-links
 for d in home overrides; do
