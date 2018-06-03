@@ -7,16 +7,16 @@ set PATH $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin
 # Set the default editor (Git amongst others use this)
 set EDITOR vim;
 
-# Used by helper scripts (e.g. workon)
-set SOURCE_DIRECTORY $HOME/src;
-
-# Ensure that the `SHELL` variable is properly set
-set SHELL fish;
-
 # Ensure that "LANG" is set
 if test -z "$LANG"
   set LANG en_US.UTF-8;
 end
+
+# Ensure that the `SHELL` variable is properly set
+set SHELL fish;
+
+# Used by helper scripts (e.g. workon)
+set SOURCE_DIRECTORY $HOME/src;
 
 # Ensure that we are running in a 256 color-mode
 if test -z "$TERM" -o "$TERM" = "xterm"
