@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 find_cmd=`\which find 2> /dev/null`;
 if [ -z "$find_cmd" ]; then

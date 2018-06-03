@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 open_cmd=`\which open 2> /dev/null`;
 if [ -z "$open_cmd" ]; then

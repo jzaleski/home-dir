@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 if \which ag > /dev/null 2>&1; then
   grep_cmd="ag";
