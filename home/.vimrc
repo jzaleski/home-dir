@@ -70,9 +70,15 @@ endif
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
-" Toggle Paste-Mode Helper
-function! TogglePasteMode()
-  set paste!
+" Toggle GitGutter Helper
+function! ToggleGitGutter()
+  GitGutterToggle
+  redraw!
+endfunction
+
+" Toggle GitGutterHighlights Helper
+function! ToggleGitGutterLineHighlights()
+  GitGutterLineHighlightsToggle
   redraw!
 endfunction
 
@@ -91,6 +97,12 @@ endfunction
 " Toggle Line-Numbers Helper
 function! ToggleLineNumbers()
   set number!
+  redraw!
+endfunction
+
+" Toggle Paste-Mode Helper
+function! TogglePasteMode()
+  set paste!
   redraw!
 endfunction
 
@@ -172,7 +184,6 @@ function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
 endfunction
 let g:lightline={
-  \ 'colorscheme': 'Dracula',
   \ 'active': {
   \   'left': [
   \      ['mode', 'paste'],

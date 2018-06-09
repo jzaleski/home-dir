@@ -30,10 +30,6 @@
   path = home/.vim/bundle/syntastic
   url = https://github.com/scrooloose/syntastic.git
   ignore = dirty
-[submodule "home/.vim/bundle/tabline.vim"]
-  path = home/.vim/bundle/tabline.vim
-  url = https://github.com/mkitt/tabline.vim.git
-  ignore = dirty
 [submodule "home/.vim/bundle/vim-slime"]
   path = home/.vim/bundle/vim-slime
   url = https://github.com/jpalardy/vim-slime.git
@@ -49,8 +45,4 @@
 [submodule "home/.vim/bundle/vim-better-whitespace"]
   path = home/.vim/bundle/vim-better-whitespace
   url = https://github.com/ntpeters/vim-better-whitespace.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-fish"]
-  path = home/.vim/bundle/vim-fish
-  url = https://github.com/dag/vim-fish.git
   ignore = dirty

@@ -7,36 +7,36 @@ cd () {
     file_or_directory=$1;
   fi
 
-  if [ -z $file_or_directory ]; then
+  if [ -z "$file_or_directory" ]; then
     builtin cd;
-  elif [ -f $file_or_directory ]; then
+  elif [ -f "$file_or_directory" ]; then
     builtin cd $(dirname $file_or_directory);
   else
-    builtin cd $file_or_directory;
+    builtin cd "$file_or_directory";
   fi
 
   node_version_file=$PWD/.node-version;
-  if [ -e $node_version_file ]; then
+  if [ -e "$node_version_file" ]; then
     refresh_environment=true;
   fi
 
   notags_file=$PWD/.notags;
-  if [ -e $notags_file ]; then
+  if [ -e "$notags_file" ]; then
     refresh_environment=true;
   fi
 
   python_version_file=$PWD/.python-version;
-  if [ -e $python_version_file ]; then
+  if [ -e "$python_version_file" ]; then
     refresh_environment=true;
   fi
 
   ruby_version_file=$PWD/.ruby-version;
-  if [ -e $ruby_version_file ]; then
+  if [ -e "$ruby_version_file" ]; then
     refresh_environment=true;
   fi
 
   sbt_version_file=$PWD/.sbt-version;
-  if [ -e $sbt_version_file ]; then
+  if [ -e "$sbt_version_file" ]; then
     refresh_environment=true;
   fi
 
@@ -51,24 +51,24 @@ cd () {
     unset SBT_VERSION;
   fi
 
-  if [ -e $node_version_file ]; then
-    export NODE_VERSION=$(cat $node_version_file);
+  if [ -e "$node_version_file" ]; then
+    export NODE_VERSION=$(cat "$node_version_file");
   fi
 
-  if [ -e $notags_file ]; then
+  if [ -e "$notags_file" ]; then
     export NOTAGS=true;
   fi
 
-  if [ -e $python_version_file ]; then
-    export PYTHON_VERSION=$(cat $python_version_file);
+  if [ -e "$python_version_file" ]; then
+    export PYTHON_VERSION=$(cat "$python_version_file");
   fi
 
-  if [ -e $ruby_version_file ]; then
-    export RUBY_VERSION=$(cat $ruby_version_file);
+  if [ -e "$ruby_version_file" ]; then
+    export RUBY_VERSION=$(cat "$ruby_version_file");
   fi
 
-  if [ -e $sbt_version_file ]; then
-    export SBT_VERSION=$(cat $sbt_version_file);
+  if [ -e "$sbt_version_file" ]; then
+    export SBT_VERSION=$(cat "$sbt_version_file");
   fi
 
   if [ -n "$refresh_environment" ]; then
