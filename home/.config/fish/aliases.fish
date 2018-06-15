@@ -1,5 +1,6 @@
 # General
 alias ctags='~/bin/ctags.sh';
+alias edit='~/bin/edit.sh';
 alias find='~/bin/find.sh';
 alias gg='git grep';
 alias goal='env LIST_NAME="GOALS" ~/bin/list.py';

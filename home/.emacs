@@ -74,7 +74,6 @@
         git-gutter
         grizzl
         helm
-        magit
         projectile
       )
     )
