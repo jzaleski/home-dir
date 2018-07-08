@@ -5,6 +5,7 @@
 .classpath
 .ctrlp
 .eggs
+.jira-url
 .local
 .nogitbranch
 .nogitdirty
