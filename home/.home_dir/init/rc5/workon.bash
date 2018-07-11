@@ -2,7 +2,7 @@ if [ -n "$SOURCE_DIRECTORY" ] && [ -d $SOURCE_DIRECTORY ]; then
   # change directories to the `$SOURCE_DIRECTORY`
   pushd $SOURCE_DIRECTORY > /dev/null;
   # process all of the `$project(s)`
-  for project in `find . -maxdepth 1 -mindepth 1 -type d | tr -d './'`; do
+  for project in `find . -maxdepth 1 -mindepth 1 -type d | sed 's/^.\///'`; do
     # workon a specific project (variant)
     alias cd-$project="cd $SOURCE_DIRECTORY/$project";
     # workon a specific project and open emacs at the project root
