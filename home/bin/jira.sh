@@ -6,7 +6,7 @@ if [ -z "$open_cmd" ]; then
 fi
 
 if [ -z "$open_cmd" ]; then
-  echo "Could not locate the \"open\" binary";
+  echo "Could not locate the \"[xdg-]open\" binary";
   exit 1;
 fi
 
