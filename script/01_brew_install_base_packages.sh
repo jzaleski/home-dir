@@ -20,6 +20,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       gnu-sed \
       gpg \
       htop \
+      neovim \
       openssl \
       readline \
       screen \
