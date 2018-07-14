@@ -3,6 +3,7 @@
 # allow tag generation to be turned off globally, per-project or via an env-var
 notags_file=.notags;
 if \
+  ! \which ctags 2>&1 > /dev/null || \
   [ -f $HOME/$notags_file ] || \
   [ -f $notags_file ] || \
   [ "$NOTAGS" = "true" ];
@@ -10,23 +11,17 @@ then
   exit 0;
 fi
 
-# ensure that the pkill binary is available
-pkill_cmd=`\which pkill 2> /dev/null`;
-if [ -z "$pkill_cmd" ]; then
-  echo "Could not locate the \"pkill\" binary";
-  exit 1;
-fi
-
-# attempt to install the homebrew ctags binary (if necessary)
-brew_cmd=`\which brew 2> /dev/null`;
-if [ -n "$brew_cmd" ] && [ -z `$brew_cmd --prefix ctags 2> /dev/null` ]; then
-  $brew_cmd install ctags;
-fi
-
 # ensure that the ctags binary is available
 ctags_cmd=`\which ctags 2> /dev/null`;
 if [ -z "$ctags_cmd" ]; then
   echo "Could not locate the \"ctags\" binary";
+  exit 1;
+fi
+
+# ensure that the pkill binary is available
+pkill_cmd=`\which pkill 2> /dev/null`;
+if [ -z "$pkill_cmd" ]; then
+  echo "Could not locate the \"pkill\" binary";
   exit 1;
 fi
 
@@ -62,7 +57,7 @@ fi
 
 # start and background the [c]tags generation process
 $ctags_cmd -Rf $temp_file --exclude=.git --exclude=tmp > /dev/null 2>&1 && \
-  mv $temp_file tags && \
+  (mv $temp_file tags 2> /dev/null || true) && \
   rm -f $lock_file &
 
 # capture the pid of the last background[ed] process (this will be used if this
