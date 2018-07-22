@@ -20,7 +20,7 @@ alias setenv='source ~/bin/setenv.fish';
 alias tmux='~/bin/tmux.sh';
 alias todo='env LIST_NAME="TODO" ~/bin/list.py';
 alias vi='vim';
-alias vim='nvim';
+alias vim='~/bin/vim.sh';
 
 # The ability to navigate 10 directories up should be enough to cover most cases
 alias ..='cd ..';
