@@ -34,7 +34,7 @@ fi
 
 action_or_issue_id=$1;
 
-git_branch=`$git_cmd rev-parse --abbrev-ref HEAD 2> /dev/null`;
+git_branch=`$git_cmd rev-parse --abbrev-ref HEAD 2> /dev/null || echo -n`;
 if \
   [ -z "$action_or_issue_id" ] && \
   [ -n "$git_branch" ] && \
