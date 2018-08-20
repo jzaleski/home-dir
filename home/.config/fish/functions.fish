@@ -77,7 +77,7 @@ end
 
 function fish_prompt
   # Error info
-  set -l last_status $status;
+  set last_status $status;
   if test "$last_status" -ne 0
     set_color red;
     printf "x ";
@@ -167,4 +167,32 @@ function fish_prompt
 
   # Reset
   set_color normal;
+end
+
+function last_argument
+  set last_argument (string split " " $history[1])[-1];
+  if begin test -n "$last_argument"; and not string match -q -r '^last_(argument|command)$' $last_argument; end
+    printf $last_argument;
+  end
+end
+
+function last_command
+  set last_command $history[1];
+  if begin test -n "$last_command"; and not string match -q -r '^last_(argument|command)$' $last_command; end
+    printf $last_command;
+  end
+end
+
+function last_pid
+  set last_pid (jobs -lp 2> /dev/null | tail -1)
+  if test -n "$last_pid"
+    printf $last_pid;
+  end
+end
+
+function last_status
+  set last_status $status;
+  if test -n "$last_status"
+    printf $last_status
+  end
 end
