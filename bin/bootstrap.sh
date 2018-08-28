@@ -5,7 +5,7 @@ cd $(dirname $0)/..;
 
 # ensure that all submodules are initialized and up to date (if we're working
 # in a git repository and not a slug)
-if [ -d $(dirname $0)/.git ]; then
+if [ -e $PWD/.gitmodules ]; then
   git submodule init && git submodule update;
 fi
 
