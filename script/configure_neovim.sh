@@ -19,7 +19,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
     fi
 
     dot_vimrc_file=$HOME/.vimrc;
-    init_dot_vim_file=$nvim_dir/.init.vim;
+    init_dot_vim_file=$nvim_dir/init.vim;
 
     if [ -e $dot_vimrc_file ] && [ ! -h $init_dot_vim_file ]; then
       ln -s $dot_vimrc_file $init_dot_vim_file;
