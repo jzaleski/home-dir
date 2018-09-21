@@ -25,6 +25,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       readline \
       screen \
       tmux \
+      truncate \
       vim \
       wget \
       zsh \
