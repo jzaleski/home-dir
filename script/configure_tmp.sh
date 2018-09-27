@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ensure that the [user-specific] Shared directory exists
-shared_dir="$HOME/Shared";
+shared_dir=$HOME/Shared;
 if [ ! -e $shared_dir ]; then
   mkdir -p $shared_dir;
 fi
