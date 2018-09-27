@@ -11,7 +11,7 @@ fi
 
 # manifest of files to automatically ignore (e.g. not overwrite) rather than
 # prompting to overwrite on every run
-install_ignore_file=.installignore;
+bootstrap_ignore_file=.bootstrapignore;
 
 # find files, directories and symbolic-links
 for d in home overrides; do
@@ -20,7 +20,7 @@ for d in home overrides; do
     source_object=$d/$o;
     destination_object=$HOME/$o;
     # if it's ignored
-    if [ -e $install_ignore_file ] && \grep "$o" $install_ignore_file > /dev/null 2>&1; then
+    if [ -e $bootstrap_ignore_file ] && \grep "$o" $bootstrap_ignore_file > /dev/null 2>&1; then
       continue;
     # if it's a directory and it does not exist
     elif [ -d $source_object ] && [ ! -d $destination_object ]; then
