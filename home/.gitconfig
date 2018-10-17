@@ -36,7 +36,7 @@
   unignore = update-index --no-assume-unchanged
   unst = reset HEAD
   unstage = reset HEAD
-  update-submodules = "!f() { git pull --recurse-submodules && git submodule update; }; f"
+  update-submodules = "!f() { git submodule update --recursive --remote; }; f"
 [apply]
   whitespace = nowarn
 [branch]
