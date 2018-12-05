@@ -13,9 +13,10 @@ class Processor(object):
     DONE_OPERATIONS = {'d', 'done'}
     EDIT_OPERATIONS = {'e', 'edit'}
     INDEX_PATTERN = r'^[0-9]+$'
-    OPERATION_PATTERN = r'^(a|add|d|done|e|edit|r|remove)$'
+    OPERATION_PATTERN = r'^(a|add|d|done|e|edit|r|remove|t|touch)$'
     REMOVED_BUCKET = 'r'
     REMOVE_OPERATIONS = {'r', 'remove'}
+    TOUCH_OPERATIONS = {'t', 'touch'}
     VALID_BUCKETS = {
         ADDED_BUCKET,
         DONE_BUCKET,
@@ -70,6 +71,8 @@ class Processor(object):
             return self._edit(index, ' '.join(args[2:]))
         elif operation in self.REMOVE_OPERATIONS:
             return self._remove(index)
+        elif operation in self.TOUCH_OPERATIONS:
+            return self._touch(index)
         return False
 
     def _add(
@@ -133,11 +136,14 @@ class Processor(object):
             open(self.database_file_path, 'w').close()
 
     def _get_bucket(self, bucket):
-        return [
-            datum
-            for datum in self.database
-            if datum['bucket'] == bucket
-        ]
+        return sorted(
+            (
+                datum
+                for datum in self.database
+                if datum['bucket'] == bucket
+            ),
+            key=lambda datum: datum['updated_timestamp']
+        )
 
     def _get_database(self):
         database = []
@@ -223,6 +229,18 @@ class Processor(object):
         for datum_index, datum in enumerate(bucket):
             print('%3d. %s' % (datum_index + 1, datum['message']))
         return True
+
+    def _touch(self, index=None):
+        bucket = self._get_bucket(self.ADDED_BUCKET)
+        if not bucket:
+            return False
+        for datum_index, datum in enumerate(bucket):
+            if datum_index != index:
+                continue
+            datum['updated_by_user'] = self.user
+            datum['updated_timestamp'] = self.timestamp
+            return self._write_database()
+        return False
 
     def _write_database(self):
         with open(self.database_file_path, 'w') as database_file:
