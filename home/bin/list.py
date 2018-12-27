@@ -7,19 +7,22 @@ import os, getpass, re, sys, time, uuid
 class Processor(object):
     ADDED_BUCKET = 'a'
     ADD_OPERATIONS = {'a', 'add'}
-    BUCKET_PATTERN = r'^(a|added|d|done|r|removed)$'
+    BUCKET_PATTERN = r'^(a|added|d|done|h|handed_off|r|removed)$'
     DEFAULT_PARENT_ID = uuid.UUID('00000000-0000-0000-0000-000000000000')
     DONE_BUCKET = 'd'
     DONE_OPERATIONS = {'d', 'done'}
     EDIT_OPERATIONS = {'e', 'edit'}
+    HANDED_OFF_BUCKET = 'h'
+    HANDOFF_OPERATIONS = {'h', 'handoff'}
     INDEX_PATTERN = r'^[0-9]+$'
-    OPERATION_PATTERN = r'^(a|add|d|done|e|edit|r|remove|t|touch)$'
+    OPERATION_PATTERN = r'^(a|add|d|done|e|edit|h|handoff|r|remove|t|touch)$'
     REMOVED_BUCKET = 'r'
     REMOVE_OPERATIONS = {'r', 'remove'}
     TOUCH_OPERATIONS = {'t', 'touch'}
     VALID_BUCKETS = {
         ADDED_BUCKET,
         DONE_BUCKET,
+        HANDED_OFF_BUCKET,
         REMOVED_BUCKET,
     }
 
@@ -69,6 +72,8 @@ class Processor(object):
             return self._done(index)
         elif operation in self.EDIT_OPERATIONS:
             return self._edit(index, ' '.join(args[2:]))
+        elif operation in self.HANDOFF_OPERATIONS:
+            return self._handoff(index)
         elif operation in self.REMOVE_OPERATIONS:
             return self._remove(index)
         elif operation in self.TOUCH_OPERATIONS:
@@ -208,6 +213,19 @@ class Processor(object):
 
     def _get_user(self):
         return getpass.getuser()
+
+    def _handoff(self, index=None):
+        bucket = self._get_bucket(self.ADDED_BUCKET)
+        if not bucket:
+            return False
+        for datum_index, datum in enumerate(bucket):
+            if datum_index != index:
+                continue
+            datum['updated_by_user'] = self.user
+            datum['updated_timestamp'] = self.timestamp
+            datum['bucket'] = self.HANDED_OFF_BUCKET
+            return self._write_database()
+        return False
 
     def _remove(self, index=None):
         bucket = self._get_bucket(self.ADDED_BUCKET)
