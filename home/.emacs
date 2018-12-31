@@ -1,22 +1,35 @@
 (require 'package)
 
+(setq package-list '(
+  auto-complete
+  dracula-theme
+  evil
+  fill-column-indicator
+  git-gutter
+))
+
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+
+(package-initialize)
+
+(unless package-archive-contents (package-refresh-contents))
+
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
 (add-to-list 'default-frame-alist '(background-color . "#2d2d2d"))
 
-(package-initialize)
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (menu-bar-mode -1)
 (show-paren-mode 1)
 
-;; GUI customizations
 (if window-system
   (progn
     (scroll-bar-mode -1)
@@ -53,36 +66,3 @@
 (global-fci-mode 1)
 (setq fci-rule-character ?\u2502)
 (setq fci-rule-column 80)
-
-(projectile-mode)
-(setq projectile-completion-system 'grizzl)
-(setq projectile-enable-caching nil)
-(setq projectile-require-project-root nil)
-
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(package-selected-packages
-    (quote
-      (
-        auto-complete
-        dracula-theme
-        evil
-        fill-column-indicator
-        git-gutter
-        grizzl
-        helm
-        projectile
-      )
-    )
-  )
-)
-
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-)
