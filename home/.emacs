@@ -6,6 +6,8 @@
   evil
   fill-column-indicator
   git-gutter
+  ivy
+  projectile
 ))
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -66,3 +68,5 @@
 (global-fci-mode 1)
 (setq fci-rule-character ?\u2502)
 (setq fci-rule-column 80)
+
+(setq projectile-completion-system 'ivy)
