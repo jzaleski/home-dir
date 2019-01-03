@@ -69,4 +69,7 @@
 (setq fci-rule-character ?\u2502)
 (setq fci-rule-column 80)
 
+(projectile-mode +1)
 (setq projectile-completion-system 'ivy)
+(setq projectile-enable-caching t)
+(setq projectile-require-project-root nil)
