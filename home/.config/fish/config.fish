@@ -5,7 +5,7 @@ set fish_greeting;
 set PATH $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
 
 # Set the default editor (Git amongst others use this)
-set EDITOR vim;
+set EDITOR emacs;
 
 # Ensure that "LANG" is set
 if test -z "$LANG"
