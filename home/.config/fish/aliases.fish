@@ -1,5 +1,6 @@
 # General
 alias ctags='~/bin/ctags.sh';
+alias edit='$EDITOR';
 alias find='~/bin/find.sh';
 alias gg='git grep';
 alias github='~/bin/github.sh';
