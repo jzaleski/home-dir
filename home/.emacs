@@ -5,7 +5,6 @@
   dracula-theme
   evil
   fill-column-indicator
-  git-gutter
   ivy
   projectile
 ))
@@ -52,8 +51,6 @@
 (set-face-background 'linum "#2d2d2d")
 (set-face-foreground 'linum "#ffffff")
 (setq linum-format "%3d ")
-
-(global-git-gutter-mode +1)
 
 (global-hl-line-mode +1)
 (set-face-background 'hl-line "#1c1c1c")
