@@ -2,10 +2,6 @@
   path = home/.vim/bundle/vim-fugitive
   url = https://github.com/tpope/vim-fugitive.git
   ignore = dirty
-[submodule "home/.vim/bundle/vim-gitgutter"]
-  path = home/.vim/bundle/vim-gitgutter
-  url = https://github.com/airblade/vim-gitgutter.git
-  ignore = dirty
 [submodule "home/.vim/bundle/supertab"]
   path = home/.vim/bundle/supertab
   url = https://github.com/ervandew/supertab.git
