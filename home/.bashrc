@@ -1,8 +1,11 @@
 # Set the PATH
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
-# Set the default editor (Git amongst others use this)
+# Set the default editor
 export EDITOR=emacs;
+
+# Set the git-editor to the default editor
+export GIT_EDITOR=$EDITOR;
 
 # Set up "history"
 export HISTFILE=$HOME/.bash_history HISTFILESIZE=100000 HISTSIZE=100000;
