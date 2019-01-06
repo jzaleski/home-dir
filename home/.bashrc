@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
 # Set the default editor
-export EDITOR=emacs;
+export EDITOR=vim;
 
 # Set the git-editor to the default editor
 export GIT_EDITOR=$EDITOR;

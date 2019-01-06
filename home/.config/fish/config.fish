@@ -5,7 +5,7 @@ set fish_greeting;
 set PATH $HOME/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
 
 # Set the default editor
-set EDITOR emacs;
+set EDITOR vim;
 
 # Set the git-editor to the default editor
 set GIT_EDITOR $EDITOR;
