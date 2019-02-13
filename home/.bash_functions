@@ -15,6 +15,11 @@ cd () {
     builtin cd "$file_or_directory";
   fi
 
+  elixir_version_file=$PWD/.elixir-version;
+  if [ -e "$elixir_version_file" ]; then
+    refresh_environment=true;
+  fi
+
   node_version_file=$PWD/.node-version;
   if [ -e "$node_version_file" ]; then
     refresh_environment=true;
@@ -43,12 +48,17 @@ cd () {
   if ([ -n "$PROJECT_DIRECTORY" ] && [[ ! $PWD =~ ^$PROJECT_DIRECTORY ]]) || \
     [ -n "$refresh_environment" ];
   then
+    unset ELIXIR_VERSION;
     unset NODE_VERSION;
     unset NOTAGS;
     unset PROJECT_DIRECTORY;
     unset PYTHON_VERSION;
     unset RUBY_VERSION;
     unset SBT_VERSION;
+  fi
+
+  if [ -e "$elixir_version_file" ]; then
+    export ELIXIR_VERSION=$(cat "$elixir_version_file");
   fi
 
   if [ -e "$node_version_file" ]; then
@@ -142,6 +152,13 @@ environment_prompt_info () {
   fi
 
   active_versions="";
+
+  elixir_version=$ELIXIR_VERSION;
+  if [ -n "$elixir_version" ]; then
+    [[ $elixir_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && \
+      elixir_version="elixir-$elixir_version";
+    active_versions="$active_versions $elixir_version";
+  fi
 
   node_version=$NODE_VERSION;
   if [ -n "$node_version" ]; then

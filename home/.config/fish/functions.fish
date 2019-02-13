@@ -14,6 +14,11 @@ function cd
     builtin cd $file_or_directory;
   end
 
+  set elixir_version_file $PWD/.elixir-version;
+  if test -e $elixir_version_file
+    set refresh_environment true;
+  end
+
   set node_version_file $PWD/.node-version;
   if test -e $node_version_file
     set refresh_environment true;
@@ -41,6 +46,7 @@ function cd
 
   if test -n "$PROJECT_DIRECTORY"
     if begin string match -q -r -v "^$PROJECT_DIRECTORY" "$PWD"; or test -n "$refresh_environment"; end
+      set -e ELIXIR_VERSION;
       set -e NODE_VERSION;
       set -e NOTAGS;
       set -e PROJECT_DIRECTORY;
@@ -48,6 +54,10 @@ function cd
       set -e RUBY_VERSION;
       set -e SBT_VERSION;
     end
+  end
+
+  if test -e $elixir_version_file
+    set -g ELIXIR_VERSION (cat $elixir_version_file);
   end
 
   if test -e $node_version_file
@@ -85,7 +95,17 @@ function fish_prompt
 
   # Enviroment info
   set_color normal;
+
   set active_versions "";
+
+  set elixir_version $ELIXIR_VERSION;
+  if test -n "$elixir_version"
+    if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $elixir_version
+      set elixir_version "elixir-$elixir_version";
+    end
+    set active_versions "$active_versions $elixir_version";
+  end
+
   set node_version $NODE_VERSION;
   if test -n "$node_version"
     if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $node_version
@@ -93,6 +113,7 @@ function fish_prompt
     end
     set active_versions "$active_versions $node_version";
   end
+
   set python_version $PYTHON_VERSION;
   if test -n "$python_version"
     if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $python_version
@@ -100,6 +121,7 @@ function fish_prompt
     end
     set active_versions "$active_versions $python_version";
   end
+
   set ruby_version $RUBY_VERSION;
   if test -n "$ruby_version"
     if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $ruby_version
@@ -107,6 +129,7 @@ function fish_prompt
     end
     set active_versions "$active_versions $ruby_version";
   end
+
   set sbt_version $SBT_VERSION;
   if test -n "$sbt_version"
     if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $sbt_version
@@ -114,6 +137,7 @@ function fish_prompt
     end
     set active_versions "$active_versions $sbt_version";
   end
+
   if test -n "$active_versions"
     set_color white -o;
     printf "(";
@@ -153,14 +177,17 @@ function fish_prompt
 
   # Git info
   set_color yellow -o;
+
   set branch (git rev-parse --abbrev-ref HEAD 2> /dev/null);
   if test -n "$branch"
     printf $branch;
   end
+
   set dirty (git status --porcelain 2> /dev/null);
   if test -n "$dirty"
     printf "*";
   end
+
   if test -n "$branch" -o -n "$dirty"
     printf " ";
   end
