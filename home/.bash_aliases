@@ -5,7 +5,6 @@ alias find='~/bin/find.sh';
 alias gg='git grep';
 alias github='~/bin/github.sh';
 alias goal='LIST_NAME="GOALS" ~/bin/list.py';
-alias grep='~/bin/grep.sh';
 alias htop='~/bin/htop.sh';
 alias icebox='LIST_NAME="ICEBOX" ~/bin/list.py';
 alias jira='~/bin/jira.sh';
