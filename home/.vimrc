@@ -82,18 +82,6 @@ function! ToggleGitGutterLineHighlights()
   redraw!
 endfunction
 
-" Toggle Highlight-Whitespace Helper
-function! ToggleHighlightWhitespace()
-  ToggleWhitespace
-  redraw!
-endfunction
-
-" Toggle Indent-Guides Helper
-function! ToggleIndentGuides()
-  IndentGuidesToggle
-  redraw!
-endfunction
-
 " Toggle Line-Numbers Helper
 function! ToggleLineNumbers()
   set number!
@@ -173,11 +161,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command='\ag %s -l --hidden --nocolor -g ""'
 endif
-
-" Indent Guides
-let g:indent_guides_auto_colors=0
-hi IndentGuidesOdd ctermbg=7 guibg=LightGrey
-hi IndentGuidesEven ctermbg=15 guibg=White
 
 " lightline
 function! CurrentFilename()

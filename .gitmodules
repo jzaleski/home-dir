@@ -34,14 +34,6 @@
   path = home/.oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
   ignore = dirty
-[submodule "home/.vim/bundle/vim-indent-guides"]
-  path = home/.vim/bundle/vim-indent-guides
-  url = https://github.com/nathanaelkane/vim-indent-guides.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-better-whitespace"]
-  path = home/.vim/bundle/vim-better-whitespace
-  url = https://github.com/ntpeters/vim-better-whitespace.git
-  ignore = dirty
 [submodule "home/.vim/bundle/vim-fish"]
   path = home/.vim/bundle/vim-fish
   url = https://github.com/dag/vim-fish.git
