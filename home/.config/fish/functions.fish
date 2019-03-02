@@ -93,58 +93,60 @@ function fish_prompt
     printf "x ";
   end
 
-  # Enviroment info
   set_color normal;
 
-  set active_versions "";
+  # Enviroment info
+  if begin; not test -e $PWD/.noenvironmentinfo; and not test -e $HOME/.noenvironmentinfo; end
+    set active_versions "";
 
-  set elixir_version $ELIXIR_VERSION;
-  if test -n "$elixir_version"
-    if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $elixir_version
-      set elixir_version "elixir-$elixir_version";
+    set elixir_version $ELIXIR_VERSION;
+    if test -n "$elixir_version"
+      if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $elixir_version
+        set elixir_version "elixir-$elixir_version";
+      end
+      set active_versions "$active_versions $elixir_version";
     end
-    set active_versions "$active_versions $elixir_version";
-  end
 
-  set node_version $NODE_VERSION;
-  if test -n "$node_version"
-    if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $node_version
-      set node_version "node-$node_version";
+    set node_version $NODE_VERSION;
+    if test -n "$node_version"
+      if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $node_version
+        set node_version "node-$node_version";
+      end
+      set active_versions "$active_versions $node_version";
     end
-    set active_versions "$active_versions $node_version";
-  end
 
-  set python_version $PYTHON_VERSION;
-  if test -n "$python_version"
-    if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $python_version
-      set python_version "python-$python_version";
+    set python_version $PYTHON_VERSION;
+    if test -n "$python_version"
+      if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $python_version
+        set python_version "python-$python_version";
+      end
+      set active_versions "$active_versions $python_version";
     end
-    set active_versions "$active_versions $python_version";
-  end
 
-  set ruby_version $RUBY_VERSION;
-  if test -n "$ruby_version"
-    if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $ruby_version
-      set ruby_version "ruby-$ruby_version";
+    set ruby_version $RUBY_VERSION;
+    if test -n "$ruby_version"
+      if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $ruby_version
+        set ruby_version "ruby-$ruby_version";
+      end
+      set active_versions "$active_versions $ruby_version";
     end
-    set active_versions "$active_versions $ruby_version";
-  end
 
-  set sbt_version $SBT_VERSION;
-  if test -n "$sbt_version"
-    if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $sbt_version
-      set sbt_version "sbt-$sbt_version";
+    set sbt_version $SBT_VERSION;
+    if test -n "$sbt_version"
+      if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $sbt_version
+        set sbt_version "sbt-$sbt_version";
+      end
+      set active_versions "$active_versions $sbt_version";
     end
-    set active_versions "$active_versions $sbt_version";
-  end
 
-  if test -n "$active_versions"
-    set_color white -o;
-    printf "(";
-    set_color normal;
-    printf (echo $active_versions | awk '{$1=$1};1' | sed 's/ /, /g');
-    set_color white -o;
-    printf ") ";
+    if test -n "$active_versions"
+      set_color white -o;
+      printf "(";
+      set_color normal;
+      printf (echo $active_versions | awk '{$1=$1};1' | sed 's/ /, /g');
+      set_color white -o;
+      printf ") ";
+    end
   end
 
   # Execution time

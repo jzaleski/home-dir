@@ -146,8 +146,7 @@ parse_git_branch () {
 
 # Echos the current environment info
 environment_prompt_info () {
-  noenvironmentinfo_file=$HOME/.noenvironmentinfo;
-  if [ -f $noenvironmentinfo_file ]; then
+  if [ -e "$PWD/.noenvironmentinfo" ] || [ -e "$HOME/.noenvironmentinfo" ]; then
     return;
   fi
 
