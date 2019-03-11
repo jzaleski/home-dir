@@ -28,3 +28,23 @@ To bootstrap w/ additional packages:
 To bootstrap & configure the desktop environment:
 
 `BOOTSTRAP_DESKTOP_ENVIRONMENT=true bin/bootstrap.sh`
+
+===
+
+*Running containerized (requires `docker`):*
+
+Building the container-image:
+
+`bin/build-container-image.sh`
+
+Starting the container:
+
+`bin/start-container.sh`
+
+Connecting to the running container:
+
+`bin/container-shell.sh`
+
+Stopping the running container:
+
+`bin/stop-container.sh`
