@@ -13,6 +13,12 @@ fi
 # prompting to overwrite on every run
 bootstrap_ignore_file=.bootstrapignore;
 
+# if `$ASSUME_YES` is `"true"` *do not* prompt before overwriting
+cp_flags="-a";
+if [ "$ASSUME_YES" != "true" ]; then
+  cp_flags="${cp_flags}i";
+fi
+
 # find files, directories and symbolic-links
 for d in home overrides; do
   for o in $(find $d -type d -o -type f -o -type l | \grep -E "^$d/(.+)" | sed "s/$d\///g"); do
@@ -27,7 +33,7 @@ for d in home overrides; do
       mkdir -p $destination_object;
     # if it's a file and it does not exist or it is different
     elif [ -f $source_object ] && ([ ! -f $destination_object ] || ! cmp $source_object $destination_object > /dev/null 2>&1); then
-      cp -ai $source_object $destination_object;
+      cp $cp_flags $source_object $destination_object;
     fi
   done
 done
