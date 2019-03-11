@@ -11,13 +11,12 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       build-essential \
       colordiff \
       curl \
-      dkms \
-      emacs \
       exuberant-ctags \
       fish \
       git \
       htop \
       libreadline-dev \
+      python-minimal \
       screen \
       silversearcher-ag \
       tmux \
