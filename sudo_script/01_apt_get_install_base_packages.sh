@@ -18,7 +18,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       git \
       htop \
       libreadline-dev \
-      linux-headers-$(uname -r) \
       screen \
       silversearcher-ag \
       tmux \
