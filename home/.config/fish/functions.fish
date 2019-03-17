@@ -161,7 +161,12 @@ function fish_prompt
   set_color green -o;
   printf "{"
   set_color normal;
-  printf (hostname -s)
+  set hostname_file $HOME/.hostname;
+  if test -e $hostname_file
+    printf (cat $hostname_file);
+  else
+    printf (hostname -s)
+  end
   set_color green -o;
   printf "} ";
 

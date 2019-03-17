@@ -3,48 +3,62 @@ home_dir
 
 Dot-files and basic utilities
 
-===
+**Compatible with:**
 
-*Compatible with:*
-
-- CentOS / Red Hat
-- Cygwin
-- Debian / Ubuntu
-- Git Bash
-- OSX
+* CentOS / Red Hat
+* Cygwin
+* Debian / Ubuntu
+* Git Bash
+* OSX
 
 ===
 
-_All of the following scripts will prompt before over-writing anything_
+(_All of the following scripts will prompt before overwriting_)
 
-To bootstrap:
+**To bootstrap:**
+```bash
+bin/bootstrap.sh
+```
 
-`bin/bootstrap.sh`
-
-To bootstrap w/ additional packages:
+**To bootstrap w/ additional packages:**
 
 `EXTENDED_BOOTSTRAP=true bin/bootstrap.sh`
 
-To bootstrap & configure the desktop environment:
+**To bootstrap and configure the desktop environment:**
+```bash
+BOOTSTRAP_DESKTOP_ENVIRONMENT=true bin/bootstrap.sh
+```
 
-`BOOTSTRAP_DESKTOP_ENVIRONMENT=true bin/bootstrap.sh`
+## Running containerized
 
-===
+(_Requires `docker`_)
 
-*Running containerized (requires `docker`):*
+**Building an image:**
+```bash
+docker/build.sh
+```
+**Starting a container (it will be removed on exit):**
+```bash
+docker/start.sh
+```
 
-Building the container-image:
+**Stopping a running container:**
+```bash
+docker/stop.sh
+```
 
-`bin/build-container-image.sh`
+**Connecting to a shell session:**
+```bash
+docker/shell.sh
+```
 
-Starting the container:
+**Viewing the log(s):**
+```bash
+docker/logs.sh
+```
 
-`bin/start-container.sh`
+**Tail[ing] the log(s):**
+```bash
+docker/tail.sh
+```
 
-Connecting to the running container:
-
-`bin/container-shell.sh`
-
-Stopping the running container:
-
-`bin/stop-container.sh`

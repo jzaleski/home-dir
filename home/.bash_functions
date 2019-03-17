@@ -224,3 +224,13 @@ git_prompt_info () {
     echo "${branch}${dirty} ";
   fi
 }
+
+# Echos the hostname, it can be overridden with something static via $HOME/.hostname
+hostname_prompt_info () {
+  hostname_file=$HOME/.hostname;
+  if [ -e "$hostname_file" ]; then
+    cat $hostname_file;
+  else
+    hostname -s;
+  fi
+}
