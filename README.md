@@ -11,7 +11,7 @@ Dot-files and basic utilities
 * Git Bash
 * OSX
 
-===
+---
 
 (_All of the following scripts will prompt before overwriting_)
 
