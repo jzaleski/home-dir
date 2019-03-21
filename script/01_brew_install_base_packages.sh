@@ -21,6 +21,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       htop \
       openssl \
       readline \
+      ripgrep \
       screen \
       tmux \
       truncate \

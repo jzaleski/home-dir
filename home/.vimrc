@@ -51,6 +51,7 @@ set visualbell
 set wildmode=list:longest
 set backupdir=~/.vim/tmp,~/tmp,/tmp
 set directory=~/.vim/tmp,~/tmp,/tmp
+set wildignore+=*/.git/*,*/tmp/*,*.swp,*/tags
 
 " Use spaces instead of TABs
 set shiftwidth=2
@@ -157,8 +158,11 @@ let g:ctrlp_root_markers=['.ctrlp']
 let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=0
 let g:ctrlp_working_path_mode='rw'
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command='rg %s --files --color=never --glob ""'
+elseif executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command='\ag %s -l --hidden --nocolor -g ""'
 endif
 
