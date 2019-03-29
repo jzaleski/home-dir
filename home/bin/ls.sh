@@ -6,10 +6,4 @@ if [ -z "$ls_cmd" ]; then
   exit 1;
 fi
 
-if [ `uname` = "Darwin" ]; then
-  color_arg="-G";
-else
-  color_arg="--color";
-fi
-
-LSCOLORS=${LSCOLORS-ExFxBxDxCxegedabagacad} $ls_cmd $color_arg "$@";
+LSCOLORS=${LSCOLORS-ExFxBxDxCxegedabagacad} $ls_cmd --color "$@";
