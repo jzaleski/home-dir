@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 case "$1" in
-	rebase) exec $HOME/bin/ctags.sh > /dev/null 2>&1;
+	rebase) exec $HOME/lib/ctags.sh > /dev/null 2>&1;
 	;;
 esac
