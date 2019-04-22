@@ -2,9 +2,21 @@
 
 set -e;
 
-open_cmd=`\which open 2> /dev/null`;
+cat_cmd=$(which cat 2> /dev/null || echo -n);
+if [ -z "$cat_cmd" ]; then
+  echo "Could not locate the \"cat\" binary";
+  exit 1;
+fi
+
+git_cmd=$(which git 2> /dev/null || echo -n);
+if [ -z "$git_cmd" ]; then
+  echo "Could not locate the \"git\" binary";
+  exit 1;
+fi
+
+open_cmd=$(which open 2> /dev/null || echo -n);
 if [ -z "$open_cmd" ]; then
-  open_cmd=`\which xdg-open 2> /dev/null`;
+  open_cmd=$(which xdg-open 2> /dev/null || echo -n);
 fi
 
 if [ -z "$open_cmd" ]; then
@@ -14,26 +26,30 @@ fi
 
 repository=$1;
 if [ -n "$repository" ]; then
-  cd ${SOURCE_DIRECTORY-$HOME/src}/$repository;
+  cd ${SOURCE_DIRECTORY:-"$HOME/src"}/$repository;
 fi
 
-github_url=$GITHUB_URL;
+github_url_file="$HOME/.github-url";
 
-git_cmd=`\which git 2> /dev/null`;
-if [ -z "$github_url" ] && [ -n "$git_cmd" ]; then
+github_url=$GITHUB_URL;
+if [ -z "$github_url" ]; then
   if [ -e .git ]; then
-    github_url=`$git_cmd config --get remote.origin.url 2> /dev/null`;
+    github_url=$($git_cmd config --get remote.origin.url 2> /dev/null);
+  elif [ -e $github_url_file ]; then
+    github_url=$($cat_cmd $github_url_file);
+  else
+    github_url="https://github.com";
   fi
 fi
 
 ssh_prefix="git@github.com:";
 if [[ "$github_url" =~ "$ssh_prefix" ]]; then
-  github_url=`\echo $github_url | \sed "s/$ssh_prefix//"`;
+  github_url=$(echo $github_url | \sed "s/$ssh_prefix//");
 fi
 
 dot_git_suffix=".git";
 if [[ "$github_url" =~ "$dot_git_suffix" ]]; then
-  github_url=`\echo $github_url | \sed "s/$dot_git_suffix\$//"`;
+  github_url=$(echo $github_url | \sed "s/$dot_git_suffix\$//");
 fi
 
 https_prefix="https://github.com";

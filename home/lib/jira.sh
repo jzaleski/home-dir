@@ -2,15 +2,21 @@
 
 set -e;
 
-git_cmd=`\which git 2> /dev/null`;
+cat_cmd=$(which cat 2> /dev/null);
+if [ -z "$cat_cmd" ]; then
+  echo "Could not locate the \"cat\" binary";
+  exit 1;
+fi
+
+git_cmd=$(which git 2> /dev/null);
 if [ -z "$git_cmd" ]; then
   echo "Could not locate the \"git\" binary";
   exit 1;
 fi
 
-open_cmd=`\which open 2> /dev/null`;
+open_cmd=$(which open 2> /dev/null || echo -n);
 if [ -z "$open_cmd" ]; then
-  open_cmd=`\which xdg-open 2> /dev/null`;
+  open_cmd=$(which xdg-open 2> /dev/null || echo -n);
 fi
 
 if [ -z "$open_cmd" ]; then
@@ -19,12 +25,10 @@ if [ -z "$open_cmd" ]; then
 fi
 
 jira_url=$JIRA_URL;
-if [ -z "$jira_url" ]; then
-  if [ -e .jira-url ]; then
-    jira_url=`\cat .jira-url`;
-  elif [ -e $HOME/.jira-url ]; then
-    jira_url=`\cat $HOME/.jira-url`;
-  fi
+
+jira_url_file="$HOME/.jira-url";
+if [ -z "$jira_url" ] && [ -e $jira_url_file ]; then
+  jira_url=$($cat_cmd $jira_url_file);
 fi
 
 if [ -z "$jira_url" ]; then
@@ -34,7 +38,7 @@ fi
 
 action_or_issue_id=$1;
 
-git_branch=`$git_cmd rev-parse --abbrev-ref HEAD 2> /dev/null || echo -n`;
+git_branch=$($git_cmd rev-parse --abbrev-ref HEAD 2> /dev/null || echo -n);
 if \
   [ -z "$action_or_issue_id" ] && \
   [ -n "$git_branch" ] && \
