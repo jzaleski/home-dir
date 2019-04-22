@@ -5,13 +5,11 @@
 .classpath
 .ctrlp
 .eggs
-.jira-url
 .local
 .noenvironmentinfo
 .nogitbranch
 .nogitdirty
 .nogitstatus
-.notags
 .pmd
 .pmdruleset.xml
 .project
