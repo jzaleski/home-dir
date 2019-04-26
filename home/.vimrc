@@ -113,7 +113,6 @@ map <C-F> :FindInFiles<SPACE>
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Make/MakeTest
-set makeprg=$HOME/bin/make.sh
 function! Make()
   execute 'make' | bwipeout
   redraw!
