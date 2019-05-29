@@ -25,38 +25,44 @@ hi clear SignColumn
 hi ColorColumn ctermbg=0 guibg=Black
 
 " General
-set backspace=eol,indent,start
-set colorcolumn=80
+set backspace=indent,eol,start
+set colorcolumn=81
 set cursorline
 set encoding=utf-8
 set hidden
+set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
-set nobackup
 set nocompatible
 set nohlsearch
-set noswapfile
 set notitle
 set nowrap
 set number
-set scrolloff=3
 set shortmess=a
+set showcmd
 set showmatch
 set showtabline=0
 set smartcase
+set ttimeout
+set ttimeoutlen=50
 set ttyfast
 set visualbell
-set wildmode=list:longest
+set wildignore+=*/.git/*,*/tmp/*,*.swp,*/tags
+set wildmenu
+set wildmode=longest:full,full
+
+set nobackup
+set noswapfile
 set backupdir=~/.vim/tmp,~/tmp,/tmp
 set directory=~/.vim/tmp,~/tmp,/tmp
-set wildignore+=*/.git/*,*/tmp/*,*.swp,*/tags
 
-" Use spaces instead of TABs
+" Formatting
+set autoindent
+set expandtab
 set shiftwidth=2
 set tabstop=2
-set expandtab
 
 " GUI specific ({g,Mac}Vim)
 if has('gui_running')
@@ -70,18 +76,6 @@ endif
 " Folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
-
-" Toggle GitGutter Helper
-function! ToggleGitGutter()
-  GitGutterToggle
-  redraw!
-endfunction
-
-" Toggle GitGutterHighlights Helper
-function! ToggleGitGutterLineHighlights()
-  GitGutterLineHighlightsToggle
-  redraw!
-endfunction
 
 " Toggle Line-Numbers Helper
 function! ToggleLineNumbers()
@@ -102,8 +96,6 @@ map <F4> :call ToggleIndentGuides()<CR>
 map <F5> :call Make()<CR>
 map <F6> :call MakeTest()<CR>
 map <F7> :call ToggleLineNumbers()<CR>
-map <F8> :call ToggleGitGutter()<CR>
-map <F9> :call ToggleGitGutterLineHighlights()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
@@ -157,10 +149,7 @@ let g:ctrlp_root_markers=['.ctrlp']
 let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=0
 let g:ctrlp_working_path_mode='rw'
-if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command='\rg %s --files --color=never --hidden --glob ""'
-elseif executable('ag')
+if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command='\ag %s -l --hidden --nocolor -g ""'
 endif
@@ -193,13 +182,6 @@ let g:lightline={
 let g:loaded_syntastic_java_javac_checker=1
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
-
-" vim-slime
-let g:slime_target='tmux'
-let g:slime_default_config={
-  \ 'socket_name': 'default',
-  \ 'target_pane': ':0.1'
-\ }
 
 " Move the current line to the center of the screen
 map <SPACE> zvzz

@@ -26,19 +26,7 @@
   path = home/.vim/bundle/syntastic
   url = https://github.com/scrooloose/syntastic.git
   ignore = dirty
-[submodule "home/.vim/bundle/vim-slime"]
-  path = home/.vim/bundle/vim-slime
-  url = https://github.com/jpalardy/vim-slime.git
-  ignore = dirty
 [submodule "home/.oh-my-zsh"]
   path = home/.oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-fish"]
-  path = home/.vim/bundle/vim-fish
-  url = https://github.com/dag/vim-fish.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-elixir"]
-  path = home/.vim/bundle/vim-elixir
-  url = https://github.com/elixir-lang/vim-elixir.git
   ignore = dirty
