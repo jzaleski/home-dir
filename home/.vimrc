@@ -45,6 +45,7 @@ set showcmd
 set showmatch
 set showtabline=0
 set smartcase
+set timeoutlen=500
 set ttimeout
 set ttimeoutlen=50
 set ttyfast
