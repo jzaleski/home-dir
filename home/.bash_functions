@@ -20,6 +20,11 @@ cd () {
     refresh_environment=true;
   fi
 
+  java_version_file=$PWD/.java-version;
+  if [ -e "$java_version_file" ]; then
+    refresh_environment=true;
+  fi
+
   node_version_file=$PWD/.node-version;
   if [ -e "$node_version_file" ]; then
     refresh_environment=true;
@@ -49,6 +54,7 @@ cd () {
     [ -n "$refresh_environment" ];
   then
     unset ELIXIR_VERSION;
+    unset JAVA_VERSION;
     unset NODE_VERSION;
     unset NOTAGS;
     unset PROJECT_DIRECTORY;
@@ -59,6 +65,10 @@ cd () {
 
   if [ -e "$elixir_version_file" ]; then
     export ELIXIR_VERSION=$(cat "$elixir_version_file");
+  fi
+
+  if [ -e "$java_version_file" ]; then
+    export JAVA_VERSION=$(cat "$java_version_file");
   fi
 
   if [ -e "$node_version_file" ]; then
@@ -157,6 +167,13 @@ environment_prompt_info () {
     [[ $elixir_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && \
       elixir_version="elixir-$elixir_version";
     active_versions="$active_versions $elixir_version";
+  fi
+
+  java_version=$JAVA_VERSION;
+  if [ -n "$java_version" ]; then
+    [[ $java_version =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]] && \
+      java_version="java-$java_version";
+    active_versions="$active_versions $java_version";
   fi
 
   node_version=$NODE_VERSION;

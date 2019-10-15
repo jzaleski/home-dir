@@ -19,6 +19,11 @@ function cd
     set refresh_environment true;
   end
 
+  set java_version_file $PWD/.java-version;
+  if test -e $java_version_file
+    set refresh_environment true;
+  end
+
   set node_version_file $PWD/.node-version;
   if test -e $node_version_file
     set refresh_environment true;
@@ -47,6 +52,7 @@ function cd
   if test -n "$PROJECT_DIRECTORY"
     if begin string match -q -r -v "^$PROJECT_DIRECTORY" "$PWD"; or test -n "$refresh_environment"; end
       set -e ELIXIR_VERSION;
+      set -e JAVA_VERSION;
       set -e NODE_VERSION;
       set -e NOTAGS;
       set -e PROJECT_DIRECTORY;
@@ -58,6 +64,10 @@ function cd
 
   if test -e $elixir_version_file
     set -g ELIXIR_VERSION (cat $elixir_version_file);
+  end
+
+  if test -e $java_version_file
+    set -g JAVA_VERSION (cat $java_version_file);
   end
 
   if test -e $node_version_file
@@ -105,6 +115,14 @@ function fish_prompt
         set elixir_version "elixir-$elixir_version";
       end
       set active_versions "$active_versions $elixir_version";
+    end
+
+    set java_version $JAVA_VERSION;
+    if test -n "$java_version"
+      if string match -q -r '^[0-9]+\.[0-9]+(\.[0-9]+)?$' $java_version
+        set java_version "java-$java_version";
+      end
+      set active_versions "$active_versions $java_version";
     end
 
     set node_version $NODE_VERSION;
