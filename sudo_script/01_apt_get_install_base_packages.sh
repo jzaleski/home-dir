@@ -12,7 +12,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       colordiff \
       curl \
       exuberant-ctags \
-      fish \
       git \
       htop \
       libreadline-dev \
