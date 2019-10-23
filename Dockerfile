@@ -17,6 +17,6 @@ WORKDIR /home/$USER
 RUN cd /home/$USER && \
   echo "home_dir" > .hostname && \
   mkdir -p src && \
-  touch .sudo_as_admin_successful && \
+  touch .nogitinfo .notags .norehash .sudo_as_admin_successful && \
   cd /usr/local/home_dir && \
   ASSUME_YES=true EXTENDED_BOOTSTRAP=true bin/bootstrap.sh
