@@ -30,3 +30,7 @@
   path = home/.oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
   ignore = dirty
+[submodule "home/lib/list-cli"]
+  path = home/lib/list-cli
+  url = https://github.com/jzaleski/list-cli.git
+  ignore = dirty
