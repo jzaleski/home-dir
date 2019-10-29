@@ -18,8 +18,8 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       gnu-sed \
       gpg \
       htop \
-      nvim \
       openssl \
+      python \
       readline \
       screen \
       tmux \
