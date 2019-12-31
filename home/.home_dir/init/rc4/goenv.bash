@@ -1,3 +1,7 @@
+if [ -z "$GOENV_GOPATH_PREFIX" ]; then
+  export GOENV_GOPATH_PREFIX=$HOME/.go;
+fi
+
 goenv_bin_dir=$HOME/.goenv/bin;
 if [ -d $goenv_bin_dir ] && [[ ! "$PATH" =~ "$goenv_bin_dir" ]]; then
   export PATH=$goenv_bin_dir:$PATH;

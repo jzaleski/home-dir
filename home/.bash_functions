@@ -20,6 +20,11 @@ cd () {
     refresh_environment=true;
   fi
 
+  go_version_file=$PWD/.go-version;
+  if [ -e "$go_version_file" ]; then
+    refresh_environment=true;
+  fi
+
   java_version_file=$PWD/.java-version;
   if [ -e "$java_version_file" ]; then
     refresh_environment=true;
@@ -54,6 +59,7 @@ cd () {
     [ -n "$refresh_environment" ];
   then
     unset ELIXIR_VERSION;
+    unset GO_VERSION;
     unset JAVA_VERSION;
     unset NODE_VERSION;
     unset NOTAGS;
@@ -65,6 +71,10 @@ cd () {
 
   if [ -e "$elixir_version_file" ]; then
     export ELIXIR_VERSION=$(cat "$elixir_version_file");
+  fi
+
+  if [ -e "$go_version_file" ]; then
+    export GO_VERSION=$(cat "$go_version_file");
   fi
 
   if [ -e "$java_version_file" ]; then
@@ -167,6 +177,13 @@ environment_prompt_info () {
     [[ $elixir_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && \
       elixir_version="elixir-$elixir_version";
     active_versions="$active_versions $elixir_version";
+  fi
+
+  go_version=$GO_VERSION;
+  if [ -n "$go_version" ]; then
+    [[ $go_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && \
+      go_version="go-$go_version";
+    active_versions="$active_versions $go_version";
   fi
 
   java_version=$JAVA_VERSION;
