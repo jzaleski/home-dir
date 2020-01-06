@@ -51,6 +51,7 @@ set wildmode=longest:full,full
 
 set nobackup
 set noswapfile
+set nowritebackup
 set backupdir=~/.vim/tmp,~/tmp,/tmp
 set directory=~/.vim/tmp,~/tmp,/tmp
 
