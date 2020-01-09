@@ -1,6 +1,6 @@
 " Adjust the shell when running under `fish`
 if $SHELL == 'fish'
-  set shell=sh
+  set shell=bash
 endif
 
 " Pathogen
