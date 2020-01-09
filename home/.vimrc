@@ -30,10 +30,13 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
+set nobackup
 set nocompatible
 set nohlsearch
+set noswapfile
 set notitle
 set nowrap
+set nowritebackup
 set number
 set shortmess=a
 set showcmd
@@ -48,12 +51,6 @@ set visualbell
 set wildignore+=*/.git/*,*/tmp/*,*.swp,*/tags
 set wildmenu
 set wildmode=longest:full,full
-
-set nobackup
-set noswapfile
-set nowritebackup
-set backupdir=~/.vim/tmp,~/tmp,/tmp
-set directory=~/.vim/tmp,~/tmp,/tmp
 
 " Formatting
 set autoindent
