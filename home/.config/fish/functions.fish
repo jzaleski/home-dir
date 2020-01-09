@@ -19,6 +19,11 @@ function cd
     set refresh_environment true;
   end
 
+  set go_version_file $PWD/.go-version;
+  if test -e $go_version_file
+    set refresh_environment true;
+  end
+
   set java_version_file $PWD/.java-version;
   if test -e $java_version_file
     set refresh_environment true;
@@ -52,6 +57,7 @@ function cd
   if test -n "$PROJECT_DIRECTORY"
     if begin string match -q -r -v "^$PROJECT_DIRECTORY" "$PWD"; or test -n "$refresh_environment"; end
       set -e ELIXIR_VERSION;
+      set -e GO_VERSION;
       set -e JAVA_VERSION;
       set -e NODE_VERSION;
       set -e NOTAGS;
@@ -64,6 +70,10 @@ function cd
 
   if test -e $elixir_version_file
     set -g ELIXIR_VERSION (cat $elixir_version_file);
+  end
+
+  if test -e $go_version_file
+    set -g GO_VERSION (cat $go_version_file);
   end
 
   if test -e $java_version_file
@@ -115,6 +125,14 @@ function fish_prompt
         set elixir_version "elixir-$elixir_version";
       end
       set active_versions "$active_versions $elixir_version";
+    end
+
+    set go_version $GO_VERSION;
+    if test -n "$go_version"
+      if string match -q -r '^[0-9]+\.[0-9]+\.[0-9]+$' $go_version
+        set go_version "go-$go_version";
+      end
+      set active_versions "$active_versions $go_version";
     end
 
     set java_version $JAVA_VERSION;
@@ -219,32 +237,4 @@ function fish_prompt
 
   # Reset
   set_color normal;
-end
-
-function last_argument
-  set last_argument (string split " " $history[1])[-1];
-  if begin test -n "$last_argument"; and not string match -q -r '^last_(argument|command)$' $last_argument; end
-    printf $last_argument;
-  end
-end
-
-function last_command
-  set last_command $history[1];
-  if begin test -n "$last_command"; and not string match -q -r '^last_(argument|command)$' $last_command; end
-    printf $last_command;
-  end
-end
-
-function last_pid
-  set last_pid (jobs -lp 2> /dev/null | tail -1)
-  if test -n "$last_pid"
-    printf $last_pid;
-  end
-end
-
-function last_status
-  set last_status $status;
-  if test -n "$last_status"
-    printf $last_status
-  end
 end

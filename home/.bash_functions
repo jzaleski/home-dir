@@ -106,38 +106,6 @@ cd () {
   fi
 }
 
-# Echos the last argument from the previous command
-last_argument () {
-  last_argument=`echo $(fc -ln -1) | tr ' ' '\n' | tail -1`;
-  if [[ ! "$last_argument" =~ ^last_(argument|command)$ ]]; then
-    echo $last_argument;
-  fi
-}
-
-# Echos the last command
-last_command () {
-  last_command=`echo $(fc -ln -1) | sed 's/^[ \t]*//g'`;
-  if [[ ! "$last_command" =~ ^last_(argument|command)$ ]]; then
-    echo $last_command;
-  fi
-}
-
-# Echos the last pid
-last_pid () {
-  last_pid=$!;
-  if [ -n "$last_pid" ]; then
-    echo $last_pid;
-  fi
-}
-
-# Echos the last status
-last_status () {
-  last_status=$?;
-  if [ -n "$last_status" ]; then
-    echo $last_status;
-  fi
-}
-
 # Echos an asterix if the local [git] repo has changes
 parse_git_dirty () {
   nogitdirty_file=$HOME/.nogitdirty;
