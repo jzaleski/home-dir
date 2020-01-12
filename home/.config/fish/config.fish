@@ -44,7 +44,7 @@ if test -e $fish_functions_file
 end
 
 # Load any custom init-scripts (the filename *must* end-with ".fish")
-set custom_init_scripts_directory ~/.home_dir/init;
+set custom_init_scripts_directory $HOME/.home_dir/init;
 if test -d $custom_init_scripts_directory
   for f in (find "$custom_init_scripts_directory" -type f -o -type l | \grep "\.fish\$" | sort)
     source $f;
