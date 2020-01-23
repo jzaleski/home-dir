@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! \which nvim 2>&1 > /dev/null; then
+if ! which nvim 2>&1 > /dev/null; then
   exit 0;
 fi
 

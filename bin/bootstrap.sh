@@ -55,7 +55,7 @@ function shell_session_update() {
 
 # run any files in "sudo_script" (the assumption is that things requiring root
 # should occur first)
-\which sudo > /dev/null 2>&1 && run_scripts 'sudo_script' 'sudo -E'
+which sudo > /dev/null 2>&1 && run_scripts 'sudo_script' 'sudo -E'
 
 # run any files in "script"
 run_scripts 'script'

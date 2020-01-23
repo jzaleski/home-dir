@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ] && [ ! -e /usr/local/bin/autocutsel ]; then
-  yum_cmd=`\which yum 2> /dev/null`;
+  yum_cmd=$(which yum 2> /dev/null || echo -n);
   if [ -n "$yum_cmd" ]; then
     $yum_cmd install -y libXaw libXaw-devel;
 

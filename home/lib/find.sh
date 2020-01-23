@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-find_cmd=`\which find 2> /dev/null`;
+find_cmd=$(which find 2> /dev/null || echo -n);
 if [ -z "$find_cmd" ]; then
   echo "Could not locate the \"find\" binary";
   exit 1;

@@ -9,6 +9,6 @@ if [ -d $nodenv_shims_dir ] && [[ ! "$PATH" =~ "$nodenv_shims_dir" ]]; then
 fi
 
 norehash_file=$HOME/.norehash;
-if [ ! -e $norehash_file ] && \which nodenv 2>&1 > /dev/null; then
+if [ ! -e $norehash_file ] && which nodenv 2>&1 > /dev/null; then
   nodenv rehash;
 fi

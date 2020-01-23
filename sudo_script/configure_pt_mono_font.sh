@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-if [ -n "$BOOTSTRAP_DESKTOP_ENVIRONMENT" ] && [ ! -d /tmp/PT_Mono ] && [ `uname` != "Darwin" ]; then
-  wget_cmd=`\which wget 2> /dev/null`;
+if [ -n "$BOOTSTRAP_DESKTOP_ENVIRONMENT" ] && [ ! -d /tmp/PT_Mono ] && [ $(uname) != "Darwin" ]; then
+  wget_cmd=$(which wget 2> /dev/null || echo -n);
   if [ -z "$wget_cmd" ]; then
     echo "Could not locate the \"wget\" binary";
     exit 1;
   fi
 
-  unzip_cmd=`\which unzip 2> /dev/null`;
+  unzip_cmd=$(which unzip 2> /dev/null || echo -n);
   if [ -z "$unzip_cmd" ]; then
     echo "Could not locate the \"unzip\" binary";
     exit 1;
   fi
 
-  fc_cache_cmd=`which fc-cache 2> /dev/null`;
+  fc_cache_cmd=$(which fc-cache 2> /dev/null || echo -n);
   if [ -z "$fc_cache_cmd" ]; then
     echo "Could not locate the \"fc-cache\" binary";
     exit 1;

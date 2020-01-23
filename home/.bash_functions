@@ -113,7 +113,7 @@ parse_git_dirty () {
     return;
   fi
 
-  dirty=`git status --porcelain 2> /dev/null`;
+  dirty=$(git status --porcelain 2> /dev/null || echo -n);
   if [ -n "$dirty" ]; then
     echo "*";
   fi
@@ -126,7 +126,7 @@ parse_git_branch () {
     return;
   fi
 
-  branch=`git rev-parse --abbrev-ref HEAD 2> /dev/null`;
+  branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null || echo -n);
   if [ -n "$branch" ]; then
     echo "${branch}";
   fi
@@ -215,7 +215,7 @@ git_prompt_info () {
     return;
   fi
 
-  if ! \which git > /dev/null 2>&1; then
+  if ! which git > /dev/null 2>&1; then
     return;
   fi
 

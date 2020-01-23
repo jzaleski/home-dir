@@ -46,7 +46,7 @@ if [ -d $OH_MY_ZSH_DIR ]; then
 fi
 
 # "Homebrew" specific inclusions
-HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
+HOMEBREW_PREFIX=$(brew --prefix 2> /dev/null || echo -n);
 if [ -n "$HOMEBREW_PREFIX" ]; then
   # If it exists, process [Homebrew] "zsh-autosuggestions"
   ZSH_AUTOSUGGESTIONS_FILE=$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh;
@@ -87,7 +87,7 @@ fi
 # Load any custom init-scripts (the filename *must* end-with ".zsh")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
-  for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.zsh\$" | sort`; do
+  for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.zsh\$" | sort); do
     source $f;
   done
 fi

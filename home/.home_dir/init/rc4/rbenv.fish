@@ -9,6 +9,6 @@ if begin; test -d $rbenv_shims_dir; and not contains $rbenv_shims_dir $PATH; end
 end
 
 set norehash_file $HOME/.norehash;
-if begin; not test -e $norehash_file; and \which rbenv 2>&1 > /dev/null; end
+if begin; not test -e $norehash_file; and which rbenv 2>&1 > /dev/null; end
   rbenv rehash;
 end

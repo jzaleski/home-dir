@@ -9,6 +9,6 @@ if [ -d $pyenv_shims_dir ] && [[ ! "$PATH" =~ "$pyenv_shims_dir" ]]; then
 fi
 
 norehash_file=$HOME/.norehash;
-if [ ! -e $norehash_file ] && \which pyenv 2>&1 > /dev/null; then
+if [ ! -e $norehash_file ] && which pyenv 2>&1 > /dev/null; then
   pyenv rehash;
 fi

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-screen_cmd=`\which screen 2> /dev/null`;
+screen_cmd=$(which screen 2> /dev/null || echo -n);
 if [ -z "$screen_cmd" ]; then
   echo "Could not locate the \"screen\" binary";
   exit 1;

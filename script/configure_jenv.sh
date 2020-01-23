@@ -5,6 +5,10 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   if [ ! -d $jenv_dir ]; then
     git clone https://github.com/jenv/jenv.git $jenv_dir;
   fi
+  jenv_plugins_dir=$jenv_dir/plugins;
+  if [ ! -d $jenv_plugins_dir ]; then
+    mkdir -p $jenv_plugins_dir;
+  fi
   jenv_versions_dir=$jenv_dir/versions;
   if [ ! -d $jenv_versions_dir ]; then
     mkdir -p $jenv_versions_dir;

@@ -9,6 +9,6 @@ if begin; test -d $nodenv_shims_dir; and not contains $nodenv_shims_dir $PATH; e
 end
 
 set norehash_file $HOME/.norehash;
-if begin; not test -e $norehash_file; and \which nodenv 2>&1 > /dev/null; end
+if begin; not test -e $norehash_file; and which nodenv 2>&1 > /dev/null; end
   nodenv rehash;
 end

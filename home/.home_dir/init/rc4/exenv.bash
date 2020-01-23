@@ -9,6 +9,6 @@ if [ -d $exenv_shims_dir ] && [[ ! "$PATH" =~ "$exenv_shims_dir" ]]; then
 fi
 
 norehash_file=$HOME/.norehash;
-if [ ! -e $norehash_file ] && \which exenv 2>&1 > /dev/null; then
+if [ ! -e $norehash_file ] && which exenv 2>&1 > /dev/null; then
   exenv rehash;
 fi

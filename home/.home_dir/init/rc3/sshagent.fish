@@ -1,12 +1,10 @@
 # Ensure that the `ssh-agent` command is in the `$PATH`
-set ssh_agent_cmd (\which ssh-agent 2> /dev/null);
-if test -z "$ssh_agent_cmd"
+if not which ssh-agent > /dev/null 2>&1
   exit 0;
 end
 
 # Ensure that the `ssh-add` command is in the `$PATH`
-set ssh_add_cmd (\which ssh-add 2> /dev/null);
-if test -z "$ssh_add_cmd"
+if not which ssh-add > /dev/null 2>&1
   exit 0;
 end
 
@@ -19,7 +17,7 @@ end
 # Start "ssh-agent" if there isn't one running
 set ssh_env_file $HOME/.ssh/environment.(basename $SHELL);
 if begin; not test -f $ssh_env_file; or not ps -ef | \grep -c "[s]sh-agent" > /dev/null; end
-  eval $ssh_agent_cmd | \head -2 > $ssh_env_file;
+  eval ssh-agent | \head -2 > $ssh_env_file;
   sed -i "s/SSH_AGENT_PID=/set SSH_AGENT_PID /g" $ssh_env_file;
   sed -i "s/SSH_AUTH_SOCK=/set SSH_AUTH_SOCK /g" $ssh_env_file;
   chmod 0600 $ssh_env_file;
@@ -37,8 +35,8 @@ for line in (cat $private_keys_file)
   # Ensure the `$private_key_file` exists
   if test -f $private_key_file
     # Only add the key if it hasn't already been added
-    if not eval $ssh_add_cmd -l | \grep -E "$private_key_file" > /dev/null
-      eval $ssh_add_cmd -t 0 $private_key_file;
+    if not eval ssh-add -l | \grep -E "$private_key_file" > /dev/null
+      eval ssh-add -t 0 $private_key_file;
     end
   end
 end

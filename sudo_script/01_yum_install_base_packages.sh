@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  yum_cmd=`\which yum 2> /dev/null`;
+  yum_cmd=$(which yum 2> /dev/null || echo -n);
   if [ -n "$yum_cmd" ]; then
     $yum_cmd groupinstall -y "Development Tools";
 

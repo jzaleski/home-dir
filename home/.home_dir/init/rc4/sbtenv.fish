@@ -9,6 +9,6 @@ if begin; test -d $sbtenv_shims_dir; and not contains $sbtenv_shims_dir $PATH; e
 end
 
 set norehash_file $HOME/.norehash;
-if begin; not test -e $norehash_file; and \which sbtenv 2>&1 > /dev/null; end
+if begin; not test -e $norehash_file; and which sbtenv 2>&1 > /dev/null; end
   sbtenv rehash;
 end

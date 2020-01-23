@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mysql_cmd=`\which mysql 2> /dev/null`;
+mysql_cmd=$(which mysql 2> /dev/null || echo -n);
 if [ -z "$mysql_cmd" ]; then
   echo "Could not locate \"mysql\" binary";
   exit 1;

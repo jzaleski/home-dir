@@ -55,7 +55,7 @@ shopt -s histreedit > /dev/null 2>&1;
 shopt -s nocaseglob > /dev/null 2>&1;
 
 # "Homebrew" specific inclusions
-HOMEBREW_PREFIX=`brew --prefix 2> /dev/null`;
+HOMEBREW_PREFIX=$(brew --prefix 2> /dev/null || echo -n);
 if [ -n "$HOMEBREW_PREFIX" ]; then
   # If it exists, process [Homebrew] "bash_completion"
   BASH_COMPLETION_FILE=$HOMEBREW_PREFIX/etc/bash_completion;
@@ -91,7 +91,7 @@ fi
 # Load any custom init-scripts (the filename *must* end-with ".bash")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
-  for f in `find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.bash\$" | sort`; do
+  for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.bash\$" | sort); do
     source $f;
   done
 fi

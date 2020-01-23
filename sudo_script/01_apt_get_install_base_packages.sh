@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  apt_get_cmd=`\which apt-get 2> /dev/null`;
+  apt_get_cmd=$(which apt-get 2> /dev/null || echo -n);
   if [ -n "$apt_get_cmd" ]; then
     $apt_get_cmd install -y \
       apg \
