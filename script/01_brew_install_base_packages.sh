@@ -10,6 +10,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   if [ -n "$brew_cmd" ]; then
     $brew_cmd tap jzaleski/homebrew-jzaleski;
 
+    alacritty_cask="alacritty";
+    if $brew_cmd cask info $alacritty_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd cask install $alacritty_cask;
+    fi
+
     for package in \
       ag \
       apg \
