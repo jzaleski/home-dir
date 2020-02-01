@@ -1,4 +1,3 @@
-pwd_bin_dir="./bin";
-if [[ ! "$PATH" =~ "$pwd_bin_dir" ]]; then
-  export PATH=$pwd_bin_dir:$PATH;
+if [[ ! "$PATH" =~ "\.bin" ]]; then
+  export PATH=./bin:$PATH;
 fi
