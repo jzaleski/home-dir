@@ -10,4 +10,10 @@ if [ -z "$LSCOLORS" ]; then
   export LSCOLORS="ExFxBxDxCxegedabagacad";
 fi
 
-$ls_cmd --color "$@" || $ls_cmd -G "$@";
+if [ $(uname) = "Darwin" ] && [[ ! "$ls_cmd" =~ "coreutils" ]]; then
+  color_arg="-G";
+else
+  color_arg="--color";
+fi
+
+$ls_cmd $color_arg "$@";
