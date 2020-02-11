@@ -15,6 +15,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       $brew_cmd cask install $alacritty_cask;
     fi
 
+    iterm2_cask="iterm2";
+    if $brew_cmd cask info $iterm2_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd cask install $iterm2_cask;
+    fi
+
     for package in \
       ag \
       apg \
