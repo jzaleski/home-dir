@@ -153,6 +153,14 @@ if executable('ag')
   let g:ctrlp_user_command='\ag %s -l --hidden --nocolor -g ""'
 endif
 
+" gitgutter
+hi GitGutterAdd ctermfg=2 guifg=#009900
+hi GitGutterDelete ctermfg=1 guifg=#ff2222
+hi GitGutterChange ctermfg=3 guifg=#bbbb00
+if executable('ag')
+  let g:gitgutter_grep='ag'
+endif
+
 " lightline
 function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
