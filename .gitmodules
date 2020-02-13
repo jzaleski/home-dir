@@ -31,5 +31,10 @@
   url = https://github.com/robbyrussell/oh-my-zsh.git
   ignore = dirty
 [submodule "home/.vim/bundle/vim-fish"]
-	path = home/.vim/bundle/vim-fish
-	url = https://github.com/dag/vim-fish.git
+  path = home/.vim/bundle/vim-fish
+  url = https://github.com/dag/vim-fish.git
+  ignore = dirty
+[submodule "home/.vim/bundle/vim-applescript"]
+  path = home/.vim/bundle/vim-applescript
+  url = https://github.com/dearrrfish/vim-applescript.git
+  ignore = dirty
