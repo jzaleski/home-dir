@@ -1,4 +1,5 @@
 # General
+alias confluence='~/lib/confluence.sh';
 alias ctags='~/lib/ctags.sh';
 alias edit='$EDITOR';
 alias find='~/lib/find.sh';
