@@ -35,7 +35,7 @@ for line in (cat $private_keys_file)
   # Ensure the `$private_key_file` exists
   if test -f $private_key_file
     # Only add the key if it hasn't already been added
-    if not eval ssh-add -l | \grep -E "$private_key_file" > /dev/null
+    if not eval ssh-add -l | \grep -E "$private_key_file|$USER@" > /dev/null
       eval ssh-add -t 0 $private_key_file;
     end
   end

@@ -33,7 +33,7 @@ for line in $(cat $private_keys_file); do
   # Ensure the `$private_key_file` exists
   if [ -f $private_key_file ]; then
     # Only add the key if it hasn't already been added
-    if ! ssh-add -l | \grep -E "$private_key_file" > /dev/null; then
+    if ! ssh-add -l | \grep -E "$private_key_file|$USER@" > /dev/null; then
       ssh-add -t 0 $private_key_file;
     fi
   fi

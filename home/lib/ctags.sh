@@ -56,7 +56,7 @@ if [ "$EDITOR" = "emacs" ]; then
 fi
 
 # start and background the [c]tags generation process
-$ctags_cmd -Rf $temp_file --exclude=.git --exclude=tmp > /dev/null 2>&1 && \
+$ctags_cmd -Rf $temp_file --exclude=.git --exclude .venv --exclude=tmp > /dev/null 2>&1 && \
   (mv $temp_file tags 2> /dev/null || true) && \
   rm -f $lock_file &
 
