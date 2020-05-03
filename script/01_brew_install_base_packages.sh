@@ -20,6 +20,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       $brew_cmd cask install $iterm2_cask;
     fi
 
+    middleclick_cask="middleclick";
+    if $brew_cmd cask info $middleclick_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd cask install $middleclick_cask;
+    fi
+
     for package in \
       ag \
       apg \
