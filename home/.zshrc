@@ -36,6 +36,9 @@ fi
 # Ensure that "ZSH_TMUX_TERM" is set to the same value as "TERM"
 export ZSH_TMUX_TERM=$TERM;
 
+# Disable completions security validation
+export ZSH_DISABLE_COMPFIX="true";
+
 # If it exists, load "oh-my-zsh"
 OH_MY_ZSH_DIR=$HOME/.oh-my-zsh;
 if [ -d $OH_MY_ZSH_DIR ]; then
