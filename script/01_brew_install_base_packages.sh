@@ -3,7 +3,7 @@
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   brew_cmd=$(which brew 2> /dev/null || echo -n);
   if [ -z "$brew_cmd" ]; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)";
     brew_cmd=$(which brew 2> /dev/null || echo -n);
   fi
 
