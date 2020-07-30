@@ -17,5 +17,6 @@
 build
 custom_plan.rb
 dist
+node_modules
 tags
 tags.*
