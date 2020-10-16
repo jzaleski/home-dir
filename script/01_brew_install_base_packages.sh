@@ -8,7 +8,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
   fi
 
   if [ -n "$brew_cmd" ]; then
-    $brew_cmd tap jzaleski/homebrew-jzaleski;
+    $brew_cmd tap jzaleski/jzaleski;
 
     alacritty_cask="alacritty";
     if $brew_cmd cask info $alacritty_cask | \grep "Not installed" > /dev/null 2>&1; then
