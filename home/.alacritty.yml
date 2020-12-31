@@ -496,7 +496,7 @@ key_bindings:
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
   # (macOS only)
-  - { key: Add,    mods: Command, action: IncreaseFontSize }
+  - { key: Plus,   mods: Command, action: IncreaseFontSize }
   - { key: Equals, mods: Command, action: IncreaseFontSize }
   - { key: Minus,  mods: Command, action: DecreaseFontSize }
   - { key: Key0,   mods: Command, action: ResetFontSize    }
