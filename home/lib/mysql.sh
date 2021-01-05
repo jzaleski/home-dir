@@ -29,7 +29,7 @@ if [[ "$1" =~ "mysql://" ]]; then
     --port=${line_parts[3]} \
     "${line_parts[4]}";
 elif [ -n "$MYCNFFILE" ]; then
-  eval MYCNFFILE="" $mysql_cmd --defaults-file="$MYCNFFILE";
+  eval MYCNFFILE="" $mysql_cmd --defaults-file="$MYCNFFILE" "$@";
 else
   $mysql_cmd "$@";
 fi
