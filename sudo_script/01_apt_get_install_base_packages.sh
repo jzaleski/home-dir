@@ -16,7 +16,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       git \
       htop \
       libreadline-dev \
-      python-minimal \
       screen \
       silversearcher-ag \
       tmux \

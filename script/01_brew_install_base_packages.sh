@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -n "$EXTENDED_BOOTSTRAP" ]; then
+if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
   brew_cmd=$(which brew 2> /dev/null || echo -n);
   if [ -z "$brew_cmd" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)";
