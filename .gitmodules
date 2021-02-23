@@ -42,3 +42,7 @@
   path = home/.vim/bundle/vim-gitgutter
   url = https://github.com/airblade/vim-gitgutter.git
   ignore = dirty
+[submodule "home/.vim/bundle/typescript-vim"]
+  path = home/.vim/bundle/typescript-vim
+  url = https://github.com/leafgarland/typescript-vim.git
+  ignore = dirty
