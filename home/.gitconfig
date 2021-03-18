@@ -47,6 +47,7 @@
 [color]
   ui = true
 [core]
+  editor = vim
   excludesfile = ~/.gitignore
   fscache = true
   preloadindex = true
