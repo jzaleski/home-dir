@@ -11,18 +11,18 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
     $brew_cmd tap jzaleski/jzaleski;
 
     alacritty_cask="alacritty";
-    if $brew_cmd cask info $alacritty_cask | \grep "Not installed" > /dev/null 2>&1; then
-      $brew_cmd cask install $alacritty_cask;
+    if $brew_cmd info --cask $alacritty_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd install --cask $alacritty_cask;
     fi
 
     iterm2_cask="iterm2";
-    if $brew_cmd cask info $iterm2_cask | \grep "Not installed" > /dev/null 2>&1; then
-      $brew_cmd cask install $iterm2_cask;
+    if $brew_cmd info --cask $iterm2_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd install --cask $iterm2_cask;
     fi
 
     middleclick_cask="middleclick";
-    if $brew_cmd cask info $middleclick_cask | \grep "Not installed" > /dev/null 2>&1; then
-      $brew_cmd cask install $middleclick_cask;
+    if $brew_cmd info --cask $middleclick_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd install --cask $middleclick_cask;
     fi
 
     for package in \
