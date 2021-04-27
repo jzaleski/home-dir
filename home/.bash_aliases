@@ -21,6 +21,7 @@ alias question='DATABASE_NAME="QUESTIONS" list-cli';
 alias readlink='~/lib/readlink.sh';
 alias rubygems='~/lib/rubygems.sh';
 alias screen='~/lib/screen.sh';
+alias sed='~/lib/sed.sh';
 alias setenv='source ~/lib/setenv.sh';
 alias tmux='~/lib/tmux.sh';
 alias todo='DATABASE_NAME="TODO" list-cli';
