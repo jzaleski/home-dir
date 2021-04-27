@@ -47,9 +47,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       tmux \
       vim \
       wget \
-      zsh \
-      zsh-autosuggestions \
-      zsh-syntax-highlighting;
+      zsh;
     do
       package_details=$($brew_cmd list $package 2> /dev/null || echo -n);
       if [ -z "$package_details" ]; then

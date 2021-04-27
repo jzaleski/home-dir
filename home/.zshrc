@@ -45,22 +45,8 @@ if [ -d $OH_MY_ZSH_DIR ]; then
   ZSH=$OH_MY_ZSH_DIR;
   ZSH_THEME=jzaleski;
   DISABLE_AUTO_UPDATE=true;
+  plugins=(zsh-autosuggestions zsh-syntax-highlighting);
   source $ZSH/oh-my-zsh.sh;
-fi
-
-# "Homebrew" specific inclusions
-HOMEBREW_PREFIX=$(brew --prefix 2> /dev/null || echo -n);
-if [ -n "$HOMEBREW_PREFIX" ]; then
-  # If it exists, process [Homebrew] "zsh-autosuggestions"
-  ZSH_AUTOSUGGESTIONS_FILE=$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh;
-  if [ -e $ZSH_AUTOSUGGESTIONS_FILE ]; then
-    source $ZSH_AUTOSUGGESTIONS_FILE;
-  fi
-  # If it exists, process [Homebrew] "zsh-syntax-highlighting"
-  ZSH_SYNTAX_HIGHLIGHTING_FILE=$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh;
-  if [ -e $ZSH_SYNTAX_HIGHLIGHTING_FILE ]; then
-    source $ZSH_SYNTAX_HIGHLIGHTING_FILE;
-  fi
 fi
 
 # If it exists, process ".zsh_aliases"

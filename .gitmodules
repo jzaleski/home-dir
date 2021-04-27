@@ -46,3 +46,11 @@
   path = home/.vim/bundle/typescript-vim
   url = https://github.com/leafgarland/typescript-vim.git
   ignore = dirty
+[submodule "overrides/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+  path = overrides/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  url = https://github.com/zsh-users/zsh-autosuggestions.git
+  ignore = dirty
+[submodule "overrides/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+  path = overrides/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+  ignore = dirty
