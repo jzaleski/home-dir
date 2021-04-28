@@ -91,7 +91,7 @@ fi
 # Load any custom init-scripts (the filename *must* end-with ".bash")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
-  for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.bash\$" | sort); do
+  for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | grep "\.bash\$" | sort); do
     source $f;
   done
 fi

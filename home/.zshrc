@@ -76,7 +76,7 @@ fi
 # Load any custom init-scripts (the filename *must* end-with ".zsh")
 CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
-  for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | \grep "\.zsh\$" | sort); do
+  for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | grep "\.zsh\$" | sort); do
     source $f;
   done
 fi

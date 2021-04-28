@@ -2,7 +2,6 @@
 alias confluence='~/lib/confluence.sh';
 alias ctags='~/lib/ctags.sh';
 alias edit='$EDITOR';
-alias find='~/lib/find.sh';
 alias gg='git grep';
 alias github='~/lib/github.sh';
 alias goal='DATABASE_NAME="GOALS" list-cli';
