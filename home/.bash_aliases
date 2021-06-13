@@ -10,6 +10,7 @@ alias icebox='DATABASE_NAME="ICEBOX" list-cli';
 alias jira='~/lib/jira.sh';
 alias l='~/lib/ls.sh -CF';
 alias la='~/lib/ls.sh -la';
+alias list='list-cli';
 alias ll='~/lib/ls.sh -l';
 alias ls='~/lib/ls.sh';
 alias mysql='~/lib/mysql.sh';
