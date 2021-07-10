@@ -26,6 +26,7 @@ alias setenv='source ~/lib/setenv.fish';
 alias tmux='~/lib/tmux.sh';
 alias todo='env DATABASE_NAME="TODO" list-cli';
 alias vi='vim';
+alias vim='~/lib/vim.sh';
 
 # The ability to navigate 10 directories up should be enough to cover most cases
 alias ..='cd ..';

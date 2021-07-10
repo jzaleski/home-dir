@@ -5,7 +5,7 @@ set fish_greeting;
 set PATH ./node_modules/.bin $HOME/bin /opt/homebrew/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
 
 # Set the default editor
-set EDITOR vim;
+set EDITOR $HOME/lib/vim.sh;
 
 # Set the git-editor to the default editor
 set GIT_EDITOR $EDITOR;

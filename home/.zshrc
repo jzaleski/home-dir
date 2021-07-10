@@ -1,8 +1,11 @@
 # Set the PATH
 export PATH=./node_modules/.bin:$HOME/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 
-# Set the default editor (Git amongst others use this)
-export EDITOR=vim;
+# Set the default editor
+export EDITOR=$HOME/lib/vim.sh;
+
+# Set the git-editor to the default editor
+export GIT_EDITOR=$EDITOR;
 
 # Set up "history"
 export HISTFILE=$HOME/.zsh_history HISTFILESIZE=100000 HISTSIZE=100000;
