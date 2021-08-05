@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ $(uname) = "Darwin" ]; then
+  IFS=$(printf "\n");
+  CODE=("set vol to output volume of (get volume settings)");
+  CODE=(${CODE[*]} "if (vol < 10) then");
+  CODE=(${CODE[*]} "set volume output volume 0");
+  CODE=(${CODE[*]} "else");
+  CODE=(${CODE[*]} "set volume output volume (vol - 10)");
+  CODE=(${CODE[*]} "end if");
+  SCRIPT="/usr/bin/osascript";
+  for line in ${CODE[*]}; do
+    SCRIPT="${SCRIPT} -e $(printf "%q" "${line}")";
+  done
+  eval "${SCRIPT}";
+fi

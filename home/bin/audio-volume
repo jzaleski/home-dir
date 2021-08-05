@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+volume_level=$1;
+if \
+  [ -z "${volume_level}" ] || \
+  [[ "${volume_level}" -lt 0 ]] || \
+  [[ "${volume_level}" -gt 100 ]];
+then
+  echo "Invalid volume-level specified (must be between 0 and 100)";
+  exit 1;
+fi
+
+if [ $(uname) = "Darwin" ]; then
+  /usr/bin/osascript -e "set volume output volume ${volume_level}";
+fi
