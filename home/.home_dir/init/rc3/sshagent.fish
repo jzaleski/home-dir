@@ -31,11 +31,13 @@ end
 # Process the `$private_keys_file`
 for line in (cat $private_keys_file)
   # This is necessary in order to support the interpolation of env-vars
-  set private_key_file (eval echo $line);
+  set private_key_file_full_path (eval echo $line);
   # Ensure the `$private_key_file` exists
-  if test -f $private_key_file
+  if test -f $private_key_file_full_path
+    # Extract the file-name from the full-path
+    set private_key_file (echo $private_key_file_full_path | \sed -e 's/\/.*\///g');
     # Only add the key if it hasn't already been added
-    if not eval ssh-add -l | \grep -E "$private_key_file|$USER@" > /dev/null
+    if not eval ssh-add -l | \grep -E "$private_key_file" > /dev/null
       eval ssh-add -t 0 $private_key_file;
     end
   end
