@@ -38,7 +38,7 @@ for line in (cat $private_keys_file)
     set private_key_file (echo $private_key_file_full_path | \sed -e 's/\/.*\///g');
     # Only add the key if it hasn't already been added
     if not eval ssh-add -l | \grep -E "$private_key_file" > /dev/null
-      eval ssh-add -t 0 $private_key_file;
+      eval ssh-add -t 0 $private_key_file_full_path;
     end
   end
 end
