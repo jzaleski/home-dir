@@ -1,7 +1,7 @@
-home_dir
+home-dir
 ---
 
-Dot-files and basic utilities
+Dot-files and utilities
 
 **Compatible with:**
 
