@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e;
+
+if [ $(uname) = "Linux" ]; then
+  width=${1:-"3440"};
+  height=${2:-"1440"};
+  refresh=${3:-"44"};
+  output=${4:-"HDMI-1"};
+
+  modeline=$(
+    gtf ${width} ${height} ${refresh} | \
+    grep Modeline | \
+    sed "s/[ \t]*Modeline[ \t]*//"
+  );
+  mode=$(echo ${modeline} | grep -o -E "\".+\"");
+
+  xrandr --newmode ${modeline} 2> /dev/null || true;
+  xrandr --addmode ${output} ${mode};
+  xrandr --output ${output} --mode ${mode};
+fi
