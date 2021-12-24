@@ -7,6 +7,10 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
     brew_cmd=$(which brew 2> /dev/null || echo -n);
   fi
 
+  if [ $(uname -p) = "arm" ]; then
+    brew_cmd="arch -arm64 $brew_cmd";
+  fi
+
   if [ -n "$brew_cmd" ]; then
     $brew_cmd tap jzaleski/jzaleski;
 
