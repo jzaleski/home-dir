@@ -9,7 +9,7 @@ if not which ssh-add > /dev/null 2>&1
 end
 
 # Short-circuit if the `$private_keys_file` does not exist
-set private_keys_file $HOME/.private_keys;
+set private_keys_file $HOME/.private-keys;
 if not test -f $private_keys_file
   exit 0;
 end
