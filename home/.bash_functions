@@ -208,7 +208,8 @@ error_prompt_info () {
   fi
 }
 
-# Echos the combination of git-branch and git-dirty to form an informative prompt
+# Echos the combination of git-branch and git-dirty to form an informative
+# prompt
 git_prompt_info () {
   nogitinfo_file=$HOME/.nogitinfo;
   if [ -f $nogitinfo_file ]; then
@@ -227,13 +228,25 @@ git_prompt_info () {
   fi
 }
 
-# Echos the hostname, it can be overridden with something static via $HOME/.hostname
+# Echos the hostname, it can be overridden with something static via:
+# $HOME/.hostname
 hostname_prompt_info () {
   hostname_file=$HOME/.hostname;
   if [ -e "$hostname_file" ]; then
     cat $hostname_file;
   else
     hostname -s;
+  fi
+}
+
+# Echos the arch[itecture], it can be overridden with something static via:
+# $HOME/.arch
+arch_prompt_info () {
+  arch_file=$HOME/.arch;
+  if [ -e "$arch_file" ]; then
+    cat $arch_file;
+  else
+    uname -p;
   fi
 }
 

@@ -206,6 +206,19 @@ function fish_prompt
   set_color green -o;
   printf "} ";
 
+  # Arch[itecture]
+  set_color cyan -o;
+  printf "["
+  set_color normal;
+  set arch_file $HOME/.hostname;
+  if test -e $arch_file
+    printf (cat $arch_file);
+  else
+    printf (uname -p)
+  end
+  set_color cyan -o;
+  printf "] ";
+
   # Separator
   set_color yellow -o;
   printf "> ";
