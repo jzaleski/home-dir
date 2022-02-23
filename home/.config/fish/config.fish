@@ -2,7 +2,13 @@
 set fish_greeting;
 
 # Set the PATH
-set PATH ./node_modules/.bin $HOME/bin /opt/homebrew/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
+set PATH /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/bin /usr/sbin /bin /sbin;
+if test (uname -p) = "arm"
+  set PATH /opt/homebrew/bin $PATH;
+else
+  set PATH /usr/local/bin $PATH;
+end
+set PATH ./node_modules/.bin $HOME/bin $PATH;
 
 # Set the default editor
 set EDITOR $HOME/lib/vim.sh;

@@ -1,5 +1,11 @@
 # Set the PATH
-export PATH=./node_modules/.bin:$HOME/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
+export PATH=/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
+if [ $(uname -p) = "arm" ]; then
+  PATH=/opt/homebrew/bin:$PATH;
+else
+  PATH=/usr/local/bin:$PATH;
+fi
+export PATH=./node_modules/.bin:$HOME/bin:$PATH;
 
 # Set the default editor
 export EDITOR=$HOME/lib/vim.sh;
