@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-$HOME/lib/ctags.sh > /dev/null 2>&1;
+ctags_sh="$HOME/lib/ctags.sh";
+if [ -e "$ctags_sh" ]; then
+  $ctags_sh > /dev/null 2>&1;
+fi

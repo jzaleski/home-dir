@@ -16,7 +16,7 @@ fi
 
 psql_env_vars="";
 if [ -n "$PGPASSFILE" ]; then
-  IFS=":" read -a line_parts <<< $(head -1 $PGPASSFILE);
+  IFS=":"; line_parts=($(head -1 $PGPASSFILE)); unset IFS;
   psql_env_vars="PGPASS_FILE=\"\" PGHOST=\"${line_parts[0]}\" PGPORT=${line_parts[1]} PGDATABASE=\"${line_parts[2]}\" PGUSER=\"${line_parts[3]}\" PGPASSWORD=\"${line_parts[4]}\"";
 fi
 
