@@ -1,6 +1,5 @@
 # General
 alias confluence='~/lib/confluence.sh';
-alias ctags='~/lib/ctags.sh';
 alias edit='$EDITOR';
 alias gg='git grep';
 alias github='~/lib/github.sh';

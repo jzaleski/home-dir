@@ -11,7 +11,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash \
       bash-completion \
       colordiff \
-      ctags-etags \
       curl \
       dkms \
       emacs \

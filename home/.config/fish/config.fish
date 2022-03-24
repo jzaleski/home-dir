@@ -11,7 +11,7 @@ end
 set PATH ./node_modules/.bin $HOME/bin $PATH;
 
 # Set the default editor
-set EDITOR $HOME/lib/vim.sh;
+set EDITOR vim;
 
 # Set the git-editor to the default editor
 set GIT_EDITOR $EDITOR;

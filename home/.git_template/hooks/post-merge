@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
 
-ctags_sh="$HOME/lib/ctags.sh";
-if [ -e "$ctags_sh" ]; then
-  $ctags_sh > /dev/null 2>&1;
-fi
+# TODO: Implement me!

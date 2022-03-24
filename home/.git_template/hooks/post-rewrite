@@ -2,9 +2,6 @@
 
 case "$1" in
   rebase)
-    ctags_sh="$HOME/lib/ctags.sh";
-    if [ -e "$ctags_sh" ]; then
-      exec $ctags_sh > /dev/null 2>&1;
-    fi
+    # TODO: Implement me!
   ;;
 esac

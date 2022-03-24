@@ -44,7 +44,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       bash-completion \
       colordiff \
       coreutils \
-      ctags \
       curl \
       fish \
       git \
