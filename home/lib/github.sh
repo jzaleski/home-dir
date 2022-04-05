@@ -24,9 +24,20 @@ if [ -z "$open_cmd" ]; then
   exit 1;
 fi
 
+sed_cmd=$(which sed 2> /dev/null || echo -n);
+if [ -z "$sed_cmd" ]; then
+  echo "Could not locate the \"sed\" binary";
+  exit 1;
+fi
+
 repository=$1;
 if [ -n "$repository" ]; then
   cd ${SOURCE_DIRECTORY:-"$HOME/src"}/$repository;
+fi
+
+branch=$2;
+if [ -z "$branch" ]; then
+  branch=$($git_cmd rev-parse --abbrev-ref HEAD);
 fi
 
 github_url_file="$HOME/.github-url";
@@ -44,12 +55,12 @@ fi
 
 ssh_prefix="git@github.com:";
 if [[ "$github_url" =~ "$ssh_prefix" ]]; then
-  github_url=$(echo $github_url | \sed "s/$ssh_prefix//");
+  github_url=$(echo $github_url | $sed_cmd "s/$ssh_prefix//");
 fi
 
 dot_git_suffix=".git";
 if [[ "$github_url" =~ "$dot_git_suffix" ]]; then
-  github_url=$(echo $github_url | \sed "s/$dot_git_suffix\$//");
+  github_url=$(echo $github_url | $sed_cmd "s/$dot_git_suffix\$//");
 fi
 
 https_prefix="https://github.com";
@@ -57,4 +68,4 @@ if [[ ! "$github_url" =~ "$https_prefix" ]]; then
   github_url="$https_prefix/$github_url";
 fi
 
-$open_cmd "$github_url";
+$open_cmd "$github_url/tree/$branch";
