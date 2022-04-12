@@ -37,7 +37,7 @@ fi
 
 branch=$2;
 if [ -z "$branch" ]; then
-  branch=$($git_cmd rev-parse --abbrev-ref HEAD);
+  branch=$($git_cmd rev-parse --abbrev-ref HEAD 2> /dev/null || echo -n);
 fi
 
 github_url_file="$HOME/.github-url";
@@ -68,4 +68,8 @@ if [[ ! "$github_url" =~ "$https_prefix" ]]; then
   github_url="$https_prefix/$github_url";
 fi
 
-$open_cmd "$github_url/tree/$branch";
+if [ -n "$branch" ]; then
+  github_url="$github_url/tree/$branch";
+fi
+
+$open_cmd $github_url;
