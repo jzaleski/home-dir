@@ -41,10 +41,11 @@ if [ -z "$branch" ]; then
 fi
 
 github_url_file="$HOME/.github-url";
+repository_root=$($git_cmd rev-parse --show-toplevel 2> /dev/null || echo -n);
 
 github_url=$GITHUB_URL;
 if [ -z "$github_url" ]; then
-  if [ -e .git ]; then
+  if [ -n "$repository_root" ]; then
     github_url=$($git_cmd config --get remote.origin.url 2> /dev/null);
   elif [ -e $github_url_file ]; then
     github_url=$($cat_cmd $github_url_file);
