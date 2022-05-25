@@ -54,6 +54,7 @@
 [fetch]
   prune = true
 [init]
+  defaultBranch = master
   templatedir = ~/.git_template
 [push]
   default = tracking
