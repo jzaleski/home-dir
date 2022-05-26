@@ -26,10 +26,6 @@
   path = home/.vim/bundle/syntastic
   url = https://github.com/scrooloose/syntastic.git
   ignore = dirty
-[submodule "home/.oh-my-zsh"]
-  path = home/.oh-my-zsh
-  url = https://github.com/robbyrussell/oh-my-zsh.git
-  ignore = dirty
 [submodule "home/.vim/bundle/vim-fish"]
   path = home/.vim/bundle/vim-fish
   url = https://github.com/dag/vim-fish.git
@@ -45,6 +41,10 @@
 [submodule "home/.vim/bundle/typescript-vim"]
   path = home/.vim/bundle/typescript-vim
   url = https://github.com/leafgarland/typescript-vim.git
+  ignore = dirty
+[submodule "home/.oh-my-zsh"]
+  path = home/.oh-my-zsh
+  url = https://github.com/robbyrussell/oh-my-zsh.git
   ignore = dirty
 [submodule "overrides/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
   path = overrides/.oh-my-zsh/custom/plugins/zsh-autosuggestions
