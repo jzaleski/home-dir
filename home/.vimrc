@@ -174,14 +174,14 @@ let g:lightline={
   \ },
   \ 'component': {
   \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \   'fugitive': '%{exists("*FugitiveHead")?FugitiveHead():""}'
   \ },
   \ 'component_function': {
   \   'filename': 'CurrentFilename'
   \ },
   \ 'component_visible_condition': {
   \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \   'fugitive': '(exists("*FugitiveHead") && ""!=FugitiveHead())'
   \ }
 \ }
 
