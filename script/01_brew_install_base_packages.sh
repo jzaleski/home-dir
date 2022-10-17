@@ -47,7 +47,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       curl \
       fish \
       git \
-      gnu-sed \
       gpg \
       htop \
       nvim \
