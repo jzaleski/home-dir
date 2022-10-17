@@ -10,7 +10,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       automake \
       bash \
       bash-completion \
-      colordiff \
       curl \
       dkms \
       emacs \

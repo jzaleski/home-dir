@@ -9,7 +9,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash \
       bash-completion \
       build-essential \
-      colordiff \
       curl \
       fish \
       git \
