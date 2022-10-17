@@ -32,11 +32,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       $brew_cmd install --cask $iterm2_cask;
     fi
 
-    middleclick_cask="middleclick";
-    if $brew_cmd info --cask $middleclick_cask | \grep "Not installed" > /dev/null 2>&1; then
-      $brew_cmd install --cask $middleclick_cask;
-    fi
-
     for package in \
       ag \
       apg \
