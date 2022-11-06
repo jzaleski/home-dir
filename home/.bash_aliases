@@ -17,7 +17,6 @@ alias question='DATABASE_NAME="QUESTION" list-cli';
 alias reminder='DATABASE_NAME="REMINDER" list-cli';
 alias rubygems='~/lib/rubygems.sh';
 alias screen='~/lib/screen.sh';
-alias tmux='~/lib/tmux.sh';
 alias todo='DATABASE_NAME="TODO" list-cli';
 alias vi='vim';
 
