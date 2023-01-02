@@ -24,11 +24,6 @@ bin/bootstrap.sh
 
 `EXTENDED_BOOTSTRAP=true bin/bootstrap.sh`
 
-**To bootstrap and configure the desktop environment:**
-```bash
-BOOTSTRAP_DESKTOP_ENVIRONMENT=true bin/bootstrap.sh
-```
-
 ## Running containerized
 
 (_Requires `docker`_)

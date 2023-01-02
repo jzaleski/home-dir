@@ -1,1 +1,0 @@
-autocutsel.bash
