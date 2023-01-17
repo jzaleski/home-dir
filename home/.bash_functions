@@ -246,7 +246,7 @@ arch_prompt_info () {
   if [ -e "$arch_file" ]; then
     cat $arch_file;
   else
-    uname -p;
+    arch 2> /dev/null || uname -p;
   fi
 }
 

@@ -214,7 +214,7 @@ function fish_prompt
   if test -e $arch_file
     printf (cat $arch_file);
   else
-    printf (uname -p)
+    printf (arch 2> /dev/null || uname -p)
   end
   set_color cyan -o;
   printf "] ";
