@@ -38,7 +38,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       bash \
       bash-completion \
       curl \
-      fish \
       git \
       gpg \
       htop \

@@ -12,7 +12,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       bash-completion \
       build-essential \
       curl \
-      fish \
       git \
       htop \
       libreadline-dev \
