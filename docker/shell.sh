@@ -8,4 +8,4 @@ $DOCKER_CMD exec \
   --interactive \
   --tty \
   "$CONTAINER_NAME" \
-  ${SHELL:-"bash"};
+  ${SHELL:-"zsh"};

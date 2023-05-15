@@ -14,7 +14,12 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       curl \
       git \
       htop \
+      libbz2-dev \
+      libffi-dev \
+      liblzma-dev \
       libreadline-dev \
+      libsqlite3-dev \
+      libssl-dev \
       screen \
       silversearcher-ag \
       tmux \
@@ -22,6 +27,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       uuid-runtime \
       vim \
       wget \
+      zlib1g-dev \
       zsh;
   fi
 fi
