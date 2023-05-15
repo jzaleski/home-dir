@@ -85,7 +85,7 @@ if [ -e $ZSH_KEYS_FILE ]; then
 fi
 
 # Load any custom init-scripts (the filename *must* end-with ".zsh")
-CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home_dir/init;
+CUSTOM_INIT_SCRIPTS_DIRECTORY=$HOME/.home-dir/init;
 if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
   for f in $(find "$CUSTOM_INIT_SCRIPTS_DIRECTORY" -type f -o -type l | grep "\.zsh\$" | sort); do
     source $f;
