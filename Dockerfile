@@ -3,12 +3,14 @@ FROM ubuntu:22.04
 ARG USER
 
 RUN apt-get update && \
-  apt-get install -y git sudo && \
+  apt-get install -y git locales sudo && \
   useradd -ms /bin/bash $USER && \
   echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER && \
   cd /usr/local && \
   git clone https://github.com/jzaleski/home-dir.git && \
-  chown -R $USER:root home-dir
+  chown -R $USER:root home-dir && \
+  echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen && \
+  locale-gen
 
 USER $USER
 
