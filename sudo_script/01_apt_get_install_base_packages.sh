@@ -15,7 +15,6 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       git \
       htop \
       libreadline-dev \
-      neovim \
       screen \
       silversearcher-ag \
       tmux \
