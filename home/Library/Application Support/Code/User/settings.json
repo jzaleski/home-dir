@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.autohide": true,
+    "editor.fontFamily": "PT Mono",
+    "editor.fontSize": 13,
+    "update.mode": "manual",
+    "extensions.autoUpdate": false,
+    "editor.tabSize": 2
+}
