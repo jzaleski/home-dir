@@ -5,8 +5,8 @@ set -e;
 source "$(dirname "$0")"/../.env;
 
 volume_arg="";
-if [ -n "$SOURCE_DIRECTORY" ] && [ -e "$SOURCE_DIRECTORY" ]; then
-  volume_arg="--volume $SOURCE_DIRECTORY:/home/$USER/src";
+if [ -n "$HOME_DIR_SOURCE_DIRECTORY" ] && [ -e "$HOME_DIR_SOURCE_DIRECTORY" ]; then
+  volume_arg="--volume $HOME_DIR_SOURCE_DIRECTORY:/home/$USER/src";
 fi
 
 $DOCKER_CMD run \
