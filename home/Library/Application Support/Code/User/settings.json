@@ -1,14 +1,21 @@
 {
     "editor.fontFamily": "PT Mono",
     "editor.fontSize": 13,
+    "editor.insertSpaces": true,
     "editor.minimap.autohide": true,
     "editor.minimap.renderCharacters": false,
     "editor.tabSize": 2,
     "extensions.autoUpdate": false,
+    "python.terminal.activateEnvInCurrentTerminal": false,
+    "terminal.external.osxExec": "Alacritty.app",
+    "terminal.integrated.altClickMovesCursor": false,
+    "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.fontFamily": "PT Mono",
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+    "terminal.integrated.shellIntegration.history": 10000,
     "terminal.integrated.tabFocusMode": false,
     "update.mode": "manual",
     "vim.easymotion": true,
@@ -21,5 +28,8 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "workbench.colorTheme": "Dracula",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "[python]": {
+      "editor.tabSize": 4
+    }
 }
