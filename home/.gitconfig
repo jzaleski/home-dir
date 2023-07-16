@@ -21,6 +21,7 @@
   remove = rm
   ren = mv
   rename = mv
+  root = rev-parse --show-toplevel
   rmbr = "!f() { git rmbranch \"$1\"; }; f"
   rmbranch = "!f() { git rmlocalbranch \"$1\"; git rmremotebranch \"$1\"; }; f"
   rmlocalbranch = "!f() { git branch -D \"$1\"; }; f"
