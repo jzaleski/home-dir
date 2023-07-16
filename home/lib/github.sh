@@ -30,47 +30,51 @@ if [ -z "$sed_cmd" ]; then
   exit 1;
 fi
 
-repository=$1;
-if [ -n "$repository" ]; then
-  cd ${SOURCE_DIRECTORY:-"$HOME/src"}/$repository;
+source_dir=${SOURCE_DIRECTORY:-"$HOME/src"};
+
+repository_arg=$1;
+if [ -n "$repository_arg" ] && [ "$repository_arg" != "repo" ]; then
+  cd "$source_dir/$repository_arg";
 fi
 
-branch=$2;
-if [ -z "$branch" ]; then
+branch_arg=$2;
+if [ -n "$branch_arg" ]; then
+  branch=$branch_arg;
+else
   branch=$($git_cmd rev-parse --abbrev-ref HEAD 2> /dev/null || echo -n);
 fi
 
 github_url_file="$HOME/.github-url";
 repository_root=$($git_cmd rev-parse --show-toplevel 2> /dev/null || echo -n);
 
-github_url=$GITHUB_URL;
+github_url=${GITHUB_URL:-""}
 if [ -z "$github_url" ]; then
   if [ -n "$repository_root" ]; then
     github_url=$($git_cmd config --get remote.origin.url 2> /dev/null);
-  elif [ -e $github_url_file ]; then
-    github_url=$($cat_cmd $github_url_file);
+  elif [ -e "$github_url_file" ]; then
+    github_url=$($cat_cmd "$github_url_file");
   else
     github_url="https://github.com";
   fi
 fi
 
 ssh_prefix="git@github.com:";
-if [[ "$github_url" =~ "$ssh_prefix" ]]; then
-  github_url=$(echo $github_url | $sed_cmd "s/$ssh_prefix//");
+if [[ "$github_url" =~ $ssh_prefix ]]; then
+  github_url=$(echo "$github_url" | $sed_cmd "s/$ssh_prefix//");
 fi
 
 dot_git_suffix=".git";
-if [[ "$github_url" =~ "$dot_git_suffix" ]]; then
-  github_url=$(echo $github_url | $sed_cmd "s/$dot_git_suffix\$//");
+if [[ "$github_url" =~ $dot_git_suffix ]]; then
+  github_url=$(echo "$github_url" | $sed_cmd "s/$dot_git_suffix\$//");
 fi
 
 https_prefix="https://github.com";
-if [[ ! "$github_url" =~ "$https_prefix" ]]; then
+if [[ ! "$github_url" =~ $https_prefix ]]; then
   github_url="$https_prefix/$github_url";
 fi
 
-if [ -n "$branch" ]; then
+if [ -n "$branch" ] && [ "$repository_arg" != "repo" ]; then
   github_url="$github_url/tree/$branch";
 fi
 
-$open_cmd $github_url;
+$open_cmd "$github_url";
