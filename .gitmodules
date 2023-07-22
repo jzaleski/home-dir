@@ -22,10 +22,6 @@
   path = home/.vim/bundle/lightline.vim
   url = https://github.com/itchyny/lightline.vim.git
   ignore = dirty
-[submodule "home/.vim/bundle/syntastic"]
-  path = home/.vim/bundle/syntastic
-  url = https://github.com/scrooloose/syntastic.git
-  ignore = dirty
 [submodule "home/.vim/bundle/vim-applescript"]
   path = home/.vim/bundle/vim-applescript
   url = https://github.com/dearrrfish/vim-applescript.git
