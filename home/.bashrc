@@ -1,9 +1,9 @@
 # Set the PATH
-export PATH=/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin;
 if [ $(uname -p) = "arm" ]; then
-  PATH=/opt/homebrew/bin:$PATH;
+  PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH;
 else
-  PATH=/usr/local/bin:$PATH;
+  PATH=/usr/local/bin:/usr/local/sbin:$PATH;
 fi
 export PATH=./node_modules/.bin:$HOME/bin:$PATH;
 
