@@ -23,6 +23,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       locales \
       screen \
       silversearcher-ag \
+      tk-dev \
       tmux \
       uuid-dev \
       uuid-runtime \
