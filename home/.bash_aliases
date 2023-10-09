@@ -5,6 +5,7 @@ alias edit='$EDITOR';
 alias gg='git grep';
 alias github='~/lib/github.sh';
 alias htop='~/lib/htop.sh';
+alias jenkins='~/lib/jenkins.sh';
 alias jira='~/lib/jira.sh';
 alias l='~/lib/ls.sh -CF';
 alias la='~/lib/ls.sh -la';

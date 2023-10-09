@@ -31,6 +31,9 @@ fi
 # Ensure that the `SHELL` variable is properly set
 export SHELL=bash;
 
+# Ensure that the DEFAULT_SHELL` variable is properly set
+export DEFAULT_SHELL=$(which bash);
+
 # Used by helper scripts (e.g. workon)
 export SOURCE_DIRECTORY=$HOME/src;
 
