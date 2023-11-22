@@ -5,7 +5,6 @@ if [ $(uname -p) = "arm" ]; then
 else
   PATH=/usr/local/bin:/usr/local/sbin:$PATH;
 fi
-export PATH=./node_modules/.bin:$HOME/bin:$PATH;
 
 # Set the default editor
 export EDITOR=vim;
@@ -106,3 +105,6 @@ if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
     source $f;
   done
 fi
+
+# Add node-modules dot-bin-dir and home bin-dir to the `PATH` at the last possible moment
+export PATH=./node_modules/.bin:$HOME/bin:$PATH;
