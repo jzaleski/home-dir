@@ -36,4 +36,9 @@ if [ -z "$jenkins_url" ]; then
   exit 1;
 fi
 
-$open_cmd "$jenkins_url";
+verbose=${VERBOSE:-"false"};
+if [ "$verbose" = "true" ]; then
+  $open_cmd "$jenkins_url";
+else
+  $open_cmd "$jenkins_url" > /dev/null 2>&1;
+fi

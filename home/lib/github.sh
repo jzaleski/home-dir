@@ -77,4 +77,9 @@ if [ -n "$branch" ] && [ "$repository_arg" != "repo" ]; then
   github_url="$github_url/tree/$branch";
 fi
 
-$open_cmd "$github_url";
+verbose=${VERBOSE:-"false"};
+if [ "$verbose" = "true" ]; then
+  $open_cmd "$github_url";
+else
+  $open_cmd "$github_url" > /dev/null 2>&1;
+fi

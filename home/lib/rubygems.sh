@@ -17,5 +17,11 @@ if [ -z "$repository" ]; then
   gem_name=$(basename $(pwd));
 fi
 
+rubygems_url="https://rubygems.org/gems/$gem_name";
 
-$open_cmd "https://rubygems.org/gems/$gem_name";
+verbose=${VERBOSE:-"false"};
+if [ "$verbose" = "true" ]; then
+  $open_cmd "$rubygems_url";
+else
+  $open_cmd "$rubygems_url" > /dev/null 2>&1;
+fi

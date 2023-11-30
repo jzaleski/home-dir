@@ -41,4 +41,9 @@ if [ -n "$space_id" ]; then
   confluence_url="$confluence_url/spaces/$space_id/overview";
 fi
 
-$open_cmd "$confluence_url";
+verbose=${VERBOSE:-"false"};
+if [ "$verbose" = "true" ]; then
+  $open_cmd "$confluence_url";
+else
+  $open_cmd "$confluence_url" > /dev/null 2>&1;
+fi

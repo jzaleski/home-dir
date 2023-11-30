@@ -17,5 +17,11 @@ if [ -z "$repository" ]; then
   package_name=$(basename $(pwd));
 fi
 
+pypi_url="https://pypi.org/project/$package_name";
 
-$open_cmd "https://pypi.org/project/$package_name";
+verbose=${VERBOSE:-"false"};
+if [ "$verbose" = "true" ]; then
+  $open_cmd "$pypi_url";
+else
+  $open_cmd "$pypi_url" > /dev/null 2>&1;
+fi
