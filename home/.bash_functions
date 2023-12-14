@@ -249,22 +249,3 @@ arch_prompt_info () {
     arch 2> /dev/null || uname -p;
   fi
 }
-
-# Launches an instance of "Chromium" with the "user-data-dir" overridden so that
-# the cookie-space, session-space, etc. is not shared across instances
-multi_chromium () {
-  uuidgen_cmd=$(which uuidgen 2> /dev/null || echo -n);
-  if [ -z "$uuidgen_cmd" ]; then
-    echo "Could not locate the \"uuidgen\" binary";
-    exit 1;
-  fi
-
-  chromium_cmd="/Applications/Chromium.app/Contents/MacOS/Chromium";
-  if [ -z "$chromium_cmd" ]; then
-    echo "Could not locate the \"Chromium\" binary";
-    exit 1;
-  fi
-
-  user_data_dir="/tmp/chromium-$(${uuidgen_cmd})";
-  (${chromium_cmd} --user-data-dir=${user_data_dir} ${1} > /dev/null 2>&1; rm -rf ${user_data_dir}) &
-}

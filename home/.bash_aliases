@@ -1,4 +1,5 @@
 # General
+alias chromium='~/lib/chromium.sh';
 alias clone-repository='~/lib/clone-repository.sh';
 alias code='~/lib/code.sh';
 alias confluence='~/lib/confluence.sh';
