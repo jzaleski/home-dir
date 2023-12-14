@@ -13,10 +13,10 @@ if [ -z "$uuidgen_cmd" ]; then
 fi
 
 multi=${MULTI:-"false"};
-user_data_dir="/tmp/chromium-$("$uuidgen_cmd")";
+user_data_dir=${USER_DATA_DIR:-"/tmp/chromium-$("$uuidgen_cmd")"};
 
 if [ "$multi" = "true" ]; then
-  $chromium_cmd --user-data-dir="$user_data_dir" "$@"; rm -rf "$user_data_dir";
+  $chromium_cmd --user-data-dir="$user_data_dir" "$@";
 else
   $chromium_cmd "$@";
 fi
