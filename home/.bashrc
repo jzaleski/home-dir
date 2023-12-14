@@ -33,7 +33,7 @@ export SHELL=bash;
 # Ensure that the DEFAULT_SHELL` variable is properly set
 export DEFAULT_SHELL=$(which bash);
 
-# Used by helper scripts (e.g. workon)
+# Used by helper-scripts (e.g. `cd`)
 export SOURCE_DIRECTORY=$HOME/src;
 
 # Ensure that we are running in a 256 color-mode

@@ -1,5 +1,6 @@
 # General
-alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code';
+alias clone-repository='~/lib/clone-repository.sh';
+alias code='~/lib/code.sh';
 alias confluence='~/lib/confluence.sh';
 alias edit='$EDITOR';
 alias gg='git grep';
