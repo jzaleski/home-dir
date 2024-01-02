@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-chromium_cmd="/Applications/Chromium.app/Contents/MacOS/Chromium";
+kernel_name=$(uname -s 2> /dev/null || echo -n);
+if [ "$kernel_name" = "Darwin" ]; then
+  chromium_cmd="/Applications/Chromium.app/Contents/MacOS/Chromium";
+elif [ "$kernel_name" = "Linux" ]; then
+  chromium_cmd="/usr/bin/chromium-browser";
+fi
+
 if [ ! -e "$chromium_cmd" ]; then
   echo "Could not locate the \"Chromium\" binary";
   exit 1;
