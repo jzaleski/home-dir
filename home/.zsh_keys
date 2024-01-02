@@ -1,10 +1,2 @@
-if [ -n "$PUTTY" ]; then
-  bindkey 'OD' backward-word;
-  bindkey 'OC' forward-word;
-elif [ -n "$TMUX_PANE" ]; then
-  bindkey 'OD' backward-word;
-  bindkey 'OC' forward-word;
-else
-  bindkey '\e[1;3D' backward-word;
-  bindkey '\e[1;3C' forward-word;
-fi
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
