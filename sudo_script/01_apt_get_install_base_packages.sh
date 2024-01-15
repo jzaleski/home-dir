@@ -20,6 +20,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       libreadline-dev \
       libsqlite3-dev \
       libssl-dev \
+      libyaml-dev \
       locales \
       screen \
       silversearcher-ag \
