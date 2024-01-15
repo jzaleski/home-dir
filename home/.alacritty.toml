@@ -105,6 +105,9 @@ mods = "Command"
 [selection]
 save_to_clipboard = true
 
+[window]
+option_as_alt = "Both"
+
 [window.dimensions]
 columns = 125
 lines = 35
