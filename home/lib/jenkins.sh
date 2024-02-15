@@ -26,9 +26,14 @@ fi
 
 jenkins_url=$JENKINS_URL;
 
-jenkins_url_file="$HOME/.jenkins-url";
-if [ -z "$jenkins_url" ] && [ -e $jenkins_url_file ]; then
-  jenkins_url=$($cat_cmd $jenkins_url_file);
+if [ -z "$jenkins_url" ]; then
+  if [ -e ".jenkins-url" ]; then
+    jenkins_url=$($cat_cmd ".jenkins-url");
+  elif [ -e "../.jenkins-url" ]; then
+    jenkins_url=$($cat_cmd "../.jenkins-url");
+  elif [ -e "$HOME/.jenkins-url" ]; then
+    jenkins_url=$($cat_cmd "$HOME/.jenkins-url");
+  fi
 fi
 
 if [ -z "$jenkins_url" ]; then

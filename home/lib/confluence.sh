@@ -26,9 +26,14 @@ fi
 
 confluence_url=$CONFLUENCE_URL;
 
-confluence_url_file="$HOME/.confluence-url";
-if [ -z "$confluence_url" ] && [ -e $confluence_url_file ]; then
-  confluence_url=$($cat_cmd $confluence_url_file);
+if [ -z "$confluence_url" ]; then
+  if [ -e ".confluence-url" ]; then
+    confluence_url=$($cat_cmd ".confluence-url");
+  elif [ -e "../.confluence-url" ]; then
+    confluence_url=$($cat_cmd "../.confluence-url");
+  elif [ -e "$HOME/.confluence-url" ]; then
+    confluence_url=$($cat_cmd "$HOME/.confluence-url");
+  fi
 fi
 
 if [ -z "$confluence_url" ]; then

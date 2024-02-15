@@ -26,9 +26,14 @@ fi
 
 jira_url=$JIRA_URL;
 
-jira_url_file="$HOME/.jira-url";
-if [ -z "$jira_url" ] && [ -e $jira_url_file ]; then
-  jira_url=$($cat_cmd $jira_url_file);
+if [ -z "$jira_url" ]; then
+  if [ -e ".jira-url" ]; then
+    jira_url=$($cat_cmd ".jira-url");
+  elif [ -e "../.jira-url" ]; then
+    jira_url=$($cat_cmd "../.jira-url");
+  elif [ -e "$HOME/.jira-url" ]; then
+    jira_url=$($cat_cmd "$HOME/.jira-url");
+  fi
 fi
 
 if [ -z "$jira_url" ]; then
