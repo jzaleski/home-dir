@@ -2,6 +2,8 @@ FROM ubuntu:22.04
 
 ARG USER
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
   apt-get install -y git locales sudo && \
   useradd -ms /bin/bash $USER && \
