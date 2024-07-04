@@ -19,10 +19,5 @@
 *.o
 *.pyc
 
-custom_plan.rb
-tags
-tags.*
-zeus.json
-
 /.my.cnf
 /.pgpass
