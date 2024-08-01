@@ -26,6 +26,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       silversearcher-ag \
       tk-dev \
       tmux \
+      unzip \
       uuid-dev \
       uuid-runtime \
       vim \

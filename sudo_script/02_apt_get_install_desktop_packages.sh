@@ -5,6 +5,8 @@ if [ -n "$BOOTSTRAP_DESKTOP_ENVIRONMENT" ]; then
   if [ -n "$apt_get_cmd" ]; then
     $apt_get_cmd update;
 
-    $apt_get_cmd install -y autocutsel;
+    $apt_get_cmd install -y \
+      autocutsel \
+      fontconfig;
   fi
 fi
