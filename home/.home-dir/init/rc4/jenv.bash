@@ -22,4 +22,8 @@ if which jenv > /dev/null 2>&1; then
   if [ ! -e $norehash_file ]; then
     jenv sh-rehash;
   fi
+
+  if [ -z "$JENV_LOADED" ]; then
+    export JENV_LOADED=1;
+  fi
 fi
