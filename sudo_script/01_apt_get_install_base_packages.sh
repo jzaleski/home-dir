@@ -22,6 +22,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       libssl-dev \
       libyaml-dev \
       locales \
+      net-tools \
       screen \
       silversearcher-ag \
       tk-dev \
