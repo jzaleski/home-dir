@@ -86,11 +86,7 @@ endfunction
 
 " Hotkeys/Toggles
 map <F2> :call TogglePasteMode()<CR>
-map <F3> :call ToggleHighlightWhitespace()<CR>
-map <F4> :call ToggleIndentGuides()<CR>
-map <F5> :call Make()<CR>
-map <F6> :call MakeTest()<CR>
-map <F7> :call ToggleLineNumbers()<CR>
+map <F3> :call ToggleLineNumbers()<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
@@ -98,16 +94,6 @@ map <C-F> :FindInFiles<SPACE>
 
 " Find All References
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" Make/MakeTest
-function! Make()
-  execute 'make' | bwipeout
-  redraw!
-endfunction
-function! MakeTest()
-  execute 'make test' | bwipeout
-  redraw!
-endfunction
 
 " Toggle the Location and Quickfix windows
 function! GetBufferList()
@@ -149,14 +135,6 @@ if executable('ag')
   let g:ctrlp_user_command='\ag %s -l --hidden --nocolor -g ""'
 endif
 
-" gitgutter
-hi GitGutterAdd ctermfg=2 guifg=#009900
-hi GitGutterDelete ctermfg=1 guifg=#ff2222
-hi GitGutterChange ctermfg=3 guifg=#bbbb00
-if executable('ag')
-  let g:gitgutter_grep='ag'
-endif
-
 " lightline
 function! CurrentFilename()
   return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
@@ -184,11 +162,6 @@ let g:lightline={
 " Prettier
 let g:prettier#autoformat=1
 let g:prettier#autoformat_require_pragma=0
-
-" syntastic
-let g:loaded_syntastic_java_javac_checker=1
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=1
 
 " Move the current line to the center of the screen
 map <SPACE> zvzz
