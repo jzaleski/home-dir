@@ -21,6 +21,7 @@ hi ColorColumn ctermbg=0 guibg=Black
 
 " General
 set backspace=indent,eol,start
+set clipboard=unnamed
 set colorcolumn=81
 set cursorline
 set encoding=utf-8
@@ -179,6 +180,10 @@ let g:lightline={
   \   'fugitive': '(exists("*FugitiveHead") && ""!=FugitiveHead())'
   \ }
 \ }
+
+" Prettier
+let g:prettier#autoformat=1
+let g:prettier#autoformat_require_pragma=0
 
 " syntastic
 let g:loaded_syntastic_java_javac_checker=1
