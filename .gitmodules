@@ -1,34 +1,34 @@
-[submodule "home/.vim/bundle/vim-fugitive"]
-  path = home/.vim/bundle/vim-fugitive
-  url = https://github.com/tpope/vim-fugitive.git
-  ignore = dirty
-[submodule "home/.vim/bundle/supertab"]
-  path = home/.vim/bundle/supertab
-  url = https://github.com/ervandew/supertab.git
-  ignore = dirty
 [submodule "home/.vim/bundle/ctrlp.vim"]
   path = home/.vim/bundle/ctrlp.vim
   url = https://github.com/kien/ctrlp.vim.git
-  ignore = dirty
-[submodule "home/.vim/bundle/tcomment.vim"]
-  path = home/.vim/bundle/tcomment.vim
-  url = https://github.com/tomtom/tcomment_vim.git
-  ignore = dirty
-[submodule "home/.vim/bundle/vim-surround"]
-  path = home/.vim/bundle/vim-surround
-  url = https://github.com/tpope/vim-surround.git
   ignore = dirty
 [submodule "home/.vim/bundle/lightline.vim"]
   path = home/.vim/bundle/lightline.vim
   url = https://github.com/itchyny/lightline.vim.git
   ignore = dirty
-[submodule "home/.vim/bundle/vim-applescript"]
-  path = home/.vim/bundle/vim-applescript
-  url = https://github.com/dearrrfish/vim-applescript.git
+[submodule "home/.vim/bundle/supertab"]
+  path = home/.vim/bundle/supertab
+  url = https://github.com/ervandew/supertab
+  ignore = dirty
+[submodule "home/.vim/bundle/tcomment.vim"]
+  path = home/.vim/bundle/tcomment.vim
+  url = https://github.com/tomtom/tcomment_vim.git
   ignore = dirty
 [submodule "home/.vim/bundle/typescript-vim"]
   path = home/.vim/bundle/typescript-vim
   url = https://github.com/leafgarland/typescript-vim.git
+  ignore = dirty
+[submodule "home/.vim/bundle/vim-fugitive"]
+  path = home/.vim/bundle/vim-fugitive
+  url = https://github.com/tpope/vim-fugitive.git
+  ignore = dirty
+[submodule "home/.vim/bundle/vim-prettier"]
+  path = home/.vim/bundle/vim-prettier
+  url = https://github.com/prettier/vim-prettier
+  ignore = dirty
+[submodule "home/.vim/bundle/vim-surround"]
+  path = home/.vim/bundle/vim-surround
+  url = https://github.com/tpope/vim-surround.git
   ignore = dirty
 [submodule "home/.oh-my-zsh"]
   path = home/.oh-my-zsh
