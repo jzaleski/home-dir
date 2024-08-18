@@ -160,8 +160,10 @@ let g:lightline={
 \ }
 
 " Prettier
-let g:prettier#autoformat=1
-let g:prettier#autoformat_require_pragma=0
+if executable('prettier')
+  let g:prettier#autoformat=1
+  let g:prettier#autoformat_require_pragma=0
+endif
 
 " Move the current line to the center of the screen
 map <SPACE> zvzz
