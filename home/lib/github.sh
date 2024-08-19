@@ -46,10 +46,15 @@ fi
 
 repository_root=$($git_cmd rev-parse --show-toplevel 2> /dev/null || echo -n);
 
-github_url=${GITHUB_URL:-""}
+github_url=$GITHUB_URL;
+
 if [ -z "$github_url" ]; then
   if [ -n "$repository_root" ]; then
     github_url=$($git_cmd config --get remote.origin.url 2> /dev/null);
+  elif [ -e ".github-url" ]; then
+    github_url=$($cat_cmd ".github-url");
+  elif [ -e "../.github-url" ]; then
+    github_url=$($cat_cmd "../.github-url");
   else
     github_url="https://github.com";
   fi
