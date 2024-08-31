@@ -21,7 +21,6 @@ hi ColorColumn ctermbg=0 guibg=Black
 
 " General
 set backspace=indent,eol,start
-set clipboard=unnamedplus
 set colorcolumn=81
 set cursorline
 set encoding=utf-8
@@ -30,6 +29,7 @@ set hlsearch
 set incsearch
 set laststatus=2
 set lazyredraw
+set mouse=
 set nobackup
 set nocompatible
 set nohlsearch

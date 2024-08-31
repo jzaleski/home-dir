@@ -23,6 +23,7 @@ alias rubygems='~/lib/rubygems.sh';
 alias screen='~/lib/screen.sh';
 alias todo='DATABASE_NAME="TODO" list-cli';
 alias vi='vim';
+alias vim='nvim';
 
 # The ability to navigate 10 directories up should be enough to cover most cases
 alias ..='cd ..';
