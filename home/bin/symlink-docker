@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+docker_bin_dir="/Applications/Docker.app/Contents/Resources/bin";
+home_bin_dir="$HOME/bin";
+
+if [ -e "$home_bin_dir" ] && [ -e "$docker_bin_dir" ]; then
+  cd ${home_bin_dir};
+
+  for current_docker_bin_file in \
+    com.docker.cli \
+    docker \
+    docker-compose \
+    docker-credential-desktop \
+    docker-credential-ecr-login \
+    docker-credential-osxkeychain \
+    docker-index \
+    hub-tool \
+    kubectl;
+  do
+    if [ ! -e "$current_docker_bin_file" ] && [ ! -h "$current_docker_bin_file" ]; then
+      ln -s "${docker_bin_dir}/${current_docker_bin_file}" ${current_docker_bin_file};
+    fi
+  done
+
+  kubectl_docker_bin_file="kubectl.docker";
+  if [ ! -e "$kubectl_docker_bin_file" ] && [ ! -h "$kubectl_docker_bin_file" ]; then
+    ln -s "kubectl" ${kubectl_docker_bin_file};
+  fi
+fi
