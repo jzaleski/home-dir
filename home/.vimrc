@@ -87,6 +87,7 @@ endfunction
 " Hotkeys/Toggles
 map <F2> :call TogglePasteMode()<CR>
 map <F3> :call ToggleLineNumbers()<CR>
+map <F4> :IndentGuidesToggle<CR>
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
@@ -134,6 +135,12 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command='\ag %s -l --hidden --nocolor -g ""'
 endif
+
+" Indent guides
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=silver ctermbg=7
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey ctermbg=8
 
 " lightline
 function! CurrentFilename()
