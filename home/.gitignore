@@ -3,8 +3,12 @@
 .DS_Store
 .branches
 .classpath
+.confluence-url
 .ctrlp
 .eggs
+.github-url
+.jenkins-url
+.jira-url
 .local
 .noenvironmentinfo
 .nogitbranch
