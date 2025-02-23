@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
 if [ -n "$EXTENDED_BOOTSTRAP" ]; then
-  apt_get_cmd=$(which apt-get 2> /dev/null || echo -n);
-  if [ -n "$apt_get_cmd" ]; then
-    $apt_get_cmd update;
+  apt_cmd=$(which apt 2> /dev/null || echo -n);
+  if [ -z "$apt_cmd" ]; then
+    apt_cmd=$(which apt-get 2> /dev/null || echo -n);
+  fi
 
-    $apt_get_cmd install -y \
+  if [ -n "$apt_cmd" ]; then
+    $apt_cmd update;
+
+    $apt_cmd install -y \
       apg \
       automake \
       bash \
@@ -22,6 +26,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ]; then
       libssl-dev \
       libyaml-dev \
       locales \
+      neovim \
       net-tools \
       screen \
       silversearcher-ag \
