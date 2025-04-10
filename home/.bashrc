@@ -37,13 +37,13 @@ export DEFAULT_SHELL=$(which bash);
 export SOURCE_DIRECTORY=$HOME/src;
 
 # Ensure that we are running in a 256 color-mode
-if [ -z "$TERM" ] || [ $TERM = "xterm" ]; then
+if \
+  [ -z "$TERM" ] || \
+  [ $TERM = "xterm" ] || \
+  [ -n "$STY" ] || \
+  [ -n "$TMUX_PANE" ];
+then
   export TERM=xterm-256color;
-fi
-
-# If we are running under screen or tmux, update the "TERM" value
-if [ -n "$STY" ] || [ -n "$TMUX_PANE" ]; then
-  export TERM=screen-256color;
 fi
 
 # Don't require "cd" when changing directories
