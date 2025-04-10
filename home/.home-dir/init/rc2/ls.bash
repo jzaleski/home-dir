@@ -1,4 +1,6 @@
-unset LSCOLORS LS_COLORS;
+unset \
+  LSCOLORS \
+  LS_COLORS;
 
 if [ $(uname) = "Darwin" ]; then
   export LSCOLORS="ExFxBxDxCxegedabagacad";
