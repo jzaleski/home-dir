@@ -31,10 +31,13 @@
     "editor.tabSize": 4
   },
   "editor.accessibilitySupport": "off",
-  "workbench.colorTheme": "Dracula",
   "redhat.telemetry.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "terminal.external.linuxExec": "gnome-terminal",
-  "terminal.integrated.defaultProfile.linux": "zsh"
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "workbench.colorTheme": "Dracula Theme",
+  "chat.commandCenter.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "python.terminal.activateEnvironment": false
 }

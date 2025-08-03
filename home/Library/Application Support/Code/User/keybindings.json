@@ -15,5 +15,15 @@
   {
     "key": "cmd+p",
     "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "-workbench.action.search.toggleQueryDetails",
+    "when": "inSearchEditor || searchViewletFocus"
   }
 ]
