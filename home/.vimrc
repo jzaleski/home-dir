@@ -24,6 +24,7 @@ set backspace=indent,eol,start
 set colorcolumn=81
 set cursorline
 set encoding=utf-8
+set formatoptions+=t
 set hidden
 set hlsearch
 set incsearch
@@ -39,11 +40,14 @@ set notitle
 set nowrap
 set nowritebackup
 set number
+set report=0
+set regexpengine=0
 set shortmess=a
 set showcmd
 set showmatch
 set showtabline=0
 set smartcase
+set textwidth=80
 set timeoutlen=500
 set ttimeout
 set ttimeoutlen=50
