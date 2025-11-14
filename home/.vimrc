@@ -65,7 +65,7 @@ set tabstop=2
 
 " GUI specific ({g,Mac}Vim)
 if has('gui_running')
-  set guifont=PT\ Mono:h14
+  set guifont=PT\ Mono:h13
   set guioptions-=m
   set guioptions-=T
   set guioptions-=r
