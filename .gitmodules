@@ -50,3 +50,7 @@
   path = home/.vim/bundle/vim-indent-guides
   url = https://github.com/preservim/vim-indent-guides.git
   ignore = dirty
+[submodule "home/.vim/bundle/vim-prisma"]
+  path = home/.vim/bundle/vim-prisma
+  url = https://github.com/prisma/vim-prisma
+  ignore = dirty
