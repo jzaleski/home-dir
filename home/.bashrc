@@ -28,10 +28,7 @@ if [ -z "$LANG" ]; then
 fi
 
 # Ensure that the `SHELL` variable is properly set
-export SHELL=bash;
-
-# Ensure that the DEFAULT_SHELL` variable is properly set
-export DEFAULT_SHELL=$(which bash);
+export SHELL=$(which bash);
 
 # Used by helper-scripts (e.g. `cd`)
 export SOURCE_DIRECTORY=$HOME/src;
