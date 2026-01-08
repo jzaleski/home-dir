@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e;
+
+psql_cmd=$(which psql 2> /dev/null || echo -n);
+if [ -z "$psql_cmd" ]; then
+  echo "Error: Could not locate the \"psql\" command" >&2;
+  exit 1;
+fi
+
+if [ -z "$1" ]; then
+  echo "Error: You must specify a command/query to execute" >&2;
+  exit 1;
+fi
+
+if [ -z "$PSQL_COMMAND_PROXY_DATABASE_URL" ]; then
+  if [ -e ".psql-command-proxy-env" ]; then
+    source .psql-command-proxy-env;
+  elif [ -e "$HOME/.psql-command-proxy-env" ]; then
+    source $HOME/.psql-command-proxy-env;
+  fi
+fi
+
+if [ -z "$PSQL_COMMAND_PROXY_DATABASE_URL" ]; then
+  echo "Error: Could not determine \"PSQL_COMMAND_PROXY_DATABASE_URL\"" >&2;
+  exit 1;
+fi
+
+${psql_cmd} "$PSQL_COMMAND_PROXY_DATABASE_URL" -c "$1";
