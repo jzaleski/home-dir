@@ -91,5 +91,5 @@ if [ -d $CUSTOM_INIT_SCRIPTS_DIRECTORY ]; then
   done
 fi
 
-# Add node-modules dot-bin-dir and home bin-dir to the `PATH` at the last possible moment
-export PATH=./node_modules/.bin:$HOME/bin:$PATH;
+# Add node-modules dot-bin-dir, dot-local bin-dir and home bin-dir to the `PATH` at the last possible moment
+export PATH=./node_modules/.bin:$HOME/.local/bin:$HOME/bin:$PATH;
