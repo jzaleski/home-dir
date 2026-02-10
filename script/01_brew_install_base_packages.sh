@@ -12,19 +12,9 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
   fi
 
   if [ -n "$brew_cmd" ]; then
-    homebrew_cask_tap="homebrew/cask";
-    if ! ${brew_cmd} tap | \grep ${homebrew_cask_tap} > /dev/null 2>&1; then
-      ${brew_cmd} tap ${homebrew_cask_tap};
-    fi
-
     jzaleski_jzaleski_tap="jzaleski/jzaleski";
     if ! ${brew_cmd} tap | \grep ${jzaleski_jzaleski_tap} > /dev/null 2>&1; then
       ${brew_cmd} tap ${jzaleski_jzaleski_tap};
-    fi
-
-    alacritty_cask="alacritty";
-    if $brew_cmd info --cask $alacritty_cask | \grep "Not installed" > /dev/null 2>&1; then
-      $brew_cmd install --cask $alacritty_cask;
     fi
 
     iterm2_cask="iterm2";
