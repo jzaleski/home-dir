@@ -36,6 +36,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       python \
       readline \
       screen \
+      secrets \
       tmux \
       vim \
       wget \
