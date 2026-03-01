@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ $(uname) = "Darwin" ]; then
+  IFS=$(printf "\n");
+  CODE=("if application \"Spotify\" is running then");
+  CODE=(${CODE[*]} "tell application \"Spotify\"");
+  CODE=(${CODE[*]} "previous track");
+  CODE=(${CODE[*]} "end tell");
+  CODE=(${CODE[*]} "end if");
+  SCRIPT="/usr/bin/osascript";
+  for line in ${CODE[*]}; do
+    SCRIPT="${SCRIPT} -e $(printf "%q" "${line}")";
+  done
+  eval "${SCRIPT}";
+fi

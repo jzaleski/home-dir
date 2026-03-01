@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# GUI for mouse-wheel speed using `imwheel` in _Gnome_
+# Version 0.1.1 Wednesday, 27 October 2021
+# Comments and complaints http://www.jzaleski.com
+#
+# `imwheel` needs to be installed for this script to work
+#
+# If you have a mouse with complications or special needs, use `xev` to find
+# your mouse-wheel configuration.
+
+awk_cmd=$(which awk 2> /dev/null || echo -n);
+if [ -z "$awk_cmd" ]; then
+  echo "Could not locate the \"awk\" binary";
+  exit 1;
+fi
+
+imwheel_cmd=$(which imwheel 2> /dev/null || echo -n);
+if [ -z "$imwheel_cmd" ]; then
+  echo "Could not locate the \"imwheel\" binary";
+  exit 1;
+fi
+
+grep_cmd=$(which grep 2> /dev/null || echo -n);
+if [ -z "$grep_cmd" ]; then
+  echo "Could not locate the \"grep\" binary";
+  exit 1;
+fi
+
+sed_cmd=$(which sed 2> /dev/null || echo -n);
+if [ -z "$sed_cmd" ]; then
+  echo "Could not locate the \"sed\" binary";
+  exit 1;
+fi
+
+zenity_cmd=$(which zenity 2> /dev/null || echo -n);
+if [ -z "$zenity_cmd" ]; then
+  echo "Could not locate the \"zenity\" binary";
+  exit 1;
+fi
+
+# See if imwheel config exists, if not create it ###
+imwheelrc_file="$HOME/.imwheelrc";
+if [ ! -e "$imwheelrc_file" ]; then
+cat >$imwheelrc_file<<EOF
+".*"
+None,      Up,   Button4, 1
+None,      Down, Button5, 1
+Control_L, Up,   Control_L|Button4
+Control_L, Down, Control_L|Button5
+Shift_L,   Up,   Shift_L|Button4
+Shift_L,   Down, Shift_L|Button5
+EOF
+fi
+
+# Capture the "current" and "new values"
+current_value=$(
+  $awk_cmd \
+    -F \
+    'Button4,' \
+    '{print $2}' \
+    $imwheelrc_file | \
+    $grep_cmd -o -E "[0-9]+"
+);
+new_value=$(
+  $zenity_cmd \
+    --scale \
+    --window-icon=info \
+    --ok-label=Apply \
+    --title="Select mouse wheel speed" \
+    --text="Mouse wheel speed:" \
+    --min-value=1 \
+    --max-value=100 \
+    --value="$current_value" \
+    --step=1
+);
+
+# Only re-write the config-value(s) if something has changed
+if [ -n "$new_value" ] && [ "$new_value" != "$current_value" ]; then
+  # Find the string Button4, and write new value
+  $sed_cmd \
+    -i \
+    "s/\($TARGET_KEY *Button4, *\).*/\1$new_value/" \
+    $imwheelrc_file;
+
+  # Find the string Button5, and write new value
+  $sed_cmd \
+    -i \
+    "s/\($TARGET_KEY *Button5, *\).*/\1$new_value/" \
+    $imwheelrc_file;
+fi
+
+# Restart the `imwheel` process
+$imwheel_cmd -kill > /dev/null;
