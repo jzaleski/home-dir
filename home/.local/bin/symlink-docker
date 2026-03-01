@@ -2,7 +2,7 @@
 
 docker_bin_dir="/Applications/Docker.app/Contents/Resources/bin";
 docker_cli_plugins_dir="/Applications/Docker.app/Contents/Resources/cli-plugins";
-home_dot_local_bin_dir="$HOME/bin";
+home_dot_local_bin_dir="$HOME/.local/bin";
 
 if \
   [ -e "$docker_bin_dir" ] && \
