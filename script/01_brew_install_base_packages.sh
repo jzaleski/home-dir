@@ -32,6 +32,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       gpg \
       htop \
       nvim \
+      nvtop \
       openssl \
       python \
       readline \

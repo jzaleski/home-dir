@@ -16,6 +16,7 @@ alias list='list-cli';
 alias ll='~/.local/lib/ls.sh -l';
 alias ls='~/.local/lib/ls.sh';
 alias mysql='~/.local/lib/mysql.sh';
+alias nvtop='~/.local/lib/nvtop.sh';
 alias psql='~/.local/lib/psql.sh';
 alias pypi='~/.local/lib/pypi.sh';
 alias question='DATABASE_NAME="QUESTION" list-cli';
