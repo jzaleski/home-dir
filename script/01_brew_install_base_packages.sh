@@ -27,6 +27,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       apg \
       bash \
       bash-completion \
+      btop \
       curl \
       git \
       gpg \

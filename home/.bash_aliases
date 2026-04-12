@@ -1,5 +1,6 @@
 # General
 alias bitbucket='~/.local/lib/bitbucket.sh';
+alias btop='~/.local/lib/btop.sh';
 alias chromium='~/.local/lib/chromium.sh';
 alias clone-repository='~/.local/lib/clone-repository.sh';
 alias code='~/.local/lib/code.sh';
