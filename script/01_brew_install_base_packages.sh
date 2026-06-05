@@ -37,6 +37,7 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       openssl \
       python \
       readline \
+      ripgrep \
       screen \
       secrets \
       tmux \
