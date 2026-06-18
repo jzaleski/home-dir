@@ -55,7 +55,17 @@ function shell_session_update() {
 
 # run any files in "sudo_script" (the assumption is that things requiring root
 # should occur first)
-which sudo > /dev/null 2>&1 && run_scripts 'sudo_script' 'sudo -E'
+# Pass environment variables explicitly rather than relying on `sudo -E`, which
+# is blocked by the default `env_reset` / `secure_path` policy on modern Ubuntu
+# (24.04+) unless the sudoers rule grants SETENV.  Passing vars inline with
+# `sudo VAR=value …` works regardless of that policy.
+if which sudo > /dev/null 2>&1; then
+  sudo_env=""
+  [ -n "$EXTENDED_BOOTSTRAP" ]          && sudo_env="${sudo_env} EXTENDED_BOOTSTRAP=${EXTENDED_BOOTSTRAP}"
+  [ -n "$BOOTSTRAP_DESKTOP_ENVIRONMENT" ] && sudo_env="${sudo_env} BOOTSTRAP_DESKTOP_ENVIRONMENT=${BOOTSTRAP_DESKTOP_ENVIRONMENT}"
+  [ -n "$ASSUME_YES" ]                   && sudo_env="${sudo_env} ASSUME_YES=${ASSUME_YES}"
+  run_scripts 'sudo_script' "sudo env ${sudo_env}"
+fi
 
 # run any files in "script"
 run_scripts 'script'
