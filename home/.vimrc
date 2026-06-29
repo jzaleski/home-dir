@@ -170,8 +170,10 @@ let g:lightline={
   \ }
 \ }
 
-" Prettier
-if executable('prettier')
+" Prettier: only enable autoformat when prettier resolves to a working binary.
+" executable() can return true for a cwd-relative shim (./node_modules/.bin/prettier)
+" that breaks when editing files outside a project tree, so verify with --version.
+if executable('prettier') && system('prettier --version 2> /dev/null') =~ '\d'
   let g:prettier#autoformat=1
   let g:prettier#autoformat_require_pragma=0
 endif
