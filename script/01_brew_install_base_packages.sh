@@ -17,6 +17,11 @@ if [ -n "$EXTENDED_BOOTSTRAP" ] && [ $(uname) = "Darwin" ]; then
       ${brew_cmd} tap ${jzaleski_jzaleski_tap};
     fi
 
+    ghostty_cask="ghostty";
+    if $brew_cmd info --cask $ghostty_cask | \grep "Not installed" > /dev/null 2>&1; then
+      $brew_cmd install --cask $ghostty_cask;
+    fi
+
     iterm2_cask="iterm2";
     if $brew_cmd info --cask $iterm2_cask | \grep "Not installed" > /dev/null 2>&1; then
       $brew_cmd install --cask $iterm2_cask;

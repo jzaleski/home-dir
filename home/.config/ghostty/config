@@ -1,0 +1,53 @@
+# --- Font Configuration ---
+# Match the exact font sizing and family used in Alacritty
+font-family = "PT Mono"
+font-size = 13
+
+# --- Window Layout ---
+# Ensure window size matches the 125x35 cell grid from Alacritty
+# Add the 8x3 padding offset
+window-width = 125
+window-height = 35
+window-padding-x = 8
+window-padding-y = 3
+
+# --- Clipboard Configuration ---
+# Automatically copy selected text to the macOS clipboard exactly like iTerm2
+copy-on-select = clipboard
+
+# --- Agentic & Power-User Workflow Features ---
+# Detect shell prompts (via OSC 133). Extremely useful for AI agents 
+# (like `aider`, `opencode`) to parse command boundaries perfectly.
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Get a system notification when a long-running AI agent, docker build, 
+# or script finishes (only notifies if the terminal is unfocused).
+notify-on-command-finish = unfocused
+
+# Increase scrollback limit (in bytes) to 128MB per terminal.
+# Agent workflows often output massive context dumps and logs.
+scrollback-limit = 134217728
+
+# --- Dracula Theme Configuration ---
+# Base colors
+background = 282a36
+foreground = f8f8f2
+
+# Standard 16-color palette matching Dracula
+palette = 0=#000000
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#caa9fa
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#bfbfbf
+palette = 8=#575b70
+palette = 9=#ff6e67
+palette = 10=#5af78e
+palette = 11=#f4f99d
+palette = 12=#caa9fa
+palette = 13=#ff92d0
+palette = 14=#9aedfe
+palette = 15=#e6e6e6
