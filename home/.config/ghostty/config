@@ -51,3 +51,7 @@ palette = 12=#caa9fa
 palette = 13=#ff92d0
 palette = 14=#9aedfe
 palette = 15=#e6e6e6
+
+# --- Text Selection ---
+# Add "=" to characters that break words (iTerm-like behavior)
+selection-word-chars = " 	'\"│`|:;,()[]{}<>$="
