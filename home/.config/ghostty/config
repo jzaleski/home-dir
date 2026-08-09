@@ -19,7 +19,8 @@ copy-on-select = clipboard
 # Detect shell prompts (via OSC 133). Extremely useful for AI agents 
 # (like `aider`, `opencode`) to parse command boundaries perfectly.
 shell-integration = detect
-shell-integration-features = cursor,sudo,title
+# Added ssh-env so TERM is automatically set correctly (xterm-256color) when SSH'ing
+shell-integration-features = cursor,sudo,title,ssh-env
 
 # Get a system notification when a long-running AI agent, docker build, 
 # or script finishes (only notifies if the terminal is unfocused).
