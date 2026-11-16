@@ -60,6 +60,7 @@ set wildmode=longest:full,full
 " Formatting
 set autoindent
 set expandtab
+set linebreak
 set shiftwidth=2
 set tabstop=2
 

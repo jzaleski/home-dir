@@ -36,7 +36,7 @@ export SOURCE_DIRECTORY=$HOME/src;
 # Ensure that we are running in a 256 color-mode
 if \
   [ -z "$TERM" ] || \
-  [ $TERM = "xterm" ] || \
+  [[ $TERM =~ "xterm" ]] || \
   [ -n "$STY" ] || \
   [ -n "$TMUX_PANE" ];
 then
